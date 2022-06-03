@@ -1,0 +1,786 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
+		080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
+		080E54192851E97F00C7FDB1 /* TermAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54182851E97F00C7FDB1 /* TermAgreementView.swift */; };
+		080E541A2851E97F00C7FDB1 /* TermAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54182851E97F00C7FDB1 /* TermAgreementView.swift */; };
+		080E541C2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E541B2851EF5300C7FDB1 /* BackupWalletReminderView.swift */; };
+		080E541D2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E541B2851EF5300C7FDB1 /* BackupWalletReminderView.swift */; };
+		086A609A28634D3300442FC1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 086A609928634D3300442FC1 /* web3swift */; };
+		086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */; };
+		086A609D28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */; };
+		0894EDB72850A2BA00391C7F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDB62850A2BA00391C7F /* Theme.swift */; };
+		0894EDB82850A2BA00391C7F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDB62850A2BA00391C7F /* Theme.swift */; };
+		0894EDBC2850B20600391C7F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBB2850B20500391C7F /* OnboardingView.swift */; };
+		0894EDBD2850B20600391C7F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBB2850B20500391C7F /* OnboardingView.swift */; };
+		0894EDBF2850BB0500391C7F /* ImportWalletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */; };
+		0894EDC02850BB0500391C7F /* ImportWalletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */; };
+		0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDC12851109000391C7F /* ImportWalletView.swift */; };
+		0894EDC32851109000391C7F /* ImportWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDC12851109000391C7F /* ImportWalletView.swift */; };
+		08B33179284A77CA003295F3 /* BitsfiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* BitsfiApp.swift */; };
+		08B3317A284A77CA003295F3 /* BitsfiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* BitsfiApp.swift */; };
+		08B3317B284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
+		08B3317C284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
+		08B3317D284A77CA003295F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B3316B284A77CA003295F3 /* Assets.xcassets */; };
+		08B3317E284A77CA003295F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B3316B284A77CA003295F3 /* Assets.xcassets */; };
+		08B3318A284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33189284A7FD6003295F3 /* AppSidebarNavigation.swift */; };
+		08B3318B284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33189284A7FD6003295F3 /* AppSidebarNavigation.swift */; };
+		08B3318D284A81C0003295F3 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3318C284A81C0003295F3 /* AppTabNavigation.swift */; };
+		08B33192284A84B3003295F3 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33191284A84B3003295F3 /* PortfolioView.swift */; };
+		08B33193284A84B3003295F3 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33191284A84B3003295F3 /* PortfolioView.swift */; };
+		08B3D1A2285C4B7800E9CF04 /* DataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A1285C4B7800E9CF04 /* DataTableView.swift */; };
+		08B3D1A3285C4B7800E9CF04 /* DataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A1285C4B7800E9CF04 /* DataTableView.swift */; };
+		08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A4285C792000E9CF04 /* TrailingIconLabelStyle.swift */; };
+		08B3D1A6285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A4285C792000E9CF04 /* TrailingIconLabelStyle.swift */; };
+		08B3D1A9285CB37600E9CF04 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A8285CB37600E9CF04 /* MarketView.swift */; };
+		08B3D1AA285CB37600E9CF04 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A8285CB37600E9CF04 /* MarketView.swift */; };
+		08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B06D286DA79A00981D2E /* NFTService.swift */; };
+		08B5B06F286DA79A00981D2E /* NFTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B06D286DA79A00981D2E /* NFTService.swift */; };
+		08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B072286DC73C00981D2E /* NetworkService.swift */; };
+		08B5B074286DC73C00981D2E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B072286DC73C00981D2E /* NetworkService.swift */; };
+		08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */; };
+		08B5B07C286E2D2F00981D2E /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */; };
+		08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 08B5B07E286E302600981D2E /* SwiftUICharts */; };
+		08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BB32874545D003480C6 /* MarketViewModel.swift */; };
+		08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BB32874545D003480C6 /* MarketViewModel.swift */; };
+		08DD9BB8287733A5003480C6 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 08DD9BB7287733A5003480C6 /* CachedAsyncImage */; };
+		08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
+		08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		080E54182851E97F00C7FDB1 /* TermAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermAgreementView.swift; sourceTree = "<group>"; };
+		080E541B2851EF5300C7FDB1 /* BackupWalletReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupWalletReminderView.swift; sourceTree = "<group>"; };
+		086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSecretPhraseView.swift; sourceTree = "<group>"; };
+		0894EDB62850A2BA00391C7F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0894EDBB2850B20500391C7F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletListView.swift; sourceTree = "<group>"; };
+		0894EDC12851109000391C7F /* ImportWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletView.swift; sourceTree = "<group>"; };
+		08B33169284A77C8003295F3 /* BitsfiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsfiApp.swift; sourceTree = "<group>"; };
+		08B3316A284A77C8003295F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		08B3316B284A77CA003295F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		08B33170284A77CA003295F3 /* Bits Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bits Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08B33176284A77CA003295F3 /* Bits Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bits Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08B33178284A77CA003295F3 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		08B33189284A7FD6003295F3 /* AppSidebarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebarNavigation.swift; sourceTree = "<group>"; };
+		08B3318C284A81C0003295F3 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
+		08B33191284A84B3003295F3 /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
+		08B3D1A1285C4B7800E9CF04 /* DataTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableView.swift; sourceTree = "<group>"; };
+		08B3D1A4285C792000E9CF04 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
+		08B3D1A8285CB37600E9CF04 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		08B5B06D286DA79A00981D2E /* NFTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTService.swift; sourceTree = "<group>"; };
+		08B5B072286DC73C00981D2E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailView.swift; sourceTree = "<group>"; };
+		08DD9BB32874545D003480C6 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
+		08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08B3316D284A77CA003295F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08DD9BB8287733A5003480C6 /* CachedAsyncImage in Frameworks */,
+				086A609A28634D3300442FC1 /* web3swift in Frameworks */,
+				08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08B33173284A77CA003295F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E54132851DA4700C7FDB1 /* ButtonStyle */ = {
+			isa = PBXGroup;
+			children = (
+				080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */,
+			);
+			path = ButtonStyle;
+			sourceTree = "<group>";
+		};
+		080E5447285C485300C7FDB1 /* LabelStyle */ = {
+			isa = PBXGroup;
+			children = (
+				08B3D1A4285C792000E9CF04 /* TrailingIconLabelStyle.swift */,
+			);
+			path = LabelStyle;
+			sourceTree = "<group>";
+		};
+		0894EDB52850A2A900391C7F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0894EDB62850A2BA00391C7F /* Theme.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0894EDB92850B1A600391C7F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0894EDBB2850B20500391C7F /* OnboardingView.swift */,
+				080E54182851E97F00C7FDB1 /* TermAgreementView.swift */,
+				080E541B2851EF5300C7FDB1 /* BackupWalletReminderView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0894EDBA2850B1B100391C7F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				08B5B077286E2B0F00981D2E /* Common */,
+				08B5B078286E2B3700981D2E /* Main */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		08B33163284A77C8003295F3 = {
+			isa = PBXGroup;
+			children = (
+				08B33168284A77C8003295F3 /* Shared */,
+				08B33187284A77EE003295F3 /* iOS */,
+				08B33177284A77CA003295F3 /* macOS */,
+				08B33171284A77CA003295F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08B33168284A77C8003295F3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				08B5B076286E2AE900981D2E /* Components */,
+				08B5B06C286DA76600981D2E /* Services */,
+				08B5B06A286DA6AA00981D2E /* Models */,
+				0894EDBA2850B1B100391C7F /* Screens */,
+				0894EDB52850A2A900391C7F /* Utils */,
+				08B3318F284A8449003295F3 /* Styles */,
+				08B33188284A7FAF003295F3 /* Navigation */,
+				08B33169284A77C8003295F3 /* BitsfiApp.swift */,
+				08B3316B284A77CA003295F3 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		08B33171284A77CA003295F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08B33170284A77CA003295F3 /* Bits Wallet.app */,
+				08B33176284A77CA003295F3 /* Bits Wallet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08B33177284A77CA003295F3 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				08B33178284A77CA003295F3 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		08B33187284A77EE003295F3 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				08B3318C284A81C0003295F3 /* AppTabNavigation.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		08B33188284A7FAF003295F3 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				08B3316A284A77C8003295F3 /* ContentView.swift */,
+				08B33189284A7FD6003295F3 /* AppSidebarNavigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		08B3318F284A8449003295F3 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				080E5447285C485300C7FDB1 /* LabelStyle */,
+				080E54132851DA4700C7FDB1 /* ButtonStyle */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		08B33190284A8491003295F3 /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				08B33191284A84B3003295F3 /* PortfolioView.swift */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		08B3D1A7285CB35C00E9CF04 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				08B3D1A8285CB37600E9CF04 /* MarketView.swift */,
+				08DD9BB32874545D003480C6 /* MarketViewModel.swift */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		08B5B06A286DA6AA00981D2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		08B5B06B286DA6D200981D2E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				08B5B072286DC73C00981D2E /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		08B5B06C286DA76600981D2E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				08B5B070286DADBF00981D2E /* NFT */,
+				08B5B06B286DA6D200981D2E /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		08B5B070286DADBF00981D2E /* NFT */ = {
+			isa = PBXGroup;
+			children = (
+				08B5B06D286DA79A00981D2E /* NFTService.swift */,
+			);
+			path = NFT;
+			sourceTree = "<group>";
+		};
+		08B5B075286E2AB800981D2E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		08B5B076286E2AE900981D2E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				08B3D1A1285C4B7800E9CF04 /* DataTableView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		08B5B077286E2B0F00981D2E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				08DD9BB928775967003480C6 /* NFTDetail */,
+				0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */,
+				0894EDC12851109000391C7F /* ImportWalletView.swift */,
+				086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		08B5B078286E2B3700981D2E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				08B5B075286E2AB800981D2E /* Profile */,
+				08B3D1A7285CB35C00E9CF04 /* Market */,
+				0894EDB92850B1A600391C7F /* Onboarding */,
+				08B33190284A8491003295F3 /* Portfolio */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		08DD9BB928775967003480C6 /* NFTDetail */ = {
+			isa = PBXGroup;
+			children = (
+				08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */,
+				08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */,
+			);
+			path = NFTDetail;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		08B3316F284A77CA003295F3 /* Bits Wallet (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08B33181284A77CA003295F3 /* Build configuration list for PBXNativeTarget "Bits Wallet (iOS)" */;
+			buildPhases = (
+				08B3316C284A77CA003295F3 /* Sources */,
+				08B3316D284A77CA003295F3 /* Frameworks */,
+				08B3316E284A77CA003295F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bits Wallet (iOS)";
+			packageProductDependencies = (
+				086A609928634D3300442FC1 /* web3swift */,
+				08B5B07E286E302600981D2E /* SwiftUICharts */,
+				08DD9BB7287733A5003480C6 /* CachedAsyncImage */,
+			);
+			productName = "Bitsfi (iOS)";
+			productReference = 08B33170284A77CA003295F3 /* Bits Wallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		08B33175284A77CA003295F3 /* Bits Wallet (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08B33184284A77CA003295F3 /* Build configuration list for PBXNativeTarget "Bits Wallet (macOS)" */;
+			buildPhases = (
+				08B33172284A77CA003295F3 /* Sources */,
+				08B33173284A77CA003295F3 /* Frameworks */,
+				08B33174284A77CA003295F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bits Wallet (macOS)";
+			productName = "Bitsfi (macOS)";
+			productReference = 08B33176284A77CA003295F3 /* Bits Wallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08B33164284A77C8003295F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					08B3316F284A77CA003295F3 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					08B33175284A77CA003295F3 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 08B33167284A77C8003295F3 /* Build configuration list for PBXProject "Bits Wallet" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 08B33163284A77C8003295F3;
+			packageReferences = (
+				086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */,
+				08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */,
+				08DD9BB6287733A4003480C6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
+			productRefGroup = 08B33171284A77CA003295F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08B3316F284A77CA003295F3 /* Bits Wallet (iOS) */,
+				08B33175284A77CA003295F3 /* Bits Wallet (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08B3316E284A77CA003295F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08B3317D284A77CA003295F3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08B33174284A77CA003295F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08B3317E284A77CA003295F3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08B3316C284A77CA003295F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0894EDBF2850BB0500391C7F /* ImportWalletListView.swift in Sources */,
+				08B3317B284A77CA003295F3 /* ContentView.swift in Sources */,
+				080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
+				08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
+				08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */,
+				08B3318D284A81C0003295F3 /* AppTabNavigation.swift in Sources */,
+				08B33179284A77CA003295F3 /* BitsfiApp.swift in Sources */,
+				0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */,
+				080E54192851E97F00C7FDB1 /* TermAgreementView.swift in Sources */,
+				0894EDB72850A2BA00391C7F /* Theme.swift in Sources */,
+				086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
+				08B3318A284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
+				080E541C2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
+				08B3D1A2285C4B7800E9CF04 /* DataTableView.swift in Sources */,
+				08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
+				08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */,
+				08B3D1A9285CB37600E9CF04 /* MarketView.swift in Sources */,
+				08B33192284A84B3003295F3 /* PortfolioView.swift in Sources */,
+				08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */,
+				0894EDBC2850B20600391C7F /* OnboardingView.swift in Sources */,
+				08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08B33172284A77CA003295F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
+				080E541D2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
+				0894EDC32851109000391C7F /* ImportWalletView.swift in Sources */,
+				08B33193284A84B3003295F3 /* PortfolioView.swift in Sources */,
+				08B5B06F286DA79A00981D2E /* NFTService.swift in Sources */,
+				08B3317C284A77CA003295F3 /* ContentView.swift in Sources */,
+				0894EDB82850A2BA00391C7F /* Theme.swift in Sources */,
+				08B3D1AA285CB37600E9CF04 /* MarketView.swift in Sources */,
+				0894EDC02850BB0500391C7F /* ImportWalletListView.swift in Sources */,
+				08B3D1A3285C4B7800E9CF04 /* DataTableView.swift in Sources */,
+				08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
+				08B5B07C286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
+				08B3D1A6285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
+				08B5B074286DC73C00981D2E /* NetworkService.swift in Sources */,
+				0894EDBD2850B20600391C7F /* OnboardingView.swift in Sources */,
+				08B3317A284A77CA003295F3 /* BitsfiApp.swift in Sources */,
+				08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */,
+				08B3318B284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
+				080E541A2851E97F00C7FDB1 /* TermAgreementView.swift in Sources */,
+				086A609D28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		08B3317F284A77CA003295F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		08B33180284A77CA003295F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		08B33182284A77CA003295F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W777S7V8TN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = so.console.bitswallet;
+				PRODUCT_NAME = "Bits Wallet";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		08B33183284A77CA003295F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W777S7V8TN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = so.console.bitswallet;
+				PRODUCT_NAME = "Bits Wallet";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		08B33185284A77CA003295F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W777S7V8TN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = so.console.bitswallet;
+				PRODUCT_NAME = "Bits Wallet";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		08B33186284A77CA003295F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W777S7V8TN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = so.console.bitswallet;
+				PRODUCT_NAME = "Bits Wallet";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08B33167284A77C8003295F3 /* Build configuration list for PBXProject "Bits Wallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08B3317F284A77CA003295F3 /* Debug */,
+				08B33180284A77CA003295F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08B33181284A77CA003295F3 /* Build configuration list for PBXNativeTarget "Bits Wallet (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08B33182284A77CA003295F3 /* Debug */,
+				08B33183284A77CA003295F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08B33184284A77CA003295F3 /* Build configuration list for PBXNativeTarget "Bits Wallet (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08B33185284A77CA003295F3 /* Debug */,
+				08B33186284A77CA003295F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/skywinder/web3swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		08DD9BB6287733A4003480C6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		086A609928634D3300442FC1 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
+		};
+		08B5B07E286E302600981D2E /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+		08DD9BB7287733A5003480C6 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08DD9BB6287733A4003480C6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 08B33164284A77C8003295F3 /* Project object */;
+}

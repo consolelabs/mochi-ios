@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "chevron-up-down---filled(40x40)@1x.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "chevron-up-down---filled(40x40)@1x (1).pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

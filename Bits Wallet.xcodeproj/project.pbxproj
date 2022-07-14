@@ -82,6 +82,7 @@
 		08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailView.swift; sourceTree = "<group>"; };
 		08DD9BB32874545D003480C6 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewModel.swift; sourceTree = "<group>"; };
+		08DD9BBF287D992D003480C6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +269,7 @@
 		08B5B075286E2AB800981D2E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				08DD9BBF287D992D003480C6 /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -294,6 +296,7 @@
 		08B5B078286E2B3700981D2E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				08DD9BBD287D98FC003480C6 /* Alert */,
 				08B5B075286E2AB800981D2E /* Profile */,
 				08B3D1A7285CB35C00E9CF04 /* Market */,
 				0894EDB92850B1A600391C7F /* Onboarding */,
@@ -309,6 +312,13 @@
 				08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */,
 			);
 			path = NFTDetail;
+			sourceTree = "<group>";
+		};
+		08DD9BBD287D98FC003480C6 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +447,7 @@
 				08B33192284A84B3003295F3 /* PortfolioView.swift in Sources */,
 				08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */,
 				0894EDBC2850B20600391C7F /* OnboardingView.swift in Sources */,
+				08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */,
 				08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +475,7 @@
 				08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */,
 				08B3318B284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
 				080E541A2851E97F00C7FDB1 /* TermAgreementView.swift in Sources */,
+				08DD9BC1287D9937003480C6 /* ProfileView.swift in Sources */,
 				086A609D28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

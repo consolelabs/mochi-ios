@@ -13,6 +13,11 @@ struct APIError: Decodable, Error {
 }
 
 final class NetworkService {
+  func fetchURL<T: Decodable>(_ url: URL) -> AnyPublisher<T, Error> {
+    let urlRequest = URLRequest(url: url)
+    return fetchURL(urlRequest)
+  }
+  
   func fetchURL<T: Decodable>(_ request: URLRequest, config: URLSessionConfiguration? = nil) -> AnyPublisher<T, Error> {
     var urlSession = URLSession.shared
     if let config = config {
@@ -30,25 +35,10 @@ final class NetworkService {
           let apiError = try decoder.decode(APIError.self, from: result.data)
           throw apiError
         }
-            
+        
         print("START Data response")
-        print(result.data)
+        print(String(data: result.data, encoding: .utf8) ?? "")
         print("END Data response")
-        return try decoder.decode(T.self, from: result.data)
-      })
-      .eraseToAnyPublisher()
-  }
-  
-  func fetchURL<T: Decodable>(_ url: URL) -> AnyPublisher<T, Error> {
-    URLSession.shared.dataTaskPublisher(for: url)
-      .tryMap({ result in
-        let decoder = JSONDecoder()
-        guard let urlResponse = result.response as? HTTPURLResponse,
-              (200...299).contains(urlResponse.statusCode) else {
-          let apiError = try decoder.decode(APIError.self, from: result.data)
-          throw apiError
-        }
-              
         return try decoder.decode(T.self, from: result.data)
       })
       .eraseToAnyPublisher()

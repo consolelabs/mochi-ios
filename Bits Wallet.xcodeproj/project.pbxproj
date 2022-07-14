@@ -50,9 +50,10 @@
 		08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 08B5B07E286E302600981D2E /* SwiftUICharts */; };
 		08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BB32874545D003480C6 /* MarketViewModel.swift */; };
 		08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BB32874545D003480C6 /* MarketViewModel.swift */; };
-		08DD9BB8287733A5003480C6 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 08DD9BB7287733A5003480C6 /* CachedAsyncImage */; };
 		08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
 		08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
+		08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBF287D992D003480C6 /* ProfileView.swift */; };
+		08DD9BC1287D9937003480C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBF287D992D003480C6 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08DD9BB8287733A5003480C6 /* CachedAsyncImage in Frameworks */,
 				086A609A28634D3300442FC1 /* web3swift in Frameworks */,
 				08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */,
 			);
@@ -330,7 +330,6 @@
 			packageProductDependencies = (
 				086A609928634D3300442FC1 /* web3swift */,
 				08B5B07E286E302600981D2E /* SwiftUICharts */,
-				08DD9BB7287733A5003480C6 /* CachedAsyncImage */,
 			);
 			productName = "Bitsfi (iOS)";
 			productReference = 08B33170284A77CA003295F3 /* Bits Wallet.app */;
@@ -383,7 +382,6 @@
 			packageReferences = (
 				086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */,
 				08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */,
-				08DD9BB6287733A4003480C6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 08B33171284A77CA003295F3 /* Products */;
 			projectDirPath = "";
@@ -754,14 +752,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		08DD9BB6287733A4003480C6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -774,11 +764,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
-		};
-		08DD9BB7287733A5003480C6 /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 08DD9BB6287733A4003480C6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
-			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

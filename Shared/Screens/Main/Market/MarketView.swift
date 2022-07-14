@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 
 struct MarketView: View {
   enum ListCategory {
@@ -153,7 +152,7 @@ struct MarketItemView: View {
   
   var body: some View {
     HStack {
-      CachedAsyncImage(url: URL(string: imageUrl)) { image in
+      AsyncImage(url: URL(string: imageUrl)) { image in
         image
           .resizable()
           .clipShape(RoundedRectangle(cornerRadius: 4))

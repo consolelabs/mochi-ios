@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 
 struct Chain {
   let id: String
@@ -31,7 +30,7 @@ struct ImportWalletListView: View {
           ImportWalletView(chain: chain)
         } label: {
           HStack {
-            CachedAsyncImage(url: URL(string: chain.imageUrl)) { image in
+            AsyncImage(url: URL(string: chain.imageUrl)) { image in
               image
                 .resizable()
                 .clipShape(Circle())

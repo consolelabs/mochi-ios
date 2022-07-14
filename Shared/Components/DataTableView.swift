@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
 
 struct DataTableView: View {
   enum OrderType: String, Equatable {
@@ -208,7 +207,7 @@ struct DataTableRowView: View {
   var body: some View {
     HStack {
       HStack {
-        CachedAsyncImage(url: URL(string: image)) { image in
+        AsyncImage(url: URL(string: image)) { image in
           image
             .resizable()
             .clipShape(RoundedRectangle(cornerRadius: 4))

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct YourSecretPhraseView: View {
-  @EnvironmentObject var appVM: AppViewModel
+  @EnvironmentObject var appState: AppState
 
   private let phrases: String = "infant letter scatter tonight chef perfect always push feel swallow sudden trophy"
   
@@ -46,7 +46,7 @@ struct YourSecretPhraseView: View {
       .padding(.vertical)
       
       Button {
-        appVM.setWallet(with: "0x5417A03667AbB6A059b3F174c1F67b1E83753046")
+        appState.setWallet(with: "0x5417A03667AbB6A059b3F174c1F67b1E83753046")
       } label: {
         Text("Continue")
           .font(.body.weight(.semibold))

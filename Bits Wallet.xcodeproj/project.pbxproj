@@ -48,12 +48,17 @@
 		08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */; };
 		08B5B07C286E2D2F00981D2E /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */; };
 		08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 08B5B07E286E302600981D2E /* SwiftUICharts */; };
+		08BC493C2886B51E0050852A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 08BC493B2886B51E0050852A /* KeychainAccess */; };
 		08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BB32874545D003480C6 /* MarketViewModel.swift */; };
 		08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BB32874545D003480C6 /* MarketViewModel.swift */; };
 		08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
 		08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
 		08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBF287D992D003480C6 /* ProfileView.swift */; };
 		08DD9BC1287D9937003480C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBF287D992D003480C6 /* ProfileView.swift */; };
+		08DD9BC4287FFBA1003480C6 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 08DD9BC3287FFBA1003480C6 /* WalletConnectSwift */; };
+		08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BC62880031B003480C6 /* WalletConnect.swift */; };
+		08DD9BC928800452003480C6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BC828800452003480C6 /* ProfileViewModel.swift */; };
+		08DD9BCD28808426003480C6 /* SelectWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BCC28808426003480C6 /* SelectWalletView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +88,9 @@
 		08DD9BB32874545D003480C6 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewModel.swift; sourceTree = "<group>"; };
 		08DD9BBF287D992D003480C6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		08DD9BC62880031B003480C6 /* WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
+		08DD9BC828800452003480C6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		08DD9BCC28808426003480C6 /* SelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08BC493C2886B51E0050852A /* KeychainAccess in Frameworks */,
+				08DD9BC4287FFBA1003480C6 /* WalletConnectSwift in Frameworks */,
 				086A609A28634D3300442FC1 /* web3swift in Frameworks */,
 				08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */,
 			);
@@ -252,6 +262,7 @@
 		08B5B06C286DA76600981D2E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				08DD9BC5288002EF003480C6 /* WalletConnect */,
 				08B5B070286DADBF00981D2E /* NFT */,
 				08B5B06B286DA6D200981D2E /* Networking */,
 			);
@@ -270,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				08DD9BBF287D992D003480C6 /* ProfileView.swift */,
+				08DD9BC828800452003480C6 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -285,6 +297,7 @@
 		08B5B077286E2B0F00981D2E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				08DD9BCB28808411003480C6 /* SelectWalletView */,
 				08DD9BB928775967003480C6 /* NFTDetail */,
 				0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */,
 				0894EDC12851109000391C7F /* ImportWalletView.swift */,
@@ -321,6 +334,22 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		08DD9BC5288002EF003480C6 /* WalletConnect */ = {
+			isa = PBXGroup;
+			children = (
+				08DD9BC62880031B003480C6 /* WalletConnect.swift */,
+			);
+			path = WalletConnect;
+			sourceTree = "<group>";
+		};
+		08DD9BCB28808411003480C6 /* SelectWalletView */ = {
+			isa = PBXGroup;
+			children = (
+				08DD9BCC28808426003480C6 /* SelectWalletView.swift */,
+			);
+			path = SelectWalletView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,6 +369,8 @@
 			packageProductDependencies = (
 				086A609928634D3300442FC1 /* web3swift */,
 				08B5B07E286E302600981D2E /* SwiftUICharts */,
+				08DD9BC3287FFBA1003480C6 /* WalletConnectSwift */,
+				08BC493B2886B51E0050852A /* KeychainAccess */,
 			);
 			productName = "Bitsfi (iOS)";
 			productReference = 08B33170284A77CA003295F3 /* Bits Wallet.app */;
@@ -392,6 +423,8 @@
 			packageReferences = (
 				086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */,
 				08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */,
+				08DD9BC2287FFBA1003480C6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
+				08BC493A2886B51E0050852A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 08B33171284A77CA003295F3 /* Products */;
 			projectDirPath = "";
@@ -433,10 +466,12 @@
 				08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
 				08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */,
 				08B3318D284A81C0003295F3 /* AppTabNavigation.swift in Sources */,
+				08DD9BC928800452003480C6 /* ProfileViewModel.swift in Sources */,
 				08B33179284A77CA003295F3 /* BitsfiApp.swift in Sources */,
 				0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */,
 				080E54192851E97F00C7FDB1 /* TermAgreementView.swift in Sources */,
 				0894EDB72850A2BA00391C7F /* Theme.swift in Sources */,
+				08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */,
 				086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
 				08B3318A284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
 				080E541C2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
@@ -448,6 +483,7 @@
 				08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */,
 				0894EDBC2850B20600391C7F /* OnboardingView.swift in Sources */,
 				08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */,
+				08DD9BCD28808426003480C6 /* SelectWalletView.swift in Sources */,
 				08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -764,6 +800,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		08BC493A2886B51E0050852A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		08DD9BC2287FFBA1003480C6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -776,6 +828,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		08BC493B2886B51E0050852A /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08BC493A2886B51E0050852A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		08DD9BC3287FFBA1003480C6 /* WalletConnectSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08DD9BC2287FFBA1003480C6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
+			productName = WalletConnectSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

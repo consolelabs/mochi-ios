@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ProfileView: View {
+  @Environment(\.openURL) var openURL
+  @EnvironmentObject var appState: AppState
+  @StateObject private var vm = ProfileViewModel()
+  
   let profilePictureUrl = ""
   let name = "Your name"
-  let address = "0x1234...5678"
+  let defaultAddress = "0x1234...5678"
+  
   var body: some View {
     NavigationView {
       ScrollView {
@@ -18,7 +23,7 @@ struct ProfileView: View {
           profileSection(
             profilePictureUrl: profilePictureUrl,
             name: name,
-            address: address
+            address: appState.walletAddress ?? defaultAddress
           )
           .padding(.bottom)
           
@@ -37,6 +42,16 @@ struct ProfileView: View {
       }
       .navigationBarTitle("Profile", displayMode: .inline)
       .navigationBarHidden(true)
+    }
+    .sheet(isPresented: $vm.showSelectWallet, content: {
+      SelectWalletView {
+        vm.showSelectWallet = false
+      }
+    })
+    .onChange(of: vm.url) { url in
+      if let url = url {
+        openURL(url)
+      }
     }
   }
  
@@ -62,6 +77,8 @@ struct ProfileView: View {
           .font(.title.weight(.medium))
           .foregroundColor(.title)
         Text(address)
+          .lineLimit(1)
+          .truncationMode(.middle)
           .font(.footnote)
           .foregroundColor(.subtitle)
       }
@@ -85,7 +102,7 @@ struct ProfileView: View {
       }
       
       TopImageButton(title: "Connect", imageName: "play.fill", style: .primary) {
-        
+        vm.connectWallet()
       }
     }
   }

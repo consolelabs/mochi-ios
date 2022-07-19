@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct BitsfiApp: App {
-  @StateObject private var viewModel = AppViewModel()
+  @StateObject private var viewModel = AppState()
   
   var body: some Scene {
     WindowGroup {
@@ -26,7 +26,7 @@ struct BitsfiApp: App {
   }
 }
 
-class AppViewModel: ObservableObject {
+class AppState: ObservableObject {
   @Published var walletAddress: String? = nil
   var hasWallet: Bool {
     guard let walletAddress = walletAddress else {

@@ -20,21 +20,6 @@ struct AppTabNavigation: View {
   var body: some View {
     TabView(selection: $selection) {
       NavigationView {
-        Text("🏗 WIP")
-          .font(.title)
-      }
-      .tabItem {
-        let dashboardText = Text("Dashboard", comment: "Dashboard tab title")
-        Label {
-          dashboardText
-        } icon: {
-          Image(systemName: "square.split.2x2")
-        }.accessibility(label: dashboardText)
-      }
-      .tag(Tab.dashboard)
-      
-      
-      NavigationView {
         MarketView()
       }
       .tabItem {

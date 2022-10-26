@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MarketView: View {
   enum ListCategory {
@@ -17,7 +18,7 @@ struct MarketView: View {
   @State private var searchNFT: String = ""
   @State private var showNFTDetailView: Bool = false
   @State private var listCategorySelected: ListCategory = .trending
-  @StateObject private var vm = MarketViewModel()
+  @StateObject private var vm = MarketViewModel(nftService: NFTServiceImpl())
   
   var body: some View {
     ScrollView {
@@ -34,11 +35,13 @@ struct MarketView: View {
       }
     }
     .navigationBarTitle("Market")
-    .searchable(text: $vm.searchText, prompt: Text("Search NFTs")) {
-    }
+    .searchable(text: $vm.searchText, prompt: Text("Search NFTs"))
     .sheet(item: $vm.selectedMarketItem, content: { item in
       NavigationView {
-        NFTDetailView(vm: NFTDetailViewModel(item: item))
+        NFTDetailView(vm: NFTDetailViewModel(
+          nftService: NFTServiceImpl(),
+          item: item)
+        )
       }
     })
     .task {
@@ -152,16 +155,23 @@ struct MarketItemView: View {
   
   var body: some View {
     HStack {
-      AsyncImage(url: URL(string: imageUrl)) { image in
-        image
-          .resizable()
-          .clipShape(RoundedRectangle(cornerRadius: 4))
-      } placeholder: {
-        RoundedRectangle(cornerRadius: 4)
-          .foregroundColor(.gray)
-      }
-      .aspectRatio(contentMode: .fit)
-      .frame(width: 40, height: 40, alignment: .center)
+      WebImage(url: URL(string: imageUrl))
+        .resizable()
+        .transition(.fade(duration: 0.5))
+        .scaledToFit()
+        .clipShape(RoundedRectangle(cornerRadius: 4))
+        .frame(width: 40, height: 40)
+      
+//      AsyncImage(url: URL(string: imageUrl)) { image in
+//        image
+//          .resizable()
+//          .clipShape(RoundedRectangle(cornerRadius: 4))
+//      } placeholder: {
+//        RoundedRectangle(cornerRadius: 4)
+//          .foregroundColor(.gray)
+//      }
+//      .aspectRatio(contentMode: .fit)
+//      .frame(width: 40, height: 40, alignment: .center)
       VStack(alignment: .leading) {
         Text("\(title)")
           .foregroundColor(.title)

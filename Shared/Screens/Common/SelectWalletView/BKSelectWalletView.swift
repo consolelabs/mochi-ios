@@ -8,7 +8,7 @@
 import SwiftUI
 import WalletConnectSwift
 
-class SelectWalletViewModel: ObservableObject {
+class BKSelectWalletViewModel: ObservableObject {
   private var client: Client?
   private var session: Session?
   
@@ -48,7 +48,7 @@ class SelectWalletViewModel: ObservableObject {
   }
 }
 
-extension SelectWalletViewModel: ClientDelegate {
+extension BKSelectWalletViewModel: ClientDelegate {
   func client(_ client: Client, didFailToConnect url: WCURL) {
     print("Failed to connect")
   }
@@ -115,10 +115,10 @@ extension Wallet {
   ]
 }
 
-struct SelectWalletView: View {
+struct BKSelectWalletView: View {
   @Environment(\.openURL) var openURL
   @EnvironmentObject var appState: AppState
-  @StateObject private var vm = SelectWalletViewModel()
+  @StateObject private var vm = BKSelectWalletViewModel()
   let didConnect: () -> Void
   
   var body: some View {
@@ -138,18 +138,12 @@ struct SelectWalletView: View {
         openURL(url)
       }
     }
-    .onChange(of: vm.account) { account in
-      if let account = account {
-        appState.setWallet(with: account)
-        didConnect()
-      }
-    }
   }
 }
 
-struct SelectWalletView_Previews: PreviewProvider {
+struct BKSelectWalletView_Previews: PreviewProvider {
   static var previews: some View {
-    SelectWalletView(didConnect: {})
+    BKSelectWalletView(didConnect: {})
   }
 }
 

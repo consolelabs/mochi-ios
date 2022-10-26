@@ -46,7 +46,7 @@ struct YourSecretPhraseView: View {
       .padding(.vertical)
       
       Button {
-        appState.setWallet(with: "0x5417A03667AbB6A059b3F174c1F67b1E83753046")
+//        appState.setWallet(with: "0x5417A03667AbB6A059b3F174c1F67b1E83753046")
       } label: {
         Text("Continue")
           .font(.body.weight(.semibold))

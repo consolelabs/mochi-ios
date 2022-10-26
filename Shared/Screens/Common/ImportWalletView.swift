@@ -12,14 +12,26 @@ struct ImportWalletView: View {
     case phrase, privateKey, address
     var id: Self { self }
   }
-  
-  private let chain: Chain
+ 
+  @EnvironmentObject var appState: AppState
   @FocusState private var nameInFocus: Bool
   @State private var walletName: String = "My Wallet"
   @State private var importType: ImportType = .phrase
   @State private var phrase: String = ""
   @State private var privateKey: String = ""
   @State private var address: String = ""
+  
+  private let chain: Chain
+  private var importMethodFooterText: String {
+    switch importType {
+    case .phrase:
+      return "Typically 12 (sometimes 24) words separated by single spaces"
+    case .privateKey:
+      return "Typically 64 alphanimeric characters"
+    case .address:
+      return "You can \"watch\" any public address without divulging your private key. This let's you view balances and transactions, but not send transactions."
+    }
+  }
   
   init(chain: Chain) {
     self.chain = chain
@@ -60,11 +72,22 @@ struct ImportWalletView: View {
           }
         } header: {
           Text("Import method")
+        } footer: {
+          Text(importMethodFooterText)
         }
       }
-      Button("Import wallet", action: {})
-        .buttonStyle(.primaryExpanded)
-        .padding()
+      Button("Import wallet", action: {
+        switch importType {
+        case .phrase:
+          appState.importWallet(name: walletName, mnemonics: phrase)
+        case .privateKey:
+          appState.importWallet(name: walletName, privateKey: privateKey)
+        case .address:
+          appState.importWallet(name: walletName, address: address)
+        }
+      })
+      .buttonStyle(.primaryExpanded)
+      .padding()
     }
     .onAppear {
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {

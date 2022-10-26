@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct DataTableView: View {
   enum OrderType: String, Equatable {
@@ -207,16 +208,22 @@ struct DataTableRowView: View {
   var body: some View {
     HStack {
       HStack {
-        AsyncImage(url: URL(string: image)) { image in
-          image
-            .resizable()
-            .clipShape(RoundedRectangle(cornerRadius: 4))
-        } placeholder: {
-          RoundedRectangle(cornerRadius: 4)
-            .foregroundColor(.gray)
-        }
-        .aspectRatio(contentMode: .fit)
-        .frame(width: 40, height: 40, alignment: .center)
+        WebImage(url: URL(string: image))
+          .resizable()
+          .transition(.fade(duration: 0.5))
+          .scaledToFit()
+          .clipShape(RoundedRectangle(cornerRadius: 4))
+          .frame(width: 40, height: 40)
+//        AsyncImage(url: URL(string: image)) { image in
+//          image
+//            .resizable()
+//            .clipShape(RoundedRectangle(cornerRadius: 4))
+//        } placeholder: {
+//          RoundedRectangle(cornerRadius: 4)
+//            .foregroundColor(.gray)
+//        }
+//        .aspectRatio(contentMode: .fit)
+//        .frame(width: 40, height: 40, alignment: .center)
         
         VStack(alignment: .leading) {
           Text(name)

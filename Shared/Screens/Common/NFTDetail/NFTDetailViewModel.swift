@@ -12,7 +12,7 @@ class NFTDetailViewModel: ObservableObject {
   
   private let item: MarketDataInfo
   private var didFetchData = false
-  private let nftService = NFTService()
+  private let nftService: NFTService
   private var subscriptions = Set<AnyCancellable>()
   
   @Published var isLoadingFloorPriceChartData: Bool = true
@@ -81,7 +81,8 @@ class NFTDetailViewModel: ObservableObject {
     return URL(string: item.externalUrl)
   }
   
-  init(item: MarketDataInfo) {
+  init(nftService: NFTService, item: MarketDataInfo) {
+    self.nftService = nftService
     self.item = item
   }
   
@@ -111,7 +112,7 @@ class NFTDetailViewModel: ObservableObject {
         case .finished:
           break
         case .failure(let error):
-          // handle error
+          // TODO: Handle error properly
           print(error)
           break
         }
@@ -133,7 +134,7 @@ class NFTDetailViewModel: ObservableObject {
         case .finished:
           break
         case .failure(let error):
-          // handle error
+          // TODO: Handle error properly
           print(error)
           break
         }
@@ -159,7 +160,7 @@ class NFTDetailViewModel: ObservableObject {
         case .finished:
           break
         case .failure(let error):
-          // handle error
+          // TODO: Handle error properly
           print(error)
           break
         }
@@ -188,7 +189,7 @@ class NFTDetailViewModel: ObservableObject {
         case .finished:
           break
         case .failure(let error):
-          // handle error
+          // TODO: Handle error properly
           print(error)
           break
         }
@@ -214,7 +215,7 @@ class NFTDetailViewModel: ObservableObject {
         case .finished:
           break
         case .failure(let error):
-          // handle error
+          // TODO: Handle error properly
           print(error)
           break
         }

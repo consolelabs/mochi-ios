@@ -76,8 +76,8 @@ extension MarketDataInfo {
     self.marketCapToken = nftInfo.marketCapSol
     self.marketCapUsd = nftInfo.marketCapUsd
     self.mintPriceMode = nftInfo.mintPriceMode ?? 0
-    self.volume24h = nftInfo.volume24h
-    self.volumeChange24h = nftInfo.volumeChange24h * 100
+    self.volume24h = nftInfo.volume24h ?? 0
+    self.volumeChange24h = (nftInfo.volumeChange24h ?? 0) * 100
     self.averageWashScore = nftInfo.averageWashScore ?? 0
     self.minWashScore = nftInfo.minWashScore ?? 0
     self.maxWashScore = nftInfo.maxWashScore ?? 0
@@ -111,8 +111,12 @@ final class MarketViewModel: ObservableObject {
   @Published var searchText: String = ""
   @Published var filteredMarketData: [MarketDataInfo] = []
   
-  private let nftService = NFTService()
+  private let nftService: NFTService
   private var subscriptions = Set<AnyCancellable>()
+  
+  init(nftService: NFTService) {
+    self.nftService = nftService
+  }
   
   func viewDidAppear() {
     fetchSmartMoneyInflow()

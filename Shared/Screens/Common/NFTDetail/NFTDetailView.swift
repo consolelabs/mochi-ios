@@ -197,7 +197,10 @@ struct NFTDetailView: View {
 struct NFTDetailView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      NFTDetailView(vm: NFTDetailViewModel(item: .mock))
+      NFTDetailView(vm: NFTDetailViewModel(
+        nftService: NFTServiceImpl(),
+        item: .mock)
+      )
     }
   }
 }

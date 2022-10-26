@@ -8,40 +8,101 @@
 import Foundation
 import Combine
 
+enum SortOption: String {
+  case vol24h = "VOLUME_24H"
+  case socialAccountBuyingVol = "SOCIAL_ACCOUNTS_BUYING_VOL"
+  case floorPriceChange = "FLOOR_PRICE_CHANGE"
+  case smartMoneyNetInflow = "SMART_MONEY_NET_INFLOW"
+  case smartMoneyNetOutflow = "SMART_MONEY_NET_OUTFLOW"
+  
+  var urlQueryItem: URLQueryItem {
+    return URLQueryItem(name: "sort", value: self.rawValue)
+  }
+}
+
+enum TimeRangeFilter: String {
+  case r1d = "1D"
+  case r1w = "1W"
+  case r1m = "1-month"
+  
+  var urlQueryItem: URLQueryItem {
+    return URLQueryItem(name: "timeRangeFilter", value: self.rawValue)
+  }
+}
+
+protocol NFTService {
+  func fetchNFTs(
+    pageSize: Int?,
+    sortBy: SortOption?,
+    nameFilter: String?,
+    timeRangeFilter: TimeRangeFilter?
+  ) -> AnyPublisher<NFTDataContainer, Error>
+  
+  func fetchNFTFloorPrice(
+    collectionId: String,
+    timeRangeFilter: TimeRangeFilter?
+  ) -> AnyPublisher<NFTFloorPriceChartDataContainer, Error>
+  
+  func fetchNFTAveragePrice(
+    collectionId: String,
+    timeRangeFilter: TimeRangeFilter?
+  ) -> AnyPublisher<NFTAveragePriceContainer, Error>
+  
+  func fetchNFTSaleVol(
+    collectionId: String,
+    timeRangeFilter: TimeRangeFilter?
+  ) -> AnyPublisher<NFTSaleVolChartDataContainer, Error>
+  
+  func fetchNFTHoldDuration(collectionId: String) -> AnyPublisher<NFTHoldDurationContainer, Error>
+  
+  func fetchNFTTopHolder(collectionId: String) -> AnyPublisher<NFTTopHolderChartDataContainer, Error>
+}
+
+extension NFTService {
+  func fetchNFTs(
+    pageSize: Int? = 30,
+    sortBy: SortOption? = nil,
+    nameFilter: String? = nil,
+    timeRangeFilter: TimeRangeFilter?
+  ) -> AnyPublisher<NFTDataContainer, Error> {
+    self.fetchNFTs(pageSize: pageSize, sortBy: sortBy, nameFilter: nameFilter, timeRangeFilter: timeRangeFilter)
+  }
+  
+  func fetchNFTFloorPrice(
+    collectionId: String,
+    timeRangeFilter: TimeRangeFilter? = nil
+  ) -> AnyPublisher<NFTFloorPriceChartDataContainer, Error> {
+    self.fetchNFTFloorPrice(collectionId: collectionId, timeRangeFilter: timeRangeFilter)
+  }
+  
+  func fetchNFTAveragePrice(
+    collectionId: String,
+    timeRangeFilter: TimeRangeFilter?
+  ) -> AnyPublisher<NFTAveragePriceContainer, Error> {
+    self.fetchNFTAveragePrice(collectionId: collectionId, timeRangeFilter: timeRangeFilter)
+  }
+  
+  func fetchNFTSaleVol(
+    collectionId: String,
+    timeRangeFilter: TimeRangeFilter?
+  ) -> AnyPublisher<NFTSaleVolChartDataContainer, Error> {
+    self.fetchNFTSaleVol(collectionId: collectionId, timeRangeFilter: timeRangeFilter)
+  }
+}
+
 /**
  * curl 'https://brew.hellomoon.io/api/aggregations/nfts?pageSize=30&nameFilter=' \
  * -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36' \
  * --compressed | jq
  */
-final class NFTService {
+final class NFTServiceImpl: NFTService {
+  
   private let networkService = NetworkService()
   private let baseURL = "https://brew.hellomoon.io/api/aggregations"
   private var sessionConfig: URLSessionConfiguration {
     let config = URLSessionConfiguration.default
     config.httpAdditionalHeaders = ["User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"]
     return config
-  }
-  
-  enum SortOption: String {
-    case vol24h = "VOLUME_24H"
-    case socialAccountBuyingVol = "SOCIAL_ACCOUNTS_BUYING_VOL"
-    case floorPriceChange = "FLOOR_PRICE_CHANGE"
-    case smartMoneyNetInflow = "SMART_MONEY_NET_INFLOW"
-    case smartMoneyNetOutflow = "SMART_MONEY_NET_OUTFLOW"
-    
-    var urlQueryItem: URLQueryItem {
-      return URLQueryItem(name: "sort", value: self.rawValue)
-    }
-  }
-  
-  enum TimeRangeFilter: String {
-    case r1d = "1D"
-    case r1w = "1W"
-    case r1m = "1-month"
-    
-    var urlQueryItem: URLQueryItem {
-      return URLQueryItem(name: "timeRangeFilter", value: self.rawValue)
-    }
   }
   
   func fetchNFTs(
@@ -148,7 +209,7 @@ struct NftInfo: Codable {
   let magicEdenHolding: Int
   let magicEdenHoldingProportion, marketCapSol, marketCapUsd: Double
   let mintPriceMode: Double?
-  let volume24h, volumeChange24h: Double
+  let volume24h, volumeChange24h: Double?
   let averageWashScore, minWashScore, maxWashScore: Int?
   let washIndexDescription: String
   let smartNetflowScore: Double
@@ -157,7 +218,7 @@ struct NftInfo: Codable {
   let listingCount: Int?
 }
 
-// Floor Price
+// MARK: - Floor Price
 struct NFTFloorPriceChartDataContainer: Codable {
     let result: NFTFloorPriceChartResult
 }
@@ -173,7 +234,7 @@ struct NFTFlorPriceChartData: Codable {
     let y: Double
 }
 
-// Sale Vol
+// MARK: - Sale Vol
 struct NFTSaleVolChartDataContainer: Codable {
     let data: NFTSaleVolChartResult
 }
@@ -189,7 +250,7 @@ struct NFTSaleVolChartData: Codable {
     let y: Double
 }
 
-// Top Holder
+// MARK: - Top Holder
 struct NFTTopHolderChartDataContainer: Codable {
     let result: NFTTopHolderChartResult
 }
@@ -209,7 +270,7 @@ struct NFTTopHolderYValue: Codable {
     let wallets: Int
 }
 
-// Hold duration
+// MARK: - Hold duration
 struct NFTHoldDurationContainer: Codable {
     let results: NFTHoldDurationResult
 }
@@ -229,7 +290,7 @@ struct NFTHoldDurationYValue: Codable {
     let walletCount: Int
 }
 
-// NFT Average Price
+// MARK: - NFT Average Price
 struct NFTAveragePriceContainer: Codable {
     let data: NFTAveragePriceData
 }

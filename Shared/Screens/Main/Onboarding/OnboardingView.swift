@@ -7,43 +7,37 @@
 
 import SwiftUI
 
-
 struct OnboardingView: View {
-    var body: some View {
-      NavigationView {
-        VStack {
-          OnboardingPageView()
-          
-          NavigationLink {
-            TermAgreementView()
-          } label: {
-            Text("Create a new wallet")
-              .bold()
-              .padding()
-              .frame(maxWidth: .infinity)
-              .background(Color.appPrimary)
-              .foregroundColor(Color.white)
-              .clipShape(RoundedRectangle(cornerRadius: 10))
-              .padding()
-          }
-          
-          NavigationLink {
-            ImportWalletListView()
-          } label: {
-            Text("I already have a wallet")
-              .foregroundColor(.appPrimary)
-              .fontWeight(.medium)
-              .padding(.bottom)
-          }
+  @EnvironmentObject var appState: AppState
+  
+  var body: some View {
+    NavigationView {
+      VStack {
+        OnboardingPageView()
+        Button(action: {
+          appState.createWallet()
+        }) {
+          Text("Create a new wallet")
+            .fontWeight(.semibold)
+        }
+        .buttonStyle(.primaryExpanded)
+        NavigationLink {
+          ImportWalletListView()
+        } label: {
+          Text("I already have a wallet")
+            .foregroundColor(.appPrimary)
+            .fontWeight(.medium)
         }
       }
+      .padding()
     }
+  }
 }
 
 struct OnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-    }
+  static var previews: some View {
+    OnboardingView()
+  }
 }
 
 struct OnboardingContentView: View {

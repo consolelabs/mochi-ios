@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import BottomSheet
 
 struct ProfileView: View {
   @Environment(\.openURL) var openURL
   @EnvironmentObject var appState: AppState
   @StateObject private var vm = ProfileViewModel()
+  @State private var showSettings = false
   
-  let profilePictureUrl = ""
-  let name = "Your name"
+  let defaultEmoticon = "😀"
+  let defaultWalletName = "My Wallet"
   let defaultAddress = "0x1234...5678"
   
   var body: some View {
@@ -21,56 +23,60 @@ struct ProfileView: View {
       ScrollView {
         VStack {
           profileSection(
-            profilePictureUrl: profilePictureUrl,
-            name: name,
+            emoticon: appState.wallet?.emoticon ?? defaultEmoticon,
+            name: appState.wallet?.name ?? defaultWalletName,
             address: appState.walletAddress ?? defaultAddress
           )
           .padding(.bottom)
           
           buttonsSection()
-          
-          factionSection()
-          
-          HStack {
-            randomSection()
-            randomSection()
+        
+          VStack {
+            factionSection()
+            
+            HStack {
+              randomSection()
+              randomSection()
+            }
           }
-          
-          leaderBoardSection()
+          .mask(RoundedRectangle(cornerRadius: 32, style: .continuous))
+          .blur(radius: 20)
+          .overlay {
+            Text("Comming soon")
+              .font(.headline)
+              .foregroundColor(.title)
+          }
+        }
+        .halfSheet(showSheet: $appState.showSelectWallet) {
+          SelectWalletView()
+            .environmentObject(appState)
         }
         .padding()
+        .navigationBarTitle("Profile", displayMode: .inline)
+        .navigationBarHidden(true)
       }
-      .navigationBarTitle("Profile", displayMode: .inline)
-      .navigationBarHidden(true)
-    }
-    .sheet(isPresented: $vm.showSelectWallet, content: {
-      SelectWalletView {
-        vm.showSelectWallet = false
-      }
-    })
-    .onChange(of: vm.url) { url in
-      if let url = url {
-        openURL(url)
+      .sheet(isPresented: $showSettings, content: {
+        SettingsView()
+      })
+      .onChange(of: vm.url) { url in
+        if let url = url {
+          openURL(url)
+        }
       }
     }
   }
- 
+  
   func profileSection(
-    profilePictureUrl: String,
+    emoticon: String,
     name: String,
     address: String
   ) -> some View {
     HStack {
-      AsyncImage(url: URL(string: profilePictureUrl)) { image in
-        image
-          .resizable()
-          .clipShape(RoundedRectangle(cornerRadius: 4))
-      } placeholder: {
-        Circle()
-          .foregroundColor(.gray)
-      }
-      .aspectRatio(contentMode: .fit)
-      .frame(width: 50, height: 50, alignment: .center)
+      Text(emoticon)
+        .font(.system(size: 20))
+        .frame(width: 40, height: 40)
+        .background(Color.yellow)
+        .clipShape(Circle())
       
       VStack(alignment: .leading) {
         Text(name)
@@ -81,6 +87,7 @@ struct ProfileView: View {
           .truncationMode(.middle)
           .font(.footnote)
           .foregroundColor(.subtitle)
+          .frame(width: 100, alignment: .leading)
       }
       
       Spacer()
@@ -90,19 +97,15 @@ struct ProfileView: View {
   func buttonsSection() -> some View {
     HStack(spacing: 32) {
       TopImageButton(title: "Settings", imageName: "gearshape.fill" ) {
-        
+        self.showSettings.toggle()
       }
       
       TopImageButton(title: "Help", imageName: "questionmark") {
-        
+        openURL(URL(string: "http://getmochi.co/")!)
       }
       
       TopImageButton(title: "Wallets", imageName: "wallet.pass.fill") {
-        
-      }
-      
-      TopImageButton(title: "Connect", imageName: "play.fill", style: .primary) {
-        vm.connectWallet()
+        appState.showSelectWallet.toggle()
       }
     }
   }
@@ -227,7 +230,7 @@ struct ProfileView: View {
           .font(.caption2.weight(.semibold))
       }
       .padding(.horizontal)
-
+      
       Divider()
       HStack {
         Circle()
@@ -270,75 +273,19 @@ struct ProfileView: View {
     )
   }
   
-  func leaderBoardSection() -> some View {
-    VStack(alignment: .leading) {
-      HStack {
-        Text("Leaderboards")
-          .foregroundColor(.title)
-          .font(.subheadline.weight(.semibold))
-        Spacer()
-        Image(systemName: "chevron.right")
-          .foregroundColor(.subtitle)
-          .font(.caption2.weight(.semibold))
-      }
-      .padding(.horizontal)
-      
-      Divider()
-      
-      GeometryReader { proxy in
-        VStack {
-          HStack {
-            Text("Rank")
-              .font(.subheadline.weight(.medium))
-              .foregroundColor(.subtitle)
-              .frame(width: proxy.size.width * 1 / 5, alignment: .leading)
-            
-            Text("Username")
-              .font(.subheadline.weight(.medium))
-              .foregroundColor(.subtitle)
-              .frame(width: proxy.size.width * 2 / 5, alignment: .leading)
-            
-            Text("30d P&L")
-              .font(.subheadline.weight(.medium))
-              .foregroundColor(.subtitle)
-              .frame(width: proxy.size.width * 2 / 6, alignment: .trailing)
-          }
-          
-          ForEach(0...4, id: \.self) { item in
-            HStack {
-              Text("\(item + 1)")
-                .font(.body.weight(.medium))
-                .foregroundColor(.title)
-                .frame(width: proxy.size.width * 1 / 5, alignment: .leading)
-              
-              Text("0x1234...5678")
-                .font(.body.weight(.medium))
-                .foregroundColor(.title)
-                .frame(width: proxy.size.width * 2 / 5, alignment: .leading)
-              
-              Text("134,567%")
-                .font(.body.weight(.medium))
-                .foregroundColor(.title)
-                .frame(width: proxy.size.width * 2 / 6, alignment: .trailing)
-            }
-          }
-        }
-      }
-      .padding(.horizontal)
-    }
-    .padding(.vertical)
-    .frame(height: 185)
-    .background(
-      RoundedRectangle(cornerRadius: 16, style: .circular)
-        .foregroundColor(.title.opacity(0.1))
-    )
-  }
-  
 }
 
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {
     ProfileView()
+      .environmentObject(
+        AppState(
+          walletManager: WalletManagerImpl(
+            localStorage: .init(),
+            keychainService: KeychainServiceImpl()
+          )
+        )
+      )
   }
 }
 

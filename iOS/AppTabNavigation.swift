@@ -10,38 +10,35 @@ import SwiftUI
 struct AppTabNavigation: View {
   
   enum Tab {
-    case dashboard
-    case market
-    case profile
+    case watchlist
+    case setting
   }
   
-  @State private var selection: Tab = .market
+  @State private var selection: Tab = .watchlist
   
   var body: some View {
     TabView(selection: $selection) {
-      NavigationView {
-        MarketView()
-      }
+      WatchlistView(vm: WatchlistViewModel(defiService: DefiServiceImpl()))
       .tabItem {
-        let marketText = Text("Market", comment: "Market tab title")
+        let watchlistText = Text("Watchlist", comment: "Watchlist tab")
         Label {
-          marketText
+          watchlistText
         } icon: {
-          Image(systemName: "chart.line.uptrend.xyaxis")
-        }.accessibility(label: marketText)
+          Image(systemName: "star")
+        }.accessibility(label: watchlistText)
       }
-      .tag(Tab.market)
+      .tag(Tab.watchlist)
       
-      ProfileView()
+      SettingsView()
         .tabItem {
-          let profileText = Text("Profile", comment: "Profile tab title")
+          let settingText = Text("Settings", comment: "Settings tab")
           Label {
-            profileText
+            settingText
           } icon: {
-            Image(systemName: "person")
-          }.accessibility(label: profileText)
+            Image(systemName: "gearshape")
+          }.accessibility(label: settingText)
         }
-        .tag(Tab.profile)
+        .tag(Tab.setting)
     }
   }
 }

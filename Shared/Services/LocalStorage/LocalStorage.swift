@@ -8,49 +8,26 @@
 import Foundation
 
 class LocalStorage {
-  private lazy var userDefaults: UserDefaults = {
+  static let shared = LocalStorage()
+  
+  lazy var userDefaults: UserDefaults = {
     guard let userDefaults = UserDefaults(suiteName: "so.console") else {
       fatalError("Cannot init userDefault")
     }
     return userDefaults
   }()
   
-  private enum Keys {
-    static let currentWallet = "currentWallet"
-    static let wallets = "wallets"
-  }
-     
-  var currentWallet: WalletInfo? {
-    get {
-      guard let data = userDefaults.data(forKey: Keys.currentWallet),
-            let walletInfo = try? JSONDecoder().decode(WalletInfo.self, from: data) else {
-        return nil
-      }
-      return walletInfo
-    }
-    
-    set {
-      guard let walletInfo = newValue else {
-        userDefaults.set(nil, forKey: Keys.currentWallet)
-        return
-      }
-      let data = try? JSONEncoder().encode(walletInfo)
-      userDefaults.set(data, forKey: Keys.currentWallet)
-    }
+  enum Keys {
+    static let discordId = "discordId"
   }
   
-  var wallets: [WalletInfo] {
+  var discordId: String {
     get {
-      guard let data = userDefaults.data(forKey: Keys.wallets),
-            let walletInfos = try? JSONDecoder().decode([WalletInfo].self, from: data) else {
-        return []
-      }
-      return walletInfos
+      return userDefaults.string(forKey: Keys.discordId) ?? ""
     }
     
     set {
-      let data = try? JSONEncoder().encode(newValue)
-      userDefaults.set(data, forKey: Keys.wallets)
+      userDefaults.set(newValue, forKey: Keys.discordId)
     }
   }
 }

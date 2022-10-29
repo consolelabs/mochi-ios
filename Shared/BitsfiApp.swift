@@ -18,20 +18,8 @@ struct BitsfiApp: App {
   
   var body: some Scene {
     WindowGroup {
-      VStack {
-        switch appState.screenState {
-        case .loading:
-          ProgressView()
-        case .onboarding:
-          OnboardingView()
-        case .main:
-          ContentView()
-        }
-      }
-      .environmentObject(appState)
-      .onAppear {
-        appState.fetchCurrentWallet()
-      }
+      ContentView()
+        .environmentObject(appState)
     }
   }
 }
@@ -44,14 +32,22 @@ class AppState: ObservableObject {
   }
   
   private let walletManager: WalletManager
+  private let localStorage: LocalStorage
   
   init(walletManager: WalletManager) {
     self.walletManager = walletManager
+    self.localStorage = LocalStorage()
+    self.discordId = localStorage.discordId
   }
  
   @Published var screenState: ScreenState = .loading
   @Published var wallet: WalletInfo? = nil
   @Published var showSelectWallet: Bool = false
+  @Published var discordId: String = "" {
+    didSet {
+      localStorage.discordId = discordId
+    }
+  }
   
   var walletAddress: String? {
     return wallet?.address
@@ -59,6 +55,10 @@ class AppState: ObservableObject {
   
   var hasWallet: Bool {
     return wallet != nil
+  }
+    
+  func update(discordId: String) {
+    self.discordId = discordId
   }
   
   func fetchCurrentWallet() {

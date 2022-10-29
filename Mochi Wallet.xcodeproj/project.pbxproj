@@ -17,10 +17,32 @@
 		082A71A028FF063200158021 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719F28FF063200158021 /* SwiftUI.framework */; };
 		082A71A328FF063200158021 /* WatchlistWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A71A228FF063200158021 /* WatchlistWidget.swift */; };
 		082A71A628FF063300158021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082A71A528FF063300158021 /* Assets.xcassets */; };
-		082A71A828FF063300158021 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 082A71A428FF063200158021 /* Widgets.intentdefinition */; };
-		082A71A928FF063300158021 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 082A71A428FF063200158021 /* Widgets.intentdefinition */; };
 		082A71AC28FF063300158021 /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 082A719B28FF063200158021 /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		083BF29A289135AB008B6E03 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083BF299289135AB008B6E03 /* BottomSheetView.swift */; };
+		0841047F290B7914008F5823 /* WatchlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841047E290B7913008F5823 /* WatchlistView.swift */; };
+		08410480290B7914008F5823 /* WatchlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841047E290B7913008F5823 /* WatchlistView.swift */; };
+		08410482290B79DE008F5823 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410481290B79DE008F5823 /* Line.swift */; };
+		08410483290B79DE008F5823 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410481290B79DE008F5823 /* Line.swift */; };
+		08410484290B79DE008F5823 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410481290B79DE008F5823 /* Line.swift */; };
+		08410488290BBB0E008F5823 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410487290BBB0E008F5823 /* Endpoint.swift */; };
+		08410489290BBB0E008F5823 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410487290BBB0E008F5823 /* Endpoint.swift */; };
+		0841048A290BBB0E008F5823 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410487290BBB0E008F5823 /* Endpoint.swift */; };
+		0841048C290BBB29008F5823 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048B290BBB29008F5823 /* HTTPClient.swift */; };
+		0841048D290BBB29008F5823 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048B290BBB29008F5823 /* HTTPClient.swift */; };
+		0841048E290BBB29008F5823 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048B290BBB29008F5823 /* HTTPClient.swift */; };
+		08410490290BBB4F008F5823 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048F290BBB4F008F5823 /* RequestMethod.swift */; };
+		08410491290BBB4F008F5823 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048F290BBB4F008F5823 /* RequestMethod.swift */; };
+		08410492290BBB4F008F5823 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048F290BBB4F008F5823 /* RequestMethod.swift */; };
+		08410494290BBB60008F5823 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410493290BBB60008F5823 /* RequestError.swift */; };
+		08410495290BBB60008F5823 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410493290BBB60008F5823 /* RequestError.swift */; };
+		08410496290BBB60008F5823 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410493290BBB60008F5823 /* RequestError.swift */; };
+		08410498290BC380008F5823 /* DefiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410497290BC380008F5823 /* DefiEndpoint.swift */; };
+		08410499290BC380008F5823 /* DefiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410497290BC380008F5823 /* DefiEndpoint.swift */; };
+		0841049A290BC380008F5823 /* DefiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410497290BC380008F5823 /* DefiEndpoint.swift */; };
+		0841049C290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */; };
+		0841049D290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */; };
+		0841049E290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */; };
+		084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084104A3290D8584008F5823 /* LocalStorage+Ext.swift */; };
 		0850CADA289070D2008D3094 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0850CAD9289070D2008D3094 /* BottomSheet */; };
 		08537C1528902A1200B15BD1 /* SelectWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08537C1428902A1200B15BD1 /* SelectWalletView.swift */; };
 		086A609A28634D3300442FC1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 086A609928634D3300442FC1 /* web3swift */; };
@@ -85,6 +107,8 @@
 		08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BC62880031B003480C6 /* WalletConnect.swift */; };
 		08DD9BC928800452003480C6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BC828800452003480C6 /* ProfileViewModel.swift */; };
 		08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BCC28808426003480C6 /* BKSelectWalletView.swift */; };
+		08E11F56290DAAC10012441D /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 08E11F55290DAAC10012441D /* Widgets.intentdefinition */; };
+		08E11F58290DAF070012441D /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 08E11F55290DAAC10012441D /* Widgets.intentdefinition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,10 +143,20 @@
 		082A719D28FF063200158021 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		082A719F28FF063200158021 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		082A71A228FF063200158021 /* WatchlistWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistWidget.swift; sourceTree = "<group>"; };
-		082A71A428FF063200158021 /* Widgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widgets.intentdefinition; sourceTree = "<group>"; };
 		082A71A528FF063300158021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082A71A728FF063300158021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		083BF299289135AB008B6E03 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		0841047E290B7913008F5823 /* WatchlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistView.swift; sourceTree = "<group>"; };
+		08410481290B79DE008F5823 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		08410487290BBB0E008F5823 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		0841048B290BBB29008F5823 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		0841048F290BBB4F008F5823 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		08410493290BBB60008F5823 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		08410497290BC380008F5823 /* DefiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefiEndpoint.swift; sourceTree = "<group>"; };
+		0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
+		084104A3290D8584008F5823 /* LocalStorage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalStorage+Ext.swift"; sourceTree = "<group>"; };
+		084104A5290D988C008F5823 /* Mochi Wallet (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mochi Wallet (iOS).entitlements"; sourceTree = "<group>"; };
+		084104A6290D98C9008F5823 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
 		08537C1428902A1200B15BD1 /* SelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletView.swift; sourceTree = "<group>"; };
 		086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSecretPhraseView.swift; sourceTree = "<group>"; };
 		0894EDB62850A2BA00391C7F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -153,13 +187,14 @@
 		08BC494D288A01830050852A /* YourSeedPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSeedPhraseView.swift; sourceTree = "<group>"; };
 		08C32D912907F44500BCBD8D /* Bundle+version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+version.swift"; sourceTree = "<group>"; };
 		08C32D962907F63800BCBD8D /* DefiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefiService.swift; sourceTree = "<group>"; };
-		08C32D9B2907F9EE00BCBD8D /* Mochi-Wallet--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mochi-Wallet--iOS--Info.plist"; sourceTree = "<group>"; };
+		08D6AEC5290DA0E700E6502D /* iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		08DD9BB32874545D003480C6 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
 		08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewModel.swift; sourceTree = "<group>"; };
 		08DD9BBF287D992D003480C6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		08DD9BC62880031B003480C6 /* WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
 		08DD9BC828800452003480C6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		08DD9BCC28808426003480C6 /* BKSelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKSelectWalletView.swift; sourceTree = "<group>"; };
+		08E11F55290DAAC10012441D /* Widgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widgets.intentdefinition; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,10 +259,11 @@
 		082A71A128FF063200158021 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				084104A6290D98C9008F5823 /* WidgetsExtension.entitlements */,
 				082A71A228FF063200158021 /* WatchlistWidget.swift */,
-				082A71A428FF063200158021 /* Widgets.intentdefinition */,
 				082A71A528FF063300158021 /* Assets.xcassets */,
 				082A71A728FF063300158021 /* Info.plist */,
+				08E11F55290DAAC10012441D /* Widgets.intentdefinition */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -238,6 +274,26 @@
 				083BF299289135AB008B6E03 /* BottomSheetView.swift */,
 			);
 			path = BottomSheetView;
+			sourceTree = "<group>";
+		};
+		0841047D290B78F9008F5823 /* Watchlist */ = {
+			isa = PBXGroup;
+			children = (
+				0841047E290B7913008F5823 /* WatchlistView.swift */,
+				0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */,
+			);
+			path = Watchlist;
+			sourceTree = "<group>";
+		};
+		08410485290BBAD7008F5823 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				08410487290BBB0E008F5823 /* Endpoint.swift */,
+				0841048B290BBB29008F5823 /* HTTPClient.swift */,
+				0841048F290BBB4F008F5823 /* RequestMethod.swift */,
+				08410493290BBB60008F5823 /* RequestError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		08537C13289029FE00B15BD1 /* SelectWallet */ = {
@@ -279,7 +335,6 @@
 		08B33163284A77C8003295F3 = {
 			isa = PBXGroup;
 			children = (
-				08C32D9B2907F9EE00BCBD8D /* Mochi-Wallet--iOS--Info.plist */,
 				08B33168284A77C8003295F3 /* Shared */,
 				08B33187284A77EE003295F3 /* iOS */,
 				08B33177284A77CA003295F3 /* macOS */,
@@ -326,7 +381,10 @@
 		08B33187284A77EE003295F3 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				08D6AEC5290DA0E700E6502D /* iOS-Info.plist */,
+				084104A5290D988C008F5823 /* Mochi Wallet (iOS).entitlements */,
 				08B3318C284A81C0003295F3 /* AppTabNavigation.swift */,
+				084104A3290D8584008F5823 /* LocalStorage+Ext.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -384,6 +442,7 @@
 		08B5B06C286DA76600981D2E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				08410485290BBAD7008F5823 /* Network */,
 				08C32D952907F60D00BCBD8D /* Defi */,
 				08BC49432889B8580050852A /* LocalStorage */,
 				08BC494028895AA00050852A /* Keychain */,
@@ -416,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				08B3D1A1285C4B7800E9CF04 /* DataTableView.swift */,
+				08410481290B79DE008F5823 /* Line.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -436,6 +496,7 @@
 		08B5B078286E2B3700981D2E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0841047D290B78F9008F5823 /* Watchlist */,
 				08537C13289029FE00B15BD1 /* SelectWallet */,
 				08BC49462889E2080050852A /* Settings */,
 				08DD9BBD287D98FC003480C6 /* Alert */,
@@ -486,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				08C32D962907F63800BCBD8D /* DefiService.swift */,
+				08410497290BC380008F5823 /* DefiEndpoint.swift */,
 			);
 			path = Defi;
 			sourceTree = "<group>";
@@ -597,7 +659,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					082A719A28FF063200158021 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -670,10 +732,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0841048A290BBB0E008F5823 /* Endpoint.swift in Sources */,
 				08C32D9A2907F98D00BCBD8D /* NetworkService.swift in Sources */,
-				082A71A828FF063300158021 /* Widgets.intentdefinition in Sources */,
+				0841049E290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
+				0841048E290BBB29008F5823 /* HTTPClient.swift in Sources */,
+				08E11F56290DAAC10012441D /* Widgets.intentdefinition in Sources */,
 				08C32D992907F63800BCBD8D /* DefiService.swift in Sources */,
+				08410484290B79DE008F5823 /* Line.swift in Sources */,
+				08410496290BBB60008F5823 /* RequestError.swift in Sources */,
 				082A71A328FF063200158021 /* WatchlistWidget.swift in Sources */,
+				08410492290BBB4F008F5823 /* RequestMethod.swift in Sources */,
+				0841049A290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08C32D942907F44600BCBD8D /* Bundle+version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,7 +753,10 @@
 			files = (
 				08C32D972907F63800BCBD8D /* DefiService.swift in Sources */,
 				0894EDBF2850BB0500391C7F /* ImportWalletListView.swift in Sources */,
+				0841049C290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				08537C1528902A1200B15BD1 /* SelectWalletView.swift in Sources */,
+				0841047F290B7914008F5823 /* WatchlistView.swift in Sources */,
+				08410490290BBB4F008F5823 /* RequestMethod.swift in Sources */,
 				083BF29A289135AB008B6E03 /* BottomSheetView.swift in Sources */,
 				08BC494E288A01830050852A /* YourSeedPhraseView.swift in Sources */,
 				08B3317B284A77CA003295F3 /* ContentView.swift in Sources */,
@@ -694,30 +766,36 @@
 				08B3318D284A81C0003295F3 /* AppTabNavigation.swift in Sources */,
 				08DD9BC928800452003480C6 /* ProfileViewModel.swift in Sources */,
 				08B33179284A77CA003295F3 /* BitsfiApp.swift in Sources */,
+				08410494290BBB60008F5823 /* RequestError.swift in Sources */,
 				0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */,
 				08BC49452889B8760050852A /* LocalStorage.swift in Sources */,
 				080E54192851E97F00C7FDB1 /* TermAgreementView.swift in Sources */,
 				0894EDB72850A2BA00391C7F /* Theme.swift in Sources */,
 				08BC494C2889ED8E0050852A /* BackupWalletManuallyView.swift in Sources */,
 				08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */,
+				08E11F58290DAF070012441D /* Widgets.intentdefinition in Sources */,
 				086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
 				08B3318A284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
 				080E541C2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
-				082A71A928FF063300158021 /* Widgets.intentdefinition in Sources */,
 				08B3D1A2285C4B7800E9CF04 /* DataTableView.swift in Sources */,
 				08BC493F28892EEE0050852A /* WalletManager.swift in Sources */,
 				08BC49482889E2160050852A /* SettingsView.swift in Sources */,
 				08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
 				08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */,
+				084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */,
 				08C32D922907F44500BCBD8D /* Bundle+version.swift in Sources */,
 				08B3D1A9285CB37600E9CF04 /* MarketView.swift in Sources */,
 				08B33192284A84B3003295F3 /* PortfolioView.swift in Sources */,
 				08BC494A2889EA130050852A /* BackupWalletContainerView.swift in Sources */,
 				08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */,
+				08410482290B79DE008F5823 /* Line.swift in Sources */,
+				08410488290BBB0E008F5823 /* Endpoint.swift in Sources */,
 				0894EDBC2850B20600391C7F /* OnboardingView.swift in Sources */,
 				08BC494228895AAD0050852A /* KeychainService.swift in Sources */,
 				08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */,
 				08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */,
+				0841048C290BBB29008F5823 /* HTTPClient.swift in Sources */,
+				08410498290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,18 +808,26 @@
 				080E541D2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
 				0894EDC32851109000391C7F /* ImportWalletView.swift in Sources */,
 				08B33193284A84B3003295F3 /* PortfolioView.swift in Sources */,
+				08410499290BC380008F5823 /* DefiEndpoint.swift in Sources */,
+				08410491290BBB4F008F5823 /* RequestMethod.swift in Sources */,
+				08410483290B79DE008F5823 /* Line.swift in Sources */,
+				0841048D290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08B5B06F286DA79A00981D2E /* NFTService.swift in Sources */,
+				08410480290B7914008F5823 /* WatchlistView.swift in Sources */,
 				08B3317C284A77CA003295F3 /* ContentView.swift in Sources */,
 				0894EDB82850A2BA00391C7F /* Theme.swift in Sources */,
 				08B3D1AA285CB37600E9CF04 /* MarketView.swift in Sources */,
 				0894EDC02850BB0500391C7F /* ImportWalletListView.swift in Sources */,
 				08B3D1A3285C4B7800E9CF04 /* DataTableView.swift in Sources */,
 				08C32D932907F44600BCBD8D /* Bundle+version.swift in Sources */,
+				08410495290BBB60008F5823 /* RequestError.swift in Sources */,
 				08C32D982907F63800BCBD8D /* DefiService.swift in Sources */,
 				08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
 				08B5B07C286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
+				08410489290BBB0E008F5823 /* Endpoint.swift in Sources */,
 				08B3D1A6285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
 				08B5B074286DC73C00981D2E /* NetworkService.swift in Sources */,
+				0841049D290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				0894EDBD2850B20600391C7F /* OnboardingView.swift in Sources */,
 				08B3317A284A77CA003295F3 /* BitsfiApp.swift in Sources */,
 				08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */,
@@ -769,8 +855,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = Widgets/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
@@ -782,7 +869,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -799,8 +886,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = Widgets/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
@@ -812,7 +900,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -857,6 +945,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -915,6 +1004,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -939,12 +1029,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOS/Mochi Wallet (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Mochi-Wallet--iOS--Info.plist";
+				INFOPLIST_FILE = "iOS/iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mochi Wallet";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -955,7 +1048,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -971,12 +1064,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOS/Mochi Wallet (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Mochi-Wallet--iOS--Info.plist";
+				INFOPLIST_FILE = "iOS/iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mochi Wallet";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -987,7 +1083,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1007,11 +1103,13 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mochi Wallet";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1019,7 +1117,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;
@@ -1038,11 +1136,13 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mochi Wallet";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1050,7 +1150,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;

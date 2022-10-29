@@ -48,7 +48,11 @@ struct WidgetVM {
 }
 
 class Provider: IntentTimelineProvider {
+  @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
+  var discordId: String = ""
+  
   private let defiService: DefiService
+  private let defaultDiscordId = "963123183131709480"
   private var subscriptions = Set<AnyCancellable>()
   
   init(defiService: DefiService) {
@@ -60,72 +64,78 @@ class Provider: IntentTimelineProvider {
   }
   
   func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (WatchlistEntry) -> ()) {
-    defiService.fetchWatchlist(userId: configuration.discordId ?? "")
-      .sink { result in
-        switch result {
-        case .finished:
-          break
-        case .failure(let error):
-          print(error)
-          break
-        }
-      } receiveValue: { resp in
-        var widgetVMs: [WidgetVM] = []
-        let dispatchGroup = DispatchGroup()
-        resp.data.enumerated().forEach { (index, item) in
-          dispatchGroup.enter()
-          var widgetVM = WidgetVM(index: index, watchlist: item)
-          SDWebImageDownloader.shared.downloadImage(with: URL(string: item.image)) { logoImage, data, error, success in
-            if let logoImage = logoImage {
-              widgetVM.logoImage = Image(uiImage: logoImage)
+    Task {
+      let widgetDiscordId = !discordId.isEmpty ? discordId : defaultDiscordId
+      let result = await defiService.getWatchlist(userId: widgetDiscordId)
+      guard case let .success(resp) = result else {
+        return
+      }
+      let widgetVMs = try await withThrowingTaskGroup(of: WidgetVM.self) { group -> [WidgetVM]  in
+        for (index, item) in resp.data.enumerated() {
+          group.addTask {
+            var widgetVM = WidgetVM(index: index, watchlist: item)
+            let uiImage = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<UIImage, Error>) in
+              SDWebImageDownloader.shared.downloadImage(with: URL(string: item.image)) { logoImage, data, error, success in
+                if let logoImage = logoImage {
+                  continuation.resume(with: .success(logoImage))
+                }
+                if let error = error {
+                  continuation.resume(with: .failure(error))
+                }
+              }
             }
-            widgetVMs.append(widgetVM)
-            dispatchGroup.leave()
+            widgetVM.logoImage = Image(uiImage: uiImage)
+            return widgetVM
           }
         }
-        dispatchGroup.wait()
-        let entry = WatchlistEntry(date: Date(), configuration: configuration, data: widgetVMs)
-        completion(entry)
+        return try await group.reduce([], { result, item in
+          return result + [item]
+        })
       }
-      .store(in: &subscriptions)
+      let entry = WatchlistEntry(date: Date(), configuration: configuration, data: widgetVMs)
+      completion(entry)
+    }
   }
   
   func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-    defiService.fetchWatchlist(userId: configuration.discordId ?? "")
-      .sink { result in
-        switch result {
-        case .finished:
-          break
-        case .failure(let error):
-          print(error)
-          break
-        }
-      } receiveValue: { resp in
-        var widgetVMs: [WidgetVM] = []
-        let dispatchGroup = DispatchGroup()
-        resp.data.enumerated().forEach { (index, item) in
-          dispatchGroup.enter()
-          var widgetVM = WidgetVM(index: index, watchlist: item)
-          SDWebImageDownloader.shared.downloadImage(with: URL(string: item.image)) { logoImage, data, err, isSuccess in
-            if let logoImage = logoImage {
-              widgetVM.logoImage = Image(uiImage: logoImage)
+    Task {
+      let widgetDiscordId = !discordId.isEmpty ? discordId : defaultDiscordId
+      let result = await defiService.getWatchlist(userId: widgetDiscordId)
+      guard case let .success(resp) = result else {
+        return
+      }
+      let widgetVMs = try await withThrowingTaskGroup(of: WidgetVM.self) { group -> [WidgetVM]  in
+        for (index, item) in resp.data.enumerated() {
+          group.addTask {
+            var widgetVM = WidgetVM(index: index, watchlist: item)
+            let uiImage = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<UIImage, Error>) in
+              SDWebImageDownloader.shared.downloadImage(with: URL(string: item.image)) { logoImage, data, error, success in
+                if let logoImage = logoImage {
+                  continuation.resume(with: .success(logoImage))
+                }
+                if let error = error {
+                  continuation.resume(with: .failure(error))
+                }
+              }
             }
-            widgetVMs.append(widgetVM)
-            dispatchGroup.leave()
+            widgetVM.logoImage = Image(uiImage: uiImage)
+            return widgetVM
           }
         }
-        dispatchGroup.wait()
-        var entries: [WatchlistEntry] = []
-        for hourOffset in 0..<1 {
-          let currentDate = Date()
-          let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-          let entry = WatchlistEntry(date: entryDate, configuration: configuration, data: widgetVMs)
-          entries.append(entry)
-        }
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+        return try await group.reduce([], { result, item in
+          return result + [item]
+        })
       }
-      .store(in: &subscriptions)
+      var entries: [WatchlistEntry] = []
+      for hourOffset in 0..<1 {
+        let currentDate = Date()
+        let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        let entry = WatchlistEntry(date: Date(), configuration: configuration, data: widgetVMs)
+        entries.append(entry)
+      }
+      let timeline = Timeline(entries: entries, policy: .atEnd)
+      completion(timeline)
+    }
   }
 }
 
@@ -137,6 +147,18 @@ struct WatchlistEntry: TimelineEntry {
 
 struct WidgetsEntryView : View {
   var entry: Provider.Entry
+
+  func nameView(name: String, symbol: String) -> some View {
+    VStack(alignment: .leading) {
+      Text(symbol)
+        .font(.system(size: 14))
+        .bold()
+      if entry.configuration.showFullName?.boolValue ?? false {
+        Text(name)
+          .font(.system(size: 11))
+      }
+    }
+  }
   
   var body: some View {
     GeometryReader { reader in
@@ -156,24 +178,16 @@ struct WidgetsEntryView : View {
                   .frame(width: 20, height: 20)
               }
               
-              VStack(alignment: .leading) {
-                Text(item.symbol)
-                  .font(.system(size: 14))
-                  .bold()
-                Text(item.name)
-                  .font(.system(size: 11))
-              }
+              nameView(name: item.name, symbol: item.symbol)
             }
             .frame(width: reader.size.width / 3, alignment: .leading)
-          
+            
             // Sparkline
             if !item.sparklineIn7d.price.isEmpty {
-              Line(data: item.sparklineIn7d.price,
-                   color: item.priceChangePercentage24hColor,
-                   frame: .constant(CGRect(x: 0, y: 0, width: 80, height: 270)))
+              SparklineView(prices: item.sparklineIn7d.price, color: item.priceChangePercentage24hColor)
                 .frame(width: 80)
             } else {
-              RoundedRectangle(cornerRadius: 4)
+              Color.clear
                 .frame(width: 80)
             }
             
@@ -213,75 +227,7 @@ struct WatchlistWidget: Widget {
 struct Widgets_Previews: PreviewProvider {
   static var previews: some View {
     WidgetsEntryView(entry: WatchlistEntry(date: Date(), configuration: ConfigurationIntent(), data: []))
-      .previewContext(WidgetPreviewContext(family: .systemMedium))
+      .previewContext(WidgetPreviewContext(family: .systemLarge))
   }
 }
 
-struct Line: View {
-  var data: [(Double)]
-  var color: Color
-  @Binding var frame: CGRect
-  
-  let padding:CGFloat = 30
-  
-  var stepWidth: CGFloat {
-    if data.count < 2 {
-      return 0
-    }
-    return frame.size.width / CGFloat(data.count-1)
-  }
-  var stepHeight: CGFloat {
-    var min: Double?
-    var max: Double?
-    let points = self.data
-    if let minPoint = points.min(), let maxPoint = points.max(), minPoint != maxPoint {
-      min = minPoint
-      max = maxPoint
-    }else {
-      return 0
-    }
-    if let min = min, let max = max, min != max {
-      if (min <= 0){
-        return (frame.size.height-padding) / CGFloat(max - min)
-      }else{
-        return (frame.size.height-padding) / CGFloat(max + min)
-      }
-    }
-    
-    return 0
-  }
-  var path: Path {
-    let points = self.data
-    return Path.lineChart(points: points, step: CGPoint(x: stepWidth, y: stepHeight))
-  }
-  
-  public var body: some View {
-    
-    ZStack {
-      
-      self.path
-        .stroke(color, style: StrokeStyle(lineWidth: 1, lineJoin: .bevel))
-        .rotationEffect(.degrees(180), anchor: .center)
-        .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-        .drawingGroup()
-    }
-  }
-}
-
-extension Path {
-  
-  static func lineChart(points:[Double], step:CGPoint) -> Path {
-    var path = Path()
-    if (points.count < 2){
-      return path
-    }
-    guard let offset = points.min() else { return path }
-    let p1 = CGPoint(x: 0, y: CGFloat(points[0]-offset)*step.y)
-    path.move(to: p1)
-    for pointIndex in 1..<points.count {
-      let p2 = CGPoint(x: step.x * CGFloat(pointIndex), y: step.y*CGFloat(points[pointIndex]-offset))
-      path.addLine(to: p2)
-    }
-    return path
-  }
-}

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
   @EnvironmentObject var appState: AppState
-  
+  @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
+  var discordId: String = ""
+
   private var wallet: WalletInfo? {
     return appState.wallet
   }
@@ -25,25 +27,14 @@ struct SettingsView: View {
     NavigationView {
       List {
         Section {
-          NavigationLink(destination: BackupWalletContainerView()) {
-            HStack {
-              Text("Backup")
-                .foregroundColor(.title)
-              Spacer()
-              Image(systemName: isBackup ? "checkmark.icloud.fill" : "exclamationmark.icloud.fill")
-                .foregroundColor(isBackup ? .green : .orange)
-            }
+          HStack {
+            Text("Discord ID")
+              .foregroundColor(.title)
+            Spacer()
+            TextField("Text", text: $discordId)
+              .multilineTextAlignment(.trailing)
+              .foregroundColor(.title)
           }
-          Button(action: {}) {
-            HStack {
-              Text("Theme")
-                .foregroundColor(.title)
-              Spacer()
-              Text("System")
-                .foregroundColor(.subtitle)
-            }
-          }
-          .disabled(true)
         }
         Section {
           HStack {
@@ -52,13 +43,8 @@ struct SettingsView: View {
           }
           
           HStack {
-            Text("🧠")
-            Link("Learn about WEB3", destination: URL(string: "http://getmochi.co/")!)
-          }
-          
-          HStack {
             Text("🐦")
-            Link("Follow Us on Twitter", destination: URL(string: "https://twitter.com/getmochi_bot")!)
+            Link("Follow us on Twitter", destination: URL(string: "https://twitter.com/getmochi_bot")!)
           }
           
           HStack {

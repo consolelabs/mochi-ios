@@ -7,9 +7,9 @@
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.2</string>
 	<key>INIntentDefinitionNamespace</key>
-	<string>88xZPY</string>
+	<string>339dbp</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>21G83</string>
+	<string>22A380</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>14A400</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -20,13 +20,13 @@
 			<key>INIntentCategory</key>
 			<string>information</string>
 			<key>INIntentDescriptionID</key>
-			<string>tVvJ9c</string>
+			<string>RNuG6Y</string>
 			<key>INIntentEligibleForWidgets</key>
 			<true/>
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>INIntentName</key>
 			<string>Configuration</string>
 			<key>INIntentParameters</key>
@@ -35,22 +35,24 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Discord Id</string>
+					<string>Show Full Name</string>
 					<key>INIntentParameterDisplayNameID</key>
-					<string>BBC6MY</string>
+					<string>3VMkiO</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
 					<key>INIntentParameterMetadata</key>
 					<dict>
-						<key>INIntentParameterMetadataCapitalization</key>
-						<string>Sentences</string>
-						<key>INIntentParameterMetadataDefaultValue</key>
-						<string>963123183131709480</string>
-						<key>INIntentParameterMetadataDefaultValueID</key>
-						<string>1Mc4ZW</string>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>OgLSrg</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>kYE2Y4</string>
 					</dict>
 					<key>INIntentParameterName</key>
-					<string>discordId</string>
+					<string>showFullName</string>
 					<key>INIntentParameterPromptDialogs</key>
 					<array>
 						<dict>
@@ -63,9 +65,9 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>read your discord id please</string>
+							<string>Show full name</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
-							<string>kPisLX</string>
+							<string>i3mBk9</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Primary</string>
 						</dict>
@@ -73,9 +75,9 @@
 					<key>INIntentParameterSupportsResolution</key>
 					<true/>
 					<key>INIntentParameterTag</key>
-					<integer>1</integer>
+					<integer>2</integer>
 					<key>INIntentParameterType</key>
-					<string>String</string>
+					<string>Boolean</string>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>
@@ -97,7 +99,7 @@
 			<key>INIntentTitle</key>
 			<string>Configuration</string>
 			<key>INIntentTitleID</key>
-			<string>gpCwrM</string>
+			<string>4K0UGa</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>

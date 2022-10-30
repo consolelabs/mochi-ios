@@ -1,15 +1,24 @@
-# Bits Wallet
+<p align="center">
+	<img width="200" height="200" margin-right="100%" src="misc/icon.png">
+</p>
+<p align="center">
+	<a href="https://img.shields.io/badge/platform-iOS|macOS-lightgrey.svg">
+ 		<img src="https://img.shields.io/badge/platform-iOS|macOS-lightgrey.svg" alt="platform">
+	</a>
+	<a href="https://img.shields.io/badge/requirements-iOS 15+-ff69b4.svg">
+ 		<img src="https://img.shields.io/badge/requirements-iOS 15+-ff69b4.svg" alt="systemrequirements">
+	</a>
+</p>
 
-Bits Wallet is a non-custody wallet, giving you complete control of your crypto.
+# Mochi Wallet
 
-## Getting Started
+Mochi Wallet is a non-custody wallet, giving you complete control of your crypto 🤘
 
-### Dependencies
-
-* iOS 15.0+
-* Xcode 13.4.1
+<p align="center">
+	<img width="300" src="misc/screen1.png">
+	<img width="300" src="misc/screen2.png">
+</p>
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
+MIT &copy; [Console Labs](https://github.com/consolelabs)

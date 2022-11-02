@@ -41,9 +41,9 @@ struct WidgetVM {
     percentFormatter.locale = Locale(identifier: "en_US")
     percentFormatter.numberStyle = .percent
     percentFormatter.maximumFractionDigits = 2
-    self.priceChangePercentage24h = "\(watchlist.priceChangePercentage24h > 0 ? "+" : "")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage24h / 1000)) ?? "NA")"
+    self.priceChangePercentage24h = "\(watchlist.priceChangePercentage24h > 0 ? "+" : "")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage24h / 100)) ?? "NA")"
     self.priceChangePercentage24hColor = watchlist.priceChangePercentage24h > 0 ? .green : .red
-    self.priceChangePercentage7dInCurrency = "\(watchlist.priceChangePercentage7dInCurrency > 0 ? "+" : "-")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage7dInCurrency / 1000)) ?? "NA")"
+    self.priceChangePercentage7dInCurrency = "\(watchlist.priceChangePercentage7dInCurrency > 0 ? "+" : "")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage7dInCurrency / 100)) ?? "NA")"
     self.priceChangePercentage7dColor = watchlist.priceChangePercentage7dInCurrency > 0 ? .green : .red
   }
 }
@@ -153,6 +153,14 @@ struct WidgetsEntryView : View {
     }
   }
   
+  func sparkLine(prices: [Double], color: Color) -> some View {
+    let showShadow = entry.configuration.showShadow?.boolValue ?? false
+    return SparklineView(prices: prices, color: color)
+      .shadow(color: color.opacity(0.5), radius: showShadow ? 4 : 0, y: showShadow ? 4 : 0)
+      .frame(width: 80)
+      .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
+  }
+  
   var body: some View {
     GeometryReader { reader in
       VStack {
@@ -180,9 +188,7 @@ struct WidgetsEntryView : View {
             
             // Sparkline
             if !item.sparklineIn7d.price.isEmpty {
-              SparklineView(prices: item.sparklineIn7d.price, color: item.priceChangePercentage24hColor)
-                .frame(width: 80)
-                .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
+              sparkLine(prices: item.sparklineIn7d.price, color: item.priceChangePercentage7dColor)
             } else {
               Color.clear
                 .frame(width: 80)
@@ -194,10 +200,10 @@ struct WidgetsEntryView : View {
                 .bold()
                 .font(.system(size: 14))
               
-              Text(item.priceChangePercentage24h)
+              Text(item.priceChangePercentage7dInCurrency)
                 .bold()
                 .font(.system(size: 12))
-                .foregroundColor(item.priceChangePercentage24hColor)
+                .foregroundColor(item.priceChangePercentage7dColor)
             }
             .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
             .frame(width: reader.size.width / 3, alignment: .trailing)

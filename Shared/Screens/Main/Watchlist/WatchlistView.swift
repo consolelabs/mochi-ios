@@ -14,6 +14,10 @@ struct WatchlistView: View {
   
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
+    
+  @State var isEditting: Bool = false
+  @State var showShadow: Bool = true
+  @State var showName: Bool = true
   
   var watchlistRows: some View {
     ForEach(vm.data, id: \.id) { item in
@@ -31,16 +35,20 @@ struct WatchlistView: View {
                 .font(.system(size: 14, weight: .medium, design: .rounded))
                 .foregroundColor(.title)
               
-              Text(item.name)
-                .font(.system(size: 12, weight: .medium, design: .rounded))
-                .foregroundColor(.subtitle)
+              if showName {
+                Text(item.name)
+                  .font(.system(size: 12, weight: .medium, design: .rounded))
+                  .foregroundColor(.subtitle)
+              }
             }
           }
           .frame(width: reader.size.width / 3, alignment: .leading)
           
           // Sparkline
           if !item.sparklineIn7d.price.isEmpty {
-            SparklineView(prices: item.sparklineIn7d.price, color: item.priceChangePercentage24hColor)
+            SparklineView(prices: item.sparklineIn7d.price, color: item.priceChangePercentage7dColor)
+              .shadow(color: item.priceChangePercentage7dColor.opacity(0.5), radius: showShadow ? 4 : 0, y: showShadow ? 4 : 0)
+
               .frame(width: 80)
           } else {
             Color.clear
@@ -52,9 +60,9 @@ struct WatchlistView: View {
               .font(.system(size: 14, weight: .bold, design: .rounded))
               .foregroundColor(.title)
             
-            Text(item.priceChangePercentage24h)
+            Text(item.priceChangePercentage7dInCurrency)
               .font(.system(size: 12, weight: .semibold, design: .rounded))
-              .foregroundColor(item.priceChangePercentage24hColor)
+              .foregroundColor(item.priceChangePercentage7dColor)
           }
           .frame(width: reader.size.width / 3, alignment: .trailing)
         }
@@ -79,6 +87,7 @@ struct WatchlistView: View {
           }
         } label: {
           Image(systemName: item.isSelected ? "checkmark.circle.fill" : "plus.circle.fill")
+            .foregroundColor(item.isSelected ? .green : .appPrimary)
         }
         .buttonStyle(BorderlessButtonStyle())
         
@@ -96,8 +105,38 @@ struct WatchlistView: View {
       .padding(.vertical, 4)
     }
   }
-    
-  var contentView: some View {
+  
+  var editButton: some View {
+    Button {
+      withAnimation {
+        isEditting = true
+      }
+    } label: {
+      Label("Edit watchlist", systemImage: "pencil")
+    }
+  }
+   
+  var showNameButton: some View {
+    Button {
+      withAnimation {
+        showName.toggle()
+      }
+    } label: {
+      Label("\(showName ? "✓" : "") Show name", systemImage: "text.magnifyingglass")
+    }
+  }
+  
+  var showShadowButton: some View {
+    Button {
+      withAnimation {
+        showShadow.toggle()
+      }
+    } label: {
+      Label("\(showShadow ? "✓" : "") Show shadow", systemImage: "sparkles.square.fill.on.square")
+    }
+  }
+  
+  var body: some View {
     NavigationView {
       List {
         if (vm.isSearching) {
@@ -106,6 +145,7 @@ struct WatchlistView: View {
           watchlistRows
         }
       }
+      .environment(\.editMode, .constant(isEditting ? .active : .inactive))
       .searchable(text: $vm.searchTerm)
       .autocorrectionDisabled()
       .textInputAutocapitalization(.never)
@@ -118,32 +158,52 @@ struct WatchlistView: View {
               .font(.system(.title3, design: .rounded))
               .fontWeight(.bold)
             
-            Text(Date().formatted(
-              .dateTime
-                .day().month()
-            ))
-            .font(.system(.title3, design: .rounded))
-            .fontWeight(.bold)
+            Group {
+              Text(Date().advanced(by: -(7 * 24 * 3600)).formatted(
+                .dateTime
+                  .day().month()
+              ))
+              .fontWeight(.semibold)
+              +
+              Text(" - ")
+                .fontWeight(.semibold)
+              +
+              Text(Date().formatted(
+                .dateTime
+                  .day().month()
+              ))
+              .fontWeight(.semibold)
+            }
+            .font(.system(.caption, design: .rounded))
             .foregroundColor(.subtitle)
             
             Spacer()
           }
         }
         ToolbarItem {
-          EditButton()
+          if (isEditting) {
+            Button("Done") {
+              withAnimation {
+                isEditting = false
+              }
+            }
+          } else {
+            Menu {
+              editButton
+              showNameButton
+              showShadowButton
+            } label: {
+              Image(systemName: "ellipsis.circle.fill")
+            }
+          }
         }
       }
     }
-  }
-  
-  var body: some View {
-    ZStack {
+    .overlay {
       if vm.isLoading {
         ActivityIndicator()
           .frame(width: 40, height: 40)
           .foregroundColor(.appPrimary)
-      } else {
-        contentView
       }
     }
     .onChange(of: discordId) { newValue in

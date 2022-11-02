@@ -107,7 +107,6 @@ struct SparklineView: View {
         }
       }
       .stroke(color, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
-      .shadow(color: color, radius: 8, x: 0, y: 8)
     }
   }
 }

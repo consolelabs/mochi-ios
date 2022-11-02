@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct SettingsView: View {
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
-  var discordId: String = ""
+  var discordId: String = "" {
+    didSet {
+      WidgetCenter.shared.reloadAllTimelines()
+    }
+  }
 
   var body: some View {
     NavigationView {

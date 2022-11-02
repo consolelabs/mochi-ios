@@ -38,9 +38,9 @@ class WatchlistViewModel: ObservableObject {
       percentFormatter.locale = Locale(identifier: "en_US")
       percentFormatter.numberStyle = .percent
       percentFormatter.maximumFractionDigits = 2
-      self.priceChangePercentage24h = "\(watchlist.priceChangePercentage24h > 0 ? "+" : "")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage24h / 1000)) ?? "NA")"
+      self.priceChangePercentage24h = "\(watchlist.priceChangePercentage24h > 0 ? "+" : "")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage24h / 100)) ?? "NA")"
       self.priceChangePercentage24hColor = watchlist.priceChangePercentage24h > 0 ? .green : .red
-      self.priceChangePercentage7dInCurrency = "\(watchlist.priceChangePercentage7dInCurrency > 0 ? "+" : "-")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage7dInCurrency / 1000)) ?? "NA")"
+      self.priceChangePercentage7dInCurrency = "\(watchlist.priceChangePercentage7dInCurrency > 0 ? "+" : "")\(percentFormatter.string(from: NSNumber(value: watchlist.priceChangePercentage7dInCurrency / 100)) ?? "NA")"
       self.priceChangePercentage7dColor = watchlist.priceChangePercentage7dInCurrency > 0 ? .green : .red
     }
   }

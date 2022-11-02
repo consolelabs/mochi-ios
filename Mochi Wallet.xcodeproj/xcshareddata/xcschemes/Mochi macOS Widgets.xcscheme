@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "082A719A28FF063200158021"
-               BuildableName = "WidgetsExtension.appex"
-               BlueprintName = "WidgetsExtension"
+               BlueprintIdentifier = "08495835290E7AE9005C8186"
+               BuildableName = "Mochi macOS Widgets.appex"
+               BlueprintName = "Mochi macOS Widgets"
                ReferencedContainer = "container:Mochi Wallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,9 +29,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "08B3316F284A77CA003295F3"
+               BlueprintIdentifier = "08B33175284A77CA003295F3"
                BuildableName = "Mochi Wallet.app"
-               BlueprintName = "Mochi Wallet (iOS)"
+               BlueprintName = "Mochi Wallet (macOS)"
                ReferencedContainer = "container:Mochi Wallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,26 +57,16 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.springboard">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "082A719A28FF063200158021"
-            BuildableName = "WidgetsExtension.appex"
-            BlueprintName = "WidgetsExtension"
-            ReferencedContainer = "container:Mochi Wallet.xcodeproj">
-         </BuildableReference>
-      </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "08B3316F284A77CA003295F3"
+            BlueprintIdentifier = "08B33175284A77CA003295F3"
             BuildableName = "Mochi Wallet.app"
-            BlueprintName = "Mochi Wallet (iOS)"
+            BlueprintName = "Mochi Wallet (macOS)"
             ReferencedContainer = "container:Mochi Wallet.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"
@@ -86,6 +76,11 @@
          <EnvironmentVariable
             key = "_XCWidgetDefaultView"
             value = "timeline"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetFamily"
+            value = "medium"
             isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -102,9 +97,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "08B3316F284A77CA003295F3"
+            BlueprintIdentifier = "08B33175284A77CA003295F3"
             BuildableName = "Mochi Wallet.app"
-            BlueprintName = "Mochi Wallet (iOS)"
+            BlueprintName = "Mochi Wallet (macOS)"
             ReferencedContainer = "container:Mochi Wallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

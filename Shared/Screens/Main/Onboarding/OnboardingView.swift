@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct OnboardingView: View {
-  @EnvironmentObject var appState: AppState
-  
   var body: some View {
     NavigationView {
       VStack {
         OnboardingPageView()
         Button(action: {
-          appState.createWallet()
+//          appState.createWallet()
         }) {
           Text("Create a new wallet")
             .fontWeight(.semibold)

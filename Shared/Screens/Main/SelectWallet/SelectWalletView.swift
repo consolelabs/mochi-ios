@@ -92,8 +92,6 @@ struct SelectWalletView: View {
     walletManager: WalletManagerImpl(localStorage: LocalStorage(), keychainService: KeychainServiceImpl())
   )
   
-  @EnvironmentObject var appState: AppState
-  
   var body: some View {
     NavigationView {
       VStack {
@@ -157,17 +155,17 @@ struct SelectWalletView: View {
           }
         }
       }
-      .onChange(of: vm.currentWallet) { newValue in
-        if let wallet = newValue {
-          appState.updateCurrentWallet(wallet: wallet)
-        }
-      }
-      .onChange(of: vm.isWalletEmpty) { walletIsEmpty in
-        if walletIsEmpty {
-          appState.deleteWallet()
-          appState.showSelectWallet = false
-        }
-      }
+//      .onChange(of: vm.currentWallet) { newValue in
+//        if let wallet = newValue {
+//          appState.updateCurrentWallet(wallet: wallet)
+//        }
+//      }
+//      .onChange(of: vm.isWalletEmpty) { walletIsEmpty in
+//        if walletIsEmpty {
+//          appState.deleteWallet()
+//          appState.showSelectWallet = false
+//        }
+//      }
       .onAppear {
         vm.onAppear()
       }

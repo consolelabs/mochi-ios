@@ -8,7 +8,11 @@
 import Foundation
 
 protocol DefiService {
+  func queryCoins(query: String) async -> Result<SearchCoinsResponse, RequestError>
+  func getCoin(id: String) async -> Result<GetCoinResponse, RequestError>
   func getWatchlist(page: Int?, pageSize: Int?, userId: String) async -> Result<GetWatchListResponse, RequestError>
+  func addWatchlist(coinId: String, userId: String) async -> Result<AddWatchListResponse, RequestError>
+  func removeWatchlist(symbol: String, userId: String) async -> Result<RemoveWatchListResponse, RequestError>
 }
 
 extension DefiService {
@@ -18,6 +22,14 @@ extension DefiService {
 }
 
 final class DefiServiceImpl: HTTPClient, DefiService {
+  func queryCoins(query: String) async -> Result<SearchCoinsResponse, RequestError> {
+    return await sendRequest(endpoint: DefiEndpoint.queryCoins(query: query), responseModel: SearchCoinsResponse.self)
+  }
+  
+  func getCoin(id: String) async -> Result<GetCoinResponse, RequestError> {
+    return await sendRequest(endpoint: DefiEndpoint.getCoin(id: id), responseModel: GetCoinResponse.self)
+  }
+  
   func getWatchlist(
     page: Int?,
     pageSize: Int?,
@@ -25,10 +37,26 @@ final class DefiServiceImpl: HTTPClient, DefiService {
   ) async -> Result<GetWatchListResponse, RequestError> {
     return await sendRequest(endpoint: DefiEndpoint.watchlist(page: page, pageSize: pageSize, userId: userId), responseModel: GetWatchListResponse.self)
   }
+  
+  func addWatchlist(coinId: String, userId: String) async -> Result<AddWatchListResponse, RequestError> {
+    return await sendRequest(endpoint: DefiEndpoint.addWatchlist(coinId: coinId, userId: userId), responseModel: AddWatchListResponse.self)
+  }
+  
+  func removeWatchlist(symbol: String, userId: String) async -> Result<RemoveWatchListResponse, RequestError> {
+    return await sendRequest(endpoint: DefiEndpoint.removeWatchlist(symbol: symbol, userId: userId), responseModel: RemoveWatchListResponse.self)
+  }
 }
 
 struct GetWatchListResponse: Codable {
   let data: [DefiWatchList]
+}
+
+struct AddWatchListResponse: Codable {
+  let data: [String]?
+}
+
+struct RemoveWatchListResponse: Codable {
+  let data: [String]?
 }
 
 struct DefiWatchList: Codable {
@@ -89,3 +117,32 @@ extension String {
     }
   }
 }
+
+struct SearchCoinsResponse: Codable {
+  struct SearchCoinsData: Codable {
+    let id: String
+    let name: String
+    let symbol: String
+  }
+  
+  let data: [SearchCoinsData]
+}
+
+
+struct GetCoinResponse: Codable {
+  struct GetCoinData: Codable {
+    struct Image: Codable {
+      let large: String
+      let small: String
+      let thumb: String
+    }
+    
+    let id: String
+    let name: String
+    let symbol: String
+    let image: Image
+  }
+  
+  let data: [GetCoinData]
+}
+

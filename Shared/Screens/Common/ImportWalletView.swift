@@ -13,7 +13,7 @@ struct ImportWalletView: View {
     var id: Self { self }
   }
  
-  @EnvironmentObject var appState: AppState
+//  @EnvironmentObject var appState: AppState
   @FocusState private var nameInFocus: Bool
   @State private var walletName: String = "My Wallet"
   @State private var importType: ImportType = .phrase
@@ -77,14 +77,14 @@ struct ImportWalletView: View {
         }
       }
       Button("Import wallet", action: {
-        switch importType {
-        case .phrase:
-          appState.importWallet(name: walletName, mnemonics: phrase)
-        case .privateKey:
-          appState.importWallet(name: walletName, privateKey: privateKey)
-        case .address:
-          appState.importWallet(name: walletName, address: address)
-        }
+//        switch importType {
+//        case .phrase:
+//          appState.importWallet(name: walletName, mnemonics: phrase)
+//        case .privateKey:
+//          appState.importWallet(name: walletName, privateKey: privateKey)
+//        case .address:
+//          appState.importWallet(name: walletName, address: address)
+//        }
       })
       .buttonStyle(.primaryExpanded)
       .padding()

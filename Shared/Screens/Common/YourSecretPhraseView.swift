@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct YourSecretPhraseView: View {
-  @EnvironmentObject var appState: AppState
+//  @EnvironmentObject var appState: AppState
 
   private let phrases: String = "infant letter scatter tonight chef perfect always push feel swallow sudden trophy"
   

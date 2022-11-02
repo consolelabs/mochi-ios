@@ -11,6 +11,7 @@ import Intents
 import Combine
 import SDWebImageSwiftUI
 
+// MARK: - Widget View Model
 struct WidgetVM {
   let index: Int
   let id: String
@@ -47,6 +48,13 @@ struct WidgetVM {
   }
 }
 
+fileprivate extension DefiWatchList {
+  static func placeholder() -> Self {
+    return DefiWatchList(id: UUID().uuidString, name: "Bitcoin", symbol: "BTC", image: "", isPair: false, currentPrice: 23000, priceChangePercentage24h: 5, priceChangePercentage7dInCurrency: 3, sparklineIn7d: SparklineData(price: []))
+  }
+}
+
+// MARK: - Widget Provider
 class Provider: IntentTimelineProvider {
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
@@ -60,91 +68,76 @@ class Provider: IntentTimelineProvider {
   }
   
   func placeholder(in context: Context) -> WatchlistEntry {
-    WatchlistEntry(date: Date(), configuration: ConfigurationIntent(), data: [])
+    let data = (0..<8).map { WidgetVM(index: $0, watchlist: DefiWatchList.placeholder())}
+    return WatchlistEntry(date: Date(), configuration: ConfigurationIntent(), data: data, isPlaceHolder: true)
   }
   
   func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (WatchlistEntry) -> ()) {
     Task {
-      let widgetDiscordId = !discordId.isEmpty ? discordId : defaultDiscordId
-      let result = await defiService.getWatchlist(userId: widgetDiscordId)
-      guard case let .success(resp) = result else {
-        return
-      }
-      let widgetVMs = try await withThrowingTaskGroup(of: WidgetVM.self) { group -> [WidgetVM]  in
-        for (index, item) in resp.data.enumerated() {
-          group.addTask {
-            var widgetVM = WidgetVM(index: index, watchlist: item)
-            let uiImage = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<UIImage, Error>) in
-              SDWebImageDownloader.shared.downloadImage(with: URL(string: item.image)) { logoImage, data, error, success in
-                if let logoImage = logoImage {
-                  continuation.resume(with: .success(logoImage))
-                }
-                if let error = error {
-                  continuation.resume(with: .failure(error))
-                }
-              }
-            }
-            widgetVM.logoImage = Image(uiImage: uiImage)
-            return widgetVM
-          }
-        }
-        return try await group.reduce([], { result, item in
-          return result + [item]
-        })
-      }
-      let entry = WatchlistEntry(date: Date(), configuration: configuration, data: widgetVMs)
+      let widgetVMs = await getWidgetVMs()
+      let entry = WatchlistEntry(date: Date(), configuration: configuration, data: widgetVMs, isPlaceHolder: false)
       completion(entry)
     }
   }
   
   func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
     Task {
-      let widgetDiscordId = !discordId.isEmpty ? discordId : defaultDiscordId
-      let result = await defiService.getWatchlist(userId: widgetDiscordId)
-      guard case let .success(resp) = result else {
-        return
-      }
-      let widgetVMs = try await withThrowingTaskGroup(of: WidgetVM.self) { group -> [WidgetVM]  in
-        for (index, item) in resp.data.enumerated() {
-          group.addTask {
-            var widgetVM = WidgetVM(index: index, watchlist: item)
-            let uiImage = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<UIImage, Error>) in
-              SDWebImageDownloader.shared.downloadImage(with: URL(string: item.image)) { logoImage, data, error, success in
-                if let logoImage = logoImage {
-                  continuation.resume(with: .success(logoImage))
-                }
-                if let error = error {
-                  continuation.resume(with: .failure(error))
-                }
-              }
-            }
-            widgetVM.logoImage = Image(uiImage: uiImage)
-            return widgetVM
-          }
-        }
-        return try await group.reduce([], { result, item in
-          return result + [item]
-        })
-      }
-      var entries: [WatchlistEntry] = []
-      for hourOffset in 0..<1 {
-        let currentDate = Date()
-        let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-        let entry = WatchlistEntry(date: Date(), configuration: configuration, data: widgetVMs)
-        entries.append(entry)
-      }
-      let timeline = Timeline(entries: entries, policy: .atEnd)
+      let widgetVMs = await getWidgetVMs()
+      let currentDate = Date()
+      let entry = WatchlistEntry(date: currentDate, configuration: configuration, data: widgetVMs, isPlaceHolder: false)
+      let reloadDate = Calendar.current.date(byAdding: .minute,
+                                             value: 15,
+                                             to: currentDate)!
+      let timeline = Timeline(entries: [entry], policy: .after(reloadDate))
       completion(timeline)
     }
   }
+  
+  private func getWidgetVMs() async -> [WidgetVM] {
+    let widgetDiscordId = !discordId.isEmpty ? discordId : defaultDiscordId
+    let result = await defiService.getWatchlist(userId: widgetDiscordId)
+    guard case let .success(resp) = result else {
+      return []
+    }
+    let widgetVMs = try? await withThrowingTaskGroup(of: WidgetVM.self) { group -> [WidgetVM]  in
+      for (index, item) in resp.data.enumerated() {
+        group.addTask {
+          var widgetVM = WidgetVM(index: index, watchlist: item)
+          let sysImage = try await withCheckedThrowingContinuation { continuation in
+            SDWebImageDownloader.shared.downloadImage(with: URL(string: item.image)) { logoImage, data, error, success in
+              if let logoImage = logoImage {
+                continuation.resume(with: .success(logoImage))
+              }
+              if let error = error {
+                continuation.resume(with: .failure(error))
+              }
+            }
+          }
+          #if os(iOS)
+          widgetVM.logoImage = Image(uiImage: sysImage)
+          #elseif os(macOS)
+          widgetVM.logoImage = Image(nsImage: sysImage)
+          #endif
+          return widgetVM
+        }
+      }
+      return try await group.reduce([], { result, item in
+        return result + [item]
+      })
+    }
+    return widgetVMs ?? []
+  }
 }
 
+// MARK: - Widget Entry
 struct WatchlistEntry: TimelineEntry {
   let date: Date
   let configuration: ConfigurationIntent
   let data: [WidgetVM]
+  let isPlaceHolder: Bool
 }
 
+// MARK: - Widget View
 struct WidgetsEntryView : View {
   var entry: Provider.Entry
 
@@ -172,13 +165,16 @@ struct WidgetsEntryView : View {
                   .scaledToFit()
                   .clipShape(RoundedRectangle(cornerRadius: 4))
                   .frame(width: 20, height: 20)
+                  .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
               } else {
                 RoundedRectangle(cornerRadius: 4)
                   .fill(Color.gray)
                   .frame(width: 20, height: 20)
+                  .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
               }
               
               nameView(name: item.name, symbol: item.symbol)
+                .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
             }
             .frame(width: reader.size.width / 3, alignment: .leading)
             
@@ -186,9 +182,11 @@ struct WidgetsEntryView : View {
             if !item.sparklineIn7d.price.isEmpty {
               SparklineView(prices: item.sparklineIn7d.price, color: item.priceChangePercentage24hColor)
                 .frame(width: 80)
+                .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
             } else {
               Color.clear
                 .frame(width: 80)
+                .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
             }
             
             VStack(alignment: .trailing) {
@@ -197,9 +195,11 @@ struct WidgetsEntryView : View {
                 .font(.system(size: 14))
               
               Text(item.priceChangePercentage24h)
-                .font(.system(size: 11))
+                .bold()
+                .font(.system(size: 12))
                 .foregroundColor(item.priceChangePercentage24hColor)
             }
+            .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
             .frame(width: reader.size.width / 3, alignment: .trailing)
           }
           .frame(height: 30)
@@ -210,6 +210,7 @@ struct WidgetsEntryView : View {
   }
 }
 
+// MARK: - Widget Main
 @main
 struct WatchlistWidget: Widget {
   let kind: String = "Watchlist"
@@ -220,13 +221,13 @@ struct WatchlistWidget: Widget {
     }
     .configurationDisplayName("Mochi Wallet")
     .description("Track Your Defi Watchlist")
-    .supportedFamilies([.systemMedium, .systemLarge, .systemExtraLarge])
+    .supportedFamilies([.systemMedium, .systemLarge])
   }
 }
 
 struct Widgets_Previews: PreviewProvider {
   static var previews: some View {
-    WidgetsEntryView(entry: WatchlistEntry(date: Date(), configuration: ConfigurationIntent(), data: []))
+    WidgetsEntryView(entry: WatchlistEntry(date: Date(), configuration: ConfigurationIntent(), data: [], isPlaceHolder: false))
       .previewContext(WidgetPreviewContext(family: .systemLarge))
   }
 }

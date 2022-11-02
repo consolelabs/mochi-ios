@@ -10,14 +10,12 @@
 		080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
 		080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
 		080E54192851E97F00C7FDB1 /* TermAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54182851E97F00C7FDB1 /* TermAgreementView.swift */; };
-		080E541A2851E97F00C7FDB1 /* TermAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54182851E97F00C7FDB1 /* TermAgreementView.swift */; };
 		080E541C2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E541B2851EF5300C7FDB1 /* BackupWalletReminderView.swift */; };
-		080E541D2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E541B2851EF5300C7FDB1 /* BackupWalletReminderView.swift */; };
 		082A719E28FF063200158021 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719D28FF063200158021 /* WidgetKit.framework */; };
 		082A71A028FF063200158021 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719F28FF063200158021 /* SwiftUI.framework */; };
 		082A71A328FF063200158021 /* WatchlistWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A71A228FF063200158021 /* WatchlistWidget.swift */; };
 		082A71A628FF063300158021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082A71A528FF063300158021 /* Assets.xcassets */; };
-		082A71AC28FF063300158021 /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 082A719B28FF063200158021 /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		082A71AC28FF063300158021 /* Mochi iOS Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 082A719B28FF063200158021 /* Mochi iOS Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		083BF29A289135AB008B6E03 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083BF299289135AB008B6E03 /* BottomSheetView.swift */; };
 		0841047F290B7914008F5823 /* WatchlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841047E290B7913008F5823 /* WatchlistView.swift */; };
 		08410480290B7914008F5823 /* WatchlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841047E290B7913008F5823 /* WatchlistView.swift */; };
@@ -43,21 +41,42 @@
 		0841049D290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */; };
 		0841049E290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */; };
 		084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084104A3290D8584008F5823 /* LocalStorage+Ext.swift */; };
+		0849582F290E766A005C8186 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0849582E290E766A005C8186 /* SDWebImageSwiftUI */; };
+		08495831290E78E0005C8186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08495830290E78E0005C8186 /* AppDelegate.swift */; };
+		08495837290E7AE9005C8186 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719D28FF063200158021 /* WidgetKit.framework */; };
+		08495838290E7AE9005C8186 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719F28FF063200158021 /* SwiftUI.framework */; };
+		08495845290E7AEA005C8186 /* Mochi macOS Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 08495836290E7AE9005C8186 /* Mochi macOS Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0849584A290E7BA2005C8186 /* WatchlistWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A71A228FF063200158021 /* WatchlistWidget.swift */; };
+		0849584B290E7BA8005C8186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082A71A528FF063300158021 /* Assets.xcassets */; };
+		0849584C290E7BB2005C8186 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 08E11F55290DAAC10012441D /* Widgets.intentdefinition */; };
+		0849584E290E8454005C8186 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0849584D290E8454005C8186 /* SDWebImageSwiftUI */; };
+		0849584F290E8475005C8186 /* DefiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C32D962907F63800BCBD8D /* DefiService.swift */; };
+		08495850290E84A6005C8186 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 08E11F55290DAAC10012441D /* Widgets.intentdefinition */; };
+		08495851290E851B005C8186 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410493290BBB60008F5823 /* RequestError.swift */; };
+		08495852290E851F005C8186 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048F290BBB4F008F5823 /* RequestMethod.swift */; };
+		08495853290E8521005C8186 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841048B290BBB29008F5823 /* HTTPClient.swift */; };
+		08495854290E8524005C8186 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410487290BBB0E008F5823 /* Endpoint.swift */; };
+		08495855290E852C005C8186 /* DefiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410497290BC380008F5823 /* DefiEndpoint.swift */; };
+		08495856290EC644005C8186 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410481290B79DE008F5823 /* Line.swift */; };
 		0850CADA289070D2008D3094 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0850CAD9289070D2008D3094 /* BottomSheet */; };
 		08537C1528902A1200B15BD1 /* SelectWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08537C1428902A1200B15BD1 /* SelectWalletView.swift */; };
 		086A609A28634D3300442FC1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 086A609928634D3300442FC1 /* web3swift */; };
 		086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */; };
-		086A609D28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */; };
+		088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
+		088BF39A291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
+		088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
+		088BF39C291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
+		088BF39E2912107F00B2C365 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF39D2912107F00B2C365 /* ActivityIndicator.swift */; };
+		088BF39F2912107F00B2C365 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF39D2912107F00B2C365 /* ActivityIndicator.swift */; };
+		088BF3A02912107F00B2C365 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF39D2912107F00B2C365 /* ActivityIndicator.swift */; };
+		088BF3A12912107F00B2C365 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF39D2912107F00B2C365 /* ActivityIndicator.swift */; };
 		0894EDB72850A2BA00391C7F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDB62850A2BA00391C7F /* Theme.swift */; };
 		0894EDB82850A2BA00391C7F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDB62850A2BA00391C7F /* Theme.swift */; };
 		0894EDBC2850B20600391C7F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBB2850B20500391C7F /* OnboardingView.swift */; };
-		0894EDBD2850B20600391C7F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBB2850B20500391C7F /* OnboardingView.swift */; };
 		0894EDBF2850BB0500391C7F /* ImportWalletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */; };
-		0894EDC02850BB0500391C7F /* ImportWalletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */; };
 		0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDC12851109000391C7F /* ImportWalletView.swift */; };
-		0894EDC32851109000391C7F /* ImportWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDC12851109000391C7F /* ImportWalletView.swift */; };
-		08B33179284A77CA003295F3 /* BitsfiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* BitsfiApp.swift */; };
-		08B3317A284A77CA003295F3 /* BitsfiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* BitsfiApp.swift */; };
+		08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
+		08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317B284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
 		08B3317C284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
 		08B3317D284A77CA003295F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B3316B284A77CA003295F3 /* Assets.xcassets */; };
@@ -72,13 +91,11 @@
 		08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A4285C792000E9CF04 /* TrailingIconLabelStyle.swift */; };
 		08B3D1A6285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A4285C792000E9CF04 /* TrailingIconLabelStyle.swift */; };
 		08B3D1A9285CB37600E9CF04 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A8285CB37600E9CF04 /* MarketView.swift */; };
-		08B3D1AA285CB37600E9CF04 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3D1A8285CB37600E9CF04 /* MarketView.swift */; };
 		08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B06D286DA79A00981D2E /* NFTService.swift */; };
 		08B5B06F286DA79A00981D2E /* NFTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B06D286DA79A00981D2E /* NFTService.swift */; };
 		08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B072286DC73C00981D2E /* NetworkService.swift */; };
 		08B5B074286DC73C00981D2E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B072286DC73C00981D2E /* NetworkService.swift */; };
 		08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */; };
-		08B5B07C286E2D2F00981D2E /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */; };
 		08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 08B5B07E286E302600981D2E /* SwiftUICharts */; };
 		08BC493C2886B51E0050852A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 08BC493B2886B51E0050852A /* KeychainAccess */; };
 		08BC493F28892EEE0050852A /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC493E28892EEE0050852A /* WalletManager.swift */; };
@@ -102,7 +119,6 @@
 		08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
 		08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */; };
 		08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBF287D992D003480C6 /* ProfileView.swift */; };
-		08DD9BC1287D9937003480C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BBF287D992D003480C6 /* ProfileView.swift */; };
 		08DD9BC4287FFBA1003480C6 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 08DD9BC3287FFBA1003480C6 /* WalletConnectSwift */; };
 		08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BC62880031B003480C6 /* WalletConnect.swift */; };
 		08DD9BC928800452003480C6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BC828800452003480C6 /* ProfileViewModel.swift */; };
@@ -119,6 +135,13 @@
 			remoteGlobalIDString = 082A719A28FF063200158021;
 			remoteInfo = WidgetsExtension;
 		};
+		08495843290E7AEA005C8186 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08B33164284A77C8003295F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08495835290E7AE9005C8186;
+			remoteInfo = "Mochi macOS WidgetsExtension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,7 +151,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				082A71AC28FF063300158021 /* WidgetsExtension.appex in Embed Foundation Extensions */,
+				082A71AC28FF063300158021 /* Mochi iOS Widgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08495849290E7AEA005C8186 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				08495845290E7AEA005C8186 /* Mochi macOS Widgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +173,7 @@
 		080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		080E54182851E97F00C7FDB1 /* TermAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermAgreementView.swift; sourceTree = "<group>"; };
 		080E541B2851EF5300C7FDB1 /* BackupWalletReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupWalletReminderView.swift; sourceTree = "<group>"; };
-		082A719B28FF063200158021 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		082A719B28FF063200158021 /* Mochi iOS Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Mochi iOS Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		082A719D28FF063200158021 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		082A719F28FF063200158021 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		082A71A228FF063200158021 /* WatchlistWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistWidget.swift; sourceTree = "<group>"; };
@@ -157,13 +191,18 @@
 		084104A3290D8584008F5823 /* LocalStorage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalStorage+Ext.swift"; sourceTree = "<group>"; };
 		084104A5290D988C008F5823 /* Mochi Wallet (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mochi Wallet (iOS).entitlements"; sourceTree = "<group>"; };
 		084104A6290D98C9008F5823 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
+		08495830290E78E0005C8186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		08495836290E7AE9005C8186 /* Mochi macOS Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Mochi macOS Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08495840290E7AEA005C8186 /* Mochi_macOS_Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mochi_macOS_Widgets.entitlements; sourceTree = "<group>"; };
 		08537C1428902A1200B15BD1 /* SelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletView.swift; sourceTree = "<group>"; };
 		086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSecretPhraseView.swift; sourceTree = "<group>"; };
+		088BF398291044F900B2C365 /* DefiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefiServiceMock.swift; sourceTree = "<group>"; };
+		088BF39D2912107F00B2C365 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		0894EDB62850A2BA00391C7F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0894EDBB2850B20500391C7F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletListView.swift; sourceTree = "<group>"; };
 		0894EDC12851109000391C7F /* ImportWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletView.swift; sourceTree = "<group>"; };
-		08B33169284A77C8003295F3 /* BitsfiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsfiApp.swift; sourceTree = "<group>"; };
+		08B33169284A77C8003295F3 /* MochiWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiWalletApp.swift; sourceTree = "<group>"; };
 		08B3316A284A77C8003295F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08B3316B284A77CA003295F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08B33170284A77CA003295F3 /* Mochi Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mochi Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +247,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08495833290E7AE9005C8186 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0849584E290E8454005C8186 /* SDWebImageSwiftUI in Frameworks */,
+				08495838290E7AE9005C8186 /* SwiftUI.framework in Frameworks */,
+				08495837290E7AE9005C8186 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		08B3316D284A77CA003295F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0849582F290E766A005C8186 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +404,7 @@
 				0894EDB52850A2A900391C7F /* Utils */,
 				08B3318F284A8449003295F3 /* Styles */,
 				08B33188284A7FAF003295F3 /* Navigation */,
-				08B33169284A77C8003295F3 /* BitsfiApp.swift */,
+				08B33169284A77C8003295F3 /* MochiWalletApp.swift */,
 				08B3316B284A77CA003295F3 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -365,7 +415,8 @@
 			children = (
 				08B33170284A77CA003295F3 /* Mochi Wallet.app */,
 				08B33176284A77CA003295F3 /* Mochi Wallet.app */,
-				082A719B28FF063200158021 /* WidgetsExtension.appex */,
+				082A719B28FF063200158021 /* Mochi iOS Widgets.appex */,
+				08495836290E7AE9005C8186 /* Mochi macOS Widgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,6 +425,8 @@
 			isa = PBXGroup;
 			children = (
 				08B33178284A77CA003295F3 /* macOS.entitlements */,
+				08495840290E7AEA005C8186 /* Mochi_macOS_Widgets.entitlements */,
+				08495830290E78E0005C8186 /* AppDelegate.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -476,6 +529,7 @@
 			children = (
 				08B3D1A1285C4B7800E9CF04 /* DataTableView.swift */,
 				08410481290B79DE008F5823 /* Line.swift */,
+				088BF39D2912107F00B2C365 /* ActivityIndicator.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -548,6 +602,7 @@
 			children = (
 				08C32D962907F63800BCBD8D /* DefiService.swift */,
 				08410497290BC380008F5823 /* DefiEndpoint.swift */,
+				088BF398291044F900B2C365 /* DefiServiceMock.swift */,
 			);
 			path = Defi;
 			sourceTree = "<group>";
@@ -587,9 +642,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		082A719A28FF063200158021 /* WidgetsExtension */ = {
+		082A719A28FF063200158021 /* Mochi iOS Widgets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 082A71AD28FF063300158021 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */;
+			buildConfigurationList = 082A71AD28FF063300158021 /* Build configuration list for PBXNativeTarget "Mochi iOS Widgets" */;
 			buildPhases = (
 				082A719728FF063200158021 /* Sources */,
 				082A719828FF063200158021 /* Frameworks */,
@@ -599,12 +654,32 @@
 			);
 			dependencies = (
 			);
-			name = WidgetsExtension;
+			name = "Mochi iOS Widgets";
 			packageProductDependencies = (
 				08C32D9C290841E300BCBD8D /* SDWebImageSwiftUI */,
 			);
 			productName = WidgetsExtension;
-			productReference = 082A719B28FF063200158021 /* WidgetsExtension.appex */;
+			productReference = 082A719B28FF063200158021 /* Mochi iOS Widgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		08495835290E7AE9005C8186 /* Mochi macOS Widgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08495846290E7AEA005C8186 /* Build configuration list for PBXNativeTarget "Mochi macOS Widgets" */;
+			buildPhases = (
+				08495832290E7AE9005C8186 /* Sources */,
+				08495833290E7AE9005C8186 /* Frameworks */,
+				08495834290E7AE9005C8186 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mochi macOS Widgets";
+			packageProductDependencies = (
+				0849584D290E8454005C8186 /* SDWebImageSwiftUI */,
+			);
+			productName = "Mochi macOS WidgetsExtension";
+			productReference = 08495836290E7AE9005C8186 /* Mochi macOS Widgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		08B3316F284A77CA003295F3 /* Mochi Wallet (iOS) */ = {
@@ -641,12 +716,17 @@
 				08B33172284A77CA003295F3 /* Sources */,
 				08B33173284A77CA003295F3 /* Frameworks */,
 				08B33174284A77CA003295F3 /* Resources */,
+				08495849290E7AEA005C8186 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				08495844290E7AEA005C8186 /* PBXTargetDependency */,
 			);
 			name = "Mochi Wallet (macOS)";
+			packageProductDependencies = (
+				0849582E290E766A005C8186 /* SDWebImageSwiftUI */,
+			);
 			productName = "Bitsfi (macOS)";
 			productReference = 08B33176284A77CA003295F3 /* Mochi Wallet.app */;
 			productType = "com.apple.product-type.application";
@@ -662,6 +742,9 @@
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					082A719A28FF063200158021 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					08495835290E7AE9005C8186 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 					08B3316F284A77CA003295F3 = {
@@ -695,7 +778,8 @@
 			targets = (
 				08B3316F284A77CA003295F3 /* Mochi Wallet (iOS) */,
 				08B33175284A77CA003295F3 /* Mochi Wallet (macOS) */,
-				082A719A28FF063200158021 /* WidgetsExtension */,
+				082A719A28FF063200158021 /* Mochi iOS Widgets */,
+				08495835290E7AE9005C8186 /* Mochi macOS Widgets */,
 			);
 		};
 /* End PBXProject section */
@@ -706,6 +790,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				082A71A628FF063300158021 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08495834290E7AE9005C8186 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0849584B290E7BA8005C8186 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,8 +825,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0841048A290BBB0E008F5823 /* Endpoint.swift in Sources */,
+				088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 				08C32D9A2907F98D00BCBD8D /* NetworkService.swift in Sources */,
 				0841049E290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
+				088BF3A02912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				0841048E290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08E11F56290DAAC10012441D /* Widgets.intentdefinition in Sources */,
 				08C32D992907F63800BCBD8D /* DefiService.swift in Sources */,
@@ -744,6 +838,24 @@
 				08410492290BBB4F008F5823 /* RequestMethod.swift in Sources */,
 				0841049A290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08C32D942907F44600BCBD8D /* Bundle+version.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08495832290E7AE9005C8186 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08495854290E8524005C8186 /* Endpoint.swift in Sources */,
+				08495851290E851B005C8186 /* RequestError.swift in Sources */,
+				0849584C290E7BB2005C8186 /* Widgets.intentdefinition in Sources */,
+				08495853290E8521005C8186 /* HTTPClient.swift in Sources */,
+				0849584A290E7BA2005C8186 /* WatchlistWidget.swift in Sources */,
+				088BF3A12912107F00B2C365 /* ActivityIndicator.swift in Sources */,
+				08495852290E851F005C8186 /* RequestMethod.swift in Sources */,
+				08495856290EC644005C8186 /* Line.swift in Sources */,
+				08495855290E852C005C8186 /* DefiEndpoint.swift in Sources */,
+				0849584F290E8475005C8186 /* DefiService.swift in Sources */,
+				088BF39C291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,7 +877,7 @@
 				08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */,
 				08B3318D284A81C0003295F3 /* AppTabNavigation.swift in Sources */,
 				08DD9BC928800452003480C6 /* ProfileViewModel.swift in Sources */,
-				08B33179284A77CA003295F3 /* BitsfiApp.swift in Sources */,
+				08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
 				08410494290BBB60008F5823 /* RequestError.swift in Sources */,
 				0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */,
 				08BC49452889B8760050852A /* LocalStorage.swift in Sources */,
@@ -779,9 +891,11 @@
 				080E541C2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
 				08B3D1A2285C4B7800E9CF04 /* DataTableView.swift in Sources */,
 				08BC493F28892EEE0050852A /* WalletManager.swift in Sources */,
+				088BF39E2912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08BC49482889E2160050852A /* SettingsView.swift in Sources */,
 				08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
 				08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */,
+				088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 				084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */,
 				08C32D922907F44500BCBD8D /* Bundle+version.swift in Sources */,
 				08B3D1A9285CB37600E9CF04 /* MarketView.swift in Sources */,
@@ -805,36 +919,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
-				080E541D2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
-				0894EDC32851109000391C7F /* ImportWalletView.swift in Sources */,
 				08B33193284A84B3003295F3 /* PortfolioView.swift in Sources */,
 				08410499290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08410491290BBB4F008F5823 /* RequestMethod.swift in Sources */,
+				088BF39F2912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08410483290B79DE008F5823 /* Line.swift in Sources */,
 				0841048D290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08B5B06F286DA79A00981D2E /* NFTService.swift in Sources */,
 				08410480290B7914008F5823 /* WatchlistView.swift in Sources */,
 				08B3317C284A77CA003295F3 /* ContentView.swift in Sources */,
+				088BF39A291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 				0894EDB82850A2BA00391C7F /* Theme.swift in Sources */,
-				08B3D1AA285CB37600E9CF04 /* MarketView.swift in Sources */,
-				0894EDC02850BB0500391C7F /* ImportWalletListView.swift in Sources */,
 				08B3D1A3285C4B7800E9CF04 /* DataTableView.swift in Sources */,
 				08C32D932907F44600BCBD8D /* Bundle+version.swift in Sources */,
 				08410495290BBB60008F5823 /* RequestError.swift in Sources */,
 				08C32D982907F63800BCBD8D /* DefiService.swift in Sources */,
 				08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
-				08B5B07C286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
 				08410489290BBB0E008F5823 /* Endpoint.swift in Sources */,
+				08495850290E84A6005C8186 /* Widgets.intentdefinition in Sources */,
 				08B3D1A6285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
 				08B5B074286DC73C00981D2E /* NetworkService.swift in Sources */,
 				0841049D290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
-				0894EDBD2850B20600391C7F /* OnboardingView.swift in Sources */,
-				08B3317A284A77CA003295F3 /* BitsfiApp.swift in Sources */,
+				08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
 				08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */,
 				08B3318B284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
-				080E541A2851E97F00C7FDB1 /* TermAgreementView.swift in Sources */,
-				08DD9BC1287D9937003480C6 /* ProfileView.swift in Sources */,
-				086A609D28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
+				08495831290E78E0005C8186 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,8 +952,13 @@
 /* Begin PBXTargetDependency section */
 		082A71AB28FF063300158021 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 082A719A28FF063200158021 /* WidgetsExtension */;
+			target = 082A719A28FF063200158021 /* Mochi iOS Widgets */;
 			targetProxy = 082A71AA28FF063300158021 /* PBXContainerItemProxy */;
+		};
+		08495844290E7AEA005C8186 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08495835290E7AE9005C8186 /* Mochi macOS Widgets */;
+			targetProxy = 08495843290E7AEA005C8186 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -870,7 +984,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -901,7 +1015,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -909,6 +1023,70 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		08495847290E7AEA005C8186 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = macOS/Mochi_macOS_Widgets.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W777S7V8TN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mochi macOS Widgets";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		08495848290E7AEA005C8186 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = macOS/Mochi_macOS_Widgets.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W777S7V8TN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mochi macOS Widgets";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1097,6 +1275,7 @@
 		08B33185284A77CA003295F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
@@ -1130,6 +1309,7 @@
 		08B33186284A77CA003295F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
@@ -1163,11 +1343,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		082A71AD28FF063300158021 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */ = {
+		082A71AD28FF063300158021 /* Build configuration list for PBXNativeTarget "Mochi iOS Widgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				082A71AE28FF063300158021 /* Debug */,
 				082A71AF28FF063300158021 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08495846290E7AEA005C8186 /* Build configuration list for PBXNativeTarget "Mochi macOS Widgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08495847290E7AEA005C8186 /* Debug */,
+				08495848290E7AEA005C8186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1253,6 +1442,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0849582E290E766A005C8186 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08C32D8E2907CBF500BCBD8D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		0849584D290E8454005C8186 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08C32D8E2907CBF500BCBD8D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		0850CAD9289070D2008D3094 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0850CAD8289070D2008D3094 /* XCRemoteSwiftPackageReference "bottom-sheet" */;

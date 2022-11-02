@@ -8,21 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-  @EnvironmentObject var appState: AppState
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
 
-  private var wallet: WalletInfo? {
-    return appState.wallet
-  }
-  
-  private var isBackup: Bool {
-    guard let wallet = wallet else {
-      return false
-    }
-    return wallet.isBackupIcloud || wallet.isBackupManually
-  }
-  
   var body: some View {
     NavigationView {
       List {
@@ -60,9 +48,6 @@ struct SettingsView: View {
         }
         .foregroundColor(.title)
       }
-      .onAppear(perform: {
-        appState.fetchCurrentWallet()
-      })
       .navigationTitle("Settings")
       .navigationBarTitleDisplayMode(.inline)
     }

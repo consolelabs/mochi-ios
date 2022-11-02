@@ -93,17 +93,27 @@ struct SparklineView: View {
     GeometryReader { reader in
       Path { path in
         for index in data.indices {
-          let xPosition = reader.size.width / CGFloat(data.count) * CGFloat(index + 1)
+          let pxEachPoint = reader.size.width / CGFloat(data.count)
+          let xPosition = pxEachPoint * CGFloat(index + 1)
           let yAxis = maxY - minY
           let yPosition = (1 - CGFloat((data[index] - minY) / yAxis)) * reader.size.height
           if index == 0 {
             path.move(to: CGPoint(x: xPosition, y: yPosition))
           }
-          path.addLine(to: CGPoint(x: xPosition, y: yPosition))
+          // Smoothing line
+          if let currentPoint = path.currentPoint, currentPoint.distance(to: CGPoint(x: xPosition, y: yPosition)) >= pxEachPoint * 5 {
+            path.addLine(to: CGPoint(x: xPosition, y: yPosition))
+          }
         }
       }
-      .stroke(color, style: StrokeStyle(lineWidth: 1, lineCap: .butt, lineJoin: .round))
+      .stroke(color, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
       .shadow(color: color, radius: 8, x: 0, y: 8)
     }
+  }
+}
+
+extension CGPoint {
+  func distance(to point: CGPoint) -> Double {
+    return sqrt(pow(point.x - self.x, 2) + pow(point.y - self.y, 2))
   }
 }

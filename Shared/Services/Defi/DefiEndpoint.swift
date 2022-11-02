@@ -8,7 +8,11 @@
 import Foundation
 
 enum DefiEndpoint {
+  case queryCoins(query: String)
+  case getCoin(id: String)
   case watchlist(page: Int? = 0, pageSize: Int? = 10, userId: String)
+  case addWatchlist(coinId: String, userId: String)
+  case removeWatchlist(symbol: String, userId: String)
 }
 
 extension DefiEndpoint: Endpoint {
@@ -18,36 +22,54 @@ extension DefiEndpoint: Endpoint {
   
   var path: String {
     switch self {
+    case .queryCoins:
+      return "/api/v1/defi/coins"
+      
+    case .getCoin(let id):
+      return "/api/v1/defi/coins/\(id)"
+      
     case .watchlist:
+      return "/api/v1/defi/watchlist"
+    case .addWatchlist:
+      return "/api/v1/defi/watchlist"
+    case .removeWatchlist:
       return "/api/v1/defi/watchlist"
     }
   }
   
   var method: RequestMethod {
     switch self {
-    case .watchlist:
+    case .queryCoins, .getCoin, .watchlist:
       return .get
+    case .addWatchlist:
+      return .post
+    case .removeWatchlist:
+      return .delete
     }
   }
   
   var header: [String: String]? {
-    switch self {
-    case .watchlist:
-      return [
-        "Content-Type": "application/json;charset=utf-8"
-      ]
-    }
+    return [
+      "Content-Type": "application/json;charset=utf-8"
+    ]
   }
     
   var body: [String: String]? {
     switch self {
-    case .watchlist:
+    case .addWatchlist(let coinId, let userId):
+      return ["coin_gecko_id": coinId, "user_id": userId]
+    case .queryCoins, .getCoin, .watchlist, .removeWatchlist:
       return nil
     }
   }
   
   var parameters: [String: String]? {
     switch self {
+    case .queryCoins(let query):
+      var params = [String: String]()
+      params["query"] = query
+      return params
+      
     case .watchlist(let page, let pageSize, let userId):
       var params = [String: String]()
       if let page = page {
@@ -58,6 +80,11 @@ extension DefiEndpoint: Endpoint {
       }
       params["user_id"] = userId
       return params
+      
+    case .removeWatchlist(let symbol, let userId):
+      return ["symbol": symbol, "user_id": userId]
+      
+    case .getCoin, .addWatchlist: return nil
     }
   }
 }

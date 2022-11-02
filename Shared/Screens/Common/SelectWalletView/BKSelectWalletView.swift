@@ -117,7 +117,6 @@ extension Wallet {
 
 struct BKSelectWalletView: View {
   @Environment(\.openURL) var openURL
-  @EnvironmentObject var appState: AppState
   @StateObject private var vm = BKSelectWalletViewModel()
   let didConnect: () -> Void
   

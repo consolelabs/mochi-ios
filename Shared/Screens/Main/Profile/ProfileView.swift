@@ -10,7 +10,6 @@ import BottomSheet
 
 struct ProfileView: View {
   @Environment(\.openURL) var openURL
-  @EnvironmentObject var appState: AppState
   @StateObject private var vm = ProfileViewModel()
   @State private var showSettings = false
   
@@ -23,9 +22,9 @@ struct ProfileView: View {
       ScrollView {
         VStack {
           profileSection(
-            emoticon: appState.wallet?.emoticon ?? defaultEmoticon,
-            name: appState.wallet?.name ?? defaultWalletName,
-            address: appState.walletAddress ?? defaultAddress
+            emoticon: defaultEmoticon,
+            name: defaultWalletName,
+            address: defaultAddress
           )
           .padding(.bottom)
           
@@ -47,10 +46,10 @@ struct ProfileView: View {
               .foregroundColor(.title)
           }
         }
-        .halfSheet(showSheet: $appState.showSelectWallet) {
-          SelectWalletView()
-            .environmentObject(appState)
-        }
+//        .halfSheet(showSheet: $appState.showSelectWallet) {
+//          SelectWalletView()
+//            .environmentObject(appState)
+//        }
         .padding()
         .navigationBarTitle("Profile", displayMode: .inline)
         .navigationBarHidden(true)
@@ -105,7 +104,7 @@ struct ProfileView: View {
       }
       
       TopImageButton(title: "Wallets", imageName: "wallet.pass.fill") {
-        appState.showSelectWallet.toggle()
+//        appState.showSelectWallet.toggle()
       }
     }
   }
@@ -278,14 +277,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {
     ProfileView()
-      .environmentObject(
-        AppState(
-          walletManager: WalletManagerImpl(
-            localStorage: .init(),
-            keychainService: KeychainServiceImpl()
-          )
-        )
-      )
   }
 }
 

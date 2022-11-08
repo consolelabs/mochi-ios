@@ -52,6 +52,8 @@ struct AppSidebarNavigation: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background()
                 .ignoresSafeArea()
+          
+          Text("Hello")
         }
     }
 }

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutViewController" customModule="Mochi_Wallet" customModuleProvider="target">
+            <connections>
+                <outlet property="lblVersion" destination="lb6-Gv-o7O" id="0dR-JX-bPB"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <view translatesAutoresizingMaskIntoConstraints="NO" id="MlX-kL-kjB">
+                    <rect key="frame" x="-8" y="-14" width="496" height="300"/>
+                    <subviews>
+                        <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="44" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AiM-gZ-EAm">
+                            <rect key="frame" x="44" y="62" width="407" height="218"/>
+                            <subviews>
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-Q8-2VL">
+                                    <rect key="frame" x="0.0" y="98" width="120" height="120"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="PFj-5z-LWK"/>
+                                        <constraint firstAttribute="height" constant="120" id="fJi-gu-IAN"/>
+                                    </constraints>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="gkI-3S-4zf"/>
+                                </imageView>
+                                <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MiI-0m-LqF">
+                                    <rect key="frame" x="164" y="0.0" width="243" height="208"/>
+                                    <subviews>
+                                        <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4g-Yr-Nka">
+                                            <rect key="frame" x="0.0" y="124" width="243" height="84"/>
+                                            <subviews>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v75-bY-eKK">
+                                                    <rect key="frame" x="-2" y="52" width="166" height="32"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Mochi Wallet" id="PXp-Fd-Cdf">
+                                                        <font key="font" metaFont="systemBold" size="27"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fCt-vM-Fn3">
+                                                    <rect key="frame" x="-2" y="24" width="247" height="20"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Complete control of your crypto" id="T9z-p7-Pb3">
+                                                        <font key="font" metaFont="system" size="17"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lb6-Gv-o7O">
+                                                    <rect key="frame" x="-2" y="0.0" width="50" height="16"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Version" id="qd4-0Q-tfZ">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                        <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Zd-Jc-urE">
+                                            <rect key="frame" x="0.0" y="0.0" width="208" height="100"/>
+                                            <subviews>
+                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehC-gm-pJv">
+                                                    <rect key="frame" x="0.0" y="84" width="157" height="16"/>
+                                                    <subviews>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xsC-h5-dDA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="NfZ-HL-GLN"/>
+                                                                <constraint firstAttribute="width" constant="16" id="mpn-yQ-01q"/>
+                                                            </constraints>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_compass" id="ABR-b1-KRO"/>
+                                                        </imageView>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-5x-5er" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                            <rect key="frame" x="28" y="0.0" width="131" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Know more about us" id="z7T-aA-Ke4">
+                                                                <font key="font" metaFont="systemMedium" size="13"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://getmochi.co/"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6p-Xr-GHh">
+                                                    <rect key="frame" x="0.0" y="56" width="154" height="16"/>
+                                                    <subviews>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jtx-if-LyX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="dwc-UV-hh5"/>
+                                                                <constraint firstAttribute="height" constant="16" id="zFz-gU-rWw"/>
+                                                            </constraints>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_twitter" id="LqM-dp-jEl"/>
+                                                        </imageView>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zU0-ma-ql0" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                            <rect key="frame" x="28" y="0.0" width="128" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Follow us on Twitter" id="1GO-T9-Hav">
+                                                                <font key="font" metaFont="systemMedium" size="13"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://twitter.com/getmochi_bot"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-eR-7Kj">
+                                                    <rect key="frame" x="0.0" y="28" width="208" height="16"/>
+                                                    <subviews>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yIO-id-eER">
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="HsX-TM-cBP"/>
+                                                                <constraint firstAttribute="width" constant="16" id="O5Y-Xy-mvY"/>
+                                                            </constraints>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_github" id="dTI-Qm-vdr"/>
+                                                        </imageView>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jq6-2v-UdJ" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                            <rect key="frame" x="28" y="0.0" width="182" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="This app is fully open source" id="kHY-z7-hub">
+                                                                <font key="font" metaFont="systemMedium" size="13"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://github.com/consolelabs/mochi-ios"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="diT-MC-jl7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="16"/>
+                                                    <subviews>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nai-IE-NJ9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="V2k-yP-yKI"/>
+                                                                <constraint firstAttribute="height" constant="16" id="mWe-q5-7Vy"/>
+                                                            </constraints>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_email" id="irj-OV-R15"/>
+                                                        </imageView>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WXw-gU-CnF" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                            <rect key="frame" x="28" y="0.0" width="56" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Email us" id="MoO-IT-2eI">
+                                                                <font key="font" metaFont="systemMedium" size="13"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="href" value="mailto:gm@console.so"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="tLv-Q8-2VL" firstAttribute="top" secondItem="v75-bY-eKK" secondAttribute="top" constant="-10" id="eLk-nz-uPW"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z1U-fI-C1h">
+                            <rect key="frame" x="177" y="4" width="143" height="12"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="MIT © Dwarves Foundation" id="tpK-Vs-7fs">
+                                <font key="font" size="11" name="HelveticaNeue"/>
+                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="496" id="7Xb-EL-Aw1"/>
+                        <constraint firstAttribute="bottom" secondItem="Z1U-fI-C1h" secondAttribute="bottom" constant="4" id="AB5-Oy-VcZ"/>
+                        <constraint firstItem="AiM-gZ-EAm" firstAttribute="top" secondItem="MlX-kL-kjB" secondAttribute="top" constant="20" id="HA8-hq-xtd"/>
+                        <constraint firstAttribute="height" constant="300" id="XHf-YP-Usx"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AiM-gZ-EAm" secondAttribute="trailing" constant="44" id="XiZ-yq-eaL"/>
+                        <constraint firstItem="Z1U-fI-C1h" firstAttribute="centerX" secondItem="MlX-kL-kjB" secondAttribute="centerX" id="cnQ-2y-QO7"/>
+                        <constraint firstItem="AiM-gZ-EAm" firstAttribute="leading" secondItem="MlX-kL-kjB" secondAttribute="leading" constant="44" id="mxh-4X-RE2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="MlX-kL-kjB" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="J0T-9U-1aW"/>
+                <constraint firstItem="MlX-kL-kjB" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="csf-nA-oXj"/>
+            </constraints>
+            <point key="canvasLocation" x="66" y="130"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="ico_compass" width="16" height="16"/>
+        <image name="ico_email" width="16" height="13"/>
+        <image name="ico_github" width="16" height="16"/>
+        <image name="ico_twitter" width="16" height="16"/>
+        <image name="icon" width="1024" height="1024"/>
+    </resources>
+</document>

@@ -13,10 +13,18 @@ struct MochiWalletApp: App {
   @NSApplicationDelegateAdaptor(AppDelegate.self)
   private var appDelegate
   #endif
-
+  
+  @State var openSetting = false
   var body: some Scene {
     WindowGroup {
       ContentView()
+    }
+    #if os(macOS)
+    .windowToolbarStyle(.unifiedCompact(showsTitle: true))
+    #endif
+    
+    Settings {
+      SettingsView()
     }
   }
 }

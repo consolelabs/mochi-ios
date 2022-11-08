@@ -80,11 +80,17 @@ class WatchlistViewModel: ObservableObject {
   init(defiService: DefiService) {
     self.defiService = defiService
     observeSearching()
+    Task(priority: .high) {
+      await fetchWatchlist()
+    }
   }
  
-  func fetchWatchlist() async {
-    await MainActor.run {
-      self.isLoading = true
+  func fetchWatchlist(shouldShowLoading: Bool = true) async {
+    if shouldShowLoading {
+      await MainActor.run {
+        self.isLoading = true
+      }
+ 
     }
     let userId = !discordId.isEmpty ? discordId : defaultDiscordId
     let result = await defiService.getWatchlist(pageSize: nil, userId: userId)
@@ -138,44 +144,44 @@ class WatchlistViewModel: ObservableObject {
       .assign(to: &$searchCoins)
   }
   
-  func add(coinId: String) async {
-    await MainActor.run {
-      self.isLoading = true
-    }
-    let result = await defiService.addWatchlist(coinId: coinId, userId: discordId)
-    await MainActor.run {
-      self.isLoading = false
-    }
-    switch result {
-    case .success:
-      await fetchWatchlist()
-    case .failure(let error):
-      print(error.customMessage)
+  func add(coinId: String) {
+    Task(priority: .high) {
+      await MainActor.run {
+        self.isLoading = true
+      }
+      let result = await defiService.addWatchlist(coinId: coinId, userId: discordId)
+      await MainActor.run {
+        self.isLoading = false
+      }
+      switch result {
+      case .success:
+        await fetchWatchlist()
+      case .failure(let error):
+        print(error.customMessage)
+      }
     }
   }
   
   func remove(at indexSet: IndexSet) {
     for index in indexSet {
       let item = data[index]
-      Task {
-        await remove(symbol: item.symbol)
-      }
+      remove(symbol: item.symbol)
     }
   }
   
-  func remove(symbol: String) async {
-    await MainActor.run {
-      self.isLoading = true
-    }
-    let result = await defiService.removeWatchlist(symbol: symbol, userId: discordId)
-    await MainActor.run {
-      self.isLoading = false
-    }
-    switch result {
-    case .success:
-      await fetchWatchlist()
-    case .failure(let error):
-      print(error.customMessage)
+  func remove(symbol: String) {
+    self.isLoading = true
+    Task(priority: .high) {
+      let result = await defiService.removeWatchlist(symbol: symbol, userId: discordId)
+      await MainActor.run {
+        self.isLoading = false
+      }
+      switch result {
+      case .success:
+        await fetchWatchlist()
+      case .failure(let error):
+        print(error.customMessage)
+      }
     }
   }
   

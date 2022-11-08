@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import SDWebImageSwiftUI
+import Introspect
 
 struct WatchlistView: View {
   @ObservedObject var vm: WatchlistViewModel
@@ -18,6 +19,9 @@ struct WatchlistView: View {
   @State var isEditting: Bool = false
   @State var showShadow: Bool = true
   @State var showName: Bool = true
+  @State private var searchBar: UISearchBar?
+  let timer = Timer.publish(every: 15, tolerance: 1, on: .main, in: .common).autoconnect()
+
   
   var watchlistRows: some View {
     ForEach(vm.data, id: \.id) { item in
@@ -78,12 +82,10 @@ struct WatchlistView: View {
     ForEach(vm.searchCoins, id: \.presentedId) { item in
       HStack {
         Button {
-          Task(priority: .high) {
-            if item.isSelected {
-              await vm.remove(symbol: item.id)
-            } else {
-              await vm.add(coinId: item.id)
-            }
+          if item.isSelected {
+            vm.remove(symbol: item.symbol)
+          } else {
+            vm.add(coinId: item.id)
           }
         } label: {
           Image(systemName: item.isSelected ? "checkmark.circle.fill" : "plus.circle.fill")
@@ -182,10 +184,13 @@ struct WatchlistView: View {
         }
         ToolbarItem {
           if (isEditting) {
-            Button("Done") {
+            Button {
               withAnimation {
                 isEditting = false
               }
+            } label: {
+              Text("Done")
+                .fontWeight(.semibold)
             }
           } else {
             Menu {
@@ -197,6 +202,39 @@ struct WatchlistView: View {
             }
           }
         }
+      }
+    }
+    .introspectNavigationController { nav in
+      searchBar = nav.navigationBar.subviews.first { view in
+        view is UISearchBar
+      } as? UISearchBar
+    }
+    .overlay(alignment: .bottom) {
+      if isEditting {
+        HStack {
+          Link(destination: URL(string: "https://getmochi.co/")!) {
+            Text("Get")
+              .font(.system(size: 14, weight: .semibold, design: .rounded))
+              .foregroundColor(Color.white)
+            +
+            Text(" Mochi")
+              .font(.system(size: 14, weight: .bold, design: .rounded))
+              .foregroundColor(Color.accentColor)
+          }
+          Spacer()
+          Button(action: { searchBar?.becomeFirstResponder() }) {
+            Text("+Add")
+              .font(.system(size: 14, weight: .bold, design: .rounded))
+              .foregroundColor(Color.white)
+              .padding(.vertical, 4)
+              .padding(.horizontal, 8)
+              .background(Color.accentColor)
+              .clipShape(Capsule())
+          }
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 11)
+        .background(Color.gray)
       }
     }
     .overlay {
@@ -211,8 +249,10 @@ struct WatchlistView: View {
         await vm.fetchWatchlist()
       }
     }
-    .task {
-      await vm.fetchWatchlist()
+    .onReceive(timer) { time in
+      Task {
+        await vm.fetchWatchlist(shouldShowLoading: false)
+      }
     }
   }
 }

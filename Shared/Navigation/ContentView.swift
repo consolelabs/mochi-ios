@@ -14,13 +14,13 @@ struct ContentView: View {
   
   var body: some View {
     #if os(iOS)
-    if horizontalSizeClass == .compact {
-      AppTabNavigation()
-    } else {
-      AppSidebarNavigation()
-    }
-    #else
-    AppSidebarNavigation()
+    AppTabNavigation()
+    #elseif os(macOS)
+    WatchlistView(vm: WatchlistViewModel(defiService: DefiServiceImpl()))
+      .frame(minWidth: 380,
+             idealWidth: 500,
+             minHeight: 380,
+             idealHeight: 450)
     #endif
   }
 }

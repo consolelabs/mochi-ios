@@ -22,9 +22,11 @@ struct MochiWalletApp: App {
     #if os(macOS)
     .windowToolbarStyle(.unifiedCompact(showsTitle: true))
     #endif
-    
+        
+    #if os(macOS)
     Settings {
       SettingsView()
     }
+    #endif
   }
 }

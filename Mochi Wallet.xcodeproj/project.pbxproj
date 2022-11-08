@@ -65,6 +65,8 @@
 		08762F07291A009D0075A308 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08762F05291A009D0075A308 /* AboutViewController.swift */; };
 		08762F08291A009D0075A308 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08762F06291A009D0075A308 /* AboutViewController.xib */; };
 		08762F0B291A03920075A308 /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08762F0A291A03920075A308 /* HyperlinkTextField.swift */; };
+		08762F0C291A40400075A308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B3316B284A77CA003295F3 /* Assets.xcassets */; };
+		08762F0E291A41BA0075A308 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08762F0D291A41BA0075A308 /* Launch Screen.storyboard */; };
 		088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
 		088BF39A291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
 		088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
@@ -207,6 +209,7 @@
 		08762F05291A009D0075A308 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		08762F06291A009D0075A308 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		08762F0A291A03920075A308 /* HyperlinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
+		08762F0D291A41BA0075A308 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		088BF398291044F900B2C365 /* DefiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefiServiceMock.swift; sourceTree = "<group>"; };
 		088BF39D2912107F00B2C365 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		088BF3A2291254A400B2C365 /* macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOS-Info.plist"; sourceTree = "<group>"; };
@@ -490,6 +493,7 @@
 				084104A5290D988C008F5823 /* Mochi Wallet (iOS).entitlements */,
 				08B3318C284A81C0003295F3 /* AppTabNavigation.swift */,
 				084104A3290D8584008F5823 /* LocalStorage+Ext.swift */,
+				08762F0D291A41BA0075A308 /* Launch Screen.storyboard */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -859,6 +863,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08762F0E291A41BA0075A308 /* Launch Screen.storyboard in Resources */,
+				08762F0C291A40400075A308 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1281,6 +1287,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1316,6 +1323,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

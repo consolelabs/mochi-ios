@@ -135,6 +135,14 @@ struct WatchlistEntry: TimelineEntry {
   let configuration: ConfigurationIntent
   let data: [WidgetVM]
   let isPlaceHolder: Bool
+  
+  func firstCol(row: Int) -> [WidgetVM] {
+    return Array(data.sorted(by: { $0.index < $1.index }).prefix(row))
+  }
+  
+  func secondCol(row: Int) -> [WidgetVM] {
+    return Array(data.sorted(by: { $0.index < $1.index }).dropFirst(row).prefix(row))
+  }
 }
 
 // MARK: - Widget View
@@ -236,25 +244,26 @@ struct WidgetsEntryView : View {
   }
   
   func twoColLayoutView(row: Int) -> some View {
-
-    return HStack {
+    return HStack(spacing: 8) {
       VStack {
-        ForEach(entry.data.sorted(by: { $0.index < $1.index }).prefix(row), id: \.id) { item in
+        ForEach(entry.firstCol(row: row), id: \.id) { item in
           HStack {
             nameView(name: item.name, symbol: item.symbol, logoImage: item.logoImage)
-            
+
             Spacer()
-            
+
             priceView(currentPrice: item.currentPrice,
                       priceChangePercentage: item.priceChangePercentage7dInCurrency,
                       color: item.priceChangePercentage7dColor)
           }
           .frame(height: 30)
         }
+
         Spacer()
       }
+      
       VStack {
-        ForEach(entry.data.sorted(by: { $0.index < $1.index }).dropFirst(row).prefix(row), id: \.id) { item in
+        ForEach(entry.secondCol(row: row), id: \.id) { item in
           HStack {
             nameView(name: item.name, symbol: item.symbol, logoImage: item.logoImage)
             
@@ -266,6 +275,7 @@ struct WidgetsEntryView : View {
           }
           .frame(height: 30)
         }
+        
         Spacer()
       }
     }
@@ -274,7 +284,7 @@ struct WidgetsEntryView : View {
   }
   
   var body: some View {
-    if entry.configuration.showMore?.boolValue ?? false {
+    if entry.configuration.showMore?.boolValue == true {
       switch family {
       case .systemMedium:
         twoColLayoutView(row: 4)

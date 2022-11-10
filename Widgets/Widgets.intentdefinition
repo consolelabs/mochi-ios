@@ -11,9 +11,9 @@
 	<key>INIntentDefinitionSystemVersion</key>
 	<string>22A380</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>14A400</string>
+	<string>14B47b</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>14.0.1</string>
+	<string>14.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -26,7 +26,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>4</integer>
+			<integer>6</integer>
 			<key>INIntentName</key>
 			<string>Configuration</string>
 			<key>INIntentParameters</key>
@@ -128,6 +128,54 @@
 					<true/>
 					<key>INIntentParameterTag</key>
 					<integer>4</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Show More Item</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>E3n70N</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>3</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>false</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>Y734wL</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>true</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>6Djb3x</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>showMore</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Show More</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>Ibhvpt</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>6</integer>
 					<key>INIntentParameterType</key>
 					<string>Boolean</string>
 				</dict>

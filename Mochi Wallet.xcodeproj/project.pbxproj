@@ -1037,7 +1037,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Widgets/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
@@ -1049,7 +1049,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1068,7 +1068,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Widgets/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
@@ -1080,7 +1080,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1102,7 +1102,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1115,7 +1115,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1135,7 +1135,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1148,7 +1148,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1277,7 +1277,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOS/Mochi Wallet (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1295,7 +1295,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1313,7 +1313,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOS/Mochi Wallet (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1331,7 +1331,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1354,7 +1354,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1369,7 +1369,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;
@@ -1391,7 +1391,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1406,7 +1406,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.60;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;

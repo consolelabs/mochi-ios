@@ -88,7 +88,7 @@
                                                             </constraints>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_compass" id="ABR-b1-KRO"/>
                                                         </imageView>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-5x-5er" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-5x-5er" customClass="HyperlinkTextField" customModule="Mochi_Wallet" customModuleProvider="target">
                                                             <rect key="frame" x="28" y="0.0" width="131" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Know more about us" id="z7T-aA-Ke4">
                                                                 <font key="font" metaFont="systemMedium" size="13"/>
@@ -120,7 +120,7 @@
                                                             </constraints>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_twitter" id="LqM-dp-jEl"/>
                                                         </imageView>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zU0-ma-ql0" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zU0-ma-ql0" customClass="HyperlinkTextField" customModule="Mochi_Wallet" customModuleProvider="target">
                                                             <rect key="frame" x="28" y="0.0" width="128" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Follow us on Twitter" id="1GO-T9-Hav">
                                                                 <font key="font" metaFont="systemMedium" size="13"/>
@@ -152,7 +152,7 @@
                                                             </constraints>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_github" id="dTI-Qm-vdr"/>
                                                         </imageView>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jq6-2v-UdJ" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jq6-2v-UdJ" customClass="HyperlinkTextField" customModule="Mochi_Wallet" customModuleProvider="target">
                                                             <rect key="frame" x="28" y="0.0" width="182" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="This app is fully open source" id="kHY-z7-hub">
                                                                 <font key="font" metaFont="systemMedium" size="13"/>
@@ -184,7 +184,7 @@
                                                             </constraints>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_email" id="irj-OV-R15"/>
                                                         </imageView>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WXw-gU-CnF" customClass="HyperlinkTextField" customModule="Sudo_fm" customModuleProvider="target">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WXw-gU-CnF" customClass="HyperlinkTextField" customModule="Mochi_Wallet" customModuleProvider="target">
                                                             <rect key="frame" x="28" y="0.0" width="56" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Email us" id="MoO-IT-2eI">
                                                                 <font key="font" metaFont="systemMedium" size="13"/>

@@ -95,7 +95,7 @@ class Provider: IntentTimelineProvider {
   
   private func getWidgetVMs() async -> [WidgetVM] {
     let widgetDiscordId = !discordId.isEmpty ? discordId : defaultDiscordId
-    let result = await defiService.getWatchlist(userId: widgetDiscordId)
+    let result = await defiService.getWatchlist(pageSize: 16, userId: widgetDiscordId)
     guard case let .success(resp) = result else {
       return []
     }
@@ -139,17 +139,38 @@ struct WatchlistEntry: TimelineEntry {
 
 // MARK: - Widget View
 struct WidgetsEntryView : View {
+  @Environment(\.widgetFamily) var family
+
   var entry: Provider.Entry
 
-  func nameView(name: String, symbol: String) -> some View {
-    VStack(alignment: .leading) {
-      Text(symbol)
-        .font(.system(size: 14))
-        .bold()
-      if entry.configuration.showFullName?.boolValue ?? false {
-        Text(name)
-          .font(.system(size: 11))
+  func nameView(name: String, symbol: String, logoImage: Image?) -> some View {
+    HStack {
+      if let image = logoImage {
+        image
+          .resizable()
+          .scaledToFit()
+          .clipShape(RoundedRectangle(cornerRadius: 4))
+          .frame(width: 20, height: 20)
+          .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
+      } else {
+        RoundedRectangle(cornerRadius: 4)
+          .fill(Color.gray)
+          .frame(width: 20, height: 20)
+          .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
       }
+      
+      VStack(alignment: .leading) {
+        Text(symbol)
+          .font(.system(size: 11))
+          .bold()
+          .lineLimit(1)
+        if entry.configuration.showFullName?.boolValue ?? false {
+          Text(name)
+            .font(.system(size: 10))
+            .lineLimit(1)
+        }
+      }
+      .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
     }
   }
   
@@ -161,30 +182,29 @@ struct WidgetsEntryView : View {
       .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
   }
   
-  var body: some View {
+  func priceView(currentPrice: String, priceChangePercentage: String, color: Color) -> some View {
+    VStack(alignment: .trailing) {
+      Text(currentPrice)
+        .bold()
+        .font(.system(size: 12))
+      
+      Text(priceChangePercentage)
+        .bold()
+        .font(.system(size: 11))
+        .foregroundColor(color)
+    }
+    .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
+    .frame(maxWidth: 100, alignment: .trailing)
+  }
+  
+  func singleColLayoutView() -> some View {
     GeometryReader { reader in
       VStack {
         ForEach(entry.data.sorted(by: { $0.index < $1.index }).prefix(Int(reader.size.height) / 35), id: \.id) { item in
           HStack {
-            HStack {
-              if let image = item.logoImage {
-                image
-                  .resizable()
-                  .scaledToFit()
-                  .clipShape(RoundedRectangle(cornerRadius: 4))
-                  .frame(width: 20, height: 20)
-                  .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
-              } else {
-                RoundedRectangle(cornerRadius: 4)
-                  .fill(Color.gray)
-                  .frame(width: 20, height: 20)
-                  .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
-              }
-              
-              nameView(name: item.name, symbol: item.symbol)
-                .redacted(reason: entry.isPlaceHolder ? .placeholder : [])
-            }
-            .frame(width: reader.size.width / 3, alignment: .leading)
+            nameView(name: item.name, symbol: item.symbol, logoImage: item.logoImage)
+              .frame(width: reader.size.width / 3, alignment: .leading)
+
             
             // Sparkline
             if !item.sparklineIn7d.price.isEmpty {
@@ -213,6 +233,59 @@ struct WidgetsEntryView : View {
       }
     }
     .padding()
+  }
+  
+  func twoColLayoutView(row: Int) -> some View {
+
+    return HStack {
+      VStack {
+        ForEach(entry.data.sorted(by: { $0.index < $1.index }).prefix(row), id: \.id) { item in
+          HStack {
+            nameView(name: item.name, symbol: item.symbol, logoImage: item.logoImage)
+            
+            Spacer()
+            
+            priceView(currentPrice: item.currentPrice,
+                      priceChangePercentage: item.priceChangePercentage7dInCurrency,
+                      color: item.priceChangePercentage7dColor)
+          }
+          .frame(height: 30)
+        }
+        Spacer()
+      }
+      VStack {
+        ForEach(entry.data.sorted(by: { $0.index < $1.index }).dropFirst(row).prefix(row), id: \.id) { item in
+          HStack {
+            nameView(name: item.name, symbol: item.symbol, logoImage: item.logoImage)
+            
+            Spacer()
+            
+            priceView(currentPrice: item.currentPrice,
+                      priceChangePercentage: item.priceChangePercentage7dInCurrency,
+                      color: item.priceChangePercentage7dColor)
+          }
+          .frame(height: 30)
+        }
+        Spacer()
+      }
+    }
+    .padding(.vertical, 8)
+    .padding(.horizontal)
+  }
+  
+  var body: some View {
+    if entry.configuration.showMore?.boolValue ?? false {
+      switch family {
+      case .systemMedium:
+        twoColLayoutView(row: 4)
+      case .systemLarge:
+        twoColLayoutView(row: 8)
+      default:
+        Text("No support this size")
+      }
+    } else {
+      singleColLayoutView()
+    }
   }
 }
 

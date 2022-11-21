@@ -11,6 +11,7 @@ struct AppTabNavigation: View {
   
   enum Tab {
     case watchlist
+    case alert
     case setting
   }
   
@@ -28,6 +29,17 @@ struct AppTabNavigation: View {
         }.accessibility(label: watchlistText)
       }
       .tag(Tab.watchlist)
+      
+      AlertListView(vm: AlertListViewModel(alertService: PriceAlertServiceImpl()))
+        .tabItem {
+          let watchlistText = Text("Alert", comment: "Watchlist tab")
+          Label {
+            watchlistText
+          } icon: {
+            Image(systemName: "bell")
+          }.accessibility(label: watchlistText)
+        }
+      .tag(Tab.alert)
       
       SettingsView()
         .tabItem {

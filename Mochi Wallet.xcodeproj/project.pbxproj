@@ -41,6 +41,8 @@
 		0841049D290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */; };
 		0841049E290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */; };
 		084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084104A3290D8584008F5823 /* LocalStorage+Ext.swift */; };
+		0842EBEF291DEFD3005A1DFE /* AlertListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842EBEE291DEFD3005A1DFE /* AlertListView.swift */; };
+		0842EBF1291F6DDB005A1DFE /* SetPriceAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842EBF0291F6DDB005A1DFE /* SetPriceAlertView.swift */; };
 		0849582F290E766A005C8186 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0849582E290E766A005C8186 /* SDWebImageSwiftUI */; };
 		08495831290E78E0005C8186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08495830290E78E0005C8186 /* AppDelegate.swift */; };
 		08495837290E7AE9005C8186 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719D28FF063200158021 /* WidgetKit.framework */; };
@@ -60,6 +62,21 @@
 		08495856290EC644005C8186 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410481290B79DE008F5823 /* Line.swift */; };
 		0850CADA289070D2008D3094 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0850CAD9289070D2008D3094 /* BottomSheet */; };
 		08537C1528902A1200B15BD1 /* SelectWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08537C1428902A1200B15BD1 /* SelectWalletView.swift */; };
+		08683FCD2926201000DC464B /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FCC2926201000DC464B /* PriceAlertService.swift */; };
+		08683FCE2926201000DC464B /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FCC2926201000DC464B /* PriceAlertService.swift */; };
+		08683FCF2926201000DC464B /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FCC2926201000DC464B /* PriceAlertService.swift */; };
+		08683FD02926201000DC464B /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FCC2926201000DC464B /* PriceAlertService.swift */; };
+		08683FD22926206700DC464B /* PriceAlertEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FD12926206700DC464B /* PriceAlertEndpoint.swift */; };
+		08683FD32926206700DC464B /* PriceAlertEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FD12926206700DC464B /* PriceAlertEndpoint.swift */; };
+		08683FD42926206700DC464B /* PriceAlertEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FD12926206700DC464B /* PriceAlertEndpoint.swift */; };
+		08683FD52926206700DC464B /* PriceAlertEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FD12926206700DC464B /* PriceAlertEndpoint.swift */; };
+		08683FD72926489700DC464B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FD62926489700DC464B /* AppDelegate.swift */; };
+		08683FDD292712D100DC464B /* AlertListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FDC292712D100DC464B /* AlertListViewModel.swift */; };
+		08683FDF292712DA00DC464B /* AlertCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FDE292712DA00DC464B /* AlertCardView.swift */; };
+		08683FE12927133200DC464B /* SelectTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FE02927133200DC464B /* SelectTokenView.swift */; };
+		08683FE3292715B900DC464B /* SetPriceAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FE2292715B900DC464B /* SetPriceAlertViewModel.swift */; };
+		08683FE92927688900DC464B /* EditPriceAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FE82927688900DC464B /* EditPriceAlertView.swift */; };
+		08683FEB2927689200DC464B /* EditPriceAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FEA2927689200DC464B /* EditPriceAlertViewModel.swift */; };
 		086A609A28634D3300442FC1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 086A609928634D3300442FC1 /* web3swift */; };
 		086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */; };
 		08762F07291A009D0075A308 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08762F05291A009D0075A308 /* AboutViewController.swift */; };
@@ -201,10 +218,21 @@
 		084104A3290D8584008F5823 /* LocalStorage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalStorage+Ext.swift"; sourceTree = "<group>"; };
 		084104A5290D988C008F5823 /* Mochi Wallet (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mochi Wallet (iOS).entitlements"; sourceTree = "<group>"; };
 		084104A6290D98C9008F5823 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
+		0842EBEE291DEFD3005A1DFE /* AlertListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertListView.swift; sourceTree = "<group>"; };
+		0842EBF0291F6DDB005A1DFE /* SetPriceAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPriceAlertView.swift; sourceTree = "<group>"; };
 		08495830290E78E0005C8186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08495836290E7AE9005C8186 /* Mochi macOS Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Mochi macOS Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08495840290E7AEA005C8186 /* Mochi_macOS_Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mochi_macOS_Widgets.entitlements; sourceTree = "<group>"; };
 		08537C1428902A1200B15BD1 /* SelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletView.swift; sourceTree = "<group>"; };
+		08683FCC2926201000DC464B /* PriceAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertService.swift; sourceTree = "<group>"; };
+		08683FD12926206700DC464B /* PriceAlertEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertEndpoint.swift; sourceTree = "<group>"; };
+		08683FD62926489700DC464B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		08683FDC292712D100DC464B /* AlertListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertListViewModel.swift; sourceTree = "<group>"; };
+		08683FDE292712DA00DC464B /* AlertCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCardView.swift; sourceTree = "<group>"; };
+		08683FE02927133200DC464B /* SelectTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTokenView.swift; sourceTree = "<group>"; };
+		08683FE2292715B900DC464B /* SetPriceAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPriceAlertViewModel.swift; sourceTree = "<group>"; };
+		08683FE82927688900DC464B /* EditPriceAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPriceAlertView.swift; sourceTree = "<group>"; };
+		08683FEA2927689200DC464B /* EditPriceAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPriceAlertViewModel.swift; sourceTree = "<group>"; };
 		086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSecretPhraseView.swift; sourceTree = "<group>"; };
 		08762F05291A009D0075A308 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		08762F06291A009D0075A308 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -380,6 +408,62 @@
 			path = SelectWallet;
 			sourceTree = "<group>";
 		};
+		08683FCB2925EC3400DC464B /* PriceAlert */ = {
+			isa = PBXGroup;
+			children = (
+				08683FCC2926201000DC464B /* PriceAlertService.swift */,
+				08683FD12926206700DC464B /* PriceAlertEndpoint.swift */,
+			);
+			path = PriceAlert;
+			sourceTree = "<group>";
+		};
+		08683FDB292712B400DC464B /* PriceAlert */ = {
+			isa = PBXGroup;
+			children = (
+				08683FE72927687700DC464B /* EditPriceAlert */,
+				08683FE62927685700DC464B /* SelectTokenView */,
+				08683FE52927684200DC464B /* SetPriceAlert */,
+				08683FE42927682F00DC464B /* AlertList */,
+			);
+			path = PriceAlert;
+			sourceTree = "<group>";
+		};
+		08683FE42927682F00DC464B /* AlertList */ = {
+			isa = PBXGroup;
+			children = (
+				08683FDE292712DA00DC464B /* AlertCardView.swift */,
+				0842EBEE291DEFD3005A1DFE /* AlertListView.swift */,
+				08683FDC292712D100DC464B /* AlertListViewModel.swift */,
+			);
+			path = AlertList;
+			sourceTree = "<group>";
+		};
+		08683FE52927684200DC464B /* SetPriceAlert */ = {
+			isa = PBXGroup;
+			children = (
+				0842EBF0291F6DDB005A1DFE /* SetPriceAlertView.swift */,
+				08683FE2292715B900DC464B /* SetPriceAlertViewModel.swift */,
+			);
+			path = SetPriceAlert;
+			sourceTree = "<group>";
+		};
+		08683FE62927685700DC464B /* SelectTokenView */ = {
+			isa = PBXGroup;
+			children = (
+				08683FE02927133200DC464B /* SelectTokenView.swift */,
+			);
+			path = SelectTokenView;
+			sourceTree = "<group>";
+		};
+		08683FE72927687700DC464B /* EditPriceAlert */ = {
+			isa = PBXGroup;
+			children = (
+				08683FE82927688900DC464B /* EditPriceAlertView.swift */,
+				08683FEA2927689200DC464B /* EditPriceAlertViewModel.swift */,
+			);
+			path = EditPriceAlert;
+			sourceTree = "<group>";
+		};
 		08762F042919FFFA0075A308 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,11 +573,13 @@
 		08B33187284A77EE003295F3 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				08683FDB292712B400DC464B /* PriceAlert */,
 				08D6AEC5290DA0E700E6502D /* iOS-Info.plist */,
 				084104A5290D988C008F5823 /* Mochi Wallet (iOS).entitlements */,
 				08B3318C284A81C0003295F3 /* AppTabNavigation.swift */,
 				084104A3290D8584008F5823 /* LocalStorage+Ext.swift */,
 				08762F0D291A41BA0075A308 /* Launch Screen.storyboard */,
+				08683FD62926489700DC464B /* AppDelegate.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -551,6 +637,7 @@
 		08B5B06C286DA76600981D2E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				08683FCB2925EC3400DC464B /* PriceAlert */,
 				08410485290BBAD7008F5823 /* Network */,
 				08C32D952907F60D00BCBD8D /* Defi */,
 				08BC49432889B8580050852A /* LocalStorage */,
@@ -884,12 +971,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08683FD42926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
 				0841048A290BBB0E008F5823 /* Endpoint.swift in Sources */,
 				088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 				08C32D9A2907F98D00BCBD8D /* NetworkService.swift in Sources */,
 				0841049E290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				088BF3A02912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				0841048E290BBB29008F5823 /* HTTPClient.swift in Sources */,
+				08683FCF2926201000DC464B /* PriceAlertService.swift in Sources */,
 				08CC1E5929182B78002C459A /* LocalStorage.swift in Sources */,
 				08E11F56290DAAC10012441D /* Widgets.intentdefinition in Sources */,
 				08C32D992907F63800BCBD8D /* DefiService.swift in Sources */,
@@ -907,6 +996,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				08495854290E8524005C8186 /* Endpoint.swift in Sources */,
+				08683FD52926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
+				08683FD02926201000DC464B /* PriceAlertService.swift in Sources */,
 				08495851290E851B005C8186 /* RequestError.swift in Sources */,
 				0849584C290E7BB2005C8186 /* Widgets.intentdefinition in Sources */,
 				08495853290E8521005C8186 /* HTTPClient.swift in Sources */,
@@ -937,8 +1028,11 @@
 				080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
 				08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
 				08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */,
+				08683FEB2927689200DC464B /* EditPriceAlertViewModel.swift in Sources */,
 				08B3318D284A81C0003295F3 /* AppTabNavigation.swift in Sources */,
+				08683FCD2926201000DC464B /* PriceAlertService.swift in Sources */,
 				08DD9BC928800452003480C6 /* ProfileViewModel.swift in Sources */,
+				08683FDD292712D100DC464B /* AlertListViewModel.swift in Sources */,
 				08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
 				08410494290BBB60008F5823 /* RequestError.swift in Sources */,
 				0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */,
@@ -948,6 +1042,7 @@
 				08BC494C2889ED8E0050852A /* BackupWalletManuallyView.swift in Sources */,
 				08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */,
 				08E11F58290DAF070012441D /* Widgets.intentdefinition in Sources */,
+				08683FDF292712DA00DC464B /* AlertCardView.swift in Sources */,
 				086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
 				08B3318A284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
 				080E541C2851EF5300C7FDB1 /* BackupWalletReminderView.swift in Sources */,
@@ -956,9 +1051,13 @@
 				088BF39E2912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08BC49482889E2160050852A /* SettingsView.swift in Sources */,
 				08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
+				08683FE3292715B900DC464B /* SetPriceAlertViewModel.swift in Sources */,
 				08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */,
 				088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */,
+				08683FE12927133200DC464B /* SelectTokenView.swift in Sources */,
 				084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */,
+				0842EBF1291F6DDB005A1DFE /* SetPriceAlertView.swift in Sources */,
+				0842EBEF291DEFD3005A1DFE /* AlertListView.swift in Sources */,
 				08C32D922907F44500BCBD8D /* Bundle+version.swift in Sources */,
 				08B3D1A9285CB37600E9CF04 /* MarketView.swift in Sources */,
 				08B33192284A84B3003295F3 /* PortfolioView.swift in Sources */,
@@ -971,8 +1070,11 @@
 				08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */,
 				08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */,
 				0841048C290BBB29008F5823 /* HTTPClient.swift in Sources */,
+				08683FE92927688900DC464B /* EditPriceAlertView.swift in Sources */,
 				08410498290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
+				08683FD22926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
+				08683FD72926489700DC464B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,6 +1092,7 @@
 				08762F07291A009D0075A308 /* AboutViewController.swift in Sources */,
 				0841048D290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08B5B06F286DA79A00981D2E /* NFTService.swift in Sources */,
+				08683FCE2926201000DC464B /* PriceAlertService.swift in Sources */,
 				08B3317C284A77CA003295F3 /* ContentView.swift in Sources */,
 				088BF39A291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 				0894EDB82850A2BA00391C7F /* Theme.swift in Sources */,
@@ -1010,6 +1113,7 @@
 				08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */,
 				08B3318B284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
 				08495831290E78E0005C8186 /* AppDelegate.swift in Sources */,
+				08683FD32926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1295,7 +1399,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1331,7 +1435,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;

@@ -17,6 +17,7 @@ class WatchlistViewModel: ObservableObject {
     let symbol: String
     let image: String
     let currentPrice: String
+    let currentPriceValue: Double
     let priceChangePercentage24h: String
     let priceChangePercentage24hColor: Color
     let priceChangePercentage7dInCurrency: String
@@ -27,6 +28,7 @@ class WatchlistViewModel: ObservableObject {
       self.name = watchlist.name
       self.symbol = watchlist.symbol.uppercased()
       self.image = watchlist.image
+      self.currentPriceValue = watchlist.currentPrice
       self.sparklineIn7d = watchlist.sparklineIn7d
       
       let moneyFormatter = NumberFormatter()

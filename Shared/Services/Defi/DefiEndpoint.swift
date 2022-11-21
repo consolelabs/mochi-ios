@@ -54,7 +54,7 @@ extension DefiEndpoint: Endpoint {
     ]
   }
     
-  var body: [String: String]? {
+  var body: [String: Any]? {
     switch self {
     case .addWatchlist(let coinId, let userId):
       return ["coin_gecko_id": coinId, "user_id": userId]

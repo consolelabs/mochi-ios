@@ -9,7 +9,10 @@ import SwiftUI
 
 @main
 struct MochiWalletApp: App {
-  #if os(macOS)
+  #if os(iOS)
+  @UIApplicationDelegateAdaptor(AppDelegate.self)
+  private var appDelegate
+  #elseif os(macOS)
   @NSApplicationDelegateAdaptor(AppDelegate.self)
   private var appDelegate
   #endif

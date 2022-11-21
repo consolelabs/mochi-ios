@@ -143,6 +143,6 @@ struct GetCoinResponse: Codable {
     let image: Image
   }
   
-  let data: [GetCoinData]
+  let data: GetCoinData
 }
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WidgetKit
+import SDWebImageSwiftUI
 
 struct SettingsView: View {
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
@@ -15,18 +16,34 @@ struct SettingsView: View {
       WidgetCenter.shared.reloadAllTimelines()
     }
   }
-
+ 
+  @EnvironmentObject var appStateManager: AppStateManager
+  
   var body: some View {
     NavigationView {
       List {
         Section {
           HStack {
-            Text("Discord ID")
-              .foregroundColor(.title)
+            Text("Username")
+            
             Spacer()
-            TextField("Text", text: $discordId)
+            
+            WebImage(url: URL(string: appStateManager.avatar))
+              .resizable()
+              .transition(.fade(duration: 0.5))
+              .scaledToFit()
+              .clipShape(Circle())
+              .frame(width: 20, height: 20)
+            
+            Text(appStateManager.username)
+          }
+          HStack {
+            Text("Discord ID")
+            
+            Spacer()
+            TextField("Text", text: .constant(discordId))
               .multilineTextAlignment(.trailing)
-              .foregroundColor(.title)
+              .disabled(true)
           }
         }
         Section {
@@ -44,15 +61,28 @@ struct SettingsView: View {
             Text("💬")
             Link("Feedback and Support", destination: URL(string: "http://getmochi.co/")!)
           }
-        } footer: {
-          HStack {
-            Spacer()
-            Text("\(Bundle.main.releaseVersionNumber ?? "1") (\(Bundle.main.buildVersionNumber ?? "0"))")
-            Spacer()
-          }
         }
-        .foregroundColor(.title)
+        Section {
+          Button(action: { appStateManager.logOut() }) {
+            Text("Log Out")
+              .foregroundColor(.red)
+              .font(.system(.body, design: .rounded).weight(.medium))
+              .multilineTextAlignment(.center)
+              .frame(maxWidth: .infinity)
+          }
+          .buttonStyle(.borderless)
+        } footer: {
+        HStack {
+          Spacer()
+          Text("\(Bundle.main.releaseVersionNumber ?? "1") (\(Bundle.main.buildVersionNumber ?? "0"))")
+            .foregroundColor(.subtitle)
+            .font(.system(.footnote, design: .rounded))
+          Spacer()
+        }
       }
+      }
+      .foregroundColor(.title)
+      .font(.system(.body, design: .rounded))
       .navigationTitle("Settings")
       .navigationBarTitleDisplayMode(.inline)
     }

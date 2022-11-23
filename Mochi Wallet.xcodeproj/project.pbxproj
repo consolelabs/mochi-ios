@@ -77,6 +77,17 @@
 		08683FE3292715B900DC464B /* SetPriceAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FE2292715B900DC464B /* SetPriceAlertViewModel.swift */; };
 		08683FE92927688900DC464B /* EditPriceAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FE82927688900DC464B /* EditPriceAlertView.swift */; };
 		08683FEB2927689200DC464B /* EditPriceAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FEA2927689200DC464B /* EditPriceAlertViewModel.swift */; };
+		08683FEE292B6DAE00DC464B /* DiscordAuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FED292B6DAE00DC464B /* DiscordAuthButton.swift */; };
+		08683FF0292CC6EE00DC464B /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FEF292CC6EE00DC464B /* AuthView.swift */; };
+		08683FF3292D3E1000DC464B /* DiscordAuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FF2292D3E1000DC464B /* DiscordAuthWebView.swift */; };
+		08683FF6292D4C0100DC464B /* DiscordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FF5292D4C0100DC464B /* DiscordService.swift */; };
+		08683FF7292D4C0100DC464B /* DiscordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FF5292D4C0100DC464B /* DiscordService.swift */; };
+		08683FF8292D4C0100DC464B /* DiscordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FF5292D4C0100DC464B /* DiscordService.swift */; };
+		08683FF9292D4C0100DC464B /* DiscordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FF5292D4C0100DC464B /* DiscordService.swift */; };
+		08683FFB292D4C1100DC464B /* DiscordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FFA292D4C1100DC464B /* DiscordEndpoint.swift */; };
+		08683FFC292D4C1100DC464B /* DiscordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FFA292D4C1100DC464B /* DiscordEndpoint.swift */; };
+		08683FFD292D4C1100DC464B /* DiscordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FFA292D4C1100DC464B /* DiscordEndpoint.swift */; };
+		08683FFE292D4C1100DC464B /* DiscordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FFA292D4C1100DC464B /* DiscordEndpoint.swift */; };
 		086A609A28634D3300442FC1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 086A609928634D3300442FC1 /* web3swift */; };
 		086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */; };
 		08762F07291A009D0075A308 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08762F05291A009D0075A308 /* AboutViewController.swift */; };
@@ -233,6 +244,11 @@
 		08683FE2292715B900DC464B /* SetPriceAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPriceAlertViewModel.swift; sourceTree = "<group>"; };
 		08683FE82927688900DC464B /* EditPriceAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPriceAlertView.swift; sourceTree = "<group>"; };
 		08683FEA2927689200DC464B /* EditPriceAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPriceAlertViewModel.swift; sourceTree = "<group>"; };
+		08683FED292B6DAE00DC464B /* DiscordAuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordAuthButton.swift; sourceTree = "<group>"; };
+		08683FEF292CC6EE00DC464B /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		08683FF2292D3E1000DC464B /* DiscordAuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordAuthWebView.swift; sourceTree = "<group>"; };
+		08683FF5292D4C0100DC464B /* DiscordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordService.swift; sourceTree = "<group>"; };
+		08683FFA292D4C1100DC464B /* DiscordEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordEndpoint.swift; sourceTree = "<group>"; };
 		086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSecretPhraseView.swift; sourceTree = "<group>"; };
 		08762F05291A009D0075A308 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		08762F06291A009D0075A308 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -464,6 +480,33 @@
 			path = EditPriceAlert;
 			sourceTree = "<group>";
 		};
+		08683FEC292B6D9200DC464B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				08683FF1292D3DAA00DC464B /* DiscordAuth */,
+				08683FEF292CC6EE00DC464B /* AuthView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		08683FF1292D3DAA00DC464B /* DiscordAuth */ = {
+			isa = PBXGroup;
+			children = (
+				08683FED292B6DAE00DC464B /* DiscordAuthButton.swift */,
+				08683FF2292D3E1000DC464B /* DiscordAuthWebView.swift */,
+			);
+			path = DiscordAuth;
+			sourceTree = "<group>";
+		};
+		08683FF4292D4BE500DC464B /* Discord */ = {
+			isa = PBXGroup;
+			children = (
+				08683FF5292D4C0100DC464B /* DiscordService.swift */,
+				08683FFA292D4C1100DC464B /* DiscordEndpoint.swift */,
+			);
+			path = Discord;
+			sourceTree = "<group>";
+		};
 		08762F042919FFFA0075A308 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +616,7 @@
 		08B33187284A77EE003295F3 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				08683FEC292B6D9200DC464B /* Auth */,
 				08683FDB292712B400DC464B /* PriceAlert */,
 				08D6AEC5290DA0E700E6502D /* iOS-Info.plist */,
 				084104A5290D988C008F5823 /* Mochi Wallet (iOS).entitlements */,
@@ -637,6 +681,7 @@
 		08B5B06C286DA76600981D2E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				08683FF4292D4BE500DC464B /* Discord */,
 				08683FCB2925EC3400DC464B /* PriceAlert */,
 				08410485290BBAD7008F5823 /* Network */,
 				08C32D952907F60D00BCBD8D /* Defi */,
@@ -978,9 +1023,11 @@
 				0841049E290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				088BF3A02912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				0841048E290BBB29008F5823 /* HTTPClient.swift in Sources */,
+				08683FFD292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				08683FCF2926201000DC464B /* PriceAlertService.swift in Sources */,
 				08CC1E5929182B78002C459A /* LocalStorage.swift in Sources */,
 				08E11F56290DAAC10012441D /* Widgets.intentdefinition in Sources */,
+				08683FF8292D4C0100DC464B /* DiscordService.swift in Sources */,
 				08C32D992907F63800BCBD8D /* DefiService.swift in Sources */,
 				08410484290B79DE008F5823 /* Line.swift in Sources */,
 				08410496290BBB60008F5823 /* RequestError.swift in Sources */,
@@ -1004,7 +1051,9 @@
 				0849584A290E7BA2005C8186 /* WatchlistWidget.swift in Sources */,
 				088BF3A12912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08495852290E851F005C8186 /* RequestMethod.swift in Sources */,
+				08683FFE292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				08495856290EC644005C8186 /* Line.swift in Sources */,
+				08683FF9292D4C0100DC464B /* DiscordService.swift in Sources */,
 				08495855290E852C005C8186 /* DefiEndpoint.swift in Sources */,
 				08CC1E5A29182B79002C459A /* LocalStorage.swift in Sources */,
 				0849584F290E8475005C8186 /* DefiService.swift in Sources */,
@@ -1021,11 +1070,13 @@
 				0841049C290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				08537C1528902A1200B15BD1 /* SelectWalletView.swift in Sources */,
 				0841047F290B7914008F5823 /* WatchlistView.swift in Sources */,
+				08683FEE292B6DAE00DC464B /* DiscordAuthButton.swift in Sources */,
 				08410490290BBB4F008F5823 /* RequestMethod.swift in Sources */,
 				083BF29A289135AB008B6E03 /* BottomSheetView.swift in Sources */,
 				08BC494E288A01830050852A /* YourSeedPhraseView.swift in Sources */,
 				08B3317B284A77CA003295F3 /* ContentView.swift in Sources */,
 				080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
+				08683FF0292CC6EE00DC464B /* AuthView.swift in Sources */,
 				08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
 				08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */,
 				08683FEB2927689200DC464B /* EditPriceAlertViewModel.swift in Sources */,
@@ -1051,11 +1102,13 @@
 				088BF39E2912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08BC49482889E2160050852A /* SettingsView.swift in Sources */,
 				08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
+				08683FF6292D4C0100DC464B /* DiscordService.swift in Sources */,
 				08683FE3292715B900DC464B /* SetPriceAlertViewModel.swift in Sources */,
 				08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */,
 				088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 				08683FE12927133200DC464B /* SelectTokenView.swift in Sources */,
 				084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */,
+				08683FF3292D3E1000DC464B /* DiscordAuthWebView.swift in Sources */,
 				0842EBF1291F6DDB005A1DFE /* SetPriceAlertView.swift in Sources */,
 				0842EBEF291DEFD3005A1DFE /* AlertListView.swift in Sources */,
 				08C32D922907F44500BCBD8D /* Bundle+version.swift in Sources */,
@@ -1069,6 +1122,7 @@
 				08BC494228895AAD0050852A /* KeychainService.swift in Sources */,
 				08DD9BC0287D992D003480C6 /* ProfileView.swift in Sources */,
 				08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */,
+				08683FFB292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				0841048C290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08683FE92927688900DC464B /* EditPriceAlertView.swift in Sources */,
 				08410498290BC380008F5823 /* DefiEndpoint.swift in Sources */,
@@ -1098,6 +1152,7 @@
 				0894EDB82850A2BA00391C7F /* Theme.swift in Sources */,
 				08B3D1A3285C4B7800E9CF04 /* DataTableView.swift in Sources */,
 				088BF3A62912A44F00B2C365 /* WatchlistView.swift in Sources */,
+				08683FF7292D4C0100DC464B /* DiscordService.swift in Sources */,
 				08C32D932907F44600BCBD8D /* Bundle+version.swift in Sources */,
 				08762F0B291A03920075A308 /* HyperlinkTextField.swift in Sources */,
 				08410495290BBB60008F5823 /* RequestError.swift in Sources */,
@@ -1110,6 +1165,7 @@
 				08B5B074286DC73C00981D2E /* NetworkService.swift in Sources */,
 				0841049D290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
+				08683FFC292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */,
 				08B3318B284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
 				08495831290E78E0005C8186 /* AppDelegate.swift in Sources */,
@@ -1153,7 +1209,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1184,7 +1240,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1219,7 +1275,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1252,7 +1308,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1399,7 +1455,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7.0;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1435,7 +1491,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7.0;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1473,7 +1529,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;
@@ -1510,7 +1566,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.6.1;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;

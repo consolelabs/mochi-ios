@@ -95,7 +95,7 @@ class Provider: IntentTimelineProvider {
   
   private func getWidgetVMs() async -> [WidgetVM] {
     let widgetDiscordId = !discordId.isEmpty ? discordId : defaultDiscordId
-    let result = await defiService.getWatchlist(pageSize: 16, userId: widgetDiscordId)
+    let result = await defiService.getWatchlist(pageSize: 20, userId: widgetDiscordId)
     guard case let .success(resp) = result else {
       return []
     }

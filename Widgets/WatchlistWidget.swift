@@ -10,6 +10,7 @@ import SwiftUI
 import Intents
 import Combine
 import SDWebImageSwiftUI
+import OSLog
 
 // MARK: - Widget View Model
 struct WidgetVM {
@@ -61,7 +62,7 @@ class Provider: IntentTimelineProvider {
   
   private let defiService: DefiService
   private let defaultDiscordId = "963123183131709480"
-  private var subscriptions = Set<AnyCancellable>()
+  private let logger = Logger(subsystem: "so.console.mochi.widgets", category: "Provider")
   
   init(defiService: DefiService) {
     self.defiService = defiService

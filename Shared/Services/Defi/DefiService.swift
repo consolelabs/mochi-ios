@@ -69,14 +69,6 @@ struct DefiWatchList: Codable {
   let priceChangePercentage24h: Double
   let priceChangePercentage7dInCurrency: Double
   let sparklineIn7d: SparklineData
-  var sparklineImageUrl: String? {
-    let regex = "https://assets.coingecko.com/coins/images/([0-9]+)/"
-    let groups = image.groups(for: regex)
-    if let coinId = groups.first?.last {
-      return "https://www.coingecko.com/coins/\(coinId)/sparkline"
-    }
-    return nil
-  }
   
   private enum CodingKeys: String, CodingKey {
     case id
@@ -93,29 +85,6 @@ struct DefiWatchList: Codable {
 
 struct SparklineData: Codable {
   let price: [Double]
-}
-
-extension String {
-  func groups(for regexPattern: String) -> [[String]] {
-    do {
-      let text = self
-      let regex = try NSRegularExpression(pattern: regexPattern)
-      let matches = regex.matches(in: text,
-                                  range: NSRange(text.startIndex..., in: text))
-      return matches.map { match in
-        return (0..<match.numberOfRanges).map {
-          let rangeBounds = match.range(at: $0)
-          guard let range = Range(rangeBounds, in: text) else {
-            return ""
-          }
-          return String(text[range])
-        }
-      }
-    } catch let error {
-      print("invalid regex: \(error.localizedDescription)")
-      return []
-    }
-  }
 }
 
 struct SearchCoinsResponse: Codable {

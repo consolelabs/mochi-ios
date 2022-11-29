@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import WidgetKit
+import OSLog
 
 class WatchlistViewModel: ObservableObject {
   // MARK: - Presenter
@@ -66,6 +67,7 @@ class WatchlistViewModel: ObservableObject {
   // MARK: - Properties
   private let defiService: DefiService
   private let defaultDiscordId = "963123183131709480"
+  private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "mochi", category: "WatchlistViewModel")
   private var subscriptions = Set<AnyCancellable>()
  
   @Published var isLoading: Bool = false
@@ -106,7 +108,7 @@ class WatchlistViewModel: ObservableObject {
       }
       reloadWidgetDataIfNeeded()
     case .failure(let failure):
-      print(failure.customMessage)
+      logger.error("Fetch watchlist failed, error: \(failure.customMessage)")
     }
   }
   

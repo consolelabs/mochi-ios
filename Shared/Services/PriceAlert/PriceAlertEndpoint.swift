@@ -14,6 +14,7 @@ enum PriceAlertEndpoint {
                         deviceId: String,
                         discordId: String,
                         tokenId: String,
+                        symbol: String,
                         priceSet: Double,
                         trend: PriceTrend,
                         isEnable: Bool?)
@@ -64,6 +65,7 @@ extension PriceAlertEndpoint: Endpoint {
                                deviceId,
                                discordId,
                                tokenId,
+                               symbol,
                                priceSet,
                                trend,
                                isEnable):
@@ -71,6 +73,7 @@ extension PriceAlertEndpoint: Endpoint {
         "device_id": deviceId,
         "discord_id": discordId,
         "token_id": tokenId,
+        "symbol": symbol,
         "price_set": priceSet,
         "trend": trend.rawValue,
       ]

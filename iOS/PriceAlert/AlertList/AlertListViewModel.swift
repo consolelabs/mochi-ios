@@ -106,6 +106,7 @@ class AlertListViewModel: ObservableObject {
     let deviceId = UIDevice().identifierForVendor?.uuidString ?? ""
     self.updatePriceAlert(id: item.id,
                           tokenId: item.tokenId,
+                          symbol: item.symbol,
                           deviceId: deviceId,
                           discordId: discordId,
                           priceSet: item.priceValue,
@@ -139,6 +140,7 @@ class AlertListViewModel: ObservableObject {
   private func updatePriceAlert(
     id: String,
     tokenId: String,
+    symbol: String,
     deviceId: String,
     discordId: String,
     priceSet: Double,
@@ -157,6 +159,7 @@ class AlertListViewModel: ObservableObject {
         deviceId: deviceId,
         discordId: discordId,
         tokenId: tokenId,
+        symbol: symbol,
         priceSet: priceSet,
         trend: trend,
         isEnable: isEnable

@@ -15,6 +15,7 @@ protocol PriceAlertService {
     deviceId: String,
     discordId: String,
     tokenId: String,
+    symbol: String,
     priceSet: Double,
     trend: PriceTrend,
     isEnable: Bool?
@@ -28,6 +29,7 @@ extension PriceAlertService {
     deviceId: String,
     discordId: String,
     tokenId: String,
+    symbol: String,
     priceSet: Double,
     trend: PriceTrend,
     isEnable: Bool? = true
@@ -36,6 +38,7 @@ extension PriceAlertService {
                                        deviceId: deviceId,
                                        discordId: discordId,
                                        tokenId: tokenId,
+                                       symbol: symbol,
                                        priceSet: priceSet,
                                        trend: trend,
                                        isEnable: isEnable)
@@ -63,6 +66,7 @@ final class PriceAlertServiceImpl: HTTPClient, PriceAlertService {
     deviceId: String,
     discordId: String,
     tokenId: String,
+    symbol: String,
     priceSet: Double,
     trend: PriceTrend,
     isEnable: Bool?
@@ -72,6 +76,7 @@ final class PriceAlertServiceImpl: HTTPClient, PriceAlertService {
                                                     deviceId: deviceId,
                                                     discordId: discordId,
                                                     tokenId: tokenId,
+                                                    symbol: symbol,
                                                     priceSet: priceSet,
                                                     trend: trend,
                                                     isEnable: isEnable),
@@ -114,6 +119,7 @@ struct GetUserPriceAlertResponse: Codable {
     let isEnable: Bool
     let priceSet: Double
     let tokenId: String
+    let symbol: String
     let trend: PriceTrend
     let device: UserDevice
     
@@ -122,6 +128,7 @@ struct GetUserPriceAlertResponse: Codable {
       case trend
       case device
       case tokenId = "token_id"
+      case symbol = "symbol"
       case discordId = "discord_id"
       case deviceId = "device_id"
       case isEnable = "is_enable"

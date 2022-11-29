@@ -39,11 +39,13 @@ class EditPriceAlertViewModel: ObservableObject {
   var discordId: String = ""
  
   private let tokenId: String
+  private let alertId: String
   
   init(
     alertService: PriceAlertService,
     priceAlert: EditPriceAlertParam
   ) {
+    self.alertId = priceAlert.id
     self.alertService = alertService
     self.tokenId = priceAlert.tokenId
     self.tokenName = priceAlert.tokenName
@@ -67,9 +69,11 @@ class EditPriceAlertViewModel: ObservableObject {
       }
       let deviceId = await UIDevice().identifierForVendor?.uuidString ?? ""
       let result = await alertService.upsertPriceAlert(
+        id: alertId,
         deviceId: deviceId,
         discordId: discordId,
         tokenId: tokenId,
+        symbol: tokenSymbol,
         priceSet: currentPrice,
         trend: priceTrend
       )

@@ -77,25 +77,33 @@ class AlertListViewModel: ObservableObject {
       let result = await alertService.getUserPriceAlert(discordId: discordId)
       switch result {
       case .success(let success):
-        var data: [AlertPresenter] = []
-        for alert in success.data {
-          let fetchCoinResult = await DefiServiceImpl().getCoin(id: alert.tokenId)
-          switch fetchCoinResult {
-          case .success(let coin):
-            var alertPresenter = AlertPresenter(alert: alert)
-            alertPresenter.tokenName = coin.data.name
-            alertPresenter.image = coin.data.image.small
-            alertPresenter.symbol = coin.data.symbol
-            data.append(alertPresenter)
-          case .failure(let failure):
-            self.logger.error("Fetch coin error: \(failure.customMessage)")
+        let data = try? await withThrowingTaskGroup(of: AlertPresenter.self) { group -> [AlertPresenter] in
+          for item in success.data {
+            group.addTask {
+              var alertPresenter = AlertPresenter(alert: item)
+              let fetchCoinResult = await DefiServiceImpl().getCoin(id: item.tokenId)
+              switch fetchCoinResult {
+              case .success(let coin):
+                alertPresenter.tokenName = coin.data.name
+                alertPresenter.image = coin.data.image.small
+                alertPresenter.symbol = coin.data.symbol
+              case .failure(let failure):
+                alertPresenter.tokenName = "NA"
+                alertPresenter.symbol = "NA"
+                self.logger.error("Fetch coin error: \(failure.customMessage)")
+              }
+              return alertPresenter
+            }
           }
+          return try await group.reduce([], { result, item in
+            return result + [item]
+          })
         }
-        self.isLoading = false
-        self.data = data
+        self.data = data?.sorted(by: { $0.tokenId < $1.tokenId }) ?? []
       case .failure(let failure):
         self.logger.error("Fetch alert list error: \(failure.customMessage)")
       }
+      self.isLoading = false
     }
   }
   
@@ -130,7 +138,7 @@ class AlertListViewModel: ObservableObject {
       switch result {
       case .success:
         self.logger.info("Delete alert success")
-        self.fetchAlertList()
+        self.fetchAlertList(shouldShowLoading: true)
       case .failure(let failure):
         self.logger.error("Delete alert error: \(failure.customMessage)")
       }
@@ -170,7 +178,7 @@ class AlertListViewModel: ObservableObject {
       switch result {
       case .success:
         logger.info("Edit price alert success!")
-        self.fetchAlertList()
+        self.fetchAlertList(shouldShowLoading: true)
       case .failure(let failure):
         logger.error("Edit price alert failed, error: \(failure.customMessage)")
       }

@@ -88,7 +88,7 @@ struct AlertListView: View {
     }
     .onChange(of: showSetPriceSheet, perform: { isShowing in
       if !isShowing {
-        vm.fetchAlertList(shouldShowLoading: false)
+        vm.fetchAlertList(shouldShowLoading: true)
       }
     })
   }

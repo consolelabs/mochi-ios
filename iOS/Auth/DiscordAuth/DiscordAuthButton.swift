@@ -19,15 +19,16 @@ struct DiscordAuthButton: View {
           .scaledToFit()
           .frame(width: 25, height: 25)
         
-        Text("Login with Discord")
+        Text("Continue with Discord")
           .font(.system(.body, design: .rounded).weight(.bold))
       }
       .padding()
       .foregroundColor(.white)
+      .frame(maxWidth: .infinity, maxHeight: 50)
       .background(Color(red: 0.35, green: 0.40, blue: 0.95))
     }
     .buttonStyle(.plain)
-    .cornerRadius(11)
+    .cornerRadius(6)
   }
 }
 

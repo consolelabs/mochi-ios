@@ -122,6 +122,7 @@ struct GetUserPriceAlertResponse: Codable {
     let symbol: String
     let trend: PriceTrend
     let device: UserDevice
+    let createdAt: Date
     
     private enum CodingKeys: String, CodingKey {
       case id
@@ -133,6 +134,7 @@ struct GetUserPriceAlertResponse: Codable {
       case deviceId = "device_id"
       case isEnable = "is_enable"
       case priceSet = "price_set"
+      case createdAt = "created_at"
     }
   }
   

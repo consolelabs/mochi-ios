@@ -44,17 +44,28 @@ extension HTTPClient {
       }
       switch response.statusCode {
       case 200...299:
-        guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
-          return .failure(.decode)
-        }
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .custom({ decoder in
+          let formatter = ISO8601DateFormatter()
+          formatter.formatOptions = [.withFullDate, .withFractionalSeconds]
+          let container = try decoder.singleValueContainer()
+          let dateString = try container.decode(String.self)
+          if let date = formatter.date(from: dateString) {
+            return date
+          }
+          throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot decode date string \(dateString)")
+        })
+        let decodedResponse = try decoder.decode(responseModel, from: data)
         return .success(decodedResponse)
       case 401:
         return .failure(.unauthorized)
       default:
         return .failure(.unexpectedStatusCode)
       }
+    } catch DecodingError.dataCorrupted(let error) {
+      return .failure(.decode(error: error.debugDescription))
     } catch {
-      return .failure(.unknown)
+      return .failure(.unknown(error: error.localizedDescription))
     }
   }
 }

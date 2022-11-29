@@ -64,7 +64,7 @@ class SetPriceAlertViewModel: ObservableObject {
         deviceId: deviceId,
         discordId: discordId,
         tokenId: tokenId,
-        symbol: tokenSymbol,
+        symbol: tokenSymbol.lowercased(),
         priceSet: currentPrice,
         trend: priceTrend
       )

@@ -17,6 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
   ) -> Bool {
     UIApplication.shared.registerForRemoteNotifications()
+    UNUserNotificationCenter.current().delegate = self
     return true
   }
   
@@ -41,5 +42,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     didFailToRegisterForRemoteNotificationsWithError error: Error
   ) {
     logger.error("Failed to register for notifications: \(error.localizedDescription)")
+  }
+  
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler([.badge, .banner, .list, .sound])
   }
 }

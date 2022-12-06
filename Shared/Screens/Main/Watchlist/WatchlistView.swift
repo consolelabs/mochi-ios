@@ -153,6 +153,13 @@ struct WatchlistView: View {
       .textInputAutocapitalization(.never)
       .listStyle(PlainListStyle())
       .navigationBarTitleDisplayMode(.inline)
+      .alert("Error", isPresented: $vm.showError, actions: {
+        Button(action: {}) {
+          Text("OK")
+        }
+      }, message: {
+        Text(vm.errorMessage)
+      })
       .toolbar {
         ToolbarItem(placement: .navigationBarLeading) {
           VStack(alignment: .leading) {

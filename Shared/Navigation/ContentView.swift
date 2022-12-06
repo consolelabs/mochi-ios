@@ -18,9 +18,10 @@ struct ContentView: View {
   var body: some View {
     #if os(iOS)
     Group {
-      if appStateManager.isLogin {
+      switch appStateManager.appState {
+      case .discordLogin, .appleLogin:
         AppTabNavigation()
-      } else {
+      case .logout:
         AuthView()
       }
     }
@@ -50,9 +51,15 @@ struct ContentView_Previews: PreviewProvider {
 
 @MainActor
 class AppStateManager: ObservableObject {
+  enum AppState {
+    case logout
+    case appleLogin
+    case discordLogin
+  }
+  
   private let logger = Logger(subsystem: "so.console.mochi", category: "AppStateManager")
   private let discordService: DiscordService
-  
+ 
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
   
@@ -69,22 +76,65 @@ class AppStateManager: ObservableObject {
   @AppStorage("avatar", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var avatar: String = ""
   
-  @State var isLoading: Bool = false
+  @AppStorage("appleUserId", store: UserDefaults(suiteName: "group.so.console.mochi"))
+  var appleUserId: String = ""
+  
+  @AppStorage("appleEmail", store: UserDefaults(suiteName: "group.so.console.mochi"))
+  var appleEmail: String = ""
+  
+  @AppStorage("appleName", store: UserDefaults(suiteName: "group.so.console.mochi"))
+  var appleName: String = ""
+  
+  @Published var isLoading: Bool = false
+  @Published var appState: AppState = .logout
   
   var isLogin: Bool {
     return !discordAccessToken.isEmpty && !discordId.isEmpty
   }
-  
     
   init(discordService: DiscordService) {
     self.discordService = discordService
+    fetchAppState()
   }
   
   func logOut() {
+    // Discord
     self.discordAccessToken = ""
     self.discordId = ""
     self.username = ""
     self.avatar = ""
+   
+    // Apple
+    self.appleUserId = ""
+    self.appleName = ""
+    self.appleEmail = ""
+    
+    fetchAppState()
+  }
+  
+  func loginWithDiscord(accessToken: String) {
+    self.discordAccessToken = accessToken
+  }
+  
+  func loginWithApple(userId: String, email: String, name: String) {
+    self.appleUserId = userId
+    self.appleEmail = email
+    self.appleName = name
+    fetchAppState()
+  }
+    
+  func fetchAppState() {
+    if !discordAccessToken.isEmpty && !discordId.isEmpty {
+      self.appState = .discordLogin
+      return
+    }
+    
+    if !appleUserId.isEmpty {
+      self.appState = .appleLogin
+      return
+    }
+   
+    self.appState = .logout
   }
   
   func fetchDiscordUser() {
@@ -100,6 +150,7 @@ class AppStateManager: ObservableObject {
         self.discordId = user.id
         self.avatar = "https://cdn.discordapp.com/avatars/\(user.id)/\(user.avatar ?? "")"
         self.username = user.username + "#" + user.discriminator
+        fetchAppState()
       case .failure(let error):
         logger.error("Fetch discord user error: \(error.customMessage)")
       }

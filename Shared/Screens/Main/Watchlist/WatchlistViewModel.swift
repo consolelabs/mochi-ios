@@ -73,6 +73,8 @@ class WatchlistViewModel: ObservableObject {
   @Published var isLoading: Bool = false
   @Published var searchTerm: String = ""
   @Published var isSearching: Bool = false
+  @Published var showError: Bool = false
+  @Published var errorMessage: String = ""
   @Published var data: [WatchlistPresenter] = []
   @Published var searchCoins: [SearchCoinPresenter] = []
   @Published var selectedCoins = Set<String>()
@@ -149,6 +151,11 @@ class WatchlistViewModel: ObservableObject {
   }
   
   func add(coinId: String) {
+    guard !discordId.isEmpty else {
+      self.errorMessage = "Unlock this feature by connect to Discord"
+      self.showError = true
+      return
+    }
     Task(priority: .high) {
       await MainActor.run {
         self.isLoading = true
@@ -174,6 +181,11 @@ class WatchlistViewModel: ObservableObject {
   }
   
   func remove(symbol: String) {
+    guard !discordId.isEmpty else {
+      self.errorMessage = "Unlock this feature by connect to Discord"
+      self.showError = true
+      return
+    }
     self.isLoading = true
     Task(priority: .high) {
       let result = await defiService.removeWatchlist(symbol: symbol, userId: discordId)

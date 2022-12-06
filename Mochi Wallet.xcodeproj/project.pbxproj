@@ -64,6 +64,7 @@
 		085A53622935A407005CF8F7 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 085A53662935A407005CF8F7 /* Widgets.intentdefinition */; };
 		085A53632935A407005CF8F7 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 085A53662935A407005CF8F7 /* Widgets.intentdefinition */; };
 		085A53642935A407005CF8F7 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 085A53662935A407005CF8F7 /* Widgets.intentdefinition */; };
+		085A536A293FF2FF005CF8F7 /* ConnectToDiscordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085A5369293FF2FF005CF8F7 /* ConnectToDiscordView.swift */; };
 		08683FCD2926201000DC464B /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FCC2926201000DC464B /* PriceAlertService.swift */; };
 		08683FCE2926201000DC464B /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FCC2926201000DC464B /* PriceAlertService.swift */; };
 		08683FCF2926201000DC464B /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08683FCC2926201000DC464B /* PriceAlertService.swift */; };
@@ -237,6 +238,7 @@
 		08537C1428902A1200B15BD1 /* SelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletView.swift; sourceTree = "<group>"; };
 		085A53652935A407005CF8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Widgets.intentdefinition; sourceTree = "<group>"; };
 		085A53682935A409005CF8F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Widgets.strings; sourceTree = "<group>"; };
+		085A5369293FF2FF005CF8F7 /* ConnectToDiscordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToDiscordView.swift; sourceTree = "<group>"; };
 		08683FCC2926201000DC464B /* PriceAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertService.swift; sourceTree = "<group>"; };
 		08683FD12926206700DC464B /* PriceAlertEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertEndpoint.swift; sourceTree = "<group>"; };
 		08683FD62926489700DC464B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 			children = (
 				08683FF1292D3DAA00DC464B /* DiscordAuth */,
 				08683FEF292CC6EE00DC464B /* AuthView.swift */,
+				085A5369293FF2FF005CF8F7 /* ConnectToDiscordView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1107,6 +1110,7 @@
 				08683FE3292715B900DC464B /* SetPriceAlertViewModel.swift in Sources */,
 				08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */,
 				088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */,
+				085A536A293FF2FF005CF8F7 /* ConnectToDiscordView.swift in Sources */,
 				08683FE12927133200DC464B /* SelectTokenView.swift in Sources */,
 				084104A4290D8584008F5823 /* LocalStorage+Ext.swift in Sources */,
 				08683FF3292D3E1000DC464B /* DiscordAuthWebView.swift in Sources */,
@@ -1222,7 +1226,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1253,7 +1257,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1288,7 +1292,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1321,7 +1325,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.macos-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1468,7 +1472,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1504,7 +1508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1542,7 +1546,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;
@@ -1579,7 +1583,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = macosx;

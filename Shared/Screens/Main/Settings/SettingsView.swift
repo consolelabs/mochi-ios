@@ -19,31 +19,54 @@ struct SettingsView: View {
  
   @EnvironmentObject var appStateManager: AppStateManager
   
+  @State private var showConnectToDiscord: Bool = false
+  
   var body: some View {
     NavigationView {
       List {
-        Section {
-          HStack {
-            Text("Username")
-            
-            Spacer()
-            
-            WebImage(url: URL(string: appStateManager.avatar))
-              .resizable()
-              .transition(.fade(duration: 0.5))
-              .scaledToFit()
-              .clipShape(Circle())
-              .frame(width: 20, height: 20)
-            
-            Text(appStateManager.username)
-          }
-          HStack {
-            Text("Discord ID")
-            
-            Spacer()
-            TextField("Text", text: .constant(discordId))
-              .multilineTextAlignment(.trailing)
-              .disabled(true)
+        Group {
+          switch appStateManager.appState {
+          case .appleLogin:
+            Section {
+              Button(action: { showConnectToDiscord = true }) {
+                HStack {
+                  Image("discord")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                  Text("Connect to Discord")
+                }
+                .font(.system(.body, design: .rounded).weight(.medium))
+              }
+              .buttonStyle(.borderless)
+            }
+          case .discordLogin:
+            Section {
+              HStack {
+                Text("Username")
+                
+                Spacer()
+                
+                WebImage(url: URL(string: appStateManager.avatar))
+                  .resizable()
+                  .transition(.fade(duration: 0.5))
+                  .scaledToFit()
+                  .clipShape(Circle())
+                  .frame(width: 20, height: 20)
+                
+                Text(appStateManager.username)
+              }
+              HStack {
+                Text("Discord ID")
+                
+                Spacer()
+                TextField("Text", text: .constant(discordId))
+                  .multilineTextAlignment(.trailing)
+                  .disabled(true)
+              }
+            }
+          case .logout:
+            EmptyView()
           }
         }
         Section {
@@ -83,6 +106,9 @@ struct SettingsView: View {
       }
       .foregroundColor(.title)
       .font(.system(.body, design: .rounded))
+      .sheet(isPresented: $showConnectToDiscord) {
+        ConnectToDiscordView()
+      }
       .navigationTitle("Settings")
       .navigationBarTitleDisplayMode(.inline)
     }

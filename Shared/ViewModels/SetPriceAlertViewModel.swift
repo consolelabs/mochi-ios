@@ -65,7 +65,7 @@ class SetPriceAlertViewModel: ObservableObject {
       }
       var deviceId = ""
       #if os(iOS)
-      deviceId = UIDevice().identifierForVendor?.uuidString ?? ""
+      deviceId = await UIDevice().identifierForVendor?.uuidString ?? ""
       #elseif os(macOS)
       deviceId = Util.hardwareUUID() ?? ""
       #endif

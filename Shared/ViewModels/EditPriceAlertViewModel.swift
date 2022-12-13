@@ -40,6 +40,7 @@ class EditPriceAlertViewModel: ObservableObject {
  
   private let tokenId: String
   private let alertId: String
+  private let initAlertPrice: Double
   
   init(
     alertService: PriceAlertService,
@@ -51,9 +52,14 @@ class EditPriceAlertViewModel: ObservableObject {
     self.tokenName = priceAlert.tokenName
     self.tokenSymbol = priceAlert.tokenSymbol
     self.currentPrice = priceAlert.price
+    self.initAlertPrice = priceAlert.price
     self.prices = (0...200).map { step -> Double in
       return Double(Double(step) * priceAlert.price / 100)
     }
+  }
+  
+  func updateCurrentPriceFromInitPrice(by percent: Double) {
+    currentPrice = initAlertPrice + (percent * initAlertPrice / 100)
   }
   
   func setPriceAlert() {
@@ -67,7 +73,12 @@ class EditPriceAlertViewModel: ObservableObject {
       await MainActor.run {
         self.isLoading = true
       }
-      let deviceId = await UIDevice().identifierForVendor?.uuidString ?? ""
+      var deviceId = ""
+      #if os(iOS)
+      deviceId = UIDevice().identifierForVendor?.uuidString ?? ""
+      #elseif os(macOS)
+      deviceId = Util.hardwareUUID() ?? ""
+      #endif
       let result = await alertService.upsertPriceAlert(
         id: alertId,
         deviceId: deviceId,

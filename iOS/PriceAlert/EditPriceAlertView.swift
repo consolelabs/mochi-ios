@@ -1,17 +1,19 @@
 //
-//  SetPriceAlertView.swift
+//  EditPriceAlertView.swift
 //  Mochi Wallet (iOS)
 //
-//  Created by Oliver Le on 12/11/2022.
+//  Created by Oliver Le on 18/11/2022.
 //
 
 import SwiftUI
 
-struct SetPriceAlertView: View {
-  @ObservedObject var vm: SetPriceAlertViewModel
+struct EditPriceAlertView: View {
+  @Environment(\.presentationMode) var presentationMode
+  
+  @ObservedObject var vm: EditPriceAlertViewModel
+  var shouldUpdate: () -> Void = {}
   
   @State private var offset = CGFloat.zero
-  @Binding var shouldDismiss: Bool
   
   var body: some View {
     VStack {
@@ -93,7 +95,7 @@ struct SetPriceAlertView: View {
     }
     .safeAreaInset(edge: .bottom, content: {
       Button(action: { vm.setPriceAlert() }) {
-        Text("Confirm")
+        Text("Update")
           .font(.system(.callout, design: .rounded).weight(.semibold))
           .foregroundColor(.white)
           .frame(height: 50)
@@ -111,11 +113,6 @@ struct SetPriceAlertView: View {
     }, message: {
       Text(vm.errorMessage)
     })
-    .onChange(of: vm.shouldDismiss) { shouldDismiss in
-      if shouldDismiss {
-        self.shouldDismiss = shouldDismiss
-      }
-    }
     .overlay {
       if vm.isLoading {
         ActivityIndicator()
@@ -123,7 +120,12 @@ struct SetPriceAlertView: View {
           .foregroundColor(.appPrimary)
       }
     }
-    .navigationTitle("Bitcoin")
+    .onChange(of: vm.shouldDismiss, perform: { shouldDismiss in
+      if shouldDismiss {
+        shouldUpdate()
+        presentationMode.wrappedValue.dismiss()
+      }
+    })
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem(placement: .principal) {
@@ -144,56 +146,5 @@ struct SetPriceAlertView: View {
     default: return 0.3
     }
   }
-}
-
-struct TokenPrice {
-  let price: Double
-}
-
-
-struct SetPriceAlertView_Previews: PreviewProvider {
-  static var previews: some View {
-    SetPriceAlertView(
-      vm: SetPriceAlertViewModel(
-        alertService: PriceAlertServiceImpl(),
-        tokenId: "",
-        tokenName: "",
-        tokenSymbol: "",
-        price: 0
-      ),
-    shouldDismiss: .constant(false))
-  }
-}
-
-
-extension View {
-  func print(_ value: Any) -> Self {
-    Swift.print(value)
-    return self
-  }
-}
-
-struct ViewOffsetKey: PreferenceKey {
-  typealias Value = CGFloat
-  static var defaultValue = CGFloat.zero
-  static func reduce(value: inout Value, nextValue: () -> Value) {
-    value += nextValue()
-  }
-}
-
-import UIKit
-
-class Haptics {
-    static let shared = Haptics()
-    
-    private init() { }
-
-    func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle) {
-        UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred()
-    }
-    
-    func notify(_ feedbackType: UINotificationFeedbackGenerator.FeedbackType) {
-        UINotificationFeedbackGenerator().notificationOccurred(feedbackType)
-    }
 }
 

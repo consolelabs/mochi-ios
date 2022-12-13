@@ -24,6 +24,9 @@ struct MochiWalletApp: App {
     }
     #if os(macOS)
     .windowToolbarStyle(.unifiedCompact(showsTitle: true))
+    .commands {
+      SidebarCommands()
+    }
     #endif
         
     #if os(macOS)
@@ -31,5 +34,6 @@ struct MochiWalletApp: App {
       SettingsView()
     }
     #endif
+    
   }
 }

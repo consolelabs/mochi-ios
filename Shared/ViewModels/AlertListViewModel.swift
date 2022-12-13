@@ -7,6 +7,7 @@
 
 import SwiftUI
 import OSLog
+import UserNotifications
 
 struct AlertPresenter: Identifiable {
   let id: String
@@ -62,6 +63,15 @@ class AlertListViewModel: ObservableObject {
         self.logger.error("Request notification auth error: \(error.localizedDescription)")
       }
       self.logger.debug("Request notification auth: \(granted ? "granted" : "deny")")
+      if granted {
+        DispatchQueue.main.async {
+          #if os(iOS)
+          UIApplication.shared.registerForRemoteNotifications()
+          #elseif os(macOS)
+          NSApplication.shared.registerForRemoteNotifications()
+          #endif
+        }
+      }
     }
   }
   
@@ -111,7 +121,12 @@ class AlertListViewModel: ObservableObject {
     guard let item = data.first(where: { $0.id == id }) else {
       return
     }
-    let deviceId = UIDevice().identifierForVendor?.uuidString ?? ""
+    var deviceId = ""
+    #if os(iOS)
+    deviceId = UIDevice().identifierForVendor?.uuidString ?? ""
+    #elseif os(macOS)
+    deviceId = Util.hardwareUUID() ?? ""
+    #endif
     self.updatePriceAlert(id: item.id,
                           tokenId: item.tokenId,
                           symbol: item.symbol,

@@ -48,6 +48,10 @@ class SetPriceAlertViewModel: ObservableObject {
     }
   }
   
+  func updateCurrentPriceFromInitPrice(by percent: Double) {
+    currentPrice = price + (percent * price / 100)
+  }
+  
   func setPriceAlert() {
     guard !discordId.isEmpty else {
       self.errorMessage = "Please set your Discord ID in Settings tab first!"
@@ -59,7 +63,12 @@ class SetPriceAlertViewModel: ObservableObject {
       await MainActor.run {
         self.isLoading = true
       }
-      let deviceId = await UIDevice().identifierForVendor?.uuidString ?? ""
+      var deviceId = ""
+      #if os(iOS)
+      deviceId = UIDevice().identifierForVendor?.uuidString ?? ""
+      #elseif os(macOS)
+      deviceId = Util.hardwareUUID() ?? ""
+      #endif
       let result = await alertService.upsertPriceAlert(
         deviceId: deviceId,
         discordId: discordId,

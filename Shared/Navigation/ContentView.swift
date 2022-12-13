@@ -34,11 +34,8 @@ struct ContentView: View {
     }
     .environmentObject(appStateManager)
     #elseif os(macOS)
-    WatchlistView(vm: WatchlistViewModel(defiService: DefiServiceImpl()))
-      .frame(minWidth: 380,
-             idealWidth: 500,
-             minHeight: 380,
-             idealHeight: 450)
+    AppSidebarNavigation()
+  
     #endif
   }
 }

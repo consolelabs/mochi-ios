@@ -47,7 +47,8 @@ struct WatchlistView: View {
             }
           }
           .frame(width: reader.size.width / 3, alignment: .leading)
-          
+            
+            Spacer()
           // Sparkline
           if !item.sparklineIn7d.price.isEmpty {
             SparklineView(prices: item.sparklineIn7d.price, color: item.priceChangePercentage7dColor)
@@ -211,11 +212,13 @@ struct WatchlistView: View {
         }
       }
     }
+    .navigationViewStyle(.stack)
     .introspectNavigationController { nav in
       searchBar = nav.navigationBar.subviews.first { view in
         view is UISearchBar
       } as? UISearchBar
     }
+      // MARK: - Bottom bar
     .overlay(alignment: .bottom) {
       if isEditting {
         HStack {
@@ -244,6 +247,7 @@ struct WatchlistView: View {
         .background(Color.gray)
       }
     }
+      // MARK: - Loader
     .overlay {
       if vm.isLoading {
         ActivityIndicator()

@@ -83,6 +83,7 @@ struct AlertListView: View {
         SelectTokenView(vm: WatchlistViewModel(defiService: DefiServiceImpl()))
       }
     }
+    .navigationViewStyle(.stack)
     .task {
       vm.requestNotificationAuth()
     }

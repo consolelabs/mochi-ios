@@ -99,14 +99,14 @@ class WatchlistViewModel: ObservableObject {
  
     }
     let userId = !discordId.isEmpty ? discordId : defaultDiscordId
-    let result = await defiService.getWatchlist(pageSize: nil, userId: userId)
+    let result = await defiService.getWatchlist(pageSize: 100, userId: userId)
     await MainActor.run {
       self.isLoading = false
     }
     switch result {
     case .success(let success):
       await MainActor.run {
-        self.data = success.data.map(WatchlistPresenter.init)
+          self.data = success.data.data.map(WatchlistPresenter.init)
       }
       reloadWidgetDataIfNeeded()
     case .failure(let failure):

@@ -48,7 +48,11 @@ final class DefiServiceImpl: HTTPClient, DefiService {
 }
 
 struct GetWatchListResponse: Codable {
-  let data: [DefiWatchList]
+  let data: GetWatchListData
+}
+
+struct GetWatchListData: Codable {
+    let data: [DefiWatchList]
 }
 
 struct AddWatchListResponse: Codable {

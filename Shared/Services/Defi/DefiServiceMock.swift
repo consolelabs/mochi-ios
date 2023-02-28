@@ -25,7 +25,7 @@ struct DefiServiceMock: DefiService {
       DefiWatchList(id: UUID().uuidString, name: "Ethereum", symbol: "ETH", image: "https://assets.coingecko.com/coins/images/279/thumb/ethereum.png?1595348880", isPair: false, currentPrice: 1557.39, priceChangePercentage24h: -2.4, priceChangePercentage7dInCurrency: 14.1, sparklineIn7d: SparklineData(price: [])),
       DefiWatchList(id: UUID().uuidString, name: "Tether", symbol: "USDT", image: "https://assets.coingecko.com/coins/images/325/thumb/Tether-logo.png?1598003707", isPair: false, currentPrice: 0.997884, priceChangePercentage24h: -0.2, priceChangePercentage7dInCurrency: -0.22, sparklineIn7d: SparklineData(price: []))
     ]
-    return .success(GetWatchListResponse(data: data))
+      return .success(GetWatchListResponse(data: GetWatchListData(data: data)))
   }
   
   func addWatchlist(coinId: String, userId: String) async -> Result<AddWatchListResponse, RequestError> {

@@ -101,7 +101,7 @@ class Provider: IntentTimelineProvider {
       return []
     }
     let widgetVMs = try? await withThrowingTaskGroup(of: WidgetVM.self) { group -> [WidgetVM]  in
-      for (index, item) in resp.data.enumerated() {
+        for (index, item) in resp.data.data.enumerated() {
         group.addTask {
           var widgetVM = WidgetVM(index: index, watchlist: item)
           let sysImage = try await withCheckedThrowingContinuation { continuation in

@@ -21,7 +21,7 @@ struct ImportWalletView: View {
   @State private var privateKey: String = ""
   @State private var address: String = ""
   
-  private let chain: Chain
+  private let chain: BKChain
   private var importMethodFooterText: String {
     switch importType {
     case .phrase:
@@ -33,7 +33,7 @@ struct ImportWalletView: View {
     }
   }
   
-  init(chain: Chain) {
+  init(chain: BKChain) {
     self.chain = chain
   }
   

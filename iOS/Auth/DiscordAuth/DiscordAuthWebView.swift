@@ -17,7 +17,9 @@ struct DiscordAuthWebView: UIViewRepresentable {
     let webView = WKWebView()
     webView.navigationDelegate = context.coordinator
     let request = URLRequest(url: url)
-    webView.load(request)
+    DispatchQueue.main.async {
+      webView.load(request)
+    }
     return webView
   }
   
@@ -29,11 +31,15 @@ struct DiscordAuthWebView: UIViewRepresentable {
     let coordinator = DiscordWebViewCoordinator()
     
     coordinator.didReceiveToken = { token in
-      self.token = token
+      DispatchQueue.main.async {
+        self.token = token
+      }
     }
     
     coordinator.receiveTokenFailed = {
-      self.error = "User cancel"
+      DispatchQueue.main.async {
+        self.error = "User cancel"
+      }
     }
     
     return coordinator
@@ -41,7 +47,6 @@ struct DiscordAuthWebView: UIViewRepresentable {
 }
 
 class DiscordWebViewCoordinator: NSObject, WKNavigationDelegate {
- 
   var didStart: () -> Void
   var didFinish: () -> Void
   var didReceiveToken: (String) -> Void
@@ -80,6 +85,5 @@ class DiscordWebViewCoordinator: NSObject, WKNavigationDelegate {
   }
   
   func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-    print(error)
   }
 }

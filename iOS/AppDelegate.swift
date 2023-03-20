@@ -11,7 +11,7 @@ import OSLog
 class AppDelegate: NSObject, UIApplicationDelegate {
   private lazy var priceAlertService = PriceAlertServiceImpl()
   private let logger = Logger(subsystem: "so.console.mochi", category: "AppDelegate")
-  
+ 
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
@@ -51,3 +51,4 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     completionHandler([.badge, .banner, .list, .sound])
   }
 }
+

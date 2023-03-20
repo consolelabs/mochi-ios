@@ -12,7 +12,7 @@ import OSLog
 
 class WatchlistViewModel: ObservableObject {
   // MARK: - Presenter
-  struct WatchlistPresenter {
+  struct WatchlistPresenter: Identifiable {
     let id: String
     let name: String
     let symbol: String
@@ -24,6 +24,9 @@ class WatchlistViewModel: ObservableObject {
     let priceChangePercentage7dInCurrency: String
     let priceChangePercentage7dColor: Color
     var sparklineIn7d: SparklineData
+    let priceChangePercentage24hValue: Double
+    let priceChangePercentage7dValue: Double
+
     init(watchlist: DefiWatchList) {
       self.id = watchlist.id
       self.name = watchlist.name
@@ -31,6 +34,8 @@ class WatchlistViewModel: ObservableObject {
       self.image = watchlist.image
       self.currentPriceValue = watchlist.currentPrice
       self.sparklineIn7d = watchlist.sparklineIn7d
+      self.priceChangePercentage24hValue = watchlist.priceChangePercentage24h
+      self.priceChangePercentage7dValue = watchlist.priceChangePercentage7dInCurrency
       
       let moneyFormatter = NumberFormatter()
       moneyFormatter.locale = Locale(identifier: "en_US")

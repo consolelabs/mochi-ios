@@ -13,5 +13,15 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Inter-Regular.ttf</string>
+		<string>Inter-SemiBold.ttf</string>
+		<string>Inter-Bold.ttf</string>
+		<string>Inter-Black.ttf</string>
+		<string>Sora-Bold.ttf</string>
+	</array>
+	<key>MORALIS_API_KEY</key>
+	<string>$(MORALIS_API_KEY)</string>
 </dict>
 </plist>

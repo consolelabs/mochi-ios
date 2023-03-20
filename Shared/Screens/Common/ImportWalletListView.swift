@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Chain {
+struct BKChain {
   let id: String
   let name: String
   var imageUrl: String {
@@ -15,7 +15,7 @@ struct Chain {
   }
 }
 
-let chainList: [Chain] = [
+let chainList: [BKChain] = [
   .init(id: "ethereum", name: "Ethereum"),
   .init(id: "smartchain", name: "BNB Smart Chain"),
   .init(id: "avalanchec", name: "Avalanche"),

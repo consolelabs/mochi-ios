@@ -9,20 +9,20 @@ import SwiftUI
 import OSLog
 
 struct ContentView: View {
-  #if os(iOS)
+#if os(iOS)
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-  #endif
- 
+#endif
+  
   @StateObject var appStateManager: AppStateManager = AppStateManager(discordService: DiscordServiceImpl())
   
   var body: some View {
-    #if os(iOS)
+#if os(iOS)
     Group {
       switch appStateManager.appState {
       case .discordLogin, .appleLogin:
-        AppTabNavigation()
+        MainView(profile: appStateManager.getProfile())
       case .logout:
-        AuthView()
+        OnboardingView()
       }
     }
     .overlay {
@@ -33,10 +33,10 @@ struct ContentView: View {
       }
     }
     .environmentObject(appStateManager)
-    #elseif os(macOS)
+#elseif os(macOS)
     AppSidebarNavigation()
-  
-    #endif
+    
+#endif
   }
 }
 
@@ -56,7 +56,7 @@ class AppStateManager: ObservableObject {
   
   private let logger = Logger(subsystem: "so.console.mochi", category: "AppStateManager")
   private let discordService: DiscordService
- 
+  
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
   
@@ -88,7 +88,7 @@ class AppStateManager: ObservableObject {
   var isLogin: Bool {
     return !discordAccessToken.isEmpty && !discordId.isEmpty
   }
-    
+  
   init(discordService: DiscordService) {
     self.discordService = discordService
     fetchAppState()
@@ -100,7 +100,7 @@ class AppStateManager: ObservableObject {
     self.discordId = ""
     self.username = ""
     self.avatar = ""
-   
+    
     // Apple
     self.appleUserId = ""
     self.appleName = ""
@@ -119,7 +119,18 @@ class AppStateManager: ObservableObject {
     self.appleName = name
     fetchAppState()
   }
-    
+  
+  func getProfile() -> Profile {
+    return Profile(
+      id: UUID().uuidString,
+      avatar: avatar,
+      name: username,
+      discord: SocialInfo(icon: "discord", name: username),
+      twitter: nil,
+      telegram: nil
+    )
+  }
+  
   func fetchAppState() {
     if !discordAccessToken.isEmpty && !discordId.isEmpty {
       self.appState = .discordLogin
@@ -130,7 +141,7 @@ class AppStateManager: ObservableObject {
       self.appState = .appleLogin
       return
     }
-   
+    
     self.appState = .logout
   }
   
@@ -141,7 +152,7 @@ class AppStateManager: ObservableObject {
     isLoading = true
     Task {
       let result = await discordService.getCurrentUser()
-    isLoading = false
+      isLoading = false
       switch result {
       case .success(let user):
         self.discordId = user.id

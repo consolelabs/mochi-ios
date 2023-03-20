@@ -33,7 +33,6 @@ Temporary Items
 
 ### Swift ###
 # Xcode
-#
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## User settings
@@ -115,4 +114,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-# End of https://www.toptal.com/developers/gitignore/api/xcode,swift,macos
+# ENV
+*.xcconfig
+

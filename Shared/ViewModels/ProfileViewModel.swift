@@ -24,7 +24,7 @@ extension WalletItem {
                       isEvm: true,
                       address: "0x5417A03667AbB6A059b3F174c1F67b1E83753046",
                       ens: "",
-                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "ETH")
+                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "eth")
     )
   }
   
@@ -33,7 +33,7 @@ extension WalletItem {
                       isEvm: true,
                       address: "0x5417A03667AbB6A059b3F174c1F67b1E83753046",
                       ens: "mochi.eth",
-                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "ETH")
+                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "eth")
     )
   }
 }

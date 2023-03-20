@@ -226,8 +226,8 @@ struct MainView: View {
     
     VStack(alignment: .leading, spacing: 2) {
       (
-        Text("My Wallet (\(profileVM.wallets.count))")
-        + Text(profileVM.wallets.count > 0 ? "(\(profileVM.wallets.count))" : "")
+        Text("My Wallet")
+        + Text(profileVM.wallets.count > 0 ? " (\(profileVM.wallets.count))" : "")
       )
         .font(.inter(size: 13, weight: .bold))
         .foregroundColor(Theme.text4)

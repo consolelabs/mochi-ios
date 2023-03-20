@@ -9,16 +9,18 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>339dbp</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>22A380</string>
+	<string>22C65</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>14B47b</string>
+	<string>14C18</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>14.1</string>
+	<string>14.2</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
 			<key>INIntentCategory</key>
 			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>Config the watchlist widget</string>
 			<key>INIntentDescriptionID</key>
 			<string>RNuG6Y</string>
 			<key>INIntentEligibleForWidgets</key>

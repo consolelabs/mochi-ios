@@ -4,14 +4,11 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>MORALIS_API_KEY</key>
+	<string>$(MORALIS_API_KEY)</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>ConfigurationIntent</string>
-	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>remote-notification</string>
 	</array>
 	<key>UIAppFonts</key>
 	<array>
@@ -21,7 +18,10 @@
 		<string>Inter-Black.ttf</string>
 		<string>Sora-Bold.ttf</string>
 	</array>
-	<key>MORALIS_API_KEY</key>
-	<string>$(MORALIS_API_KEY)</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

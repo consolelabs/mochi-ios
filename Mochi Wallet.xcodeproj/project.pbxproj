@@ -72,7 +72,6 @@
 		085854A129C8237100582C98 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858549529C8237100582C98 /* MainView.swift */; };
 		085854A229C8237100582C98 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858549729C8237100582C98 /* LoginView.swift */; };
 		085854A329C8237100582C98 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0858549929C8237100582C98 /* OnboardingView.swift */; };
-		085854A629C8249100582C98 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 085854A529C8249100582C98 /* ComposableArchitecture */; };
 		085A53612935A407005CF8F7 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 085A53662935A407005CF8F7 /* Widgets.intentdefinition */; };
 		085A53622935A407005CF8F7 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 085A53662935A407005CF8F7 /* Widgets.intentdefinition */; };
 		085A53632935A407005CF8F7 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 085A53662935A407005CF8F7 /* Widgets.intentdefinition */; };
@@ -154,6 +153,8 @@
 		0894EDB82850A2BA00391C7F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDB62850A2BA00391C7F /* Theme.swift */; };
 		0894EDBF2850BB0500391C7F /* ImportWalletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */; };
 		0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDC12851109000391C7F /* ImportWalletView.swift */; };
+		08B016E329C8BD900051B9BD /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 08B016E229C8BD900051B9BD /* ComposableArchitecture */; };
+		08B016E629C8BE890051B9BD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 08B016E529C8BE890051B9BD /* KeychainAccess */; };
 		08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317B284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
@@ -183,7 +184,6 @@
 		08B5B074286DC73C00981D2E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B072286DC73C00981D2E /* NetworkService.swift */; };
 		08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B5B07A286E2D2F00981D2E /* NFTDetailView.swift */; };
 		08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 08B5B07E286E302600981D2E /* SwiftUICharts */; };
-		08BC493C2886B51E0050852A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 08BC493B2886B51E0050852A /* KeychainAccess */; };
 		08BC493F28892EEE0050852A /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC493E28892EEE0050852A /* WalletManager.swift */; };
 		08BC494228895AAD0050852A /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC494128895AAD0050852A /* KeychainService.swift */; };
 		08BC49452889B8760050852A /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC49442889B8760050852A /* LocalStorage.swift */; };
@@ -396,11 +396,11 @@
 			files = (
 				08C32D902907CBF500BCBD8D /* SDWebImageSwiftUI in Frameworks */,
 				0850CADA289070D2008D3094 /* BottomSheet in Frameworks */,
-				08BC493C2886B51E0050852A /* KeychainAccess in Frameworks */,
+				08B016E329C8BD900051B9BD /* ComposableArchitecture in Frameworks */,
 				08DD9BC4287FFBA1003480C6 /* WalletConnectSwift in Frameworks */,
+				08B016E629C8BE890051B9BD /* KeychainAccess in Frameworks */,
 				088BF3A92912CCA300B2C365 /* Introspect in Frameworks */,
 				086A609A28634D3300442FC1 /* web3swift in Frameworks */,
-				085854A629C8249100582C98 /* ComposableArchitecture in Frameworks */,
 				08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1067,11 +1067,11 @@
 				086A609928634D3300442FC1 /* web3swift */,
 				08B5B07E286E302600981D2E /* SwiftUICharts */,
 				08DD9BC3287FFBA1003480C6 /* WalletConnectSwift */,
-				08BC493B2886B51E0050852A /* KeychainAccess */,
 				0850CAD9289070D2008D3094 /* BottomSheet */,
 				08C32D8F2907CBF500BCBD8D /* SDWebImageSwiftUI */,
 				088BF3A82912CCA300B2C365 /* Introspect */,
-				085854A529C8249100582C98 /* ComposableArchitecture */,
+				08B016E229C8BD900051B9BD /* ComposableArchitecture */,
+				08B016E529C8BE890051B9BD /* KeychainAccess */,
 			);
 			productName = "Bitsfi (iOS)";
 			productReference = 08B33170284A77CA003295F3 /* Mochi Wallet.app */;
@@ -1136,11 +1136,11 @@
 				086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */,
 				08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */,
 				08DD9BC2287FFBA1003480C6 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
-				08BC493A2886B51E0050852A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				0850CAD8289070D2008D3094 /* XCRemoteSwiftPackageReference "bottom-sheet" */,
 				08C32D8E2907CBF500BCBD8D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				088BF3A72912CCA300B2C365 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				085854A429C8249100582C98 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				08B016E129C8BD900051B9BD /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				08B016E429C8BE890051B9BD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 08B33171284A77CA003295F3 /* Products */;
 			projectDirPath = "";
@@ -1876,14 +1876,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		085854A429C8249100582C98 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture#basic-usage";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/skywinder/web3swift";
@@ -1900,20 +1892,28 @@
 				minimumVersion = 0.1.4;
 			};
 		};
+		08B016E129C8BD900051B9BD /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture#basic-usage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+		08B016E429C8BE890051B9BD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
 		08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		08BC493A2886B51E0050852A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 		08C32D8E2907CBF500BCBD8D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
@@ -1950,11 +1950,6 @@
 			package = 0850CAD8289070D2008D3094 /* XCRemoteSwiftPackageReference "bottom-sheet" */;
 			productName = BottomSheet;
 		};
-		085854A529C8249100582C98 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 085854A429C8249100582C98 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		086A609928634D3300442FC1 /* web3swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 086A609828634D3200442FC1 /* XCRemoteSwiftPackageReference "web3swift" */;
@@ -1965,15 +1960,20 @@
 			package = 088BF3A72912CCA300B2C365 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
 		};
+		08B016E229C8BD900051B9BD /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08B016E129C8BD900051B9BD /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		08B016E529C8BE890051B9BD /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08B016E429C8BE890051B9BD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		08B5B07E286E302600981D2E /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
-		};
-		08BC493B2886B51E0050852A /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 08BC493A2886B51E0050852A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
 		};
 		08C32D8F2907CBF500BCBD8D /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

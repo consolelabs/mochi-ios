@@ -7,9 +7,10 @@
 #  
 
 echo "Stage: PRE-Xcode Build is activated .... "
-cd ../iOS/
-plutil -replace MORALIS_API_KEY -string $MORALIS_API_KEY Secret.plist
-plutil -p Secret.plist
+# This is important because the position of the subsequently mentioned files depend of this origin.
+cd $CI_WORKSPACE/ci_scripts || exit 1
+plutil -replace MORALIS_API_KEY -string $MORALIS_API_KEY ../iOS/Secret.plist
+plutil -p ../iOS/Secret.plist
 echo "Stage: PRE-Xcode Build is DONE .... "
 
 exit 0

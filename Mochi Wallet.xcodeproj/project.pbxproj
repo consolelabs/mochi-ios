@@ -121,10 +121,6 @@
 		0874FAA629C897FA00B53E3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */; };
 		0874FAA729C897FA00B53E3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */; };
 		0874FAA829C897FA00B53E3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */; };
-		0874FAAB29C89E8900B53E3C /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAA29C89E8900B53E3C /* EVMEndpoint.swift */; };
-		0874FAAC29C89E8900B53E3C /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAA29C89E8900B53E3C /* EVMEndpoint.swift */; };
-		0874FAAD29C89E8900B53E3C /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAA29C89E8900B53E3C /* EVMEndpoint.swift */; };
-		0874FAAE29C89E8900B53E3C /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAA29C89E8900B53E3C /* EVMEndpoint.swift */; };
 		0874FAB029C89E9900B53E3C /* EVMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAF29C89E9900B53E3C /* EVMService.swift */; };
 		0874FAB129C89E9900B53E3C /* EVMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAF29C89E9900B53E3C /* EVMService.swift */; };
 		0874FAB229C89E9900B53E3C /* EVMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAF29C89E9900B53E3C /* EVMService.swift */; };
@@ -155,6 +151,10 @@
 		08B016E629C8BE890051B9BD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 08B016E529C8BE890051B9BD /* KeychainAccess */; };
 		08B016EF29C8C4800051B9BD /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 08B016EE29C8C4800051B9BD /* ComposableArchitecture */; };
 		08B016F629C8CAE60051B9BD /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08B016F529C8CAE60051B9BD /* Secret.plist */; };
+		08B016F829C8D1B20051B9BD /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */; };
+		08B016F929C8D1B20051B9BD /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */; };
+		08B016FA29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */; };
+		08B016FB29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */; };
 		08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317B284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
@@ -318,7 +318,6 @@
 		0874FA9A29C87A1500B53E3C /* MochiProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiProfileEndpoint.swift; sourceTree = "<group>"; };
 		0874FA9F29C87A1F00B53E3C /* MochiProfileServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiProfileServiceMock.swift; sourceTree = "<group>"; };
 		0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		0874FAAA29C89E8900B53E3C /* EVMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EVMEndpoint.swift; path = ../../../../../EVMEndpoint.swift; sourceTree = "<group>"; };
 		0874FAAF29C89E9900B53E3C /* EVMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVMService.swift; sourceTree = "<group>"; };
 		0874FAB529C8A10E00B53E3C /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		0874FAB829C8A1CE00B53E3C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -335,6 +334,7 @@
 		0894EDC12851109000391C7F /* ImportWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletView.swift; sourceTree = "<group>"; };
 		08B016F429C8C9CA0051B9BD /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
 		08B016F529C8CAE60051B9BD /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Secret.plist; path = ../../../../../../Applications/Secret.plist; sourceTree = "<group>"; };
+		08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVMEndpoint.swift; sourceTree = "<group>"; };
 		08B33169284A77C8003295F3 /* MochiWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiWalletApp.swift; sourceTree = "<group>"; };
 		08B3316A284A77C8003295F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08B3316B284A77CA003295F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -645,7 +645,7 @@
 		0874FAA929C89E1D00B53E3C /* EVMService */ = {
 			isa = PBXGroup;
 			children = (
-				0874FAAA29C89E8900B53E3C /* EVMEndpoint.swift */,
+				08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */,
 				0874FAAF29C89E9900B53E3C /* EVMService.swift */,
 			);
 			path = EVMService;
@@ -1215,7 +1215,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				08683FD42926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
-				0874FAAD29C89E8900B53E3C /* EVMEndpoint.swift in Sources */,
 				0841048A290BBB0E008F5823 /* Endpoint.swift in Sources */,
 				088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 				08C32D9A2907F98D00BCBD8D /* NetworkService.swift in Sources */,
@@ -1223,6 +1222,7 @@
 				0841048E290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08683FFD292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				08683FCF2926201000DC464B /* PriceAlertService.swift in Sources */,
+				08B016FA29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
 				08CC1E5929182B78002C459A /* LocalStorage.swift in Sources */,
 				085A53632935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
 				0874FAA229C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
@@ -1249,7 +1249,6 @@
 				08495854290E8524005C8186 /* Endpoint.swift in Sources */,
 				0874FAA329C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
 				08683FD52926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
-				0874FAAE29C89E8900B53E3C /* EVMEndpoint.swift in Sources */,
 				08683FD02926201000DC464B /* PriceAlertService.swift in Sources */,
 				0874FA9929C87A0200B53E3C /* MochiProfileService.swift in Sources */,
 				08495851290E851B005C8186 /* RequestError.swift in Sources */,
@@ -1267,6 +1266,7 @@
 				08683FF9292D4C0100DC464B /* DiscordService.swift in Sources */,
 				08495855290E852C005C8186 /* DefiEndpoint.swift in Sources */,
 				08CC1E5A29182B79002C459A /* LocalStorage.swift in Sources */,
+				08B016FB29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
 				0849584F290E8475005C8186 /* DefiService.swift in Sources */,
 				088BF39C291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 			);
@@ -1281,7 +1281,6 @@
 				0841049C290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				08537C1528902A1200B15BD1 /* SelectWalletView.swift in Sources */,
 				0858549B29C8237100582C98 /* WatchlistItemRow.swift in Sources */,
-				0874FAAB29C89E8900B53E3C /* EVMEndpoint.swift in Sources */,
 				0841047F290B7914008F5823 /* WatchlistView.swift in Sources */,
 				08683FEE292B6DAE00DC464B /* DiscordAuthButton.swift in Sources */,
 				08410490290BBB4F008F5823 /* RequestMethod.swift in Sources */,
@@ -1349,6 +1348,7 @@
 				08410498290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				0874FAB929C8A1CE00B53E3C /* Environment.swift in Sources */,
 				0874FAA029C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
+				08B016F829C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
 				08B3D1A5285C792000E9CF04 /* TrailingIconLabelStyle.swift in Sources */,
 				08683FD22926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
 				08683FD72926489700DC464B /* AppDelegate.swift in Sources */,
@@ -1381,7 +1381,6 @@
 				0874FABA29C8A1CE00B53E3C /* Environment.swift in Sources */,
 				088BF3A62912A44F00B2C365 /* WatchlistView.swift in Sources */,
 				08B5AC8C2948EDBB00EF7AE9 /* SelectTokenView.swift in Sources */,
-				0874FAAC29C89E8900B53E3C /* EVMEndpoint.swift in Sources */,
 				08683FF7292D4C0100DC464B /* DiscordService.swift in Sources */,
 				0874FAA629C897FA00B53E3C /* ProfileViewModel.swift in Sources */,
 				08C32D932907F44600BCBD8D /* Bundle+version.swift in Sources */,
@@ -1392,6 +1391,7 @@
 				0874FAB129C89E9900B53E3C /* EVMService.swift in Sources */,
 				0810E9F8291909ED00725136 /* SettingsView.swift in Sources */,
 				0874FAA129C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
+				08B016F929C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
 				08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
 				0874FA9C29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
 				08410489290BBB0E008F5823 /* Endpoint.swift in Sources */,

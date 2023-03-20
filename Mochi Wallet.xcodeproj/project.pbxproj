@@ -154,6 +154,7 @@
 		0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894EDC12851109000391C7F /* ImportWalletView.swift */; };
 		08B016E629C8BE890051B9BD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 08B016E529C8BE890051B9BD /* KeychainAccess */; };
 		08B016EF29C8C4800051B9BD /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 08B016EE29C8C4800051B9BD /* ComposableArchitecture */; };
+		08B016F629C8CAE60051B9BD /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08B016F529C8CAE60051B9BD /* Secret.plist */; };
 		08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317B284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
@@ -332,6 +333,8 @@
 		0894EDB62850A2BA00391C7F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0894EDBE2850BB0500391C7F /* ImportWalletListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletListView.swift; sourceTree = "<group>"; };
 		0894EDC12851109000391C7F /* ImportWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletView.swift; sourceTree = "<group>"; };
+		08B016F429C8C9CA0051B9BD /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
+		08B016F529C8CAE60051B9BD /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Secret.plist; path = ../../../../../../Applications/Secret.plist; sourceTree = "<group>"; };
 		08B33169284A77C8003295F3 /* MochiWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiWalletApp.swift; sourceTree = "<group>"; };
 		08B3316A284A77C8003295F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08B3316B284A77CA003295F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -501,6 +504,7 @@
 			children = (
 				0858547C29C822D700582C98 /* Asset.swift */,
 				0858547D29C822D700582C98 /* Fonts */,
+				08B016F529C8CAE60051B9BD /* Secret.plist */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -695,9 +699,18 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		08B016F329C8C9970051B9BD /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				08B016F429C8C9CA0051B9BD /* ci_pre_xcodebuild.sh */,
+			);
+			path = ci_scripts;
+			sourceTree = "<group>";
+		};
 		08B33163284A77C8003295F3 = {
 			isa = PBXGroup;
 			children = (
+				08B016F329C8C9970051B9BD /* ci_scripts */,
 				08B33168284A77C8003295F3 /* Shared */,
 				08B33187284A77EE003295F3 /* iOS */,
 				08B33177284A77CA003295F3 /* macOS */,
@@ -1178,6 +1191,7 @@
 				0858548729C822D700582C98 /* Inter-Black.ttf in Resources */,
 				0858548629C822D700582C98 /* Inter-Regular.ttf in Resources */,
 				0858548429C822D700582C98 /* Sora-Bold.ttf in Resources */,
+				08B016F629C8CAE60051B9BD /* Secret.plist in Resources */,
 				0858548529C822D700582C98 /* Inter-Bold.ttf in Resources */,
 				08762F0C291A40400075A308 /* Assets.xcassets in Resources */,
 				0858548829C822D700582C98 /* Inter-SemiBold.ttf in Resources */,
@@ -1668,7 +1682,6 @@
 		};
 		08B33182284A77CA003295F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0874FAB529C8A10E00B53E3C /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1705,7 +1718,6 @@
 		};
 		08B33183284A77CA003295F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0874FAB529C8A10E00B53E3C /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

@@ -8,8 +8,10 @@
 import Foundation
 
 public enum AppEnvironment {
-  private static let infoDictionary: [String: Any] = {
-    guard let dict = Bundle.main.infoDictionary else {
+  private static let infoDictionary: NSDictionary = {
+    guard let path = Bundle.main.path(forResource: "Secret", ofType: "plist"),
+          let dict = NSDictionary(contentsOfFile: path)
+    else {
       fatalError("Plist file not found")
     }
     return dict

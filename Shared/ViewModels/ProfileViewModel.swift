@@ -82,7 +82,8 @@ class ProfileViewModel: ObservableObject {
     if shouldShowLoading {
       self.isLoading = true
     }
-    
+   
+    let discordId = "567326528216760320"
     let result = await mochiProfileService.getByDiscord(id: discordId)
     switch result {
     case .success(let resp):
@@ -91,7 +92,7 @@ class ProfileViewModel: ObservableObject {
           guard let platform = acc.platform else {
             return false
           }
-          return [.evmChain, .evmChain].contains(platform)
+          return [.solanaChain, .evmChain].contains(platform)
         }
       var wallets = chainOnlyAccounts.map { acc in
         let coin = acc.platform == .evmChain
@@ -118,6 +119,7 @@ class ProfileViewModel: ObservableObject {
       self.wallets = wallets
     case .failure(let error):
       self.error = error.customMessage
+      print(error.customMessage)
     }
   }
 }

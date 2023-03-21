@@ -83,7 +83,6 @@ class ProfileViewModel: ObservableObject {
       self.isLoading = true
     }
    
-    let discordId = "567326528216760320"
     let result = await mochiProfileService.getByDiscord(id: discordId)
     switch result {
     case .success(let resp):

@@ -43,6 +43,8 @@ struct MainView: View {
     evmService: EVMServiceImp()
   )
   
+  private let timer = Timer.publish(every: 15, tolerance: 1, on: .main, in: .common).autoconnect()
+
   private let profile: Profile
   private let screenYOffset: CGFloat = -30
   
@@ -91,6 +93,23 @@ struct MainView: View {
         }
         .sheet(isPresented: $showQR) {
           QRView()
+        }
+        .refreshable {
+          Task {
+            await withTaskGroup(of: Void.self) { group in
+              group.addTask {
+                await profileVM.fetchProfile(shouldShowLoading: true)
+              }
+              group.addTask {
+                await watchlistVM.fetchWatchlist(shouldShowLoading: true)
+              }
+            }
+          }
+        }
+        .onReceive(timer) { timer in
+          Task {
+            await watchlistVM.fetchWatchlist(shouldShowLoading: false)
+          }
         }
       }
     }

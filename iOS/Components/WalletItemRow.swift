@@ -34,9 +34,7 @@ struct WalletItemRow: View {
         .font(.interSemiBold(size: 15))
         .foregroundColor(Theme.text4)
         .minimumScaleFactor(0.5)
-      if (item.ens.isEmpty) {
-        Spacer()
-      }
+      Spacer()
     }
     .padding(.vertical, 12)
     .padding(.trailing, 15)

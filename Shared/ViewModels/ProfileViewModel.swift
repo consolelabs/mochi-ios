@@ -82,7 +82,7 @@ class ProfileViewModel: ObservableObject {
     if shouldShowLoading {
       self.isLoading = true
     }
-   
+    
     let result = await mochiProfileService.getByDiscord(id: discordId)
     switch result {
     case .success(let resp):

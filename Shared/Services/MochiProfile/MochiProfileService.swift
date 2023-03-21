@@ -20,9 +20,33 @@ final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
   }
 }
 
+@propertyWrapper
+public struct NilOnFailCodable<ValueType>: Codable where ValueType: Codable {
+
+    public var wrappedValue: ValueType?
+
+    public init(wrappedValue: ValueType?) {
+        self.wrappedValue = wrappedValue
+    }
+
+    public init(from decoder: Decoder) throws {
+        self.wrappedValue = try? ValueType(from: decoder)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        if let value = wrappedValue {
+            try container.encode(value)
+        } else {
+            try container.encodeNil()
+        }
+    }
+}
+
 struct GetByDiscordResponse: Codable {
   struct AssociatedAccount: Codable {
     enum Platform: String, Codable {
+      case telegram = "telegram"
       case discord = "discord"
       case solanaChain = "solana-chain"
       case evmChain = "evm-chain"
@@ -30,7 +54,10 @@ struct GetByDiscordResponse: Codable {
     
     let id: String
     let profileID: String
-    let platform: Platform?
+    
+    @NilOnFailCodable
+    var platform: Platform?
+    
     let platformIdentifier: String
     
     private enum CodingKeys: String, CodingKey {

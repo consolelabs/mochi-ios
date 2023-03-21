@@ -416,7 +416,6 @@ struct WatchlistItemRow: View {
     numberFormatter.numberStyle = .currency
     numberFormatter.currencyCode = "USD"
     numberFormatter.currencySymbol = ""
-    numberFormatter.minimumFractionDigits = 2
     numberFormatter.maximumFractionDigits = 3
     return numberFormatter
   }()

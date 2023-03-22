@@ -16,15 +16,12 @@ Mochi Wallet is a non-custody wallet, giving you complete control of your crypto
 
 <p align="center">
 	<img width="200" src="misc/screen1.png">
-	<img width="200" src="misc/screen2.png">
 	<img width="200" src="misc/screen3.png">
-	<img width="200" src="misc/screen7.png">
 </p>
 
 <p align="center">
 	<img height="400" src="misc/screen4.png">
 	<img height="400" src="misc/screen5.png">
-	<img height="400" src="misc/screen6.png">
 </p>
 
 ## License

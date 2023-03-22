@@ -155,6 +155,8 @@
 		08B016FA29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */; };
 		08B016FB29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */; };
 		08B016FD29C8D4710051B9BD /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08B016FC29C8D4700051B9BD /* Secret.plist */; };
+		08B0170029CA07000051B9BD /* EditWatchlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B016FF29CA07000051B9BD /* EditWatchlistView.swift */; };
+		08B0170229CA8BD40051B9BD /* EditWatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0170129CA8BD40051B9BD /* EditWatchlistViewModel.swift */; };
 		08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317B284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
@@ -335,6 +337,8 @@
 		08B016F429C8C9CA0051B9BD /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
 		08B016F729C8D1B20051B9BD /* EVMEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVMEndpoint.swift; sourceTree = "<group>"; };
 		08B016FC29C8D4700051B9BD /* Secret.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
+		08B016FF29CA07000051B9BD /* EditWatchlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistView.swift; sourceTree = "<group>"; };
+		08B0170129CA8BD40051B9BD /* EditWatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistViewModel.swift; sourceTree = "<group>"; };
 		08B33169284A77C8003295F3 /* MochiWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiWalletApp.swift; sourceTree = "<group>"; };
 		08B3316A284A77C8003295F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08B3316B284A77CA003295F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -535,6 +539,7 @@
 		0858548F29C8237100582C98 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				08B016FE29CA06EC0051B9BD /* Watchlist */,
 				0858549029C8237100582C98 /* QR */,
 				0858549229C8237100582C98 /* Menu */,
 				0858549429C8237100582C98 /* Main */,
@@ -705,6 +710,15 @@
 				08B016F429C8C9CA0051B9BD /* ci_pre_xcodebuild.sh */,
 			);
 			path = ci_scripts;
+			sourceTree = "<group>";
+		};
+		08B016FE29CA06EC0051B9BD /* Watchlist */ = {
+			isa = PBXGroup;
+			children = (
+				08B016FF29CA07000051B9BD /* EditWatchlistView.swift */,
+				08B0170129CA8BD40051B9BD /* EditWatchlistViewModel.swift */,
+			);
+			path = Watchlist;
 			sourceTree = "<group>";
 		};
 		08B33163284A77C8003295F3 = {
@@ -1278,6 +1292,7 @@
 			files = (
 				08C32D972907F63800BCBD8D /* DefiService.swift in Sources */,
 				0894EDBF2850BB0500391C7F /* ImportWalletListView.swift in Sources */,
+				08B0170229CA8BD40051B9BD /* EditWatchlistViewModel.swift in Sources */,
 				0841049C290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				08537C1528902A1200B15BD1 /* SelectWalletView.swift in Sources */,
 				0858549B29C8237100582C98 /* WatchlistItemRow.swift in Sources */,
@@ -1309,6 +1324,7 @@
 				0874FA9629C87A0200B53E3C /* MochiProfileService.swift in Sources */,
 				08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */,
 				0858548329C822D700582C98 /* Asset.swift in Sources */,
+				08B0170029CA07000051B9BD /* EditWatchlistView.swift in Sources */,
 				085A53612935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
 				085854A129C8237100582C98 /* MainView.swift in Sources */,
 				08683FDF292712DA00DC464B /* AlertCardView.swift in Sources */,
@@ -1460,7 +1476,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.13.4;
+				MARKETING_VERSION = 0.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1491,7 +1507,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.13.4;
+				MARKETING_VERSION = 0.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1706,7 +1722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.13.4;
+				MARKETING_VERSION = 0.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1742,7 +1758,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.13.4;
+				MARKETING_VERSION = 0.14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;

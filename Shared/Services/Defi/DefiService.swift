@@ -52,7 +52,7 @@ struct GetWatchListResponse: Codable {
 }
 
 struct GetWatchListData: Codable {
-    let data: [DefiWatchList]
+  let data: [DefiWatchList]
 }
 
 struct AddWatchListResponse: Codable {
@@ -109,11 +109,36 @@ struct GetCoinResponse: Codable {
       let small: String
       let thumb: String
     }
+    struct MarketData: Codable {
+      struct CurrentPrice: Codable {
+        let usd: Double
+      }
+      struct PriceChangePercentage7D: Codable {
+        let usd: Double
+      }
+      
+      let currentPrice: CurrentPrice
+      let priceChangePercentage7dInCurrency: PriceChangePercentage7D
+      
+      private enum CodingKeys: String, CodingKey {
+        case currentPrice = "current_price"
+        case priceChangePercentage7dInCurrency = "price_change_percentage_7d_in_currency"
+      }
+    }
     
     let id: String
     let name: String
     let symbol: String
     let image: Image
+    let marketData: MarketData
+    
+    private enum CodingKeys: String, CodingKey {
+      case id
+      case name
+      case symbol
+      case image
+      case marketData = "market_data"
+    }
   }
   
   let data: GetCoinData

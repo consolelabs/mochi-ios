@@ -75,15 +75,19 @@ enum SecondaryMenuItem: Int, CaseIterable {
 struct MenuView: View {
   // MARK: - State
   @EnvironmentObject var appStateManager: AppStateManager
-  
+  private let bannerHeight: CGFloat = 120
+
   // MARK: - Body
   var body: some View {
     ZStack {
       Theme.gray
         .ignoresSafeArea()
       ScrollView {
-        menuItems
-          .padding(.bottom, 120)
+        VStack {
+          menuItems
+          appVersion
+        }
+        .padding(.bottom, bannerHeight)
       }
     }
     .navigationBarTitleDisplayMode(.inline)
@@ -176,6 +180,12 @@ struct MenuView: View {
       ], startPoint: UnitPoint(x: 0.25, y: 0.5), endPoint: UnitPoint(x: 0.75, y: 0.5))
       .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     )
+  }
+  
+  private var appVersion: some View {
+    Text("App version \(Bundle.main.releaseVersionNumber ?? "0") (\(Bundle.main.buildVersionNumber ?? "0"))")
+      .foregroundColor(Theme.text4)
+      .font(.inter(size: 12, weight: .medium))
   }
   
   // MARK: - Menu Button builder

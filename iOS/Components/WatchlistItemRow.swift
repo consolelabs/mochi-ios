@@ -411,15 +411,6 @@ struct WatchlistItemRow: View {
   // MARK: - State
   let store: StoreOf<WatchlistItem>
   
-  private var priceFormmater: NumberFormatter = {
-    let numberFormatter = NumberFormatter()
-    numberFormatter.numberStyle = .currency
-    numberFormatter.currencyCode = "USD"
-    numberFormatter.currencySymbol = ""
-    numberFormatter.maximumFractionDigits = 3
-    return numberFormatter
-  }()
-  
   init(store: StoreOf<WatchlistItem>) {
     self.store = store
   }
@@ -454,15 +445,15 @@ struct WatchlistItemRow: View {
         .frame(width: 90, alignment: .leading)
         // MARK: Value
         HStack(spacing: 6) {
-          HStack(spacing: 0) {
+          (
             Text("$")
               .foregroundColor(Theme.text4)
-            let price = priceFormmater.string(from: NSNumber(value: viewStore.state.currentPrice)) ?? "NA"
-            Text(price)
+            +
+            Text(viewStore.state.currentPrice.toPriceFormat() ?? "NA")
               .foregroundColor(Theme.text1)
-              .lineLimit(1)
-              .minimumScaleFactor(0.5)
-          }
+          )
+          .lineLimit(1)
+          .minimumScaleFactor(0.5)
           .font(.interSemiBold(size: 15))
           
           HStack(spacing: 0) {

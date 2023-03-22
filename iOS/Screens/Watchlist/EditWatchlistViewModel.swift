@@ -12,8 +12,10 @@ import OSLog
 
 struct EditWatchlistItem: Identifiable {
   let id: String
-  let logo: String
-  let name: String
+  var logo: String
+  var symbol: String
+  var priceChangePercentage7d: Double
+  var currentPrice: Double
   var isSelected: Bool = false
 }
 
@@ -21,7 +23,9 @@ extension EditWatchlistItem {
   static let mock = Self(
     id: UUID().uuidString,
     logo: "https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png",
-    name: "btc"
+    symbol: "btc",
+    priceChangePercentage7d: 0,
+    currentPrice: 0
   )
 }
 
@@ -65,7 +69,13 @@ class EditWatchlistViewModel: ObservableObject {
     switch result {
     case .success(let success):
       self.data = success.data.data.map { item in
-        EditWatchlistItem(id: item.id, logo: item.image, name: item.symbol)
+        EditWatchlistItem(
+          id: item.id,
+          logo: item.image,
+          symbol: item.symbol,
+          priceChangePercentage7d: item.priceChangePercentage7dInCurrency,
+          currentPrice: item.currentPrice
+        )
       }
     case .failure(let failure):
       logger.error("Fetch watchlist failed, error: \(failure.customMessage)")
@@ -93,9 +103,27 @@ class EditWatchlistViewModel: ObservableObject {
             let result = await self.defiService.queryCoins(query: query)
             switch result {
             case .success(let resp):
-              let items = resp.data.map { coin in
-                let isSelected = data.contains(where: {$0.id == coin.id })
-                return EditWatchlistItem(id: coin.id, logo: "", name: coin.name, isSelected: isSelected)
+              let items = await withTaskGroup(of: EditWatchlistItem?.self) { group -> [EditWatchlistItem] in
+                for item in resp.data {
+                  let isSelected = self.data.contains(where: { $0.id == item.id })
+                  group.addTask {
+                    let result = await self.defiService.getCoin(id: item.id)
+                    guard case let .success(resp) = result else { return nil }
+                    let coin = resp.data
+                    return EditWatchlistItem(
+                      id: coin.id,
+                      logo: coin.image.small,
+                      symbol: coin.symbol,
+                      priceChangePercentage7d: coin.marketData.priceChangePercentage7dInCurrency.usd,
+                      currentPrice: coin.marketData.currentPrice.usd,
+                      isSelected: isSelected
+                    )
+                  }
+                }
+                return await group.reduce([]) { result, item in
+                  guard let item = item else { return result }
+                  return result + [item]
+                }
               }
               promise(.success(items))
             case .failure(let error):
@@ -135,7 +163,7 @@ class EditWatchlistViewModel: ObservableObject {
   func remove(at indexSet: IndexSet) {
     for index in indexSet {
       let item = data[index]
-      remove(symbol: item.name)
+      remove(symbol: item.symbol)
     }
   }
   

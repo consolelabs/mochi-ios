@@ -22,7 +22,7 @@ protocol KeychainService {
 final class KeychainServiceImpl: KeychainService {
   private let keychain: Keychain
   
-  init(service: String = "so.console.bitswallet") {
+  init(service: String = "so.console.mochi") {
     self.keychain = Keychain(service: service)
       .accessibility(.whenUnlocked)
   }

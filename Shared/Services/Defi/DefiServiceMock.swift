@@ -13,10 +13,16 @@ struct DefiServiceMock: DefiService {
   }
   
   func getCoin(id: String) async -> Result<GetCoinResponse, RequestError> {
-    return .success(GetCoinResponse(data: .init(id: "bitcoin",
-                                                name: "Bitcoin",
-                                                symbol: "BTC",
-                                                image: GetCoinResponse.GetCoinData.Image(large: "", small: "", thumb: ""))))
+    return .success(GetCoinResponse(data: .init(
+      id: "bitcoin",
+      name: "Bitcoin",
+      symbol: "BTC",
+      image: GetCoinResponse.GetCoinData.Image(large: "", small: "", thumb: ""),
+      marketData: .init(
+        currentPrice: .init(usd: 0),
+        priceChangePercentage7dInCurrency: .init(usd: 0)
+      )))
+    )
   }
   
   func getWatchlist(page: Int?, pageSize: Int?, userId: String) async -> Result<GetWatchListResponse, RequestError> {

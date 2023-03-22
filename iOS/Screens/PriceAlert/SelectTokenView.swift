@@ -157,7 +157,7 @@ struct SelectTokenView: View {
 
 struct SelectToken_Previews: PreviewProvider {
   static var previews: some View {
-    WatchlistView(vm: WatchlistViewModel(defiService: DefiServiceMock()))
+    SelectTokenView(vm: WatchlistViewModel(defiService: DefiServiceMock()))
   }
 }
 

@@ -28,13 +28,14 @@ struct EditWatchlistView: View {
       .autocorrectionDisabled()
       .textInputAutocapitalization(.never)
       .listStyle(PlainListStyle())
-      .navigationTitle(
-        Text("Edit Watchlist")
-          .foregroundColor(Theme.text1)
-          .font(.inter(size: 16, weight: .bold))
-      )
+      .navigationTitle("Edit Watchlist")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
+        ToolbarItem(placement: .principal) {
+          Text("Edit Watchlist")
+            .foregroundColor(Theme.text1)
+            .font(.inter(size: 16, weight: .bold))
+        }
         ToolbarItem(placement: .navigationBarLeading) {
           Button(action: { dismiss() }) {
             Text("Cancel")
@@ -58,7 +59,7 @@ struct EditWatchlistView: View {
       ForEach(vm.data) { item in
         HStack(spacing: 12) {
           Button(action: {
-            vm.remove(symbol: item.name)
+            vm.remove(symbol: item.symbol)
           }) {
             Asset.remove
               .resizable()
@@ -85,18 +86,44 @@ struct EditWatchlistView: View {
                 EmptyView()
               }
             }
-            Text(item.name.uppercased())
+            Text(item.symbol.uppercased())
               .foregroundColor(Theme.text1)
               .font(.inter(size: 15, weight: .bold))
           }
-          Spacer()
+          .frame(width: 90, alignment: .leading)
           HStack(spacing: 6) {
-            Text("$0.00")
-              .foregroundColor(Theme.text3)
-              .font(.interSemiBold(size: 15))
-            Text("0.00%")
-              .foregroundColor(Theme.text3)
-              .font(.interSemiBold(size: 11))
+            (
+              Text("$")
+                .foregroundColor(Theme.text4)
+              +
+              Text(item.currentPrice.toPriceFormat() ?? "NA")
+                .foregroundColor(Theme.text1)
+            )
+            .lineLimit(1)
+            .minimumScaleFactor(0.5)
+            .font(.interSemiBold(size: 15))
+            
+            HStack(spacing: 0) {
+              if item.priceChangePercentage7d >= 0 {
+                Asset.increase
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 13, height: 13)
+              } else {
+                Asset.decrease
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 13, height: 13)
+                
+              }
+              Text(String(format: "%.2f", item.priceChangePercentage7d)+"%")
+                .font(.interSemiBold(size: 11))
+                .foregroundColor(
+                  item.priceChangePercentage7d > 0
+                  ? Color(red: 0.13, green: 0.75, blue: 0.58)
+                  : Color(red: 0.99, green: 0.37, blue: 0.35)
+                )
+            }
           }
           Spacer()
           Button(action: {}) {
@@ -139,23 +166,49 @@ struct EditWatchlistView: View {
                 EmptyView()
               }
             }
-            Text(item.name.uppercased())
+            Text(item.symbol.uppercased())
               .foregroundColor(Theme.text1)
               .font(.inter(size: 15, weight: .bold))
           }
-          Spacer()
+          .frame(width: 90, alignment: .leading)
           HStack(spacing: 6) {
-            Text("$0.00")
-              .foregroundColor(Theme.text3)
-              .font(.interSemiBold(size: 15))
-            Text("0.00%")
-              .foregroundColor(Theme.text3)
-              .font(.interSemiBold(size: 11))
+            (
+              Text("$")
+                .foregroundColor(Theme.text4)
+              +
+              Text(item.currentPrice.toPriceFormat() ?? "NA")
+                .foregroundColor(Theme.text1)
+            )
+            .lineLimit(1)
+            .minimumScaleFactor(0.5)
+            .font(.interSemiBold(size: 15))
+            
+            HStack(spacing: 0) {
+              if item.priceChangePercentage7d >= 0 {
+                Asset.increase
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 13, height: 13)
+              } else {
+                Asset.decrease
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 13, height: 13)
+                
+              }
+              Text(String(format: "%.2f", item.priceChangePercentage7d)+"%")
+                .font(.interSemiBold(size: 11))
+                .foregroundColor(
+                  item.priceChangePercentage7d > 0
+                  ? Color(red: 0.13, green: 0.75, blue: 0.58)
+                  : Color(red: 0.99, green: 0.37, blue: 0.35)
+                )
+            }
           }
           Spacer()
           Button(action: {
             if item.isSelected {
-              vm.remove(symbol: item.name)
+              vm.remove(symbol: item.symbol)
             } else {
               vm.add(coinId: item.id)
             }
@@ -163,7 +216,7 @@ struct EditWatchlistView: View {
             if item.isSelected {
               Image(systemName: "checkmark.circle.fill")
                 .resizable()
-                .foregroundColor(.green)
+                .foregroundColor(Theme.green2)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 20, height: 20)
             } else {

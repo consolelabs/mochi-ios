@@ -93,7 +93,8 @@ class ProfileViewModel: ObservableObject {
           }
           return [.solanaChain, .evmChain].contains(platform)
         }
-      var wallets = chainOnlyAccounts.map { acc in
+      self.isLoading = false
+      self.wallets = chainOnlyAccounts.map { acc in
         let coin = acc.platform == .evmChain
         ? Coin(id: "0", name: "Ethereum", symbol: "ETH", icon: "eth")
         : Coin(id: "1", name: "Solana", symbol: "SOL", icon: "sol")
@@ -104,21 +105,27 @@ class ProfileViewModel: ObservableObject {
           ens: "",
           coin: coin)
       }
+      // resolve ens
       for (index, wallet) in wallets.enumerated() {
         guard wallet.isEvm else { continue }
-        let result = await evmService.resolveENS(address: wallet.address)
-        switch result {
-        case .success(let resp):
-          wallets[index].ens = resp.name ?? ""
-        case .failure:
-          break
-        }
+        let ens = await self.resolveENS(address: wallet.address)
+        self.wallets[index].ens = ens
       }
-      self.isLoading = false
-      self.wallets = wallets
     case .failure(let error):
+      self.isLoading = false
       self.error = error.customMessage
-      print(error.customMessage)
+      logger.error("fetch mochi profile by discord id: \(self.discordId) failed, error: \(error)")
+    }
+  }
+  
+  private func resolveENS(address: String) async -> String {
+    let result = await evmService.resolveENS(address: address)
+    switch result {
+    case .success(let resp):
+      return resp.name ?? ""
+    case .failure(let err):
+      logger.error("resolve ens failed \(err)")
+      return ""
     }
   }
 }

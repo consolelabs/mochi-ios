@@ -43,7 +43,11 @@ enum Asset {
   static let addFriend = Image("ico_add_friend")
   static let star = Image("ico_star")
   static let logout = Image("ico_logout")
-  
+  static let image = Image("ico_image")
+  static let wallet = Image("ico_wallet")
+  static let move = Image("ico_move")
+  static let remove = Image("ico_remove")
+  static let add = Image("ico_add")
 }
 
 enum Theme {

@@ -34,6 +34,8 @@ struct MainView: View {
   @State private var showMenu = false
   @State private var showQR = false
   @State private var showEdit = false
+  @State private var showEditWatchlist = false
+  
   @State private var offset = CGFloat.zero
   @State private var nameOpacity: Double = 0
   
@@ -44,7 +46,7 @@ struct MainView: View {
   )
   
   private let timer = Timer.publish(every: 15, tolerance: 1, on: .main, in: .common).autoconnect()
-
+  
   private let profile: Profile
   private let screenYOffset: CGFloat = -30
   
@@ -69,8 +71,8 @@ struct MainView: View {
             socialLabelGroup
             Spacer(minLength: 2)
             walletSection
-//            Spacer(minLength: 4)
-//            nftSection
+            //            Spacer(minLength: 4)
+            //            nftSection
             Spacer(minLength: 4)
             watchlistSection
           }
@@ -244,13 +246,29 @@ struct MainView: View {
   private var walletSection: some View {
     
     VStack(alignment: .leading, spacing: 2) {
-      (
-        Text("My Wallet")
-        + Text(profileVM.wallets.count > 0 ? " (\(profileVM.wallets.count))" : "")
-      )
-        .font(.inter(size: 13, weight: .bold))
-        .foregroundColor(Theme.text4)
-        .frame(height: 30)
+      HStack(spacing: 8) {
+        Asset.wallet
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 16, height: 16)
+        
+        (Text("My Wallet") + Text(profileVM.wallets.count > 0 ? " (\(profileVM.wallets.count))" : ""))
+          .font(.inter(size: 13, weight: .bold))
+          .foregroundColor(Theme.text4)
+        
+        Spacer()
+        
+        Button(action:{}) {
+          Asset.setting
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 20, height: 20)
+            .frame(width: 40, height: 40)
+        }
+        .buttonStyle(.plain)
+      }
+      .frame(height: 40)
+      
       VStack(alignment: .leading, spacing: 0) {
         if profileVM.isLoading {
           ForEach(0..<5, id: \.self) { id in
@@ -298,20 +316,25 @@ struct MainView: View {
   // MARK: - Watchlist Section
   private var watchlistSection: some View {
     VStack(alignment: .leading, spacing: 2) {
-      HStack {
+      HStack(spacing: 8) {
+        Asset.star
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 16, height: 16)
         Text("My Watchlist")
           .font(.inter(size: 13, weight: .bold))
           .foregroundColor(Theme.text4)
         Spacer()
-        Button(action:{}) {
+        Button(action:{ showEditWatchlist = true }) {
           Asset.setting
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 24, height: 24)
+            .frame(width: 20, height: 20)
+            .frame(width: 40, height: 40)
         }
         .buttonStyle(.plain)
       }
-      .frame(height: 30)
+      .frame(height: 40)
       VStack(spacing: 8) {
         if watchlistVM.isLoading {
           ForEach(0..<5, id: \.self) { id in
@@ -336,6 +359,9 @@ struct MainView: View {
       }
     }
     .padding(.horizontal, 16)
+    .fullScreenCover(isPresented: $showEditWatchlist) {
+      EditWatchlistView()
+    }
   }
 }
 

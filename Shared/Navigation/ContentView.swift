@@ -15,7 +15,8 @@ struct ContentView: View {
   
   @StateObject var appStateManager: AppStateManager = AppStateManager(
     discordService: DiscordServiceImpl(),
-    keychainService: KeychainServiceImpl()
+    keychainService: KeychainServiceImpl(),
+    mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl())
   )
   
   var body: some View {
@@ -25,9 +26,23 @@ struct ContentView: View {
       case .logedIn(let authType):
         switch authType {
         case .wallet:
-          MainView(profile: appStateManager.getProfile())
+          MainView(
+            watchlistVM: WatchlistViewModel(defiService: DefiServiceImpl()),
+            profileVM: ProfileViewModel(
+              isFetchDiscord: false,
+              mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl()),
+              evmService: EVMServiceImp()
+            )
+          )
         case .social:
-          MainView(profile: appStateManager.getProfile())
+          MainView(
+            watchlistVM: WatchlistViewModel(defiService: DefiServiceImpl()),
+            profileVM: ProfileViewModel(
+              isFetchDiscord: true,
+              mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl()),
+              evmService: EVMServiceImp()
+            )
+          )
         }
       case .logedOut:
         OnboardingView()

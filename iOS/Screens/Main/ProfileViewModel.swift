@@ -10,42 +10,6 @@ import SwiftUI
 import Combine
 import OSLog
 
-struct WalletItem {
-  let id: String
-  let isEvm: Bool
-  let address: String
-  var ens: String
-  let coin: Coin
-}
-
-extension WalletItem {
-  static var mock: Self {
-    return WalletItem(id: "0",
-                      isEvm: true,
-                      address: "0x5417A03667AbB6A059b3F174c1F67b1E83753046",
-                      ens: "",
-                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "eth")
-    )
-  }
-  
-  static var mockWithENS: Self {
-    return WalletItem(id: "0",
-                      isEvm: true,
-                      address: "0x5417A03667AbB6A059b3F174c1F67b1E83753046",
-                      ens: "mochi.eth",
-                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "eth")
-    )
-  }
-}
-
-struct Coin {
-  let id: String
-  let name: String
-  let symbol: String
-  let icon: String
-}
-
-
 @MainActor
 class ProfileViewModel: ObservableObject {
   private let mochiProfileService: MochiProfileService
@@ -56,6 +20,7 @@ class ProfileViewModel: ObservableObject {
   @Published var isLoading: Bool = false
   
   @Published var wallets: [WalletItem] = []
+  @Published var socials: [SocialInfo] = []
   
   @Published var error: String?
   var showError: Bool {
@@ -64,47 +29,67 @@ class ProfileViewModel: ObservableObject {
   
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
+ 
+  private let isFetchDiscord: Bool
   
   init(
+    isFetchDiscord: Bool,
     mochiProfileService: MochiProfileService,
     evmService: EVMService
   ) {
     self.mochiProfileService = mochiProfileService
     self.evmService = evmService
+    self.isFetchDiscord = isFetchDiscord
     Task(priority: .high) {
       await fetchProfile()
     }
   }
   
   func fetchProfile(shouldShowLoading: Bool = true) async {
-    guard !discordId.isEmpty else { return }
-    
     if shouldShowLoading {
       self.isLoading = true
     }
-    
-    let result = await mochiProfileService.getByDiscord(id: discordId)
+    func fetchProfile(discordID: String) async -> Result<GetProfileResponse, RequestError> {
+      if isFetchDiscord {
+        return await mochiProfileService.getByDiscord(id: discordId)
+      } else {
+        return await mochiProfileService.getMe()
+      }
+    }
+   
+    let result = await fetchProfile(discordID: discordId)
     switch result {
     case .success(let resp):
-      let chainOnlyAccounts = resp.associatedAccounts
+      self.isLoading = false
+      
+      self.socials = resp.associatedAccounts
         .filter { acc in
-          guard let platform = acc.platform else {
-            return false
+          guard let platform = acc.platform else { return false }
+          return [.discord, .telegram].contains(platform)
+        }
+        .map { acc in
+          var icon = "ico_telegram"
+          if acc.platform == .discord {
+            icon = "ico_discord"
           }
+          // TODO: get platform username
+          return SocialInfo(id: acc.platformIdentifier, icon: icon, name: "NA")
+        }
+      
+      self.wallets = resp.associatedAccounts
+        .filter { acc in
+          guard let platform = acc.platform else { return false }
           return [.solanaChain, .evmChain].contains(platform)
         }
-      self.isLoading = false
-      self.wallets = chainOnlyAccounts.map { acc in
-        let coin = acc.platform == .evmChain
-        ? Coin(id: "0", name: "Ethereum", symbol: "ETH", icon: "eth")
-        : Coin(id: "1", name: "Solana", symbol: "SOL", icon: "sol")
-        return WalletItem(
-          id: acc.id,
-          isEvm: acc.platform == .evmChain,
-          address: acc.platformIdentifier,
-          ens: "",
-          coin: coin)
-      }
+        .map { acc in
+          let coin = acc.platform == .evmChain ? Coin.eth : Coin.sol
+          return WalletItem(
+            id: acc.id,
+            isEvm: acc.platform == .evmChain,
+            address: acc.platformIdentifier,
+            ens: "",
+            coin: coin)
+        }
       // resolve ens
       for (index, wallet) in wallets.enumerated() {
         guard wallet.isEvm else { continue }

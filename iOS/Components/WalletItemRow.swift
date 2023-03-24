@@ -7,6 +7,51 @@
 
 import SwiftUI
 
+struct WalletItem {
+  let id: String
+  let isEvm: Bool
+  let address: String
+  var ens: String
+  let coin: Coin
+}
+
+extension WalletItem {
+  static var mock: Self {
+    return WalletItem(id: "0",
+                      isEvm: true,
+                      address: "0x5417A03667AbB6A059b3F174c1F67b1E83753046",
+                      ens: "",
+                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "eth")
+    )
+  }
+  
+  static var mockWithENS: Self {
+    return WalletItem(id: "0",
+                      isEvm: true,
+                      address: "0x5417A03667AbB6A059b3F174c1F67b1E83753046",
+                      ens: "mochi.eth",
+                      coin: Coin(id: "0", name: "ETH", symbol: "ETH", icon: "eth")
+    )
+  }
+}
+
+struct Coin {
+  let id: String
+  let name: String
+  let symbol: String
+  let icon: String
+}
+
+extension Coin {
+  static var eth: Self {
+    return Coin(id: "1", name: "Ethereum", symbol: "ETH", icon: "eth")
+  }
+  
+  static var sol: Self {
+    return Coin(id: "999", name: "Solana", symbol: "SOL", icon: "sol")
+  }
+}
+
 struct WalletItemRow: View {
   // MARK: - State
   let item: WalletItem

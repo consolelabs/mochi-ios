@@ -8,7 +8,13 @@
 import Foundation
 
 enum MochiProfileEndpoint {
+  // Profile
   case getByDiscord(id: String)
+  case getByID(id: String)
+  case getMe(accessToken: String)
+  
+  // Auth
+  case authBySolana(code: String, signature: String, walletAddress: String)
 }
 
 extension MochiProfileEndpoint: Endpoint {
@@ -20,32 +26,55 @@ extension MochiProfileEndpoint: Endpoint {
     switch self {
     case .getByDiscord(let discordID):
       return "/api/v1/profiles/get-by-discord/\(discordID)"
+    case .getByID(let id):
+      return "/api/v1/profiles/\(id)"
+    case .getMe:
+      return "/api/v1/profiles/me"
+    case .authBySolana:
+      return "/api/v1/profiles/auth/solana"
     }
   }
   
   var method: RequestMethod {
     switch self {
-    case .getByDiscord:
+    case .getByDiscord, .getByID, .getMe:
       return .get
+    case .authBySolana:
+      return .post
     }
   }
   
   var header: [String: String]? {
-    return [
-      "Content-Type": "application/json;charset=utf-8"
-    ]
+    switch self {
+    case .getMe(let accessToken):
+      return [
+        "Content-Type": "application/json;charset=utf-8",
+        "Authorization": accessToken
+      ]
+    default:
+      return [
+        "Content-Type": "application/json;charset=utf-8"
+      ]
+    }
   }
   
   var body: [String: Any]? {
     switch self {
-    case .getByDiscord:
+    case let .authBySolana(code, signature, walletAddress):
+      return [
+        "code": code,
+        "signature": signature,
+        "wallet_address": walletAddress
+      ]
+    default:
       return nil
     }
   }
   
   var parameters: [String: String]? {
     switch self {
-    case .getByDiscord: return nil
+    default:
+      return nil
     }
   }
 }

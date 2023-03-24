@@ -10,27 +10,23 @@ import SwiftUI
 
 struct Profile {
   let id: String
-  let avatar: String?
-  let name: String
-  let discord: SocialInfo?
-  let twitter: SocialInfo?
-  let telegram: SocialInfo?
+  let avatar: String
+  let profileName: String
 }
 
 extension Profile {
   static var mock: Self {
     return Self(id: UUID().uuidString,
                 avatar: "",
-                name: "mochi.eth",
-                discord: SocialInfo(icon: "ico_discord", name: "mochi.eth"),
-                twitter: SocialInfo(icon: "ico_twitter", name: "mochi.eth"),
-                telegram: SocialInfo(icon: "ico_telegram", name: "mochi.eth")
+                profileName: "mochi.eth"
     )
   }
 }
 
 struct MainView: View {
   // MARK: - State
+  @EnvironmentObject var appState: AppStateManager
+  
   @State private var showMenu = false
   @State private var showQR = false
   @State private var showEdit = false
@@ -39,20 +35,24 @@ struct MainView: View {
   @State private var offset = CGFloat.zero
   @State private var nameOpacity: Double = 0
   
-  @StateObject var watchlistVM = WatchlistViewModel(defiService: DefiServiceImpl())
-  @StateObject var profileVM = ProfileViewModel(
-    mochiProfileService: MochiProfileServiceImp(),
-    evmService: EVMServiceImp()
-  )
+  @ObservedObject var watchlistVM: WatchlistViewModel
+  @ObservedObject var profileVM: ProfileViewModel
   
   private let timer = Timer.publish(every: 15, tolerance: 1, on: .main, in: .common).autoconnect()
   
-  private let profile: Profile
-  private let screenYOffset: CGFloat = -30
-  
-  init(profile: Profile) {
-    self.profile = profile
+  private var profile: Profile? {
+    appState.profile
   }
+  
+  private var profileName: String {
+    return profile?.profileName ?? "NA"
+  }
+  
+  private var avatar: String {
+    return profile?.avatar ?? ""
+  }
+  
+  private let screenYOffset: CGFloat = -30
   
   // MARK: - Body
   var body: some View {
@@ -130,7 +130,7 @@ struct MainView: View {
         .frame(width: 40, height: 40)
       Spacer()
       HStack {
-        AsyncImage(url: URL(string: profile.avatar ?? "")) { phase in
+        AsyncImage(url: URL(string: avatar)) { phase in
           switch phase {
           case let .success(image):
             image
@@ -148,7 +148,7 @@ struct MainView: View {
         }
         Button(action: {}) {
           HStack(spacing: 2) {
-            Text(profile.name)
+            Text(profileName)
               .foregroundColor(Theme.text1)
               .font(.inter(size: 16, weight: .bold))
             Asset.arrowDown
@@ -180,14 +180,14 @@ struct MainView: View {
   private var header: some View {
     VStack(spacing: 12) {
       profilePicture
-      profileName
+      profileNameLabel
     }
   }
   
   // MARK: - Profile picture
   private var profilePicture: some View {
     HStack {
-      AsyncImage(url: URL(string: profile.avatar ?? "")) { phase in
+      AsyncImage(url: URL(string: avatar)) { phase in
         switch phase {
         case let .success(image):
           image
@@ -209,10 +209,10 @@ struct MainView: View {
   }
   
   // MARK: - Profile Name
-  private var profileName: some View {
+  private var profileNameLabel: some View {
     Button(action: {}) {
       HStack(spacing: 2) {
-        Text(profile.name)
+        Text(profileName)
           .foregroundColor(Theme.text1)
           .font(.inter(size: 22, weight: .bold))
         Asset.arrowDown
@@ -226,14 +226,15 @@ struct MainView: View {
   private var socialLabelGroup: some View {
     ScrollView(.horizontal, showsIndicators: false) {
       HStack(spacing: 8) {
-        if let discord = profile.discord {
-          SocialLabel(item: discord)
-        }
-        if let twitter = profile.twitter {
-          SocialLabel(item: twitter)
-        }
-        if let telegram = profile.telegram {
-          SocialLabel(item: telegram)
+        if profileVM.isLoading {
+          ForEach(0..<5) { social in
+            SocialLabel(item: .init(id: UUID().uuidString, icon: "discord", name: "username"))
+          }
+          .redacted(reason: .placeholder)
+        } else {
+          ForEach(profileVM.socials) { social in
+            SocialLabel(item: social)
+          }
         }
       }
       .padding(.horizontal, 16)
@@ -367,12 +368,25 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
-    MainView(profile: .mock)
-      .previewDisplayName("iPhone 14 Pro")
+    let watchlistVM = WatchlistViewModel(defiService: DefiServiceImpl())
+    let profileVM = ProfileViewModel(
+      isFetchDiscord: true,
+      mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl()),
+      evmService: EVMServiceImp()
+    )
     
-    MainView(profile: .mock)
-      .previewDisplayName("iPhone SE (3rd generation)")
-      .previewDevice("iPhone SE (3rd generation)")
+    MainView(
+      watchlistVM: watchlistVM,
+      profileVM: profileVM
+    )
+    .previewDisplayName("iPhone 14 Pro")
+    
+    MainView(
+      watchlistVM: watchlistVM,
+      profileVM: profileVM
+    )
+    .previewDisplayName("iPhone SE (3rd generation)")
+    .previewDevice("iPhone SE (3rd generation)")
   }
 }
 

@@ -17,6 +17,7 @@ enum Asset {
   static let metamask = Image("metamask")
   static let walletconnect = Image("walletconnect")
   static let coinbase = Image("coinbase")
+  static let phantom = Image("phantom")
   
   // Icons
   static let discord = Image("ico_discord")

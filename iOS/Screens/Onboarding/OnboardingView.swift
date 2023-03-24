@@ -59,14 +59,7 @@ struct OnboardingView: View {
                   .background(RoundedRectangle(cornerRadius: 12, style: .continuous).foregroundColor(Theme.text1))
               }
               .buttonStyle(.plain)
-              Button {} label: {
-                Image(systemName: "ellipsis")
-                  .font(.system(size: 11))
-                  .foregroundColor(Theme.text1)
-                  .frame(width: 32, height: 32)
-                  .background(Circle().foregroundColor(Theme.text5))
-              }
-              .buttonStyle(.plain)
+              AboutMenuView()
             }
           }
         }

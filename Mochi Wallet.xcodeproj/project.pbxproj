@@ -105,9 +105,6 @@
 		086A609A28634D3300442FC1 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 086A609928634D3300442FC1 /* web3swift */; };
 		086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A609B28634E9C00442FC1 /* YourSecretPhraseView.swift */; };
 		0874FA9629C87A0200B53E3C /* MochiProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9529C87A0200B53E3C /* MochiProfileService.swift */; };
-		0874FA9729C87A0200B53E3C /* MochiProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9529C87A0200B53E3C /* MochiProfileService.swift */; };
-		0874FA9829C87A0200B53E3C /* MochiProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9529C87A0200B53E3C /* MochiProfileService.swift */; };
-		0874FA9929C87A0200B53E3C /* MochiProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9529C87A0200B53E3C /* MochiProfileService.swift */; };
 		0874FA9B29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9A29C87A1500B53E3C /* MochiProfileEndpoint.swift */; };
 		0874FA9C29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9A29C87A1500B53E3C /* MochiProfileEndpoint.swift */; };
 		0874FA9D29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9A29C87A1500B53E3C /* MochiProfileEndpoint.swift */; };
@@ -117,9 +114,6 @@
 		0874FAA229C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9F29C87A1F00B53E3C /* MochiProfileServiceMock.swift */; };
 		0874FAA329C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9F29C87A1F00B53E3C /* MochiProfileServiceMock.swift */; };
 		0874FAA529C897FA00B53E3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */; };
-		0874FAA629C897FA00B53E3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */; };
-		0874FAA729C897FA00B53E3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */; };
-		0874FAA829C897FA00B53E3C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */; };
 		0874FAB029C89E9900B53E3C /* EVMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAF29C89E9900B53E3C /* EVMService.swift */; };
 		0874FAB129C89E9900B53E3C /* EVMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAF29C89E9900B53E3C /* EVMService.swift */; };
 		0874FAB229C89E9900B53E3C /* EVMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FAAF29C89E9900B53E3C /* EVMService.swift */; };
@@ -163,6 +157,28 @@
 		08B0170E29CB3BD50051B9BD /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0170C29CB3BD50051B9BD /* Double+Formatter.swift */; };
 		08B0170F29CB3BD50051B9BD /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0170C29CB3BD50051B9BD /* Double+Formatter.swift */; };
 		08B0171029CB3BD50051B9BD /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0170C29CB3BD50051B9BD /* Double+Formatter.swift */; };
+		08B0171429CC65700051B9BD /* DefaultSignerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0171229CC65700051B9BD /* DefaultSignerFactory.swift */; };
+		08B0171529CC65700051B9BD /* DefaultSocketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0171329CC65700051B9BD /* DefaultSocketFactory.swift */; };
+		08B0171729CD8A610051B9BD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0171629CD8A610051B9BD /* LoginViewModel.swift */; };
+		08B0171A29CDA47B0051B9BD /* TweetNacl in Frameworks */ = {isa = PBXBuildFile; productRef = 08B0171929CDA47B0051B9BD /* TweetNacl */; };
+		08B0171D29CDAA0E0051B9BD /* PhantomWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0171C29CDAA0E0051B9BD /* PhantomWalletService.swift */; };
+		08B0171F29CDAAC30051B9BD /* PhantomWalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0171E29CDAAC30051B9BD /* PhantomWalletConnect.swift */; };
+		08B0172129CDB2370051B9BD /* AboutMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172029CDB2370051B9BD /* AboutMenuView.swift */; };
+		08B0172329CDBA4B0051B9BD /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172229CDBA4B0051B9BD /* String+random.swift */; };
+		08B0172429CDBA4B0051B9BD /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172229CDBA4B0051B9BD /* String+random.swift */; };
+		08B0172529CDBA4B0051B9BD /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172229CDBA4B0051B9BD /* String+random.swift */; };
+		08B0172629CDBA4B0051B9BD /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172229CDBA4B0051B9BD /* String+random.swift */; };
+		08B0172829CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172729CDE0F40051B9BD /* PhantomWalletSignMessage.swift */; };
+		08B0172929CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172729CDE0F40051B9BD /* PhantomWalletSignMessage.swift */; };
+		08B0172A29CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172729CDE0F40051B9BD /* PhantomWalletSignMessage.swift */; };
+		08B0172B29CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0172729CDE0F40051B9BD /* PhantomWalletSignMessage.swift */; };
+		08B0173229CDE30E0051B9BD /* Data+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0173129CDE30E0051B9BD /* Data+utils.swift */; };
+		08B0173329CDE30E0051B9BD /* Data+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0173129CDE30E0051B9BD /* Data+utils.swift */; };
+		08B0173429CDE30E0051B9BD /* Data+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0173129CDE30E0051B9BD /* Data+utils.swift */; };
+		08B0173529CDE30E0051B9BD /* Data+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B0173129CDE30E0051B9BD /* Data+utils.swift */; };
+		08B0173629CE04F50051B9BD /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC494128895AAD0050852A /* KeychainService.swift */; };
+		08B0173A29CE05470051B9BD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 08B0173929CE05470051B9BD /* KeychainAccess */; };
+		08B0173D29CE05820051B9BD /* MochiProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874FA9529C87A0200B53E3C /* MochiProfileService.swift */; };
 		08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B33169284A77C8003295F3 /* MochiWalletApp.swift */; };
 		08B3317B284A77CA003295F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3316A284A77C8003295F3 /* ContentView.swift */; };
@@ -341,6 +357,15 @@
 		08B0170129CA8BD40051B9BD /* EditWatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistViewModel.swift; sourceTree = "<group>"; };
 		08B0170329CB1B700051B9BD /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
 		08B0170C29CB3BD50051B9BD /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
+		08B0171229CC65700051B9BD /* DefaultSignerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSignerFactory.swift; sourceTree = "<group>"; };
+		08B0171329CC65700051B9BD /* DefaultSocketFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSocketFactory.swift; sourceTree = "<group>"; };
+		08B0171629CD8A610051B9BD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		08B0171C29CDAA0E0051B9BD /* PhantomWalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhantomWalletService.swift; sourceTree = "<group>"; };
+		08B0171E29CDAAC30051B9BD /* PhantomWalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhantomWalletConnect.swift; sourceTree = "<group>"; };
+		08B0172029CDB2370051B9BD /* AboutMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMenuView.swift; sourceTree = "<group>"; };
+		08B0172229CDBA4B0051B9BD /* String+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+random.swift"; sourceTree = "<group>"; };
+		08B0172729CDE0F40051B9BD /* PhantomWalletSignMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhantomWalletSignMessage.swift; sourceTree = "<group>"; };
+		08B0173129CDE30E0051B9BD /* Data+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+utils.swift"; sourceTree = "<group>"; };
 		08B33169284A77C8003295F3 /* MochiWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiWalletApp.swift; sourceTree = "<group>"; };
 		08B3316A284A77C8003295F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08B3316B284A77CA003295F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -405,6 +430,7 @@
 				08B0170829CB273E0051B9BD /* WalletConnect in Frameworks */,
 				086A609A28634D3300442FC1 /* web3swift in Frameworks */,
 				08B016EF29C8C4800051B9BD /* ComposableArchitecture in Frameworks */,
+				08B0171A29CDA47B0051B9BD /* TweetNacl in Frameworks */,
 				08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +439,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08B0173A29CE05470051B9BD /* KeychainAccess in Frameworks */,
 				0849582F290E766A005C8186 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +549,7 @@
 				0858548C29C8237000582C98 /* NFTItemRow.swift */,
 				0858548D29C8237000582C98 /* WalletItemRow.swift */,
 				0858548E29C8237000582C98 /* SocialLabel.swift */,
+				08B0172029CDB2370051B9BD /* AboutMenuView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -560,6 +588,7 @@
 		0858549429C8237100582C98 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */,
 				0858549529C8237100582C98 /* MainView.swift */,
 			);
 			path = Main;
@@ -569,6 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				0858549729C8237100582C98 /* LoginView.swift */,
+				08B0171629CD8A610051B9BD /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -681,9 +711,11 @@
 			isa = PBXGroup;
 			children = (
 				0894EDB62850A2BA00391C7F /* Theme.swift */,
+				08B0173129CDE30E0051B9BD /* Data+utils.swift */,
 				08C32D912907F44500BCBD8D /* Bundle+version.swift */,
 				0874FAB829C8A1CE00B53E3C /* Environment.swift */,
 				08B0170C29CB3BD50051B9BD /* Double+Formatter.swift */,
+				08B0172229CDBA4B0051B9BD /* String+random.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -717,6 +749,7 @@
 		08B0170929CB27920051B9BD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				08B0171B29CDA9F30051B9BD /* PhantomWallet */,
 				08B0170A29CB27A60051B9BD /* WalletConnect */,
 			);
 			path = Services;
@@ -732,9 +765,29 @@
 		08B0170B29CB32D30051B9BD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				08B0171129CC65510051B9BD /* WalletConnect */,
 				084104A3290D8584008F5823 /* LocalStorage+Ext.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		08B0171129CC65510051B9BD /* WalletConnect */ = {
+			isa = PBXGroup;
+			children = (
+				08B0171229CC65700051B9BD /* DefaultSignerFactory.swift */,
+				08B0171329CC65700051B9BD /* DefaultSocketFactory.swift */,
+			);
+			path = WalletConnect;
+			sourceTree = "<group>";
+		};
+		08B0171B29CDA9F30051B9BD /* PhantomWallet */ = {
+			isa = PBXGroup;
+			children = (
+				08B0171C29CDAA0E0051B9BD /* PhantomWalletService.swift */,
+				08B0172729CDE0F40051B9BD /* PhantomWalletSignMessage.swift */,
+				08B0171E29CDAAC30051B9BD /* PhantomWalletConnect.swift */,
+			);
+			path = PhantomWallet;
 			sourceTree = "<group>";
 		};
 		08B33163284A77C8003295F3 = {
@@ -869,7 +922,6 @@
 				08683FEA2927689200DC464B /* EditPriceAlertViewModel.swift */,
 				0841049B290BD7DC008F5823 /* WatchlistViewModel.swift */,
 				08683FDC292712D100DC464B /* AlertListViewModel.swift */,
-				0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1101,6 +1153,7 @@
 				08B016E529C8BE890051B9BD /* KeychainAccess */,
 				08B016EE29C8C4800051B9BD /* ComposableArchitecture */,
 				08B0170729CB273E0051B9BD /* WalletConnect */,
+				08B0171929CDA47B0051B9BD /* TweetNacl */,
 			);
 			productName = "Bitsfi (iOS)";
 			productReference = 08B33170284A77CA003295F3 /* Mochi Wallet.app */;
@@ -1123,6 +1176,7 @@
 			name = "Mochi Wallet (macOS)";
 			packageProductDependencies = (
 				0849582E290E766A005C8186 /* SDWebImageSwiftUI */,
+				08B0173929CE05470051B9BD /* KeychainAccess */,
 			);
 			productName = "Bitsfi (macOS)";
 			productReference = 08B33176284A77CA003295F3 /* Mochi Wallet.app */;
@@ -1171,6 +1225,7 @@
 				08B016E429C8BE890051B9BD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				08B016ED29C8C4800051B9BD /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				08B0170629CB273E0051B9BD /* XCRemoteSwiftPackageReference "WalletConnectSwiftV2" */,
+				08B0171829CDA47B0051B9BD /* XCRemoteSwiftPackageReference "tweetnacl-swiftwrap" */,
 			);
 			productRefGroup = 08B33171284A77CA003295F3 /* Products */;
 			projectDirPath = "";
@@ -1243,18 +1298,19 @@
 				08683FCF2926201000DC464B /* PriceAlertService.swift in Sources */,
 				08B016FA29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
 				08CC1E5929182B78002C459A /* LocalStorage.swift in Sources */,
+				08B0172A29CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */,
+				08B0172529CDBA4B0051B9BD /* String+random.swift in Sources */,
 				085A53632935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
 				0874FAA229C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
+				08B0173429CDE30E0051B9BD /* Data+utils.swift in Sources */,
 				0874FAB229C89E9900B53E3C /* EVMService.swift in Sources */,
 				08683FF8292D4C0100DC464B /* DiscordService.swift in Sources */,
 				08C32D992907F63800BCBD8D /* DefiService.swift in Sources */,
 				08410484290B79DE008F5823 /* Line.swift in Sources */,
-				0874FA9829C87A0200B53E3C /* MochiProfileService.swift in Sources */,
 				08410496290BBB60008F5823 /* RequestError.swift in Sources */,
 				082A71A328FF063200158021 /* WatchlistWidget.swift in Sources */,
 				0874FABB29C8A1CE00B53E3C /* Environment.swift in Sources */,
 				08410492290BBB4F008F5823 /* RequestMethod.swift in Sources */,
-				0874FAA729C897FA00B53E3C /* ProfileViewModel.swift in Sources */,
 				0841049A290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08C32D942907F44600BCBD8D /* Bundle+version.swift in Sources */,
 				0874FA9D29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
@@ -1268,8 +1324,8 @@
 				08495854290E8524005C8186 /* Endpoint.swift in Sources */,
 				0874FAA329C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
 				08683FD52926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
+				08B0173529CDE30E0051B9BD /* Data+utils.swift in Sources */,
 				08683FD02926201000DC464B /* PriceAlertService.swift in Sources */,
-				0874FA9929C87A0200B53E3C /* MochiProfileService.swift in Sources */,
 				08495851290E851B005C8186 /* RequestError.swift in Sources */,
 				085A53642935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
 				08495853290E8521005C8186 /* HTTPClient.swift in Sources */,
@@ -1281,12 +1337,13 @@
 				0874FABC29C8A1CE00B53E3C /* Environment.swift in Sources */,
 				0874FA9E29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
 				08495856290EC644005C8186 /* Line.swift in Sources */,
-				0874FAA829C897FA00B53E3C /* ProfileViewModel.swift in Sources */,
 				0874FAB329C89E9900B53E3C /* EVMService.swift in Sources */,
+				08B0172629CDBA4B0051B9BD /* String+random.swift in Sources */,
 				08683FF9292D4C0100DC464B /* DiscordService.swift in Sources */,
 				08495855290E852C005C8186 /* DefiEndpoint.swift in Sources */,
 				08CC1E5A29182B79002C459A /* LocalStorage.swift in Sources */,
 				08B016FB29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
+				08B0172B29CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */,
 				0849584F290E8475005C8186 /* DefiService.swift in Sources */,
 				088BF39C291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 			);
@@ -1305,11 +1362,14 @@
 				08683FEE292B6DAE00DC464B /* DiscordAuthButton.swift in Sources */,
 				08410490290BBB4F008F5823 /* RequestMethod.swift in Sources */,
 				083BF29A289135AB008B6E03 /* BottomSheetView.swift in Sources */,
+				08B0173229CDE30E0051B9BD /* Data+utils.swift in Sources */,
 				0858549C29C8237100582C98 /* NFTItemRow.swift in Sources */,
 				08B3317B284A77CA003295F3 /* ContentView.swift in Sources */,
 				0858549F29C8237100582C98 /* QRView.swift in Sources */,
 				080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
+				08B0171729CD8A610051B9BD /* LoginViewModel.swift in Sources */,
 				08683FF0292CC6EE00DC464B /* AuthView.swift in Sources */,
+				08B0171429CC65700051B9BD /* DefaultSignerFactory.swift in Sources */,
 				08DD9BBB28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
 				08B5B073286DC73C00981D2E /* NetworkService.swift in Sources */,
 				08683FEB2927689200DC464B /* EditPriceAlertViewModel.swift in Sources */,
@@ -1317,6 +1377,7 @@
 				0874FA9B29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
 				08683FCD2926201000DC464B /* PriceAlertService.swift in Sources */,
 				0858549D29C8237100582C98 /* WalletItemRow.swift in Sources */,
+				08B0171F29CDAAC30051B9BD /* PhantomWalletConnect.swift in Sources */,
 				08B0170D29CB3BD50051B9BD /* Double+Formatter.swift in Sources */,
 				08683FDD292712D100DC464B /* AlertListViewModel.swift in Sources */,
 				08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
@@ -1326,6 +1387,7 @@
 				0894EDB72850A2BA00391C7F /* Theme.swift in Sources */,
 				0874FA9629C87A0200B53E3C /* MochiProfileService.swift in Sources */,
 				08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */,
+				08B0171529CC65700051B9BD /* DefaultSocketFactory.swift in Sources */,
 				0858548329C822D700582C98 /* Asset.swift in Sources */,
 				08B0170029CA07000051B9BD /* EditWatchlistView.swift in Sources */,
 				085A53612935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
@@ -1357,13 +1419,17 @@
 				08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */,
 				08410482290B79DE008F5823 /* Line.swift in Sources */,
 				08410488290BBB0E008F5823 /* Endpoint.swift in Sources */,
+				08B0172329CDBA4B0051B9BD /* String+random.swift in Sources */,
 				08BC494228895AAD0050852A /* KeychainService.swift in Sources */,
+				08B0172829CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */,
 				08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */,
+				08B0171D29CDAA0E0051B9BD /* PhantomWalletService.swift in Sources */,
 				08683FFB292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				0841048C290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08683FE92927688900DC464B /* EditPriceAlertView.swift in Sources */,
 				0874FAB029C89E9900B53E3C /* EVMService.swift in Sources */,
 				08410498290BC380008F5823 /* DefiEndpoint.swift in Sources */,
+				08B0172129CDB2370051B9BD /* AboutMenuView.swift in Sources */,
 				0874FAB929C8A1CE00B53E3C /* Environment.swift in Sources */,
 				0874FAA029C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
 				08B016F829C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
@@ -1379,11 +1445,11 @@
 			files = (
 				080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
 				08B33193284A84B3003295F3 /* PortfolioView.swift in Sources */,
-				0874FA9729C87A0200B53E3C /* MochiProfileService.swift in Sources */,
 				08410499290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08410491290BBB4F008F5823 /* RequestMethod.swift in Sources */,
 				08CC1E5829182B77002C459A /* LocalStorage.swift in Sources */,
 				088BF39F2912107F00B2C365 /* ActivityIndicator.swift in Sources */,
+				08B0173D29CE05820051B9BD /* MochiProfileService.swift in Sources */,
 				08B5AC7529473E6900EF7AE9 /* AlertListView.swift in Sources */,
 				08410483290B79DE008F5823 /* Line.swift in Sources */,
 				08762F07291A009D0075A308 /* AboutViewController.swift in Sources */,
@@ -1401,17 +1467,18 @@
 				088BF3A62912A44F00B2C365 /* WatchlistView.swift in Sources */,
 				08B5AC8C2948EDBB00EF7AE9 /* SelectTokenView.swift in Sources */,
 				08683FF7292D4C0100DC464B /* DiscordService.swift in Sources */,
-				0874FAA629C897FA00B53E3C /* ProfileViewModel.swift in Sources */,
 				08C32D932907F44600BCBD8D /* Bundle+version.swift in Sources */,
 				08762F0B291A03920075A308 /* HyperlinkTextField.swift in Sources */,
 				08B5AC7F29487C3900EF7AE9 /* AlertCardView.swift in Sources */,
 				08410495290BBB60008F5823 /* RequestError.swift in Sources */,
+				08B0173329CDE30E0051B9BD /* Data+utils.swift in Sources */,
 				08C32D982907F63800BCBD8D /* DefiService.swift in Sources */,
 				0874FAB129C89E9900B53E3C /* EVMService.swift in Sources */,
 				08B0170E29CB3BD50051B9BD /* Double+Formatter.swift in Sources */,
 				0810E9F8291909ED00725136 /* SettingsView.swift in Sources */,
 				0874FAA129C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
 				08B016F929C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
+				08B0172929CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */,
 				08DD9BBC28775977003480C6 /* NFTDetailViewModel.swift in Sources */,
 				0874FA9C29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
 				08410489290BBB0E008F5823 /* Endpoint.swift in Sources */,
@@ -1422,11 +1489,13 @@
 				0841049D290BD7DC008F5823 /* WatchlistViewModel.swift in Sources */,
 				08B5AC8429487F0700EF7AE9 /* EditAlertView.swift in Sources */,
 				08B3317A284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
+				08B0172429CDBA4B0051B9BD /* String+random.swift in Sources */,
 				08B5AC892948EBA300EF7AE9 /* NewPriceAlertView.swift in Sources */,
 				08683FFC292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				08DD9BB52874545D003480C6 /* MarketViewModel.swift in Sources */,
 				08B3318B284A7FD6003295F3 /* AppSidebarNavigation.swift in Sources */,
 				08495831290E78E0005C8186 /* AppDelegate.swift in Sources */,
+				08B0173629CE04F50051B9BD /* KeychainService.swift in Sources */,
 				08B5AC782947414000EF7AE9 /* AlertListViewModel.swift in Sources */,
 				08683FD32926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
 			);
@@ -1948,6 +2017,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		08B0171829CDA47B0051B9BD /* XCRemoteSwiftPackageReference "tweetnacl-swiftwrap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bitmark-inc/tweetnacl-swiftwrap.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		08B5B07D286E302600981D2E /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -2014,6 +2091,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 08B0170629CB273E0051B9BD /* XCRemoteSwiftPackageReference "WalletConnectSwiftV2" */;
 			productName = WalletConnect;
+		};
+		08B0171929CDA47B0051B9BD /* TweetNacl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08B0171829CDA47B0051B9BD /* XCRemoteSwiftPackageReference "tweetnacl-swiftwrap" */;
+			productName = TweetNacl;
+		};
+		08B0173929CE05470051B9BD /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08B016E429C8BE890051B9BD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 		08B5B07E286E302600981D2E /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;

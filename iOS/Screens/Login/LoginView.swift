@@ -7,15 +7,20 @@
 
 import SwiftUI
 import OSLog
+import CryptoKit
+
 
 struct LoginView: View {
   // MARK: - State
+  @Environment(\.openURL) var openURL
   @EnvironmentObject var appStateManager: AppStateManager
   
   @State private var email = ""
   @State private var showDiscordLogin: Bool = false
   @State private var token: String = ""
   @State private var error: String = ""
+  
+  @StateObject private var vm: LoginViewModel = LoginViewModel()
   
   private let logger = Logger(subsystem: "so.console.mochi", category: "LoginView")
   private let discordAuthURL = "https://discord.com/api/oauth2/authorize?client_id=1044527343076642816&redirect_uri=https%3A%2F%2Fgetmochi.co%2Fauth%2Fv1%2Fcallback&response_type=token&scope=identify"
@@ -33,7 +38,7 @@ struct LoginView: View {
             Spacer(minLength: 42)
             divider("Sign in with a mobile wallet app")
             walletLoginButtonGroup
-              .disabled(true)
+//              .disabled(true)
             divider("Or connect with verified social links")
             socialLoginButtonGroup
           }
@@ -56,6 +61,9 @@ struct LoginView: View {
         .navigationBarTitleDisplayMode(.inline)
       }
     }
+    .onOpenURL { url in
+      vm.onOpenURL(url: url)
+    }
     .onChange(of: token) { accessToken in
       DispatchQueue.main.async {
         showDiscordLogin = false
@@ -67,7 +75,15 @@ struct LoginView: View {
         showDiscordLogin = false
       }
     }
+    .onReceive(vm.accessToken) { token in
+      appStateManager.login(accessToken: token)
+    }
+    .onReceive(vm.openURL) { url in
+      openURL(url)
+    }
   }
+  
+ 
   
   // MARK: - Navbar
   private var navbar: some View {
@@ -85,14 +101,7 @@ struct LoginView: View {
           .foregroundColor(Theme.primary)
       }
       Spacer()
-      Button {} label: {
-        Image(systemName: "ellipsis")
-          .font(.system(size: 11))
-          .foregroundColor(Theme.text1)
-          .frame(width: 32, height: 32)
-          .background(Circle().foregroundColor(Theme.text5))
-      }
-      .buttonStyle(.plain)
+      AboutMenuView()
     }
   }
   
@@ -101,10 +110,11 @@ struct LoginView: View {
   private var walletLoginButtonGroup: some View {
     VStack(spacing: 12) {
       walletLoginButton(logo: Asset.metamask, name: "Metamask", action: {})
-      walletLoginButton(logo: Asset.walletconnect, name: "WalletConnect", action: {})
-      walletLoginButton(logo: Asset.coinbase, name: "Coinbase wallet", action: {})
+      walletLoginButton(logo: Asset.phantom, name: "Phantom", action: vm.loginWithPhantom)
     }
   }
+    
+
   
   private var socialLoginButtonGroup: some View {
     VStack(spacing: 12) {

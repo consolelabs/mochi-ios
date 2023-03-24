@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct SocialInfo {
+struct SocialInfo: Identifiable {
+  let id: String
   let icon: String
   let name: String
 }
@@ -35,7 +36,7 @@ struct SocialLabel: View {
 
 struct SocialLabel_Previews: PreviewProvider {
   static var previews: some View {
-    SocialLabel(item: SocialInfo(icon: "ico_discord", name: "mochi.eth"))
+    SocialLabel(item: SocialInfo(id: "", icon: "ico_discord", name: "mochi.eth"))
       .frame(width: 200, height: 100)
       .background(Theme.text2)
       .previewLayout(.sizeThatFits)

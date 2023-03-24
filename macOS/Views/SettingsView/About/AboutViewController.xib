@@ -273,7 +273,7 @@
         <image name="ico_compass" width="16" height="16"/>
         <image name="ico_email" width="16" height="13"/>
         <image name="ico_github" width="16" height="16"/>
-        <image name="ico_twitter" width="16" height="16"/>
+        <image name="ico_twitter" width="24" height="24"/>
         <image name="icon" width="1024" height="1024"/>
     </resources>
 </document>

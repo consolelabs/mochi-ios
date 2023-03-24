@@ -27,8 +27,11 @@ class AppStateManager: ObservableObject {
   }
   
   private let logger = Logger(subsystem: "so.console.mochi", category: "AppStateManager")
+  private let mochiProfileService: MochiProfileService
   private let discordService: DiscordService
   private let keychainService: KeychainService
+ 
+  @Published var profile: Profile?
   
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
@@ -64,10 +67,12 @@ class AppStateManager: ObservableObject {
   
   init(
     discordService: DiscordService,
-    keychainService: KeychainService
+    keychainService: KeychainService,
+    mochiProfileService: MochiProfileService
   ) {
     self.discordService = discordService
     self.keychainService = keychainService
+    self.mochiProfileService = mochiProfileService
     fetchAppState()
   }
   
@@ -83,7 +88,23 @@ class AppStateManager: ObservableObject {
     self.appleName = ""
     self.appleEmail = ""
     
+    do {
+      try keychainService.remove("accessToken")
+    } catch {
+      logger.error("cannot remove access token, error: \(error)")
+    }
+    
     fetchAppState()
+  }
+
+  func login(accessToken: String) {
+    do {
+      logger.info("access token: \(accessToken)")
+      try keychainService.set(accessToken, key: "accessToken")
+      fetchAppState()
+    } catch {
+      logger.error("cannot save access token, error: \(error)")
+    }
   }
   
   func loginWithDiscord(accessToken: String) {
@@ -101,16 +122,13 @@ class AppStateManager: ObservableObject {
     return Profile(
       id: UUID().uuidString,
       avatar: avatar,
-      name: username,
-      discord: SocialInfo(icon: "discord", name: username),
-      twitter: nil,
-      telegram: nil
+      profileName: username
     )
   }
   
   func fetchAppState() {
     if !discordAccessToken.isEmpty && !discordId.isEmpty {
-      self.appState = .logedIn(auth: AuthType.social)
+      self.appState = .logedIn(auth: .social)
       return
     }
     
@@ -119,7 +137,29 @@ class AppStateManager: ObservableObject {
       return
     }
     
+    if let accessToken = try? keychainService.getString("accessToken"), !accessToken.isEmpty {
+      self.appState = .logedIn(auth: .wallet)
+      fetchUserProfile()
+      return
+    }
+    
     self.appState = .logedOut
+  }
+  
+  func fetchUserProfile() {
+    isLoading = true
+    Task {
+      let result = await mochiProfileService.getMe()
+      isLoading = false
+      switch result {
+      case .success(let resp):
+        let avatar = resp.avatar.isEmpty ? "" : resp.avatar
+        let profileName = resp.profileName.isEmpty ? "username" : resp.profileName
+        self.profile = Profile(id: resp.id, avatar: avatar, profileName: profileName)
+      case .failure(let error):
+        logger.error("Fetch mochi profile error: \(error)")
+      }
+    }
   }
   
   func fetchDiscordUser() {
@@ -135,6 +175,7 @@ class AppStateManager: ObservableObject {
         self.discordId = user.id
         self.avatar = "https://cdn.discordapp.com/avatars/\(user.id)/\(user.avatar ?? "")"
         self.username = user.username + "#" + user.discriminator
+        self.profile = Profile(id: discordId, avatar: avatar, profileName: username)
         fetchAppState()
       case .failure(let error):
         logger.error("Fetch discord user error: \(error.customMessage)")

@@ -55,6 +55,15 @@
       }
     },
     {
+      "identity" : "metamask-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MetaMask/metamask-ios-sdk",
+      "state" : {
+        "revision" : "dd1bd3b77edea5fb3defd0a9b4d314fff57d3114",
+        "version" : "0.1.1"
+      }
+    },
+    {
       "identity" : "promisekit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mxcl/PromiseKit.git",
@@ -79,6 +88,15 @@
       "state" : {
         "revision" : "ed288667c909c89127ab1b690113a3e397af3098",
         "version" : "2.2.1"
+      }
+    },
+    {
+      "identity" : "socket.io-client-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/socketio/socket.io-client-swift",
+      "state" : {
+        "revision" : "af5ce97b755d964235348d96f6db5cbdcbe334a5",
+        "version" : "16.0.1"
       }
     },
     {

@@ -109,8 +109,12 @@ struct LoginView: View {
   
   private var walletLoginButtonGroup: some View {
     VStack(spacing: 12) {
-      walletLoginButton(logo: Asset.metamask, name: "Metamask", action: {})
-      walletLoginButton(logo: Asset.phantom, name: "Phantom", action: vm.loginWithPhantom)
+      walletLoginButton(logo: Asset.metamask, name: "Metamask") {
+        vm.loginWithMetamask()
+      }
+      walletLoginButton(logo: Asset.phantom, name: "Phantom") {
+        vm.loginWithPhantom()
+      }
     }
   }
     

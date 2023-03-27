@@ -15,6 +15,7 @@ enum MochiProfileEndpoint {
   
   // Auth
   case authBySolana(code: String, signature: String, walletAddress: String)
+  case authByEVM(code: String, signature: String, walletAddress: String)
 }
 
 extension MochiProfileEndpoint: Endpoint {
@@ -32,6 +33,8 @@ extension MochiProfileEndpoint: Endpoint {
       return "/api/v1/profiles/me"
     case .authBySolana:
       return "/api/v1/profiles/auth/solana"
+    case .authByEVM:
+      return "/api/v1/profiles/auth/evm"
     }
   }
   
@@ -39,7 +42,7 @@ extension MochiProfileEndpoint: Endpoint {
     switch self {
     case .getByDiscord, .getByID, .getMe:
       return .get
-    case .authBySolana:
+    case .authBySolana, .authByEVM:
       return .post
     }
   }
@@ -61,6 +64,12 @@ extension MochiProfileEndpoint: Endpoint {
   var body: [String: Any]? {
     switch self {
     case let .authBySolana(code, signature, walletAddress):
+      return [
+        "code": code,
+        "signature": signature,
+        "wallet_address": walletAddress
+      ]
+    case let .authByEVM(code, signature, walletAddress):
       return [
         "code": code,
         "signature": signature,

@@ -14,7 +14,8 @@ protocol MochiProfileService {
   func getMe() async -> Result<GetProfileResponse, RequestError>
 
   // Auth
-  func authBySolana(code: String, signature: String, walletAddress: String) async -> Result<AuthBySolanaResponse, RequestError>
+  func authBySolana(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError>
+  func authByEVM(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError>
 }
 
 final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
@@ -48,10 +49,17 @@ final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
     )
   }
   
-  func authBySolana(code: String, signature: String, walletAddress: String) async -> Result<AuthBySolanaResponse, RequestError> {
+  func authBySolana(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError> {
     return await sendRequest(
       endpoint: MochiProfileEndpoint.authBySolana(code: code, signature: signature, walletAddress: walletAddress),
-      responseModel: AuthBySolanaResponse.self
+      responseModel: AuthResponse.self
+    )
+  }
+  
+  func authByEVM(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError> {
+    return await sendRequest(
+      endpoint: MochiProfileEndpoint.authByEVM(code: code, signature: signature, walletAddress: walletAddress),
+      responseModel: AuthResponse.self
     )
   }
 }
@@ -133,7 +141,7 @@ struct GetProfileResponse: Codable {
   }
 }
 
-struct AuthBySolanaResponse: Codable {
+struct AuthResponse: Codable {
   struct Data: Codable {
     let accessToken: String
     private enum CodingKeys: String, CodingKey {

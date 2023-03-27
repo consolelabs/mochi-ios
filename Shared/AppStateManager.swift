@@ -61,10 +61,6 @@ class AppStateManager: ObservableObject {
   @Published var isLoading: Bool = false
   @Published var appState: AppState = .logedOut
   
-  var isLogin: Bool {
-    return !discordAccessToken.isEmpty && !discordId.isEmpty
-  }
-  
   init(
     discordService: DiscordService,
     keychainService: KeychainService,
@@ -147,14 +143,14 @@ class AppStateManager: ObservableObject {
   }
   
   func fetchUserProfile() {
-    isLoading = true
     Task {
       let result = await mochiProfileService.getMe()
-      isLoading = false
       switch result {
       case .success(let resp):
         let avatar = resp.avatar.isEmpty ? "" : resp.avatar
         let profileName = resp.profileName.isEmpty ? "username" : resp.profileName
+        let discordAcc = resp.associatedAccounts.first(where: {$0.platform == .discord})
+        self.discordId = discordAcc?.platformIdentifier ?? ""
         self.profile = Profile(id: resp.id, avatar: avatar, profileName: profileName)
       case .failure(let error):
         logger.error("Fetch mochi profile error: \(error)")

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
 		080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
+		080EE96929D1A16A004506A2 /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 080EE96829D1A16A004506A2 /* metamask-ios-sdk */; };
 		0810E9F8291909ED00725136 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0810E9F7291909ED00725136 /* SettingsView.swift */; };
 		082A719E28FF063200158021 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719D28FF063200158021 /* WidgetKit.framework */; };
 		082A71A028FF063200158021 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719F28FF063200158021 /* SwiftUI.framework */; };
@@ -431,6 +432,7 @@
 				086A609A28634D3300442FC1 /* web3swift in Frameworks */,
 				08B016EF29C8C4800051B9BD /* ComposableArchitecture in Frameworks */,
 				08B0171A29CDA47B0051B9BD /* TweetNacl in Frameworks */,
+				080EE96929D1A16A004506A2 /* metamask-ios-sdk in Frameworks */,
 				08B5B07F286E302600981D2E /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1154,6 +1156,7 @@
 				08B016EE29C8C4800051B9BD /* ComposableArchitecture */,
 				08B0170729CB273E0051B9BD /* WalletConnect */,
 				08B0171929CDA47B0051B9BD /* TweetNacl */,
+				080EE96829D1A16A004506A2 /* metamask-ios-sdk */,
 			);
 			productName = "Bitsfi (iOS)";
 			productReference = 08B33170284A77CA003295F3 /* Mochi Wallet.app */;
@@ -1226,6 +1229,7 @@
 				08B016ED29C8C4800051B9BD /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				08B0170629CB273E0051B9BD /* XCRemoteSwiftPackageReference "WalletConnectSwiftV2" */,
 				08B0171829CDA47B0051B9BD /* XCRemoteSwiftPackageReference "tweetnacl-swiftwrap" */,
+				080EE96729D1A16A004506A2 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */,
 			);
 			productRefGroup = 08B33171284A77CA003295F3 /* Products */;
 			projectDirPath = "";
@@ -1549,7 +1553,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.15.0;
+				MARKETING_VERSION = 0.16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1580,7 +1584,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.15.0;
+				MARKETING_VERSION = 0.16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1796,7 +1800,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.15.0;
+				MARKETING_VERSION = 0.16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1833,7 +1837,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.15.0;
+				MARKETING_VERSION = 0.16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1969,6 +1973,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		080EE96729D1A16A004506A2 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MetaMask/metamask-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		0850CAD8289070D2008D3094 /* XCRemoteSwiftPackageReference "bottom-sheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weitieda/bottom-sheet";
@@ -2052,6 +2064,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		080EE96829D1A16A004506A2 /* metamask-ios-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 080EE96729D1A16A004506A2 /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */;
+			productName = "metamask-ios-sdk";
+		};
 		0849582E290E766A005C8186 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 08C32D8E2907CBF500BCBD8D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;

@@ -138,20 +138,25 @@ struct NotificationView: View {
       }
       Spacer()
     }
-    .padding(.vertical, 18)
-    .padding(.horizontal, 24)
-      
+    .padding(.vertical, 12)
+    .padding(.horizontal)
     }
   }
 }
 
 struct NotificationView_Previews: PreviewProvider {
   static var previews: some View {
-    NotificationView(profileID: "", items: [
-      .mock,
-    ])
-    
-    NotificationView(profileID: "", items: [], isLoading: true)
-      .previewDisplayName("loading")
+    NavigationView {
+      NotificationView(profileID: "", items: [
+        .mock,
+        .mock,
+        .mock,
+      ])
+    }
+   
+    NavigationView {
+      NotificationView(profileID: "", items: [], isLoading: true)
+    }
+    .previewDisplayName("loading")
   }
 }

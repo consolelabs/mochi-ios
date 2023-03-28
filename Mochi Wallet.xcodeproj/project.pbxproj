@@ -10,6 +10,8 @@
 		080E54152851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
 		080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */; };
 		080EE96929D1A16A004506A2 /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 080EE96829D1A16A004506A2 /* metamask-ios-sdk */; };
+		080EE96E29D2DF4E004506A2 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EE96D29D2DF4E004506A2 /* NotificationView.swift */; };
+		080EE97729D2F59C004506A2 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EE97629D2F59C004506A2 /* NotificationViewModel.swift */; };
 		0810E9F8291909ED00725136 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0810E9F7291909ED00725136 /* SettingsView.swift */; };
 		082A719E28FF063200158021 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719D28FF063200158021 /* WidgetKit.framework */; };
 		082A71A028FF063200158021 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082A719F28FF063200158021 /* SwiftUI.framework */; };
@@ -276,6 +278,8 @@
 
 /* Begin PBXFileReference section */
 		080E54142851DA5700C7FDB1 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		080EE96D29D2DF4E004506A2 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		080EE97629D2F59C004506A2 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		0810E9F7291909ED00725136 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		082A719B28FF063200158021 /* Mochi iOS Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Mochi iOS Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		082A719D28FF063200158021 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -465,6 +469,15 @@
 			path = LabelStyle;
 			sourceTree = "<group>";
 		};
+		080EE96A29D2DF2E004506A2 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				080EE96D29D2DF4E004506A2 /* NotificationView.swift */,
+				080EE97629D2F59C004506A2 /* NotificationViewModel.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		0810E9F6291909DF00725136 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +603,7 @@
 		0858549429C8237100582C98 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				080EE96A29D2DF2E004506A2 /* Notification */,
 				0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */,
 				0858549529C8237100582C98 /* MainView.swift */,
 			);
@@ -1380,6 +1394,7 @@
 				085854A329C8237100582C98 /* OnboardingView.swift in Sources */,
 				0874FA9B29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
 				08683FCD2926201000DC464B /* PriceAlertService.swift in Sources */,
+				080EE96E29D2DF4E004506A2 /* NotificationView.swift in Sources */,
 				0858549D29C8237100582C98 /* WalletItemRow.swift in Sources */,
 				08B0171F29CDAAC30051B9BD /* PhantomWalletConnect.swift in Sources */,
 				08B0170D29CB3BD50051B9BD /* Double+Formatter.swift in Sources */,
@@ -1427,6 +1442,7 @@
 				08BC494228895AAD0050852A /* KeychainService.swift in Sources */,
 				08B0172829CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */,
 				08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */,
+				080EE97729D2F59C004506A2 /* NotificationViewModel.swift in Sources */,
 				08B0171D29CDAA0E0051B9BD /* PhantomWalletService.swift in Sources */,
 				08683FFB292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				0841048C290BBB29008F5823 /* HTTPClient.swift in Sources */,

@@ -16,6 +16,10 @@ protocol MochiProfileService {
   // Auth
   func authBySolana(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError>
   func authByEVM(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError>
+  
+  // Activity
+  func getActivities(profileId: String, page: Int, size: Int) async -> Result<GetActivitiesResponse, RequestError>
+  func readActivities(profileId: String, ids: [Int]) async -> Result<ReadActivitiesResponse, RequestError>
 }
 
 final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
@@ -60,6 +64,20 @@ final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
     return await sendRequest(
       endpoint: MochiProfileEndpoint.authByEVM(code: code, signature: signature, walletAddress: walletAddress),
       responseModel: AuthResponse.self
+    )
+  }
+  
+  func getActivities(profileId: String, page: Int, size: Int) async -> Result<GetActivitiesResponse, RequestError> {
+    return await sendRequest(
+      endpoint: MochiProfileEndpoint.getActivities(profileId: profileId, page: page, size: size),
+      responseModel: GetActivitiesResponse.self
+    )
+  }
+  
+  func readActivities(profileId: String, ids: [Int]) async -> Result<ReadActivitiesResponse, RequestError> {
+    return await sendRequest(
+      endpoint: MochiProfileEndpoint.readActivities(profileId: profileId, ids: ids),
+      responseModel: ReadActivitiesResponse.self
     )
   }
 }
@@ -150,4 +168,45 @@ struct AuthResponse: Codable {
   }
     
   let data: Data
+}
+
+struct GetActivitiesResponse: Codable {
+  let data: [GetActivityData]
+}
+
+struct GetActivityData: Codable {
+  enum Status: String, Codable {
+    case new
+    case read
+  }
+  
+  enum Action: String, Codable {
+    case profile
+    case tip
+    case quest
+    case gift
+  }
+  
+  let id: Int
+  let profileID: String
+  let status: Status
+  
+  @NilOnFailCodable
+  var action: Action?
+  
+  let actionDescription: String
+  let createdAt: Date
+  
+  private enum CodingKeys: String, CodingKey {
+    case id
+    case profileID = "profile_id"
+    case status
+    case action
+    case actionDescription = "action_description"
+    case createdAt = "created_at"
+  }
+}
+
+struct ReadActivitiesResponse: Codable {
+  let message: String
 }

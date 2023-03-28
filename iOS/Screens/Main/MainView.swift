@@ -29,7 +29,7 @@ struct MainView: View {
   
   @State private var showMenu = false
   @State private var showQR = false
-  @State private var showEdit = false
+  @State private var showNotification = false
   @State private var showEditWatchlist = false
   
   @State private var offset = CGFloat.zero
@@ -62,6 +62,10 @@ struct MainView: View {
           .ignoresSafeArea()
         ScrollView {
           NavigationLink(destination: MenuView(), isActive: $showMenu) {
+            Color.clear
+          }
+          .frame(height: .zero)
+          NavigationLink(destination: NotificationView(profileID: appState.profile?.id ?? ""), isActive: $showNotification) {
             Color.clear
           }
           .frame(height: .zero)
@@ -162,8 +166,11 @@ struct MainView: View {
       .opacity(self.nameOpacity)
       Spacer()
       HStack(spacing: 8) {
-        Button(action: { showEdit.toggle() }) {
-          Asset.edit
+        Button(action: { showNotification.toggle() }) {
+          Asset.alert
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 26, height: 26)
             .frame(width: 40, height: 40)
         }
         .buttonStyle(.plain)

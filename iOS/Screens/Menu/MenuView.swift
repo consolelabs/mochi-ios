@@ -30,7 +30,7 @@ enum MainMenuItem: Int, CaseIterable {
     switch self {
     case .browser: return Asset.browser
     case .profile: return Asset.user
-    case .quests: return Asset.quest
+    case .quests: return Asset.quests
     case .gameStore: return Asset.game
     case .settings: return Asset.settingGray
     }

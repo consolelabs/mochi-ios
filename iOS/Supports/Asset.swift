@@ -37,7 +37,7 @@ enum Asset {
   static let copy = Image("ico_copy")
   static let share = Image("ico_share")
   static let browser = Image("ico_browser")
-  static let quest = Image("ico_quests")
+  static let quests = Image("ico_quests")
   static let user = Image("ico_user")
   static let game = Image("ico_game")
   static let settingGray = Image("ico_setting_gray")
@@ -49,6 +49,10 @@ enum Asset {
   static let move = Image("ico_move")
   static let remove = Image("ico_remove")
   static let add = Image("ico_add")
+  static let alert = Image("ico_alert")
+  static let gift = Image("ico_gift")
+  static let quest = Image("ico_quest")
+  static let tip = Image("ico_tip")
 }
 
 enum Theme {

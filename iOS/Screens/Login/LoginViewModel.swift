@@ -8,6 +8,7 @@
 import SwiftUI
 import OSLog
 import Combine
+import AuthenticationServices
 import metamask_ios_sdk
 
 enum MochiError: Error {
@@ -15,7 +16,7 @@ enum MochiError: Error {
 }
 
 @MainActor
-class LoginViewModel: ObservableObject {
+class LoginViewModel: NSObject, ObservableObject {
 
   // MARK: Public states
   var openURL = PassthroughSubject<URL, Never>()
@@ -82,6 +83,34 @@ class LoginViewModel: ObservableObject {
     let redirectLink = "so.console.mochi://onPhantomConnected"
     guard let deeplink = try? phantomWalletService.getDeeplink(for: .connect(appURL: appURL, redirectLink: redirectLink)) else {return}
     openURL.send(deeplink)
+  }
+  
+  func loginWithDiscord() {
+    let scheme = "so.console.mochi"
+    var urlComponent = URLComponents()
+    urlComponent.scheme = "https"
+    urlComponent.host = "api.mochi-profile.console.so"
+    urlComponent.path = "/api/v1/profiles/auth/discord"
+    urlComponent.queryItems = [
+      .init(name: "url_location", value: "\(scheme)://onDiscordAuth")
+    ]
+    guard let authURL = urlComponent.url else { return}
+    
+    let session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme) { callbackURL, error in
+      guard error == nil, let callbackURL = callbackURL else {
+        self.logger.error("login with discord failed, error: \(error)")
+        return
+      }
+      let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
+      guard let token = queryItems?.filter({ $0.name == "token" }).first?.value else {
+        self.logger.error("login with discord failed, token is empty")
+        return
+      }
+      self.accessToken.send(token)
+    }
+    
+    session.presentationContextProvider = self
+    session.start()
   }
   
   // MARK: - Private methods
@@ -154,5 +183,11 @@ class LoginViewModel: ObservableObject {
         logger.error("mochiProfileService.authByEVM failed, code: \(code), signature: \(signature), walletAddrres: \(walletAddress), error: \(error)")
       }
     }
+  }
+}
+
+extension LoginViewModel: ASWebAuthenticationPresentationContextProviding {
+  func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+    return ASPresentationAnchor()
   }
 }

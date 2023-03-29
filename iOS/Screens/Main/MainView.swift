@@ -93,8 +93,61 @@ struct MainView: View {
         .coordinateSpace(name: "scroll")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+          ToolbarItem(placement: .navigationBarLeading) {
+            Button(action: { showMenu.toggle() }) {
+              Asset.menu
+                .frame(width: 40, height: 40)
+            }
+            .buttonStyle(.plain)
+          }
           ToolbarItem(placement: .principal) {
-            navbar
+            HStack {
+              AsyncImage(url: URL(string: avatar)) { phase in
+                switch phase {
+                case let .success(image):
+                  image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                    .clipShape(Circle())
+                case .empty, .failure:
+                  Circle()
+                    .foregroundColor(Theme.gray)
+                    .frame(width: 20, height: 20)
+                @unknown default:
+                  EmptyView()
+                }
+              }
+              Button(action: {}) {
+                HStack(spacing: 2) {
+                  Text(profileName)
+                    .foregroundColor(Theme.text1)
+                    .font(.inter(size: 16, weight: .bold))
+                  Asset.arrowDown
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 14, height: 14)
+                }
+              }
+              .buttonStyle(.plain)
+            }
+            .opacity(self.nameOpacity)
+          }
+          ToolbarItemGroup(placement: .navigationBarTrailing) {
+            Button(action: { showNotification.toggle() }) {
+              Asset.alert
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 26, height: 26)
+                .frame(width: 40, height: 40)
+            }
+            .buttonStyle(.plain)
+            
+            Button(action: { showQR.toggle() }) {
+              Asset.qr
+                .frame(width: 40, height: 40)
+            }
+            .buttonStyle(.plain)
           }
         }
         .sheet(isPresented: $showQR) {
@@ -117,68 +170,6 @@ struct MainView: View {
             await watchlistVM.fetchWatchlist(shouldShowLoading: false)
           }
         }
-      }
-    }
-  }
-  
-  // MARK: - Navbar
-  private var navbar: some View {
-    HStack {
-      Button(action: { showMenu.toggle() }) {
-        Asset.menu
-          .frame(width: 40, height: 40)
-      }
-      .buttonStyle(.plain)
-      // Trick to align center the profile name
-      Color.clear
-        .frame(width: 40, height: 40)
-      Spacer()
-      HStack {
-        AsyncImage(url: URL(string: avatar)) { phase in
-          switch phase {
-          case let .success(image):
-            image
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(width: 20, height: 20)
-              .clipShape(Circle())
-          case .empty, .failure:
-            Circle()
-              .foregroundColor(Theme.gray)
-              .frame(width: 20, height: 20)
-          @unknown default:
-            EmptyView()
-          }
-        }
-        Button(action: {}) {
-          HStack(spacing: 2) {
-            Text(profileName)
-              .foregroundColor(Theme.text1)
-              .font(.inter(size: 16, weight: .bold))
-            Asset.arrowDown
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(width: 14, height: 14)
-          }
-        }
-        .buttonStyle(.plain)
-      }
-      .opacity(self.nameOpacity)
-      Spacer()
-      HStack(spacing: 8) {
-        Button(action: { showNotification.toggle() }) {
-          Asset.alert
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 26, height: 26)
-            .frame(width: 40, height: 40)
-        }
-        .buttonStyle(.plain)
-        Button(action: { showQR.toggle() }) {
-          Asset.qr
-            .frame(width: 40, height: 40)
-        }
-        .buttonStyle(.plain)
       }
     }
   }

@@ -123,7 +123,7 @@ struct LoginView: View {
   private var socialLoginButtonGroup: some View {
     VStack(spacing: 12) {
       HStack(spacing: 12) {
-        loginIconButton(icon: Asset.discord, name: "Discord", action: { showDiscordLogin = true })
+        loginIconButton(icon: Asset.discord, name: "Discord", action: { vm.loginWithDiscord() })
         loginIconButton(icon: Image(systemName: "applelogo"), name: "Apple", action: {})
       }
 //      HStack(spacing: 12) {

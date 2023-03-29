@@ -12,6 +12,7 @@ protocol MochiProfileService {
   func getByDiscord(id: String) async -> Result<GetProfileResponse, RequestError>
   func getByID(id: String) async -> Result<GetProfileResponse, RequestError>
   func getMe() async -> Result<GetProfileResponse, RequestError>
+  func updateInfo(avatar: String, profileName: String) async -> Result<UpdateInfoResponse, RequestError>
 
   // Auth
   func authBySolana(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError>
@@ -50,6 +51,17 @@ final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
     return await sendRequest(
       endpoint: MochiProfileEndpoint.getMe(accessToken: accessToken),
       responseModel: GetProfileResponse.self
+    )
+  }
+  
+  
+  func updateInfo(avatar: String, profileName: String) async -> Result<UpdateInfoResponse, RequestError> {
+    guard let accessToken = try? keyChainService.getString("accessToken") else {
+      return .failure(.unauthorized)
+    }
+    return await sendRequest(
+      endpoint: MochiProfileEndpoint.updateInfo(accessToken: accessToken, avatar: avatar, profileName: profileName),
+      responseModel: UpdateInfoResponse.self
     )
   }
   
@@ -209,4 +221,18 @@ struct GetActivityData: Codable {
 
 struct ReadActivitiesResponse: Codable {
   let message: String
+}
+
+struct UpdateInfoResponse: Codable {
+  let id: String
+  let profileName: String
+  let avatar: String
+  let associatedAccounts: [AssociatedAccount]
+  
+  private enum CodingKeys: String, CodingKey {
+    case id
+    case associatedAccounts = "associated_accounts"
+    case profileName = "profile_name"
+    case avatar = "avatar"
+  }
 }

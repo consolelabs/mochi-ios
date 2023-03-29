@@ -23,27 +23,14 @@ struct ContentView: View {
 #if os(iOS)
     Group {
       switch appStateManager.appState {
-      case .logedIn(let authType):
-        switch authType {
-        case .wallet:
-          MainView(
-            watchlistVM: WatchlistViewModel(defiService: DefiServiceImpl()),
-            profileVM: ProfileViewModel(
-              isFetchDiscord: false,
-              mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl()),
-              evmService: EVMServiceImp()
-            )
+      case .logedIn:
+        MainView(
+          watchlistVM: WatchlistViewModel(defiService: DefiServiceImpl()),
+          profileVM: ProfileViewModel(
+            mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl()),
+            evmService: EVMServiceImp()
           )
-        case .social:
-          MainView(
-            watchlistVM: WatchlistViewModel(defiService: DefiServiceImpl()),
-            profileVM: ProfileViewModel(
-              isFetchDiscord: true,
-              mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl()),
-              evmService: EVMServiceImp()
-            )
-          )
-        }
+        )
       case .logedOut:
         OnboardingView()
       }

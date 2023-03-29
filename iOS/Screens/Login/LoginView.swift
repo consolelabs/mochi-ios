@@ -64,12 +64,6 @@ struct LoginView: View {
     .onOpenURL { url in
       vm.onOpenURL(url: url)
     }
-    .onChange(of: token) { accessToken in
-      DispatchQueue.main.async {
-        showDiscordLogin = false
-        appStateManager.loginWithDiscord(accessToken: accessToken)
-      }
-    }
     .onChange(of: error) { _ in
       DispatchQueue.main.async {
         showDiscordLogin = false

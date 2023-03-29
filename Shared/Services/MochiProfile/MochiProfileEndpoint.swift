@@ -12,6 +12,7 @@ enum MochiProfileEndpoint {
   case getByDiscord(id: String)
   case getByID(id: String)
   case getMe(accessToken: String)
+  case updateInfo(accessToken: String, avatar: String, profileName: String)
   
   // Auth
   case authBySolana(code: String, signature: String, walletAddress: String)
@@ -43,6 +44,8 @@ extension MochiProfileEndpoint: Endpoint {
       return "/api/v1/profiles/\(profileId)/activities"
     case .readActivities(let profileId, _):
       return "/api/v1/profiles/\(profileId)/activities"
+    case .updateInfo:
+      return "/api/v1/profiles/me/info"
     }
   }
   
@@ -52,7 +55,7 @@ extension MochiProfileEndpoint: Endpoint {
       return .get
     case .authBySolana, .authByEVM:
       return .post
-    case .readActivities:
+    case .readActivities, .updateInfo:
       return .put
     }
   }
@@ -62,7 +65,12 @@ extension MochiProfileEndpoint: Endpoint {
     case .getMe(let accessToken):
       return [
         "Content-Type": "application/json;charset=utf-8",
-        "Authorization": accessToken
+        "Authorization": "Bearer \(accessToken)"
+      ]
+    case .updateInfo(let accessToken, _, _):
+      return [
+        "Content-Type": "application/json;charset=utf-8",
+        "Authorization": "Bearer \(accessToken)"
       ]
     case .getByDiscord, .getByID, .authByEVM, .authBySolana, .getActivities, .readActivities:
       return [
@@ -91,6 +99,15 @@ extension MochiProfileEndpoint: Endpoint {
       ]
     case .getByDiscord, .getByID, .getMe, .getActivities:
       return nil
+    case let .updateInfo(_, avatar, profileName):
+      var req: [String: Any] = [:]
+      if !avatar.isEmpty {
+          req["avatar"] = avatar
+      }
+      if !profileName.isEmpty {
+        req["profile_name"] = profileName
+      }
+      return req
     }
   }
   
@@ -112,6 +129,8 @@ extension MochiProfileEndpoint: Endpoint {
         "size": "\(size)"
       ]
     case .readActivities:
+      return nil
+    case .updateInfo:
       return nil
     }
   }

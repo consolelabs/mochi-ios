@@ -29,17 +29,13 @@ class ProfileViewModel: ObservableObject {
   
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
- 
-  private let isFetchDiscord: Bool
   
   init(
-    isFetchDiscord: Bool,
     mochiProfileService: MochiProfileService,
     evmService: EVMService
   ) {
     self.mochiProfileService = mochiProfileService
     self.evmService = evmService
-    self.isFetchDiscord = isFetchDiscord
     Task(priority: .high) {
       await fetchProfile()
     }
@@ -49,15 +45,7 @@ class ProfileViewModel: ObservableObject {
     if shouldShowLoading {
       self.isLoading = true
     }
-    func fetchProfile(discordID: String) async -> Result<GetProfileResponse, RequestError> {
-      if isFetchDiscord {
-        return await mochiProfileService.getByDiscord(id: discordId)
-      } else {
-        return await mochiProfileService.getMe()
-      }
-    }
-   
-    let result = await fetchProfile(discordID: discordId)
+    let result = await mochiProfileService.getMe()
     switch result {
     case .success(let resp):
       self.isLoading = false
@@ -99,7 +87,7 @@ class ProfileViewModel: ObservableObject {
     case .failure(let error):
       self.isLoading = false
       self.error = error.customMessage
-      logger.error("fetch mochi profile by discord id: \(self.discordId) failed, error: \(error)")
+      logger.error("fetch mochi profile me failed, error: \(error)")
     }
   }
   

@@ -59,20 +59,6 @@ struct AuthView: View {
       .frame(height: 50)
     }
     .padding()
-    .sheet(isPresented: $showDiscordLogin) {
-      NavigationView {
-        DiscordAuthWebView(
-          url: URL(string: "https://discord.com/api/oauth2/authorize?client_id=1044527343076642816&redirect_uri=https%3A%2F%2Fgetmochi.co%2Fauth%2Fv1%2Fcallback&response_type=token&scope=identify")!,
-          token: $token,
-          error: $error)
-        .navigationTitle("Login with Discord")
-        .navigationBarTitleDisplayMode(.inline)
-      }
-    }
-    .onChange(of: token) { accessToken in
-      showDiscordLogin = false
-      appStateManager.loginWithDiscord(accessToken: accessToken)
-    }
     .onChange(of: error) { _ in
       showDiscordLogin = false
     }

@@ -130,6 +130,8 @@
 		08762F0B291A03920075A308 /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08762F0A291A03920075A308 /* HyperlinkTextField.swift */; };
 		08762F0C291A40400075A308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08B3316B284A77CA003295F3 /* Assets.xcassets */; };
 		08762F0E291A41BA0075A308 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08762F0D291A41BA0075A308 /* Launch Screen.storyboard */; };
+		0881F75129D477C80076E02D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881F75029D477C80076E02D /* EditProfileView.swift */; };
+		0881F75329D479730076E02D /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881F75229D479730076E02D /* EditProfileViewModel.swift */; };
 		088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
 		088BF39A291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
 		088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
@@ -348,6 +350,8 @@
 		08762F06291A009D0075A308 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		08762F0A291A03920075A308 /* HyperlinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
 		08762F0D291A41BA0075A308 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0881F75029D477C80076E02D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		0881F75229D479730076E02D /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		088BF398291044F900B2C365 /* DefiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefiServiceMock.swift; sourceTree = "<group>"; };
 		088BF39D2912107F00B2C365 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		088BF3A2291254A400B2C365 /* macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOS-Info.plist"; sourceTree = "<group>"; };
@@ -603,6 +607,7 @@
 		0858549429C8237100582C98 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0881F74F29D477B90076E02D /* EditProfile */,
 				080EE96A29D2DF2E004506A2 /* Notification */,
 				0874FAA429C897FA00B53E3C /* ProfileViewModel.swift */,
 				0858549529C8237100582C98 /* MainView.swift */,
@@ -701,6 +706,15 @@
 				08762F06291A009D0075A308 /* AboutViewController.xib */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		0881F74F29D477B90076E02D /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0881F75029D477C80076E02D /* EditProfileView.swift */,
+				0881F75229D479730076E02D /* EditProfileViewModel.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		088BF3A32912A42D00B2C365 /* Views */ = {
@@ -1393,6 +1407,7 @@
 				08683FEB2927689200DC464B /* EditPriceAlertViewModel.swift in Sources */,
 				085854A329C8237100582C98 /* OnboardingView.swift in Sources */,
 				0874FA9B29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
+				0881F75129D477C80076E02D /* EditProfileView.swift in Sources */,
 				08683FCD2926201000DC464B /* PriceAlertService.swift in Sources */,
 				080EE96E29D2DF4E004506A2 /* NotificationView.swift in Sources */,
 				0858549D29C8237100582C98 /* WalletItemRow.swift in Sources */,
@@ -1433,6 +1448,7 @@
 				08B0170429CB1B700051B9BD /* AppStateManager.swift in Sources */,
 				0842EBEF291DEFD3005A1DFE /* AlertListView.swift in Sources */,
 				08C32D922907F44500BCBD8D /* Bundle+version.swift in Sources */,
+				0881F75329D479730076E02D /* EditProfileViewModel.swift in Sources */,
 				08B3D1A9285CB37600E9CF04 /* MarketView.swift in Sources */,
 				08B33192284A84B3003295F3 /* PortfolioView.swift in Sources */,
 				08DD9BB42874545D003480C6 /* MarketViewModel.swift in Sources */,
@@ -1569,7 +1585,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.17.2;
+				MARKETING_VERSION = 0.18.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1600,7 +1616,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.17.2;
+				MARKETING_VERSION = 0.18.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "so.console.mochi.ios-widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1816,7 +1832,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.17.2;
+				MARKETING_VERSION = 0.18.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;
@@ -1853,7 +1869,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.17.2;
+				MARKETING_VERSION = 0.18.0;
 				PRODUCT_BUNDLE_IDENTIFIER = so.console.mochi;
 				PRODUCT_NAME = "Mochi Wallet";
 				SDKROOT = iphoneos;

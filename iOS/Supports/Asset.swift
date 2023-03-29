@@ -53,6 +53,8 @@ enum Asset {
   static let gift = Image("ico_gift")
   static let quest = Image("ico_quest")
   static let tip = Image("ico_tip")
+  static let walletAdd = Image("ico_wallet_add")
+  static let camera = Image("ico_camera")
 }
 
 enum Theme {
@@ -71,6 +73,7 @@ enum Theme {
   static let text3 = Color("Text3")
   static let text4 = Color("Text4")
   static let text5 = Color("Text5")
+  static let text6 = Color("Text6")
 }
 
 extension Font {

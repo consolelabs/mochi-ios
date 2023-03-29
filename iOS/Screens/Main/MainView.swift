@@ -30,7 +30,9 @@ struct MainView: View {
   @State private var showMenu = false
   @State private var showQR = false
   @State private var showNotification = false
+  @State private var showBottomSheet = false
   @State private var showEditWatchlist = false
+  @State private var showEditProfile = false
   
   @State private var offset = CGFloat.zero
   @State private var nameOpacity: Double = 0
@@ -60,6 +62,7 @@ struct MainView: View {
       ZStack {
         Theme.gray
           .ignoresSafeArea()
+        
         ScrollView {
           NavigationLink(destination: MenuView(), isActive: $showMenu) {
             Color.clear
@@ -91,84 +94,86 @@ struct MainView: View {
           }
         }
         .coordinateSpace(name: "scroll")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-          ToolbarItem(placement: .navigationBarLeading) {
-            Button(action: { showMenu.toggle() }) {
-              Asset.menu
-                .frame(width: 40, height: 40)
+        
+        bottomSheet
+      }
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarLeading) {
+          Button(action: { showMenu.toggle() }) {
+            Asset.menu
+              .frame(width: 40, height: 40)
+          }
+          .buttonStyle(.plain)
+        }
+        ToolbarItem(placement: .principal) {
+          HStack {
+            AsyncImage(url: URL(string: avatar)) { phase in
+              switch phase {
+              case let .success(image):
+                image
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 20, height: 20)
+                  .clipShape(Circle())
+              case .empty, .failure:
+                Circle()
+                  .foregroundColor(Theme.gray)
+                  .frame(width: 20, height: 20)
+              @unknown default:
+                EmptyView()
+              }
+            }
+            Button(action: toggleBottomSheet) {
+              HStack(spacing: 2) {
+                Text(profileName)
+                  .foregroundColor(Theme.text1)
+                  .font(.inter(size: 16, weight: .bold))
+                Asset.arrowDown
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 14, height: 14)
+              }
             }
             .buttonStyle(.plain)
           }
-          ToolbarItem(placement: .principal) {
-            HStack {
-              AsyncImage(url: URL(string: avatar)) { phase in
-                switch phase {
-                case let .success(image):
-                  image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 20, height: 20)
-                    .clipShape(Circle())
-                case .empty, .failure:
-                  Circle()
-                    .foregroundColor(Theme.gray)
-                    .frame(width: 20, height: 20)
-                @unknown default:
-                  EmptyView()
-                }
-              }
-              Button(action: {}) {
-                HStack(spacing: 2) {
-                  Text(profileName)
-                    .foregroundColor(Theme.text1)
-                    .font(.inter(size: 16, weight: .bold))
-                  Asset.arrowDown
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 14, height: 14)
-                }
-              }
-              .buttonStyle(.plain)
-            }
-            .opacity(self.nameOpacity)
-          }
-          ToolbarItemGroup(placement: .navigationBarTrailing) {
-            Button(action: { showNotification.toggle() }) {
-              Asset.alert
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 26, height: 26)
-                .frame(width: 40, height: 40)
-            }
-            .buttonStyle(.plain)
-            
-            Button(action: { showQR.toggle() }) {
-              Asset.qr
-                .frame(width: 40, height: 40)
-            }
-            .buttonStyle(.plain)
-          }
+          .opacity(self.nameOpacity)
         }
-        .sheet(isPresented: $showQR) {
-          QRView()
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
+          Button(action: { showNotification.toggle() }) {
+            Asset.alert
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: 26, height: 26)
+              .frame(width: 40, height: 40)
+          }
+          .buttonStyle(.plain)
+          
+          Button(action: { showQR.toggle() }) {
+            Asset.qr
+              .frame(width: 40, height: 40)
+          }
+          .buttonStyle(.plain)
         }
-        .refreshable {
-          Task {
-            await withTaskGroup(of: Void.self) { group in
-              group.addTask {
-                await profileVM.fetchProfile(shouldShowLoading: true)
-              }
-              group.addTask {
-                await watchlistVM.fetchWatchlist(shouldShowLoading: true)
-              }
+      }
+      .sheet(isPresented: $showQR) {
+        QRView()
+      }
+      .refreshable {
+        Task {
+          await withTaskGroup(of: Void.self) { group in
+            group.addTask {
+              await profileVM.fetchProfile(shouldShowLoading: true)
+            }
+            group.addTask {
+              await watchlistVM.fetchWatchlist(shouldShowLoading: true)
             }
           }
         }
-        .onReceive(timer) { timer in
-          Task {
-            await watchlistVM.fetchWatchlist(shouldShowLoading: false)
-          }
+      }
+      .onReceive(timer) { timer in
+        Task {
+          await watchlistVM.fetchWatchlist(shouldShowLoading: false)
         }
       }
     }
@@ -208,7 +213,7 @@ struct MainView: View {
   
   // MARK: - Profile Name
   private var profileNameLabel: some View {
-    Button(action: {}) {
+    Button(action: toggleBottomSheet) {
       HStack(spacing: 2) {
         Text(profileName)
           .foregroundColor(Theme.text1)
@@ -238,6 +243,80 @@ struct MainView: View {
       .padding(.horizontal, 16)
       .padding(.vertical, 8)
     }
+  }
+ 
+  // MARK: - Bottom sheet
+  private var bottomSheet: some View {
+    // TODO: Find a way to dynamic this value?
+    let offsetToHideBottomSheet: CGFloat = 300
+    
+    return ZStack(alignment: .bottom) {
+      Color.black.opacity(showBottomSheet ? 0.2 : 0)
+        .onTapGesture {
+          toggleBottomSheet()
+        }
+      VStack(spacing: 16) {
+        HStack {
+          Spacer()
+          Text(profile?.profileName ?? "")
+            .font(.inter(size: 16, weight: .bold))
+            .foregroundColor(Theme.text3)
+          Spacer()
+        }
+        .padding(.top, 20)
+        
+        VStack(alignment: .leading, spacing: 0) {
+          Button(action: {
+            toggleBottomSheet()
+          }) {
+            HStack {
+              Label {
+                Text("Add another wallet")
+                  .font(.interSemiBold(size: 18))
+                  .foregroundColor(Theme.text1)
+              } icon: {
+                Asset.walletAdd
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 24, height: 24)
+              }
+              Spacer()
+            }
+            .padding(.horizontal, 40)
+            .padding(.vertical)
+          }
+         
+          Button(action: {
+            toggleBottomSheet()
+            showEditProfile = true
+          }) {
+            HStack {
+              Label {
+                Text("Edit Profile")
+                  .font(.interSemiBold(size: 18))
+                  .foregroundColor(Theme.text1)
+              } icon: {
+                Asset.edit
+                  .resizable()
+                  .renderingMode(.template)
+                  .aspectRatio(contentMode: .fit)
+                  .foregroundColor(Theme.text4)
+                  .frame(width: 24, height: 24)
+              }
+              Spacer()
+            }
+            .padding(.horizontal, 40)
+            .padding(.vertical)
+          }
+        }
+        .padding(.bottom, 40)
+      }
+      .frame(maxWidth: .infinity)
+      .background(Theme.gray)
+      .cornerRadius(20, corners: [.topLeft, .topRight])
+      .offset(y: showBottomSheet ? 0 : offsetToHideBottomSheet)
+    }
+    .ignoresSafeArea()
   }
   
   // MARK: - Wallet Section
@@ -361,14 +440,30 @@ struct MainView: View {
     .fullScreenCover(isPresented: $showEditWatchlist) {
       EditWatchlistView()
     }
+    .fullScreenCover(isPresented: $showEditProfile) {
+      EditProfileView(
+        vm: EditProfileViewModel(
+          appState: appState,
+          mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl())
+        )
+      )
+    }
   }
+  
+  // MARK: - Actions
+  
+  private func toggleBottomSheet() {
+    withAnimation(.interactiveSpring()) {
+      self.showBottomSheet.toggle()
+    }
+  }
+  
 }
 
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
     let watchlistVM = WatchlistViewModel(defiService: DefiServiceImpl())
     let profileVM = ProfileViewModel(
-      isFetchDiscord: true,
       mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl()),
       evmService: EVMServiceImp()
     )
@@ -377,11 +472,25 @@ struct MainView_Previews: PreviewProvider {
       watchlistVM: watchlistVM,
       profileVM: profileVM
     )
+    .environmentObject(
+      AppStateManager(
+        discordService: DiscordServiceImpl(),
+        keychainService: KeychainServiceImpl(),
+        mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl())
+      )
+    )
     .previewDisplayName("iPhone 14 Pro")
     
     MainView(
       watchlistVM: watchlistVM,
       profileVM: profileVM
+    )
+    .environmentObject(
+      AppStateManager(
+        discordService: DiscordServiceImpl(),
+        keychainService: KeychainServiceImpl(),
+        mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl())
+      )
     )
     .previewDisplayName("iPhone SE (3rd generation)")
     .previewDevice("iPhone SE (3rd generation)")
@@ -393,5 +502,22 @@ struct ViewOffsetKey: PreferenceKey {
   static var defaultValue = CGFloat.zero
   static func reduce(value: inout Value, nextValue: () -> Value) {
     value += nextValue()
+  }
+}
+
+extension View {
+  func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+    clipShape( RoundedCorner(radius: radius, corners: corners) )
+  }
+}
+
+struct RoundedCorner: Shape {
+  
+  var radius: CGFloat = .infinity
+  var corners: UIRectCorner = .allCorners
+  
+  func path(in rect: CGRect) -> Path {
+    let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+    return Path(path.cgPath)
   }
 }

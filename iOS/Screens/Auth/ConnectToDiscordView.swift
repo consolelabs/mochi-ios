@@ -47,10 +47,6 @@ struct ConnectToDiscordView: View {
         .navigationBarTitleDisplayMode(.inline)
       }
     }
-    .onChange(of: token) { accessToken in
-      showDiscordLogin = false
-      appStateManager.loginWithDiscord(accessToken: accessToken)
-    }
     .onChange(of: error) { _ in
       showDiscordLogin = false
     }

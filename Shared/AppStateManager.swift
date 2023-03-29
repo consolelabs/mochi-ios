@@ -12,18 +12,7 @@ import OSLog
 class AppStateManager: ObservableObject {
   enum AppState {
     case logedOut
-    case logedIn(auth: AuthType)
-  }
-  
-  enum AuthType {
-    case wallet
-    case social
-  }
-  
-  struct WalletAuthPayload {
-  }
-  
-  struct SocialAuthPayload {
+    case logedIn
   }
   
   private let logger = Logger(subsystem: "so.console.mochi", category: "AppStateManager")
@@ -35,19 +24,6 @@ class AppStateManager: ObservableObject {
   
   @AppStorage("discordId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var discordId: String = ""
-  
-  @AppStorage("discordAccessToken", store: UserDefaults(suiteName: "group.so.console.mochi"))
-  var discordAccessToken: String = "" {
-    didSet {
-      fetchDiscordUser()
-    }
-  }
-  
-  @AppStorage("username", store: UserDefaults(suiteName: "group.so.console.mochi"))
-  var username: String = ""
-  
-  @AppStorage("avatar", store: UserDefaults(suiteName: "group.so.console.mochi"))
-  var avatar: String = ""
   
   @AppStorage("appleUserId", store: UserDefaults(suiteName: "group.so.console.mochi"))
   var appleUserId: String = ""
@@ -74,10 +50,7 @@ class AppStateManager: ObservableObject {
   
   func logOut() {
     // Discord
-    self.discordAccessToken = ""
     self.discordId = ""
-    self.username = ""
-    self.avatar = ""
     
     // Apple
     self.appleUserId = ""
@@ -95,16 +68,12 @@ class AppStateManager: ObservableObject {
 
   func login(accessToken: String) {
     do {
-      logger.info("access token: \(accessToken)")
+      logger.info("access token: \(accessToken, privacy: .private)")
       try keychainService.set(accessToken, key: "accessToken")
       fetchAppState()
     } catch {
       logger.error("cannot save access token, error: \(error)")
     }
-  }
-  
-  func loginWithDiscord(accessToken: String) {
-    self.discordAccessToken = accessToken
   }
   
   func loginWithApple(userId: String, email: String, name: String) {
@@ -114,32 +83,14 @@ class AppStateManager: ObservableObject {
     fetchAppState()
   }
   
-  func getProfile() -> Profile {
-    return Profile(
-      id: UUID().uuidString,
-      avatar: avatar,
-      profileName: username
-    )
-  }
-  
   func fetchAppState() {
-    if !discordAccessToken.isEmpty && !discordId.isEmpty {
-      self.appState = .logedIn(auth: .social)
+    guard let accessToken = try? keychainService.getString("accessToken"), !accessToken.isEmpty else {
+      self.appState = .logedOut
       return
     }
     
-    if !appleUserId.isEmpty {
-      self.appState = .logedIn(auth: .social)
-      return
-    }
-    
-    if let accessToken = try? keychainService.getString("accessToken"), !accessToken.isEmpty {
-      self.appState = .logedIn(auth: .wallet)
-      fetchUserProfile()
-      return
-    }
-    
-    self.appState = .logedOut
+    self.appState = .logedIn
+    fetchUserProfile()
   }
   
   func fetchUserProfile() {
@@ -154,27 +105,6 @@ class AppStateManager: ObservableObject {
         self.profile = Profile(id: resp.id, avatar: avatar, profileName: profileName)
       case .failure(let error):
         logger.error("Fetch mochi profile error: \(error)")
-      }
-    }
-  }
-  
-  func fetchDiscordUser() {
-    guard !discordAccessToken.isEmpty else {
-      return
-    }
-    isLoading = true
-    Task {
-      let result = await discordService.getCurrentUser()
-      isLoading = false
-      switch result {
-      case .success(let user):
-        self.discordId = user.id
-        self.avatar = "https://cdn.discordapp.com/avatars/\(user.id)/\(user.avatar ?? "")"
-        self.username = user.username + "#" + user.discriminator
-        self.profile = Profile(id: discordId, avatar: avatar, profileName: username)
-        fetchAppState()
-      case .failure(let error):
-        logger.error("Fetch discord user error: \(error.customMessage)")
       }
     }
   }

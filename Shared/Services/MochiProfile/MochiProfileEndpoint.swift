@@ -26,8 +26,7 @@ enum MochiProfileEndpoint {
 
 extension MochiProfileEndpoint: Endpoint {
   var host: String {
-//    return "api.mochi-profile.console.so"
-    return "api-develop.mochi-profile.console.so"
+    return "api.mochi-profile.console.so"
   }
   
   var path: String {

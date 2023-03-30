@@ -24,12 +24,6 @@ protocol MochiProfileService {
   func readActivities(profileId: String, ids: [Int]) async -> Result<ReadActivitiesResponse, RequestError>
 }
 
-extension MochiProfileService {
-//  func uploadImage(data: [UInt8], imageName: String = UUID().uuidString) async -> Result<UploadImageResponse, RequestError> {
-//    return await self.uploadImage(data: data, imageName: imageName)
-//  }
-}
-
 final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
   private let keyChainService: KeychainService
     

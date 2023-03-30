@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 protocol HTTPClient {
   func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
@@ -34,8 +35,9 @@ extension HTTPClient {
     if let body = endpoint.body {
       request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
     }
-    
-    print(request.cURLDescription())
+   
+    let logger = Logger(subsystem: "so.console.mochi", category: "HTTPClient")
+    logger.info("fetching curl \(request.cURLDescription())")
     
     do {
       let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)

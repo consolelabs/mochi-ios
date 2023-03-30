@@ -11,11 +11,19 @@ import OSLog
 @MainActor
 final class EditProfileViewModel: ObservableObject {
   @Published var username: String
-  @Published var avatar: String
+  @Published var avatar: String {
+    didSet {
+      self.logger.info("Avatar: \(self.avatar)")
+    }
+  }
+  var avatarURL: URL? {
+    URL(string: avatar)
+  }
   @Published var isLoading: Bool = false
+  @Published var isLoadingAvatar: Bool = false
   @Published var error: String? = nil
   @Published var shouldDismiss: Bool = false
-    
+  
   private let mochiProfileService: MochiProfileService
   private let appState: AppStateManager
   private let logger = Logger(subsystem: "so.console.mochi", category: "EditProfileViewModel")
@@ -25,6 +33,25 @@ final class EditProfileViewModel: ObservableObject {
     self.username = appState.profile?.profileName ?? ""
     self.avatar = appState.profile?.avatar ?? ""
     self.mochiProfileService = mochiProfileService
+  }
+ 
+  func uploadImage(data: Data?) {
+    guard let data else {
+      logger.error("invalid image data")
+      return
+    }
+    
+    Task(priority: .high) {
+      isLoadingAvatar = true
+      let result = await mochiProfileService.uploadImage(data: data.bytes, imageName: UUID().uuidString)
+      isLoadingAvatar = false
+      switch result {
+      case let .failure(error):
+        logger.error("upload image failed, error: \(error)")
+      case let .success(resp):
+        avatar = resp.data.url
+      }
+    }
   }
   
   func save() async {

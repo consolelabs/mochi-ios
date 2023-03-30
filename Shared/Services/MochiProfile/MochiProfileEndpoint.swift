@@ -13,6 +13,7 @@ enum MochiProfileEndpoint {
   case getByID(id: String)
   case getMe(accessToken: String)
   case updateInfo(accessToken: String, avatar: String, profileName: String)
+  case uploadImage(accessToken: String, data: [UInt8], imageName: String)
   
   // Auth
   case authBySolana(code: String, signature: String, walletAddress: String)
@@ -25,7 +26,8 @@ enum MochiProfileEndpoint {
 
 extension MochiProfileEndpoint: Endpoint {
   var host: String {
-    return "api.mochi-profile.console.so"
+//    return "api.mochi-profile.console.so"
+    return "api-develop.mochi-profile.console.so"
   }
   
   var path: String {
@@ -46,6 +48,8 @@ extension MochiProfileEndpoint: Endpoint {
       return "/api/v1/profiles/\(profileId)/activities"
     case .updateInfo:
       return "/api/v1/profiles/me/info"
+    case .uploadImage:
+      return "/api/v1/gcs/upload-images"
     }
   }
   
@@ -53,7 +57,7 @@ extension MochiProfileEndpoint: Endpoint {
     switch self {
     case .getByDiscord, .getByID, .getMe, .getActivities:
       return .get
-    case .authBySolana, .authByEVM:
+    case .authBySolana, .authByEVM, .uploadImage:
       return .post
     case .readActivities, .updateInfo:
       return .put
@@ -68,6 +72,11 @@ extension MochiProfileEndpoint: Endpoint {
         "Authorization": "Bearer \(accessToken)"
       ]
     case .updateInfo(let accessToken, _, _):
+      return [
+        "Content-Type": "application/json;charset=utf-8",
+        "Authorization": "Bearer \(accessToken)"
+      ]
+    case .uploadImage(let accessToken, _, _):
       return [
         "Content-Type": "application/json;charset=utf-8",
         "Authorization": "Bearer \(accessToken)"
@@ -108,6 +117,15 @@ extension MochiProfileEndpoint: Endpoint {
         req["profile_name"] = profileName
       }
       return req
+    case .uploadImage(_, data: let data, imageName: let imageName):
+      var req: [String: Any] = [
+        "image_name": UUID().uuidString
+      ]
+      if !imageName.isEmpty {
+          req["image_name"] = imageName
+      }
+      req["data"] = data
+      return req
     }
   }
   
@@ -131,6 +149,8 @@ extension MochiProfileEndpoint: Endpoint {
     case .readActivities:
       return nil
     case .updateInfo:
+      return nil
+    case .uploadImage:
       return nil
     }
   }

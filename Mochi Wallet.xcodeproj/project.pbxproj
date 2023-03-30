@@ -132,6 +132,7 @@
 		08762F0E291A41BA0075A308 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08762F0D291A41BA0075A308 /* Launch Screen.storyboard */; };
 		0881F75129D477C80076E02D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881F75029D477C80076E02D /* EditProfileView.swift */; };
 		0881F75329D479730076E02D /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881F75229D479730076E02D /* EditProfileViewModel.swift */; };
+		0881F75529D57BE20076E02D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881F75429D57BE20076E02D /* ImagePicker.swift */; };
 		088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
 		088BF39A291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
 		088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088BF398291044F900B2C365 /* DefiServiceMock.swift */; };
@@ -352,6 +353,7 @@
 		08762F0D291A41BA0075A308 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0881F75029D477C80076E02D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0881F75229D479730076E02D /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		0881F75429D57BE20076E02D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		088BF398291044F900B2C365 /* DefiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefiServiceMock.swift; sourceTree = "<group>"; };
 		088BF39D2912107F00B2C365 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		088BF3A2291254A400B2C365 /* macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "macOS-Info.plist"; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				0858548D29C8237000582C98 /* WalletItemRow.swift */,
 				0858548E29C8237000582C98 /* SocialLabel.swift */,
 				08B0172029CDB2370051B9BD /* AboutMenuView.swift */,
+				0881F75429D57BE20076E02D /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1414,6 +1417,7 @@
 				08B0171F29CDAAC30051B9BD /* PhantomWalletConnect.swift in Sources */,
 				08B0170D29CB3BD50051B9BD /* Double+Formatter.swift in Sources */,
 				08683FDD292712D100DC464B /* AlertListViewModel.swift in Sources */,
+				0881F75529D57BE20076E02D /* ImagePicker.swift in Sources */,
 				08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
 				08410494290BBB60008F5823 /* RequestError.swift in Sources */,
 				0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */,

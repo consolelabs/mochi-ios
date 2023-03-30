@@ -10,6 +10,7 @@ import Combine
 import WidgetKit
 import OSLog
 
+@MainActor
 class WatchlistViewModel: ObservableObject {
   // MARK: - Presenter
   struct WatchlistPresenter: Identifiable {
@@ -80,7 +81,11 @@ class WatchlistViewModel: ObservableObject {
   @Published var isSearching: Bool = false
   @Published var showError: Bool = false
   @Published var errorMessage: String = ""
-  @Published var data: [WatchlistPresenter] = []
+  @Published var data: [WatchlistPresenter] = [] {
+    didSet {
+      reloadWidgetDataIfNeeded()
+    }
+  }
   @Published var searchCoins: [SearchCoinPresenter] = []
   @Published var selectedCoins = Set<String>()
   
@@ -98,22 +103,14 @@ class WatchlistViewModel: ObservableObject {
  
   func fetchWatchlist(shouldShowLoading: Bool = true) async {
     if shouldShowLoading {
-      await MainActor.run {
-        self.isLoading = true
-      }
- 
+      self.isLoading = true
     }
     let userId = !discordId.isEmpty ? discordId : defaultDiscordId
     let result = await defiService.getWatchlist(pageSize: 100, userId: userId)
-    await MainActor.run {
-      self.isLoading = false
-    }
+    self.isLoading = false
     switch result {
     case .success(let success):
-      await MainActor.run {
-          self.data = success.data.data.map(WatchlistPresenter.init)
-      }
-      reloadWidgetDataIfNeeded()
+      self.data = success.data.data.map(WatchlistPresenter.init)
     case .failure(let failure):
       logger.error("Fetch watchlist failed, error: \(failure.customMessage)")
     }

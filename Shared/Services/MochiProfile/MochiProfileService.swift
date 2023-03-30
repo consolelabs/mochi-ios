@@ -13,6 +13,7 @@ protocol MochiProfileService {
   func getByID(id: String) async -> Result<GetProfileResponse, RequestError>
   func getMe() async -> Result<GetProfileResponse, RequestError>
   func updateInfo(avatar: String, profileName: String) async -> Result<UpdateInfoResponse, RequestError>
+  func uploadImage(data: [UInt8], imageName: String) async -> Result<UploadImageResponse, RequestError>
 
   // Auth
   func authBySolana(code: String, signature: String, walletAddress: String) async -> Result<AuthResponse, RequestError>
@@ -21,6 +22,12 @@ protocol MochiProfileService {
   // Activity
   func getActivities(profileId: String, page: Int, size: Int) async -> Result<GetActivitiesResponse, RequestError>
   func readActivities(profileId: String, ids: [Int]) async -> Result<ReadActivitiesResponse, RequestError>
+}
+
+extension MochiProfileService {
+//  func uploadImage(data: [UInt8], imageName: String = UUID().uuidString) async -> Result<UploadImageResponse, RequestError> {
+//    return await self.uploadImage(data: data, imageName: imageName)
+//  }
 }
 
 final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
@@ -90,6 +97,17 @@ final class MochiProfileServiceImp: HTTPClient, MochiProfileService {
     return await sendRequest(
       endpoint: MochiProfileEndpoint.readActivities(profileId: profileId, ids: ids),
       responseModel: ReadActivitiesResponse.self
+    )
+  }
+  
+  func uploadImage(data: [UInt8], imageName: String) async -> Result<UploadImageResponse, RequestError> {
+    guard let accessToken = try? keyChainService.getString("accessToken") else {
+      return .failure(.unauthorized)
+    }
+
+    return await sendRequest(
+      endpoint: MochiProfileEndpoint.uploadImage(accessToken: accessToken, data: data, imageName: imageName),
+      responseModel: UploadImageResponse.self
     )
   }
 }
@@ -235,4 +253,11 @@ struct UpdateInfoResponse: Codable {
     case profileName = "profile_name"
     case avatar = "avatar"
   }
+}
+
+struct UploadImageResponse: Codable {
+  struct Data: Codable {
+    let url: String
+  }
+  let data: Data
 }

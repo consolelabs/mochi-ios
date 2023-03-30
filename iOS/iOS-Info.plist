@@ -33,10 +33,7 @@
 		<string>Inter-Black.ttf</string>
 		<string>Sora-Bold.ttf</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need access your photo library to set the avatar</string>
 </dict>
 </plist>

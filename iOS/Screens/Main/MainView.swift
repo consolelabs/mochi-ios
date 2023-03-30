@@ -113,7 +113,7 @@ struct MainView: View {
               case let .success(image):
                 image
                   .resizable()
-                  .aspectRatio(contentMode: .fit)
+                  .aspectRatio(contentMode: .fill)
                   .frame(width: 20, height: 20)
                   .clipShape(Circle())
               case .empty, .failure:
@@ -172,6 +172,11 @@ struct MainView: View {
         }
       }
       .onReceive(timer) { timer in
+        // TODO:
+        // Need to skip fetch watchlist if edit profile is showing.
+        // Otherwise all the body will reload, and the state of edit profile view will reload as well
+        // Find a way to handle this properly
+        guard !showEditProfile else { return }
         Task {
           await watchlistVM.fetchWatchlist(shouldShowLoading: false)
         }
@@ -195,7 +200,7 @@ struct MainView: View {
         case let .success(image):
           image
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .aspectRatio(contentMode: .fill)
             .frame(width: 98, height: 98, alignment: .center)
             .clipShape(Circle())
             .overlay(Circle().stroke(.white, lineWidth: 2))

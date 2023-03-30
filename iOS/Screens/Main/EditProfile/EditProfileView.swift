@@ -9,8 +9,10 @@ import SwiftUI
 
 struct EditProfileView: View {
   @Environment(\.dismiss) var dismiss
-    
+   
   @ObservedObject var vm: EditProfileViewModel
+  
+  @State private var showImagePicker = false
   
   var body: some View {
     NavigationView {
@@ -29,6 +31,15 @@ struct EditProfileView: View {
         if shouldDismiss {
           dismiss()
         }
+      }
+      .sheet(isPresented: $showImagePicker) {
+        ImagePicker(
+          sourceType: .photoLibrary,
+          selectedImageData: Binding(
+            get: {return nil},
+            set: { data in vm.uploadImage(data: data) }
+          )
+        )
       }
       .navigationTitle("Edit Profile")
       .navigationBarTitleDisplayMode(.inline)
@@ -62,35 +73,44 @@ struct EditProfileView: View {
   
   private var avatar: some View {
     VStack(spacing: 12) {
-      AsyncImage(url: URL(string: vm.avatar)) { phase in
-        switch phase {
-        case let .success(image):
-          image
+      Button(action: { showImagePicker = true }) {
+        AsyncImage(url: vm.avatarURL) { phase in
+          switch phase {
+          case let .success(image):
+            image
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+              .frame(width: 98, height: 98, alignment: .center)
+              .clipShape(Circle())
+              .overlay(Circle().stroke(.white, lineWidth: 2))
+          case .empty, .failure:
+            Circle()
+              .foregroundColor(Theme.gray)
+              .frame(width: 98, height: 98, alignment: .center)
+              .overlay(Circle().stroke(.white, lineWidth: 2))
+          @unknown default:
+            EmptyView()
+          }
+        }
+        .overlay {
+          Circle()
+            .frame(width: 100, height: 100)
+            .foregroundColor(Theme.text1.opacity(0.15))
+        }
+        .overlay {
+          Asset.camera
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 98, height: 98, alignment: .center)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(.white, lineWidth: 2))
-        case .empty, .failure:
-          Circle()
-            .foregroundColor(Theme.gray)
-            .frame(width: 98, height: 98, alignment: .center)
-            .overlay(Circle().stroke(.white, lineWidth: 2))
-        @unknown default:
-          EmptyView()
+            .frame(width: 24, height: 24)
+        }
+        .overlay {
+          if vm.isLoadingAvatar {
+            ProgressView()
+              .frame(width: 100, height: 100)
+          }
         }
       }
-      .overlay {
-        Circle()
-          .frame(width: 100, height: 100)
-          .foregroundColor(Theme.text1.opacity(0.15))
-      }
-      .overlay {
-        Asset.camera
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .frame(width: 24, height: 24)
-      }
+
       Text("Upload Profile Photo")
         .font(.inter(size: 14))
         .foregroundColor(Theme.text1)

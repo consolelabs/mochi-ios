@@ -10,37 +10,32 @@ import SwiftUI
 typealias Action = () -> Void
 
 enum MainMenuItem: Int, CaseIterable {
-  case browser
-  case profile
-  case quests
-  case gameStore
-  case settings
+//  case browser
+//  case profile
+  case priceAlert
+//  case quests
+//  case gameStore
+//  case settings
   
   var title: String {
     switch self {
-    case .browser: return "Browser"
-    case .profile: return "My Profile"
-    case .quests: return "Quests"
-    case .gameStore: return "Game Store"
-    case .settings: return "Settings"
+//    case .browser: return "Browser"
+//    case .profile: return "My Profile"
+    case .priceAlert: return "Price Alerts"
+//    case .quests: return "Quests"
+//    case .gameStore: return "Game Store"
+//    case .settings: return "Settings"
     }
   }
   
   var icon: Image {
     switch self {
-    case .browser: return Asset.browser
-    case .profile: return Asset.user
-    case .quests: return Asset.quests
-    case .gameStore: return Asset.game
-    case .settings: return Asset.settingGray
-    }
-  }
-  
-  var action: Action {
-    switch self {
-    case .browser:
-      return {}
-    default: return {}
+//    case .browser: return Asset.browser
+//    case .profile: return Asset.user
+    case .priceAlert: return Asset.icoNotification2
+//    case .quests: return Asset.quests
+//    case .gameStore: return Asset.game
+//    case .settings: return Asset.settingGray
     }
   }
 }
@@ -62,20 +57,17 @@ enum SecondaryMenuItem: Int, CaseIterable {
     case .feedback: return Asset.star
     }
   }
-  var action: Action {
-    switch self {
-    case .invite:
-      return {}
-    case .feedback:
-      return {}
-    }
-  }
 }
 
 struct MenuView: View {
   // MARK: - State
+  @Environment(\.openURL) var openURL
   @EnvironmentObject var appStateManager: AppStateManager
-  private let bannerHeight: CGFloat = 120
+  
+  @State private var showPriceAlert: Bool = false
+  @State private var showEditProfile: Bool = false
+  
+  private let bannerHeight: CGFloat = 140
 
   // MARK: - Body
   var body: some View {
@@ -83,6 +75,9 @@ struct MenuView: View {
       Theme.gray
         .ignoresSafeArea()
       ScrollView {
+        // Magic router to trigger nagivation push
+        router
+        
         VStack {
           menuItems
           appVersion
@@ -90,6 +85,7 @@ struct MenuView: View {
         .padding(.bottom, bannerHeight)
       }
     }
+    .navigationTitle("Menu")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem(placement: .principal) {
@@ -100,6 +96,30 @@ struct MenuView: View {
       banner
         .padding(.bottom)
     }
+  }
+        
+  // MARK: - Magic router
+  private var router: some View {
+    ZStack {
+      NavigationLink(
+        destination: PriceAlertListView(
+          vm: PriceAlertListViewModel(mochiService: MochiServiceImpl())
+        ),
+        isActive: $showPriceAlert,
+        label: { Color.clear }
+      )
+      NavigationLink(
+        destination: EditProfileView(
+          vm: EditProfileViewModel(
+            appState: appStateManager,
+            mochiProfileService: MochiProfileServiceImp(keychainService: KeychainServiceImpl())
+          )
+        ),
+        isActive: $showEditProfile,
+        label: { Color.clear }
+      )
+    }
+    .frame(height: 0)
   }
   
   // MARK: - Navbar
@@ -123,11 +143,23 @@ struct MenuView: View {
   private var menuItems: some View {
     VStack(alignment: .leading, spacing: 0) {
       ForEach(MainMenuItem.allCases, id: \.self) { item in
-        menuButton(icon: item.icon, title: item.title, action: item.action)
+        menuButton(icon: item.icon, title: item.title) {
+          switch item {
+          case .priceAlert:
+            showPriceAlert = true
+          }
+        }
       }
       Divider()
       ForEach(SecondaryMenuItem.allCases, id: \.self) { item in
-        menuButton(icon: item.icon, title: item.title, action: item.action)
+        menuButton(icon: item.icon, title: item.title) {
+          switch item {
+          case .feedback:
+            openURL(URL(string: "https://mochi.gg")!)
+          case .invite:
+            openURL(URL(string: "https://mochi.gg")!)
+          }
+        }
       }
       Divider()
       menuButton(icon: Asset.logout, title: "Logout") {
@@ -139,38 +171,38 @@ struct MenuView: View {
   // MARK: - Bottom Banner
   private var banner: some View {
     HStack {
-      Asset.qrcode
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .frame(width: 80, height: 80)
-      VStack(alignment: .leading, spacing: 6) {
-        HStack {
-          Text("NEW")
-            .font(.inter(size: 10, weight: .semibold))
-            .foregroundColor(Theme.green2)
-            .padding(.horizontal, 2)
-            .padding(.vertical, 1)
-            .background(
-              RoundedRectangle(cornerRadius: 2, style: .continuous)
-                .foregroundColor(Theme.text1)
-            )
-          Text("Hunger Game")
-            .font(.inter(size: 16, weight: .bold))
+      HStack(alignment: .top) {
+        Asset.adsHungerGame
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 80, height: 80)
+        VStack(alignment: .leading, spacing: 6) {
+          HStack(spacing: 4) {
+            Text("NEW")
+              .font(.inter(size: 10, weight: .semibold))
+              .foregroundColor(Theme.green2)
+              .padding(.horizontal, 2)
+              .padding(.vertical, 1)
+              .background(Theme.text1)
+              .cornerRadius(2)
+            Text("Hunger Game")
+              .font(.inter(size: 16, weight: .bold))
+              .foregroundColor(Theme.text1)
+          }
+          .padding(.top, 5)
+          Text("Challenge your friends to a puzzle game.")
+            .font(.inter(size: 12, weight: .medium))
+            .lineLimit(3)
             .foregroundColor(Theme.text1)
         }
-        Text("Challenge your friends to a puzzle game.")
-          .font(.inter(size: 12, weight: .medium))
-          .foregroundColor(Theme.text1)
       }
       Text("Play now")
         .font(.interSemiBold(size: 14))
         .foregroundColor(Theme.primary)
-        .padding(.vertical, 12)
-        .padding(.horizontal, 8)
-        .background(
-          RoundedRectangle(cornerRadius: 8, style: .continuous)
-            .foregroundColor(.white)
-        )
+        .padding(.vertical, 8)
+        .padding(.horizontal, 12)
+        .background(Color.white)
+        .cornerRadius(8)
     }
     .padding(12)
     .background(

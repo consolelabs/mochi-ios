@@ -18,6 +18,7 @@ enum Asset {
   static let walletconnect = Image("walletconnect")
   static let coinbase = Image("coinbase")
   static let phantom = Image("phantom")
+  static let adsHungerGame = Image("ads_hunger_game")
   
   // Icons
   static let discord = Image("ico_discord")
@@ -55,6 +56,11 @@ enum Asset {
   static let tip = Image("ico_tip")
   static let walletAdd = Image("ico_wallet_add")
   static let camera = Image("ico_camera")
+  static let arrowDownSquare = Image("ico_arrow_down_square")
+  static let arrowUpSquare = Image("ico_arrow_up_square")
+  static let dollarSquare = Image("ico_dollar_square")
+  static let icoNotification2 = Image("ico_notification2")
+  static let icoChart = Image("ico_chart")
 }
 
 enum Theme {

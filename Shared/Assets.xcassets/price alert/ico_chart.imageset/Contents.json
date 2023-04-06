@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ico_chart.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -18,6 +18,13 @@
 		082A71A328FF063200158021 /* WatchlistWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A71A228FF063200158021 /* WatchlistWidget.swift */; };
 		082A71A628FF063300158021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082A71A528FF063300158021 /* Assets.xcassets */; };
 		082A71AC28FF063300158021 /* Mochi iOS Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 082A719B28FF063200158021 /* Mochi iOS Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		082FCEEC29DCB3890023F52C /* AlertSelectTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082FCEEB29DCB3890023F52C /* AlertSelectTokenView.swift */; };
+		082FCEEF29DCB7600023F52C /* NewPriceAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082FCEEE29DCB7600023F52C /* NewPriceAlertView.swift */; };
+		082FCEF229DDA7DE0023F52C /* TokenPriceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082FCEF129DDA7DE0023F52C /* TokenPriceHeaderView.swift */; };
+		082FCEF729DE141C0023F52C /* PriceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082FCEF629DE141C0023F52C /* PriceAlert.swift */; };
+		082FCEF829DE141C0023F52C /* PriceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082FCEF629DE141C0023F52C /* PriceAlert.swift */; };
+		082FCEF929DE141C0023F52C /* PriceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082FCEF629DE141C0023F52C /* PriceAlert.swift */; };
+		082FCEFA29DE141C0023F52C /* PriceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082FCEF629DE141C0023F52C /* PriceAlert.swift */; };
 		083BF29A289135AB008B6E03 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083BF299289135AB008B6E03 /* BottomSheetView.swift */; };
 		08410482290B79DE008F5823 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410481290B79DE008F5823 /* Line.swift */; };
 		08410483290B79DE008F5823 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08410481290B79DE008F5823 /* Line.swift */; };
@@ -235,6 +242,16 @@
 		08DD9BC4287FFBA1003480C6 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 08DD9BC3287FFBA1003480C6 /* WalletConnectSwift */; };
 		08DD9BC72880031B003480C6 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BC62880031B003480C6 /* WalletConnect.swift */; };
 		08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DD9BCC28808426003480C6 /* BKSelectWalletView.swift */; };
+		08E4EE3229DAC16B003DEE9F /* PriceAlertListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3129DAC16B003DEE9F /* PriceAlertListView.swift */; };
+		08E4EE3429DAC636003DEE9F /* PriceAlertListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3329DAC636003DEE9F /* PriceAlertListViewModel.swift */; };
+		08E4EE3829DB19AA003DEE9F /* MochiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3729DB19AA003DEE9F /* MochiEndpoint.swift */; };
+		08E4EE3929DB19AA003DEE9F /* MochiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3729DB19AA003DEE9F /* MochiEndpoint.swift */; };
+		08E4EE3A29DB19AA003DEE9F /* MochiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3729DB19AA003DEE9F /* MochiEndpoint.swift */; };
+		08E4EE3B29DB19AA003DEE9F /* MochiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3729DB19AA003DEE9F /* MochiEndpoint.swift */; };
+		08E4EE3D29DB19B2003DEE9F /* MochiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3C29DB19B2003DEE9F /* MochiService.swift */; };
+		08E4EE3E29DB19B2003DEE9F /* MochiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3C29DB19B2003DEE9F /* MochiService.swift */; };
+		08E4EE3F29DB19B2003DEE9F /* MochiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3C29DB19B2003DEE9F /* MochiService.swift */; };
+		08E4EE4029DB19B2003DEE9F /* MochiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4EE3C29DB19B2003DEE9F /* MochiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +307,10 @@
 		082A71A228FF063200158021 /* WatchlistWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistWidget.swift; sourceTree = "<group>"; };
 		082A71A528FF063300158021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082A71A728FF063300158021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		082FCEEB29DCB3890023F52C /* AlertSelectTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSelectTokenView.swift; sourceTree = "<group>"; };
+		082FCEEE29DCB7600023F52C /* NewPriceAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceAlertView.swift; sourceTree = "<group>"; };
+		082FCEF129DDA7DE0023F52C /* TokenPriceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenPriceHeaderView.swift; sourceTree = "<group>"; };
+		082FCEF629DE141C0023F52C /* PriceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlert.swift; sourceTree = "<group>"; };
 		083BF299289135AB008B6E03 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		08410481290B79DE008F5823 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		08410487290BBB0E008F5823 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -406,6 +427,10 @@
 		08DD9BBA28775977003480C6 /* NFTDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewModel.swift; sourceTree = "<group>"; };
 		08DD9BC62880031B003480C6 /* WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
 		08DD9BCC28808426003480C6 /* BKSelectWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKSelectWalletView.swift; sourceTree = "<group>"; };
+		08E4EE3129DAC16B003DEE9F /* PriceAlertListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertListView.swift; sourceTree = "<group>"; };
+		08E4EE3329DAC636003DEE9F /* PriceAlertListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertListViewModel.swift; sourceTree = "<group>"; };
+		08E4EE3729DB19AA003DEE9F /* MochiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiEndpoint.swift; sourceTree = "<group>"; };
+		08E4EE3C29DB19B2003DEE9F /* MochiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +537,37 @@
 				085A53662935A407005CF8F7 /* Widgets.intentdefinition */,
 			);
 			path = Widgets;
+			sourceTree = "<group>";
+		};
+		082FCEE829DCB2370023F52C /* SelectToken */ = {
+			isa = PBXGroup;
+			children = (
+				082FCEEB29DCB3890023F52C /* AlertSelectTokenView.swift */,
+			);
+			path = SelectToken;
+			sourceTree = "<group>";
+		};
+		082FCEED29DCB74F0023F52C /* NewPriceAlert */ = {
+			isa = PBXGroup;
+			children = (
+				082FCEEE29DCB7600023F52C /* NewPriceAlertView.swift */,
+			);
+			path = NewPriceAlert;
+			sourceTree = "<group>";
+		};
+		082FCEF029DDA7C70023F52C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				082FCEF129DDA7DE0023F52C /* TokenPriceHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		082FCEF329DE13EC0023F52C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		083BF29828913584008B6E03 /* BottomSheetView */ = {
@@ -647,10 +703,15 @@
 		08683FDB292712B400DC464B /* PriceAlert */ = {
 			isa = PBXGroup;
 			children = (
+				082FCEF029DDA7C70023F52C /* Views */,
+				082FCEED29DCB74F0023F52C /* NewPriceAlert */,
+				082FCEE829DCB2370023F52C /* SelectToken */,
 				08683FE82927688900DC464B /* EditPriceAlertView.swift */,
 				08683FE02927133200DC464B /* SelectTokenView.swift */,
 				0842EBF0291F6DDB005A1DFE /* SetPriceAlertView.swift */,
 				0842EBEE291DEFD3005A1DFE /* AlertListView.swift */,
+				08E4EE3129DAC16B003DEE9F /* PriceAlertListView.swift */,
+				08E4EE3329DAC636003DEE9F /* PriceAlertListViewModel.swift */,
 			);
 			path = PriceAlert;
 			sourceTree = "<group>";
@@ -881,6 +942,7 @@
 		08B33187284A77EE003295F3 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				082FCEF329DE13EC0023F52C /* Models */,
 				08B0170B29CB32D30051B9BD /* Helpers */,
 				08B0170929CB27920051B9BD /* Services */,
 				0858548929C8237000582C98 /* Components */,
@@ -978,6 +1040,7 @@
 		08B5B06A286DA6AA00981D2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				082FCEF629DE141C0023F52C /* PriceAlert.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -993,6 +1056,7 @@
 		08B5B06C286DA76600981D2E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				08E4EE3629DB1988003DEE9F /* Mochi */,
 				0874FAA929C89E1D00B53E3C /* EVMService */,
 				0874FA9429C879E300B53E3C /* MochiProfile */,
 				08683FF4292D4BE500DC464B /* Discord */,
@@ -1116,6 +1180,15 @@
 				08DD9BCC28808426003480C6 /* BKSelectWalletView.swift */,
 			);
 			path = SelectWalletView;
+			sourceTree = "<group>";
+		};
+		08E4EE3629DB1988003DEE9F /* Mochi */ = {
+			isa = PBXGroup;
+			children = (
+				08E4EE3729DB19AA003DEE9F /* MochiEndpoint.swift */,
+				08E4EE3C29DB19B2003DEE9F /* MochiService.swift */,
+			);
+			path = Mochi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1325,6 +1398,7 @@
 				08683FD42926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
 				0841048A290BBB0E008F5823 /* Endpoint.swift in Sources */,
 				088BF39B291044F900B2C365 /* DefiServiceMock.swift in Sources */,
+				08E4EE3F29DB19B2003DEE9F /* MochiService.swift in Sources */,
 				08C32D9A2907F98D00BCBD8D /* NetworkService.swift in Sources */,
 				088BF3A02912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08B0170F29CB3BD50051B9BD /* Double+Formatter.swift in Sources */,
@@ -1337,6 +1411,7 @@
 				08B0172529CDBA4B0051B9BD /* String+random.swift in Sources */,
 				085A53632935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
 				0874FAA229C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
+				082FCEF929DE141C0023F52C /* PriceAlert.swift in Sources */,
 				08B0173429CDE30E0051B9BD /* Data+utils.swift in Sources */,
 				0874FAB229C89E9900B53E3C /* EVMService.swift in Sources */,
 				08683FF8292D4C0100DC464B /* DiscordService.swift in Sources */,
@@ -1349,6 +1424,7 @@
 				0841049A290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08C32D942907F44600BCBD8D /* Bundle+version.swift in Sources */,
 				0874FA9D29C87A1500B53E3C /* MochiProfileEndpoint.swift in Sources */,
+				08E4EE3A29DB19AA003DEE9F /* MochiEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,10 +1439,12 @@
 				08683FD02926201000DC464B /* PriceAlertService.swift in Sources */,
 				08495851290E851B005C8186 /* RequestError.swift in Sources */,
 				085A53642935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
+				08E4EE4029DB19B2003DEE9F /* MochiService.swift in Sources */,
 				08495853290E8521005C8186 /* HTTPClient.swift in Sources */,
 				0849584A290E7BA2005C8186 /* WatchlistWidget.swift in Sources */,
 				088BF3A12912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08495852290E851F005C8186 /* RequestMethod.swift in Sources */,
+				08E4EE3B29DB19AA003DEE9F /* MochiEndpoint.swift in Sources */,
 				08B0171029CB3BD50051B9BD /* Double+Formatter.swift in Sources */,
 				08683FFE292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				0874FABC29C8A1CE00B53E3C /* Environment.swift in Sources */,
@@ -1380,6 +1458,7 @@
 				08B016FB29C8D1B20051B9BD /* EVMEndpoint.swift in Sources */,
 				08B0172B29CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */,
 				0849584F290E8475005C8186 /* DefiService.swift in Sources */,
+				082FCEFA29DE141C0023F52C /* PriceAlert.swift in Sources */,
 				088BF39C291044F900B2C365 /* DefiServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1388,6 +1467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082FCEEF29DCB7600023F52C /* NewPriceAlertView.swift in Sources */,
 				08C32D972907F63800BCBD8D /* DefiService.swift in Sources */,
 				0894EDBF2850BB0500391C7F /* ImportWalletListView.swift in Sources */,
 				08B0170229CA8BD40051B9BD /* EditWatchlistViewModel.swift in Sources */,
@@ -1398,6 +1478,7 @@
 				08410490290BBB4F008F5823 /* RequestMethod.swift in Sources */,
 				083BF29A289135AB008B6E03 /* BottomSheetView.swift in Sources */,
 				08B0173229CDE30E0051B9BD /* Data+utils.swift in Sources */,
+				08E4EE3D29DB19B2003DEE9F /* MochiService.swift in Sources */,
 				0858549C29C8237100582C98 /* NFTItemRow.swift in Sources */,
 				08B3317B284A77CA003295F3 /* ContentView.swift in Sources */,
 				0858549F29C8237100582C98 /* QRView.swift in Sources */,
@@ -1417,7 +1498,9 @@
 				08B0171F29CDAAC30051B9BD /* PhantomWalletConnect.swift in Sources */,
 				08B0170D29CB3BD50051B9BD /* Double+Formatter.swift in Sources */,
 				08683FDD292712D100DC464B /* AlertListViewModel.swift in Sources */,
+				08E4EE3429DAC636003DEE9F /* PriceAlertListViewModel.swift in Sources */,
 				0881F75529D57BE20076E02D /* ImagePicker.swift in Sources */,
+				082FCEF229DDA7DE0023F52C /* TokenPriceHeaderView.swift in Sources */,
 				08B33179284A77CA003295F3 /* MochiWalletApp.swift in Sources */,
 				08410494290BBB60008F5823 /* RequestError.swift in Sources */,
 				0894EDC22851109000391C7F /* ImportWalletView.swift in Sources */,
@@ -1429,6 +1512,7 @@
 				0858548329C822D700582C98 /* Asset.swift in Sources */,
 				08B0170029CA07000051B9BD /* EditWatchlistView.swift in Sources */,
 				085A53612935A407005CF8F7 /* Widgets.intentdefinition in Sources */,
+				082FCEF729DE141C0023F52C /* PriceAlert.swift in Sources */,
 				085854A129C8237100582C98 /* MainView.swift in Sources */,
 				08683FDF292712DA00DC464B /* AlertCardView.swift in Sources */,
 				086A609C28634E9C00442FC1 /* YourSecretPhraseView.swift in Sources */,
@@ -1439,6 +1523,7 @@
 				088BF39E2912107F00B2C365 /* ActivityIndicator.swift in Sources */,
 				08B5B07B286E2D2F00981D2E /* NFTDetailView.swift in Sources */,
 				08683FF6292D4C0100DC464B /* DiscordService.swift in Sources */,
+				082FCEEC29DCB3890023F52C /* AlertSelectTokenView.swift in Sources */,
 				08683FE3292715B900DC464B /* SetPriceAlertViewModel.swift in Sources */,
 				08B5B06E286DA79A00981D2E /* NFTService.swift in Sources */,
 				088BF399291044F900B2C365 /* DefiServiceMock.swift in Sources */,
@@ -1463,12 +1548,14 @@
 				08B0172829CDE0F40051B9BD /* PhantomWalletSignMessage.swift in Sources */,
 				08DD9BCD28808426003480C6 /* BKSelectWalletView.swift in Sources */,
 				080EE97729D2F59C004506A2 /* NotificationViewModel.swift in Sources */,
+				08E4EE3829DB19AA003DEE9F /* MochiEndpoint.swift in Sources */,
 				08B0171D29CDAA0E0051B9BD /* PhantomWalletService.swift in Sources */,
 				08683FFB292D4C1100DC464B /* DiscordEndpoint.swift in Sources */,
 				0841048C290BBB29008F5823 /* HTTPClient.swift in Sources */,
 				08683FE92927688900DC464B /* EditPriceAlertView.swift in Sources */,
 				0874FAB029C89E9900B53E3C /* EVMService.swift in Sources */,
 				08410498290BC380008F5823 /* DefiEndpoint.swift in Sources */,
+				08E4EE3229DAC16B003DEE9F /* PriceAlertListView.swift in Sources */,
 				08B0172129CDB2370051B9BD /* AboutMenuView.swift in Sources */,
 				0874FAB929C8A1CE00B53E3C /* Environment.swift in Sources */,
 				0874FAA029C87A1F00B53E3C /* MochiProfileServiceMock.swift in Sources */,
@@ -1484,6 +1571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				080E54162851DA5700C7FDB1 /* PrimaryButtonStyle.swift in Sources */,
+				08E4EE3E29DB19B2003DEE9F /* MochiService.swift in Sources */,
 				08B33193284A84B3003295F3 /* PortfolioView.swift in Sources */,
 				08410499290BC380008F5823 /* DefiEndpoint.swift in Sources */,
 				08410491290BBB4F008F5823 /* RequestMethod.swift in Sources */,
@@ -1504,6 +1592,7 @@
 				08B5AC7D2948780B00EF7AE9 /* Utils.swift in Sources */,
 				08B0170529CB1B700051B9BD /* AppStateManager.swift in Sources */,
 				0874FABA29C8A1CE00B53E3C /* Environment.swift in Sources */,
+				082FCEF829DE141C0023F52C /* PriceAlert.swift in Sources */,
 				088BF3A62912A44F00B2C365 /* WatchlistView.swift in Sources */,
 				08B5AC8C2948EDBB00EF7AE9 /* SelectTokenView.swift in Sources */,
 				08683FF7292D4C0100DC464B /* DiscordService.swift in Sources */,
@@ -1538,6 +1627,7 @@
 				08B0173629CE04F50051B9BD /* KeychainService.swift in Sources */,
 				08B5AC782947414000EF7AE9 /* AlertListViewModel.swift in Sources */,
 				08683FD32926206700DC464B /* PriceAlertEndpoint.swift in Sources */,
+				08E4EE3929DB19AA003DEE9F /* MochiEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

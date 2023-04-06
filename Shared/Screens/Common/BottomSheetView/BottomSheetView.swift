@@ -92,9 +92,20 @@ struct BottomSheetView_Previews: PreviewProvider {
 }
 
 class CustomHostingController<Content: View>: UIHostingController<Content> {
+  let detents: [UISheetPresentationController.Detent]
+  init(rootView: Content, detents: [UISheetPresentationController.Detent] = [.medium(), .large()]) {
+    self.detents = detents
+    super.init(rootView: rootView)
+  }
+  
+  @MainActor required dynamic init?(coder aDecoder: NSCoder) {
+    self.detents = [.medium(), .large()]
+    super.init(coder: aDecoder)
+  }
+  
   override func viewDidLoad() {
     if let presentationController = presentationController as? UISheetPresentationController {
-      presentationController.detents = [ .medium(), .large()]
+      presentationController.detents = detents
     }
   }
 }

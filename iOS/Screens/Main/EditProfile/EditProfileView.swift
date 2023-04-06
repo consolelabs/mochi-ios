@@ -137,6 +137,8 @@ struct EditProfileView: View {
           .font(.inter(size: 15))
           .foregroundColor(Theme.text1)
           .padding(8)
+          .autocorrectionDisabled()
+          .textInputAutocapitalization(.never)
       }
       .frame(height: 48)
       .background(Color.white)

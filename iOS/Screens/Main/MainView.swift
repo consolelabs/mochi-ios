@@ -75,8 +75,8 @@ struct MainView: View {
           VStack(spacing: 0) {
             header
             Spacer(minLength: 14)
-            socialLabelGroup
-            Spacer(minLength: 2)
+//            socialLabelGroup
+//            Spacer(minLength: 2)
             walletSection
             //            Spacer(minLength: 4)
             //            nftSection
@@ -97,6 +97,7 @@ struct MainView: View {
         
         bottomSheet
       }
+      .navigationTitle("Main")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .navigationBarLeading) {
@@ -316,10 +317,11 @@ struct MainView: View {
         }
         .padding(.bottom, 40)
       }
+      .padding(.bottom, 16)
       .frame(maxWidth: .infinity)
       .background(Theme.gray)
       .cornerRadius(20, corners: [.topLeft, .topRight])
-      .offset(y: showBottomSheet ? 0 : offsetToHideBottomSheet)
+      .offset(y: showBottomSheet ? 16 : offsetToHideBottomSheet)
     }
     .ignoresSafeArea()
   }
@@ -458,7 +460,7 @@ struct MainView: View {
   // MARK: - Actions
   
   private func toggleBottomSheet() {
-    withAnimation(.interactiveSpring()) {
+    withAnimation(.spring(response: 0.5, dampingFraction: 0.65)) {
       self.showBottomSheet.toggle()
     }
   }
